@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="CodeAdapter">
+      <UniqueIdentifier>{74cdc343-b56b-4417-ab54-4f3e75672020}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Drawing">
+      <UniqueIdentifier>{bc00ef30-199a-4b93-8df6-9774e0dec89a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{37b84d78-daee-415b-997a-53c357ddf4c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{36948eae-e1d9-4b17-87af-90d26cde5a66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audio">
+      <UniqueIdentifier>{287d3664-ad7f-43b1-bdb0-59c23876b77e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{813a8b64-b7a0-4dc5-9991-251a96fac1bd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Definition.h">
+      <Filter>CodeAdapter</Filter>
+    </ClInclude>
+    <ClInclude Include="CodeAdapter.h">
+      <Filter>CodeAdapter</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="CAType.h">
+      <Filter>CodeAdapter</Filter>
+    </ClInclude>
+    <ClInclude Include="Size.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="String.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory.h">
+      <Filter>CodeAdapter</Filter>
+    </ClInclude>
+    <ClInclude Include="Panel.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Point.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="Size.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="String.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Factory.cpp">
+      <Filter>CodeAdapter</Filter>
+    </ClCompile>
+    <ClCompile Include="Panel.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Point.inl">
+      <Filter>Drawing</Filter>
+    </None>
+    <None Include="Size.inl">
+      <Filter>Drawing</Filter>
+    </None>
+    <None Include="Vector.inl">
+      <Filter>Drawing</Filter>
+    </None>
+    <None Include="Rectangle.inl">
+      <Filter>Drawing</Filter>
+    </None>
+    <None Include="Color.inl">
+      <Filter>Drawing</Filter>
+    </None>
+    <None Include="Factory.inl">
+      <Filter>CodeAdapter</Filter>
+    </None>
+  </ItemGroup>
+</Project>
