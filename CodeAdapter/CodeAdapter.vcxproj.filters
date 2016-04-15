@@ -69,6 +69,18 @@
     <ClInclude Include="Panel.h">
       <Filter>Drawing</Filter>
     </ClInclude>
+    <ClInclude Include="Drawable.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="TextArtist.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -96,6 +108,18 @@
       <Filter>CodeAdapter</Filter>
     </ClCompile>
     <ClCompile Include="Panel.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="Drawable.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="TextArtist.cpp">
       <Filter>Drawing</Filter>
     </ClCompile>
   </ItemGroup>

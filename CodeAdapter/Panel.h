@@ -2,8 +2,16 @@
 #define __CA__PANEL_H__
 
 
+#include <memory>
+#include <vector>
+
 #include "Definition.h"
 #include "CAType.h"
+
+#include "Transform.h"
+#include "Size.h"
+
+#include "Drawable.h"
 
 
 
@@ -11,7 +19,7 @@
 BEGIN_NAMESPACE_CA_DRAWING
 
 
-class Panel
+class Panel : public Drawable
 {
 public:
 	Panel();
@@ -19,8 +27,26 @@ public:
 
 
 public:
+	Transform transform;
+	SizeF size;
+
+
+protected:
+	std::vector<std::weak_ptr<Drawable>> m_drawables;
+
+
+public:
+	virtual void draw(Graphics& g, const Transform& parentTransform);
+
+
+public:
 	void update();
-	void draw();
+	void draw(Graphics& g);
+
+
+public:
+	bool addDrawable(std::weak_ptr<Drawable> drawable);
+	bool removeDrawable(std::weak_ptr<const Drawable> drawable);
 };
 
 

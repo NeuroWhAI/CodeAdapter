@@ -7,15 +7,16 @@
 
 
 
-class Factory : public CodeAdapter::Factory
+class SFMLFactory : public CodeAdapter::Factory
 {
 public:
-	Factory();
-	virtual ~Factory();
+	SFMLFactory();
+	virtual ~SFMLFactory();
 
 
 public:
 	virtual std::shared_ptr<CodeAdapter::Drawing::Window> createWindow() override;
+	virtual std::shared_ptr<CodeAdapter::Drawing::TextArtist> createTextArtist() override;
 };
 
 

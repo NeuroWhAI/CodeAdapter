@@ -33,19 +33,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Factory.h">
-      <Filter>CodeAdapterSFML</Filter>
-    </ClInclude>
     <ClInclude Include="Window.h">
       <Filter>Drawing</Filter>
     </ClInclude>
+    <ClInclude Include="SFMLFactory.h">
+      <Filter>CodeAdapterSFML</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Factory.cpp">
-      <Filter>CodeAdapterSFML</Filter>
-    </ClCompile>
     <ClCompile Include="Window.cpp">
       <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="SFMLFactory.cpp">
+      <Filter>CodeAdapterSFML</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

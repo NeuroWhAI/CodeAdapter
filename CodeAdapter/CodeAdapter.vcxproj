@@ -131,27 +131,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="TextArtist.h" />
     <ClInclude Include="CodeAdapter.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Definition.h" />
+    <ClInclude Include="Drawable.h" />
     <ClInclude Include="Factory.h" />
+    <ClInclude Include="Graphics.h" />
     <ClInclude Include="Panel.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="CAType.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Size.h" />
     <ClInclude Include="String.h" />
+    <ClInclude Include="Transform.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="TextArtist.cpp" />
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="Drawable.cpp" />
     <ClCompile Include="Factory.cpp" />
+    <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Panel.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Size.cpp" />
     <ClCompile Include="String.cpp" />
+    <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Vector.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>

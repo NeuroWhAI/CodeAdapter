@@ -37,6 +37,8 @@ using Color = ColorT<i32>;
 
 class Panel;
 
+class Graphics;
+
 
 class Window
 {
@@ -51,6 +53,7 @@ public:
 
 
 protected:
+	std::shared_ptr<Graphics> m_graphics;
 	std::vector<std::shared_ptr<Panel>> m_panelList;
 
 

@@ -9,6 +9,7 @@
 
 
 // Drawing
+#include "Drawable.h"
 #include "Point.h"
 #include "Size.h"
 #include "Vector.h"
@@ -16,6 +17,9 @@
 #include "Color.h"
 #include "Window.h"
 #include "Panel.h"
+#include "Transform.h"
+#include "Graphics.h"
+#include "TextArtist.h"
 
 
 // System

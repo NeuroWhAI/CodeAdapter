@@ -1,10 +1,12 @@
 #include <iostream>
 
 #include <CodeAdapter\CodeAdapter.h>
-#include <CodeAdapterSFML\Factory.h>
+#include <CodeAdapterSFML\SFMLFactory.h>
 
 
 
+
+using namespace CodeAdapter;
 
 using std::cout;
 using std::endl;
@@ -13,17 +15,24 @@ using std::cin;
 
 int main()
 {
-	CodeAdapter::Factory::initializeInstance<Factory>();
+	Factory::initializeInstance<SFMLFactory>();
 
 
-	auto window = CodeAdapter::Factory::getInstance()->createWindow();
-	window->create(CodeAdapter::Drawing::Size(1024, 768),
-		CodeAdapter::Utility::String("Hello, World!"));
+	auto window = Factory::getInstance()->createWindow();
+	window->create(Drawing::Size(1024, 768),
+		Utility::String("Hello, World!"));
+
+
+	auto panel = std::make_shared<Drawing::Panel>();
+	//panel->addDrawable();
+
+	window->addPanel(panel);
+
 
 	while (window->isRunning())
 	{
 		window->update();
-		window->draw(CodeAdapter::Drawing::Color::Gray);
+		window->draw(Drawing::Color::Gray);
 	}
 
 

@@ -6,6 +6,7 @@
 #include "Size.h"
 #include "Color.h"
 #include "Panel.h"
+#include "Graphics.h"
 
 
 
@@ -14,6 +15,7 @@ BEGIN_NAMESPACE_CA_DRAWING
 
 
 Window::Window()
+	: m_graphics(std::make_shared<Graphics>())
 {
 
 }
@@ -43,7 +45,7 @@ void Window::draw(const Color& backColor)
 
 	for (auto& panel : m_panelList)
 	{
-		panel->draw();
+		panel->draw(*m_graphics);
 	}
 
 	endDraw();
