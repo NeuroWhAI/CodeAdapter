@@ -41,6 +41,7 @@ public:
 
 public:
 	i32 getArgb() const;
+	i32 getRgba() const;
 
 	void setArgb(i32 argb);
 	void setArgb(const T& a, const T& r, const T& g, const T& b);

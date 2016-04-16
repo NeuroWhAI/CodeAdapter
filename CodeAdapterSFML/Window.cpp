@@ -1,5 +1,7 @@
 #include "Window.h"
 
+#include "CodeAdapter\SharedObject.h"
+
 #include "CodeAdapter\Size.h"
 #include "CodeAdapter\Color.h"
 #include "CodeAdapter\String.h"
@@ -7,7 +9,8 @@
 
 
 
-Window::Window()
+Window::Window(SharedObject<sf::RenderWindow>& sharedWin)
+	: m_sharedWin(sharedWin)
 {
 
 }
@@ -79,6 +82,8 @@ void Window::beginDraw(const Color& backColor)
 		backColor.g,
 		backColor.b,
 		backColor.a));
+
+	m_sharedWin.setObject(&m_win);
 }
 
 

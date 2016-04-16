@@ -78,6 +78,16 @@ i32 ColorT<T>::getArgb() const
 		| (static_cast<i32>(b) & 0x000000ff));
 }
 
+
+template <typename T>
+i32 ColorT<T>::getRgba() const
+{
+	return (((static_cast<i32>(r) & 0x000000ff) << 24)
+		| ((static_cast<i32>(g) & 0x000000ff) << 16)
+		| ((static_cast<i32>(b) & 0x000000ff) << 8)
+		| (static_cast<i32>(a) & 0x000000ff));
+}
+
 //--------------------------------------------------------------------------
 
 template <typename T>

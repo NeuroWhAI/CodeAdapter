@@ -131,6 +131,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Artist.h" />
+    <ClInclude Include="DrawableRectangle.h" />
+    <ClInclude Include="RectangleArtist.h" />
+    <ClInclude Include="SharedObject.h" />
     <ClInclude Include="TextArtist.h" />
     <ClInclude Include="CodeAdapter.h" />
     <ClInclude Include="Color.h" />
@@ -149,6 +153,10 @@
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Artist.cpp" />
+    <ClCompile Include="DrawableRectangle.cpp" />
+    <ClCompile Include="RectangleArtist.cpp" />
+    <ClCompile Include="SharedObject.cpp" />
     <ClCompile Include="TextArtist.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Drawable.cpp" />
@@ -168,6 +176,7 @@
     <None Include="Factory.inl" />
     <None Include="Point.inl" />
     <None Include="Rectangle.inl" />
+    <None Include="SharedObject.inl" />
     <None Include="Size.inl" />
     <None Include="Vector.inl" />
   </ItemGroup>

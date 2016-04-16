@@ -5,13 +5,15 @@
 #include "Definition.h"
 #include "CAType.h"
 
+#include "Artist.h"
+
 
 
 
 BEGIN_NAMESPACE_CA_DRAWING
 
 
-class TextArtist
+class TextArtist : public Artist
 {
 public:
 	TextArtist();

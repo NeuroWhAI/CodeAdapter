@@ -9,21 +9,35 @@
 
 
 
+BEGIN_NAMESPACE_CA_UTILITY
+
+
+template <typename T>
+class SharedObject;
+
+
+END_NAMESPACE_CA_UTILITY
+
+
 class Window : public CodeAdapter::Drawing::Window
 {
 public:
+	template <typename T>
+	using SharedObject = CodeAdapter::Utility::SharedObject<T>;
+
 	using Size = CodeAdapter::Drawing::Size;
 	using Color = CodeAdapter::Drawing::Color;
 	using String = CodeAdapter::Utility::String;
 
 
 public:
-	Window();
+	Window(SharedObject<sf::RenderWindow>& sharedWin);
 	virtual ~Window();
 
 
 protected:
 	sf::RenderWindow m_win;
+	SharedObject<sf::RenderWindow>& m_sharedWin;
 
 
 public:

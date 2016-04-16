@@ -159,10 +159,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="SFMLFactory.h" />
+    <ClInclude Include="RectangleArtist.h" />
+    <ClInclude Include="TextArtist.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SFMLFactory.cpp" />
+    <ClCompile Include="RectangleArtist.cpp" />
+    <ClCompile Include="TextArtist.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>

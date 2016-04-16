@@ -39,6 +39,12 @@
     <ClInclude Include="SFMLFactory.h">
       <Filter>CodeAdapterSFML</Filter>
     </ClInclude>
+    <ClInclude Include="TextArtist.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleArtist.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window.cpp">
@@ -46,6 +52,12 @@
     </ClCompile>
     <ClCompile Include="SFMLFactory.cpp">
       <Filter>CodeAdapterSFML</Filter>
+    </ClCompile>
+    <ClCompile Include="TextArtist.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleArtist.cpp">
+      <Filter>Drawing</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

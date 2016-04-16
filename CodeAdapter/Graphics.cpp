@@ -10,6 +10,7 @@ BEGIN_NAMESPACE_CA_DRAWING
 
 Graphics::Graphics()
 	: textArtist(Factory::getInstance()->createTextArtist())
+	, rectangleArtist(Factory::getInstance()->createRectangleArtist())
 {
 
 }

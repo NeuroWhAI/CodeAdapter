@@ -81,6 +81,18 @@
     <ClInclude Include="TextArtist.h">
       <Filter>Drawing</Filter>
     </ClInclude>
+    <ClInclude Include="DrawableRectangle.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleArtist.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="Artist.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="SharedObject.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -122,6 +134,18 @@
     <ClCompile Include="TextArtist.cpp">
       <Filter>Drawing</Filter>
     </ClCompile>
+    <ClCompile Include="DrawableRectangle.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleArtist.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="Artist.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="SharedObject.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Point.inl">
@@ -141,6 +165,9 @@
     </None>
     <None Include="Factory.inl">
       <Filter>CodeAdapter</Filter>
+    </None>
+    <None Include="SharedObject.inl">
+      <Filter>Utility</Filter>
     </None>
   </ItemGroup>
 </Project>
