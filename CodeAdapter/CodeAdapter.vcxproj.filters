@@ -93,6 +93,15 @@
     <ClInclude Include="SharedObject.h">
       <Filter>Utility</Filter>
     </ClInclude>
+    <ClInclude Include="BasicDeclaration.h">
+      <Filter>CodeAdapter</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawableEllipse.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="EllipseArtist.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -145,6 +154,12 @@
     </ClCompile>
     <ClCompile Include="SharedObject.cpp">
       <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawableEllipse.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="EllipseArtist.cpp">
+      <Filter>Drawing</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

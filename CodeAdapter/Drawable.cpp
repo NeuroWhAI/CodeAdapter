@@ -7,6 +7,7 @@ BEGIN_NAMESPACE_CA_DRAWING
 
 
 Drawable::Drawable()
+	: m_visible(true)
 {
 
 }
@@ -15,6 +16,29 @@ Drawable::Drawable()
 Drawable::~Drawable()
 {
 
+}
+
+//###########################################################################
+
+void Drawable::draw(Graphics& g, const Transform& parentTransform)
+{
+	if (m_visible)
+	{
+		onDraw(g, parentTransform);
+	}
+}
+
+//###########################################################################
+
+void Drawable::setVisible(bool visible)
+{
+	m_visible = visible;
+}
+
+
+bool Drawable::isVisible() const
+{
+	return m_visible;
 }
 
 

@@ -22,7 +22,7 @@ Panel::~Panel()
 
 //###########################################################################
 
-void Panel::draw(Graphics& g, const Transform& parentTransform)
+void Panel::onDraw(Graphics& g, const Transform& parentTransform)
 {
 	// TODO: 패널 영역만큼 클리핑
 

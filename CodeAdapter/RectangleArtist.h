@@ -2,8 +2,7 @@
 #define __CA__RECTANGLE_ARTIST_H__
 
 
-#include "Definition.h"
-#include "CAType.h"
+#include "BasicDeclaration.h"
 
 #include "Artist.h"
 
@@ -11,27 +10,6 @@
 
 
 BEGIN_NAMESPACE_CA_DRAWING
-
-
-template <typename T>
-class PointT;
-using Point = PointT<i32>;
-using PointF = PointT<f32>;
-
-template <typename T>
-class SizeT;
-using Size = SizeT<i32>;
-using SizeF = SizeT<f32>;
-
-template <typename T>
-class RectangleT;
-using Rectangle = RectangleT<i32>;
-using RectangleF = RectangleT<f32>;
-
-template <typename T>
-class ColorT;
-using Color = ColorT<i32>;
-using ColorF = ColorT<f32>;
 
 
 class RectangleArtist : public Artist

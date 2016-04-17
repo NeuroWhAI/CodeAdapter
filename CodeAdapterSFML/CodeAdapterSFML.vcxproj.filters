@@ -45,6 +45,9 @@
     <ClInclude Include="RectangleArtist.h">
       <Filter>Drawing</Filter>
     </ClInclude>
+    <ClInclude Include="EllipseArtist.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window.cpp">
@@ -57,6 +60,9 @@
       <Filter>Drawing</Filter>
     </ClCompile>
     <ClCompile Include="RectangleArtist.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="EllipseArtist.cpp">
       <Filter>Drawing</Filter>
     </ClCompile>
   </ItemGroup>

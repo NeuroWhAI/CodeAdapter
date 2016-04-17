@@ -5,39 +5,12 @@
 #include <memory>
 #include <vector>
 
-#include "Definition.h"
-#include "CAType.h"
+#include "BasicDeclaration.h"
 
 
-
-
-BEGIN_NAMESPACE_CA_UTILITY
-
-
-class String;
-
-
-END_NAMESPACE_CA_UTILITY
 
 
 BEGIN_NAMESPACE_CA_DRAWING
-
-
-template <typename T>
-class PointT;
-using Point = PointT<i32>;
-
-template <typename T>
-class SizeT;
-using Size = SizeT<i32>;
-
-template <typename T>
-class ColorT;
-using Color = ColorT<i32>;
-
-class Panel;
-
-class Graphics;
 
 
 class Window

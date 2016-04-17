@@ -35,6 +35,7 @@ public:
 	virtual std::shared_ptr<CodeAdapter::Drawing::Window> createWindow() override;
 	virtual std::shared_ptr<CodeAdapter::Drawing::TextArtist> createTextArtist() override;
 	virtual std::shared_ptr<CodeAdapter::Drawing::RectangleArtist> createRectangleArtist() override;
+	virtual std::shared_ptr<CodeAdapter::Drawing::EllipseArtist> createEllipseArtist() override;
 };
 
 

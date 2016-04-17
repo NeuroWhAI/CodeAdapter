@@ -5,8 +5,7 @@
 #include <memory>
 #include <vector>
 
-#include "Definition.h"
-#include "CAType.h"
+#include "BasicDeclaration.h"
 
 #include "Transform.h"
 #include "Size.h"
@@ -35,8 +34,8 @@ protected:
 	std::vector<std::weak_ptr<Drawable>> m_drawables;
 
 
-public:
-	virtual void draw(Graphics& g, const Transform& parentTransform);
+protected:
+	virtual void onDraw(Graphics& g, const Transform& parentTransform);
 
 
 public:

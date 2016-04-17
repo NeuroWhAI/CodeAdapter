@@ -29,7 +29,9 @@
 #include "Artist.h"
 #include "TextArtist.h"
 #include "RectangleArtist.h"
+#include "EllipseArtist.h"
 #include "DrawableRectangle.h"
+#include "DrawableEllipse.h"
 
 
 // System ------------------------------------------------------------------

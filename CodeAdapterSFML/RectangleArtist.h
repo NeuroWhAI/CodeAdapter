@@ -9,16 +9,6 @@
 
 
 
-BEGIN_NAMESPACE_CA_UTILITY
-
-
-template <typename T>
-class SharedObject;
-
-
-END_NAMESPACE_CA_UTILITY
-
-
 class RectangleArtist : public CodeAdapter::Drawing::RectangleArtist
 {
 public:

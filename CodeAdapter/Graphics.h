@@ -4,17 +4,12 @@
 
 #include <memory>
 
-#include "Definition.h"
-#include "CAType.h"
+#include "BasicDeclaration.h"
 
 
 
 
 BEGIN_NAMESPACE_CA_DRAWING
-
-
-class TextArtist;
-class RectangleArtist;
 
 
 class Graphics
@@ -27,6 +22,7 @@ public:
 public:
 	std::shared_ptr<TextArtist> textArtist;
 	std::shared_ptr<RectangleArtist> rectangleArtist;
+	std::shared_ptr<EllipseArtist> ellipseArtist;
 };
 
 

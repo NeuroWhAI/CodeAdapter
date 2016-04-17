@@ -62,7 +62,7 @@ DrawableRectangle::~DrawableRectangle()
 
 //###########################################################################
 
-void DrawableRectangle::draw(Graphics& g, const Transform& parentTransform)
+void DrawableRectangle::onDraw(Graphics& g, const Transform& parentTransform)
 {
 	auto& artist = g.rectangleArtist;
 

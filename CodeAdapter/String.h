@@ -4,8 +4,7 @@
 
 #include <string>
 
-#include "Definition.h"
-#include "CAType.h"
+#include "BasicDeclaration.h"
 
 
 

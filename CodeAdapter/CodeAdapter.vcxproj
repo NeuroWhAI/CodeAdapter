@@ -132,7 +132,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Artist.h" />
+    <ClInclude Include="BasicDeclaration.h" />
+    <ClInclude Include="DrawableEllipse.h" />
     <ClInclude Include="DrawableRectangle.h" />
+    <ClInclude Include="EllipseArtist.h" />
     <ClInclude Include="RectangleArtist.h" />
     <ClInclude Include="SharedObject.h" />
     <ClInclude Include="TextArtist.h" />
@@ -154,7 +157,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Artist.cpp" />
+    <ClCompile Include="DrawableEllipse.cpp" />
     <ClCompile Include="DrawableRectangle.cpp" />
+    <ClCompile Include="EllipseArtist.cpp" />
     <ClCompile Include="RectangleArtist.cpp" />
     <ClCompile Include="SharedObject.cpp" />
     <ClCompile Include="TextArtist.cpp" />

@@ -2,19 +2,12 @@
 #define __CA__RECTANGLE_H__
 
 
-#include "Definition.h"
-#include "CAType.h"
+#include "BasicDeclaration.h"
 
 
 
 
 BEGIN_NAMESPACE_CA_DRAWING
-
-
-template <typename T>
-class PointT;
-template <typename T>
-class SizeT;
 
 
 template <typename T>
@@ -42,8 +35,8 @@ public:
 
 
 public:
-	bool containsPoint(const T& x, const T& y) const;
-	bool containsPoint(const PointT<T>& point) const; 
+	virtual bool containsPoint(const T& x, const T& y) const;
+	virtual bool containsPoint(const PointT<T>& point) const; 
 };
 
 

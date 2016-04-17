@@ -2,8 +2,7 @@
 #define __CA__TRANSFORM_H__
 
 
-#include "Definition.h"
-#include "CAType.h"
+#include "BasicDeclaration.h"
 
 #include "Point.h"
 #include "Vector.h"

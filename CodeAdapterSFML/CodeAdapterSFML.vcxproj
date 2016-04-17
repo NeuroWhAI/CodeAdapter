@@ -158,12 +158,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="EllipseArtist.h" />
     <ClInclude Include="SFMLFactory.h" />
     <ClInclude Include="RectangleArtist.h" />
     <ClInclude Include="TextArtist.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="EllipseArtist.cpp" />
     <ClCompile Include="SFMLFactory.cpp" />
     <ClCompile Include="RectangleArtist.cpp" />
     <ClCompile Include="TextArtist.cpp" />

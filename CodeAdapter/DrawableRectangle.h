@@ -2,8 +2,7 @@
 #define __CA__DRAWABLE_RECTANGLE_H__
 
 
-#include "Definition.h"
-#include "CAType.h"
+#include "BasicDeclaration.h"
 
 #include "Drawable.h"
 #include "Rectangle.h"
@@ -34,8 +33,8 @@ public:
 	Color fillColor;
 
 
-public:
-	virtual void draw(Graphics& g, const Transform& parentTransform);
+protected:
+	virtual void onDraw(Graphics& g, const Transform& parentTransform);
 };
 
 

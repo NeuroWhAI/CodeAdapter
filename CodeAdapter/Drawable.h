@@ -2,17 +2,12 @@
 #define __CA__DRAWABLE_H__
 
 
-#include "Definition.h"
-#include "CAType.h"
+#include "BasicDeclaration.h"
 
 
 
 
 BEGIN_NAMESPACE_CA_DRAWING
-
-
-class Graphics;
-class Transform;
 
 
 class Drawable
@@ -22,8 +17,21 @@ public:
 	virtual ~Drawable();
 
 
+protected:
+	bool m_visible;
+
+
 public:
-	virtual void draw(Graphics& g, const Transform& parentTransform) = 0;
+	void draw(Graphics& g, const Transform& parentTransform);
+
+
+protected:
+	virtual void onDraw(Graphics& g, const Transform& parentTransform) = 0;
+
+
+public:
+	void setVisible(bool visible);
+	bool isVisible() const;
 };
 
 

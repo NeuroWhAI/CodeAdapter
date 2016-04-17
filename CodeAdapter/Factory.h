@@ -4,21 +4,7 @@
 
 #include <memory>
 
-#include "Definition.h"
-#include "CAType.h"
-
-
-
-
-BEGIN_NAMESPACE_CA_DRAWING
-
-
-class Window;
-class TextArtist;
-class RectangleArtist;
-
-
-END_NAMESPACE_CA_DRAWING
+#include "BasicDeclaration.h"
 
 
 BEGIN_NAMESPACE_CA
@@ -60,6 +46,7 @@ public:
 	virtual std::shared_ptr<Drawing::Window> createWindow() = 0;
 	virtual std::shared_ptr<Drawing::TextArtist> createTextArtist() = 0;
 	virtual std::shared_ptr<Drawing::RectangleArtist> createRectangleArtist() = 0;
+	virtual std::shared_ptr<Drawing::EllipseArtist> createEllipseArtist() = 0;
 };
 
 

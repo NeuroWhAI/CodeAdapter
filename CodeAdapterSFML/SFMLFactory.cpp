@@ -5,6 +5,7 @@
 #include "Window.h"
 #include "TextArtist.h"
 #include "RectangleArtist.h"
+#include "EllipseArtist.h"
 
 
 
@@ -37,5 +38,11 @@ std::shared_ptr<CodeAdapter::Drawing::TextArtist> SFMLFactory::createTextArtist(
 std::shared_ptr<CodeAdapter::Drawing::RectangleArtist> SFMLFactory::createRectangleArtist()
 {
 	return std::make_shared<RectangleArtist>(m_sharedWindow);
+}
+
+
+std::shared_ptr<CodeAdapter::Drawing::EllipseArtist> SFMLFactory::createEllipseArtist()
+{
+	return std::make_shared<EllipseArtist>(m_sharedWindow);
 }
 

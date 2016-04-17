@@ -2,8 +2,7 @@
 #define __CA__POINT_H__
 
 
-#include "Definition.h"
-#include "CAType.h"
+#include "BasicDeclaration.h"
 
 
 

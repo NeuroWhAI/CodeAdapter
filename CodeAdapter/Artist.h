@@ -2,8 +2,7 @@
 #define __CA__ARTIST_H__
 
 
-#include "Definition.h"
-#include "CAType.h"
+#include "BasicDeclaration.h"
 
 #include "Transform.h"
 
