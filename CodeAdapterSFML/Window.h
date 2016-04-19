@@ -12,12 +12,11 @@
 class Window : public CodeAdapter::Drawing::Window
 {
 public:
-	template <typename T>
-	using SharedObject = CodeAdapter::Utility::SharedObject<T>;
+	USING_CA_UTILITY(String);
+	USING_CA_UTILITY_T(SharedObject, T);
 
-	using Size = CodeAdapter::Drawing::Size;
-	using Color = CodeAdapter::Drawing::Color;
-	using String = CodeAdapter::Utility::String;
+	USING_CA_DRAWING(Size);
+	USING_CA_DRAWING(Color);
 
 
 public:

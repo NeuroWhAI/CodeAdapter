@@ -12,6 +12,7 @@ Graphics::Graphics()
 	: textArtist(Factory::getInstance()->createTextArtist())
 	, rectangleArtist(Factory::getInstance()->createRectangleArtist())
 	, ellipseArtist(Factory::getInstance()->createEllipseArtist())
+	, lineArtist(Factory::getInstance()->createLineArtist())
 {
 
 }

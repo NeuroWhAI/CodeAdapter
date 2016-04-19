@@ -36,7 +36,7 @@ void RectangleArtist::updateRenderTransform()
 
 //###########################################################################
 
-void RectangleArtist::beginDrawRectangle(float thickness)
+void RectangleArtist::beginDrawRectangle(f32 thickness)
 {
 	m_drawRect.setOutlineThickness(thickness);
 	m_drawRect.setFillColor(sf::Color::Transparent);
@@ -54,7 +54,7 @@ void RectangleArtist::endDrawRectangle()
 }
 
 
-void RectangleArtist::drawRectangle(int x, int y, int width, int height, const Color& color)
+void RectangleArtist::drawRectangle(i32 x, i32 y, i32 width, i32 height, const Color& color)
 {
 	m_drawRect.setPosition(static_cast<float>(x), static_cast<float>(y));
 	m_drawRect.setSize(sf::Vector2f(static_cast<float>(width),
@@ -81,7 +81,7 @@ void RectangleArtist::drawRectangle(const Rectangle& rectangle, const Color& col
 }
 
 
-void RectangleArtist::drawRectangle(float x, float y, float width, float height, const Color& color)
+void RectangleArtist::drawRectangle(f32 x, f32 y, f32 width, f32 height, const Color& color)
 {
 	m_drawRect.setPosition(x, y);
 	m_drawRect.setSize(sf::Vector2f(width, height));
@@ -120,7 +120,7 @@ void RectangleArtist::endFillRectangle()
 }
 
 
-void RectangleArtist::fillRectangle(int x, int y, int width, int height, const Color& color)
+void RectangleArtist::fillRectangle(i32 x, i32 y, i32 width, i32 height, const Color& color)
 {
 	m_fillRect.setPosition(static_cast<float>(x), static_cast<float>(y));
 	m_fillRect.setSize(sf::Vector2f(static_cast<float>(width),
@@ -147,7 +147,7 @@ void RectangleArtist::fillRectangle(const Rectangle& rectangle, const Color& col
 }
 
 
-void RectangleArtist::fillRectangle(float x, float y, float width, float height, const Color& color)
+void RectangleArtist::fillRectangle(f32 x, f32 y, f32 width, f32 height, const Color& color)
 {
 	m_fillRect.setPosition(x, y);
 	m_fillRect.setSize(sf::Vector2f(width, height));

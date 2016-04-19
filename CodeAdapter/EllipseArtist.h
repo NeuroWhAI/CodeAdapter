@@ -20,21 +20,21 @@ public:
 
 
 public:
-	virtual void beginDrawEllipse(float thickness) = 0;
+	virtual void beginDrawEllipse(f32 thickness) = 0;
 	virtual void endDrawEllipse() = 0;
-	virtual void drawEllipse(int x, int y, int width, int height, const Color& color) = 0;
+	virtual void drawEllipse(i32 x, i32 y, i32 width, i32 height, const Color& color) = 0;
 	virtual void drawEllipse(const Point& location, const Size& size, const Color& color) = 0;
 	virtual void drawEllipse(const Rectangle& rectangle, const Color& color) = 0;
-	virtual void drawEllipse(float x, float y, float width, float height, const Color& color) = 0;
+	virtual void drawEllipse(f32 x, f32 y, f32 width, f32 height, const Color& color) = 0;
 	virtual void drawEllipse(const PointF& location, const SizeF& size, const Color& color) = 0;
 	virtual void drawEllipse(const RectangleF& rectangle, const Color& color) = 0;
 
 	virtual void beginFillEllipse() = 0;
 	virtual void endFillEllipse() = 0;
-	virtual void fillEllipse(int x, int y, int width, int height, const Color& color) = 0;
+	virtual void fillEllipse(i32 x, i32 y, i32 width, i32 height, const Color& color) = 0;
 	virtual void fillEllipse(const Point& location, const Size& size, const Color& color) = 0;
 	virtual void fillEllipse(const Rectangle& rectangle, const Color& color) = 0;
-	virtual void fillEllipse(float x, float y, float width, float height, const Color& color) = 0;
+	virtual void fillEllipse(f32 x, f32 y, f32 width, f32 height, const Color& color) = 0;
 	virtual void fillEllipse(const PointF& location, const SizeF& size, const Color& color) = 0;
 	virtual void fillEllipse(const RectangleF& rectangle, const Color& color) = 0;
 };

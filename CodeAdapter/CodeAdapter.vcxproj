@@ -136,6 +136,7 @@
     <ClInclude Include="DrawableEllipse.h" />
     <ClInclude Include="DrawableRectangle.h" />
     <ClInclude Include="EllipseArtist.h" />
+    <ClInclude Include="LineArtist.h" />
     <ClInclude Include="RectangleArtist.h" />
     <ClInclude Include="SharedObject.h" />
     <ClInclude Include="TextArtist.h" />
@@ -160,6 +161,7 @@
     <ClCompile Include="DrawableEllipse.cpp" />
     <ClCompile Include="DrawableRectangle.cpp" />
     <ClCompile Include="EllipseArtist.cpp" />
+    <ClCompile Include="LineArtist.cpp" />
     <ClCompile Include="RectangleArtist.cpp" />
     <ClCompile Include="SharedObject.cpp" />
     <ClCompile Include="TextArtist.cpp" />

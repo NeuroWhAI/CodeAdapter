@@ -23,6 +23,7 @@ public:
 	std::shared_ptr<TextArtist> textArtist;
 	std::shared_ptr<RectangleArtist> rectangleArtist;
 	std::shared_ptr<EllipseArtist> ellipseArtist;
+	std::shared_ptr<LineArtist> lineArtist;
 };
 
 

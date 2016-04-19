@@ -30,6 +30,7 @@
 #include "TextArtist.h"
 #include "RectangleArtist.h"
 #include "EllipseArtist.h"
+#include "LineArtist.h"
 #include "DrawableRectangle.h"
 #include "DrawableEllipse.h"
 

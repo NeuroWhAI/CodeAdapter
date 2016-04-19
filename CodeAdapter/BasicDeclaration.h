@@ -52,6 +52,7 @@ class Artist;
 class TextArtist;
 class RectangleArtist;
 class EllipseArtist;
+class LineArtist;
 class DrawableRectangle;
 class DrawableEllipse;
 

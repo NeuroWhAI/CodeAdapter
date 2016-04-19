@@ -50,8 +50,8 @@ int main()
 	{
 		panel->transform.angle += 0.02f;
 
-		ellipse2->x += 0.02;
-		ellipse2->y += 0.04;
+		ellipse2->x += 0.02f;
+		ellipse2->y += 0.04f;
 
 		rect->setVisible(ellipse->containsPoint(ellipse2->x, ellipse2->y));
 

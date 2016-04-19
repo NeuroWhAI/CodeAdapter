@@ -18,8 +18,7 @@ namespace sf
 class SFMLFactory : public CodeAdapter::Factory
 {
 public:
-	template <typename T>
-	using SharedObject = CodeAdapter::Utility::SharedObject<T>;
+	USING_CA_UTILITY_T(SharedObject, T);
 
 
 public:
@@ -36,6 +35,7 @@ public:
 	virtual std::shared_ptr<CodeAdapter::Drawing::TextArtist> createTextArtist() override;
 	virtual std::shared_ptr<CodeAdapter::Drawing::RectangleArtist> createRectangleArtist() override;
 	virtual std::shared_ptr<CodeAdapter::Drawing::EllipseArtist> createEllipseArtist() override;
+	virtual std::shared_ptr<CodeAdapter::Drawing::LineArtist> createLineArtist() override;
 };
 
 

@@ -36,7 +36,7 @@ void EllipseArtist::updateRenderTransform()
 
 //###########################################################################
 
-void EllipseArtist::beginDrawEllipse(float thickness)
+void EllipseArtist::beginDrawEllipse(f32 thickness)
 {
 	m_drawCircle.setOutlineThickness(thickness);
 	m_drawCircle.setFillColor(sf::Color::Transparent);
@@ -54,7 +54,7 @@ void EllipseArtist::endDrawEllipse()
 }
 
 
-void EllipseArtist::drawEllipse(int x, int y, int width, int height, const Color& color)
+void EllipseArtist::drawEllipse(i32 x, i32 y, i32 width, i32 height, const Color& color)
 {
 	m_drawCircle.setPosition(static_cast<float>(x), static_cast<float>(y));
 	m_drawCircle.setRadius(width / 2.0f);
@@ -81,7 +81,7 @@ void EllipseArtist::drawEllipse(const Rectangle& rectangle, const Color& color)
 }
 
 
-void EllipseArtist::drawEllipse(float x, float y, float width, float height, const Color& color)
+void EllipseArtist::drawEllipse(f32 x, f32 y, f32 width, f32 height, const Color& color)
 {
 	m_drawCircle.setPosition(x, y);
 	m_drawCircle.setRadius(width / 2.0f);
@@ -121,7 +121,7 @@ void EllipseArtist::endFillEllipse()
 }
 
 
-void EllipseArtist::fillEllipse(int x, int y, int width, int height, const Color& color)
+void EllipseArtist::fillEllipse(i32 x, i32 y, i32 width, i32 height, const Color& color)
 {
 	m_fillCircle.setPosition(static_cast<float>(x), static_cast<float>(y));
 	m_fillCircle.setRadius(width / 2.0f);
@@ -148,7 +148,7 @@ void EllipseArtist::fillEllipse(const Rectangle& rectangle, const Color& color)
 }
 
 
-void EllipseArtist::fillEllipse(float x, float y, float width, float height, const Color& color)
+void EllipseArtist::fillEllipse(f32 x, f32 y, f32 width, f32 height, const Color& color)
 {
 	m_fillCircle.setPosition(x, y);
 	m_fillCircle.setRadius(width / 2.0f);

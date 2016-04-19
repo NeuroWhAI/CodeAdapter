@@ -46,3 +46,9 @@ std::shared_ptr<CodeAdapter::Drawing::EllipseArtist> SFMLFactory::createEllipseA
 	return std::make_shared<EllipseArtist>(m_sharedWindow);
 }
 
+
+std::shared_ptr<CodeAdapter::Drawing::LineArtist> SFMLFactory::createLineArtist()
+{
+	return nullptr;
+}
+
