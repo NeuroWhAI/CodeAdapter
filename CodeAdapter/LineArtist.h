@@ -2,6 +2,8 @@
 #define __CA__LINE_ARTIST_H__
 
 
+#include <iterator>
+
 #include "BasicDeclaration.h"
 
 #include "Artist.h"
@@ -18,7 +20,7 @@ public:
 	LineArtist();
 	virtual ~LineArtist();
 
-
+	
 public:
 	virtual void beginDrawLine(f32 thickness) = 0;
 	virtual void endDrawLine() = 0;

@@ -159,6 +159,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="EllipseArtist.h" />
+    <ClInclude Include="LineArtist.h" />
     <ClInclude Include="SFMLFactory.h" />
     <ClInclude Include="RectangleArtist.h" />
     <ClInclude Include="TextArtist.h" />
@@ -166,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EllipseArtist.cpp" />
+    <ClCompile Include="LineArtist.cpp" />
     <ClCompile Include="SFMLFactory.cpp" />
     <ClCompile Include="RectangleArtist.cpp" />
     <ClCompile Include="TextArtist.cpp" />
