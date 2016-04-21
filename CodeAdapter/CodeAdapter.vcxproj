@@ -136,6 +136,7 @@
     <ClInclude Include="DrawableEllipse.h" />
     <ClInclude Include="DrawableRectangle.h" />
     <ClInclude Include="EllipseArtist.h" />
+    <ClInclude Include="Line.h" />
     <ClInclude Include="LineArtist.h" />
     <ClInclude Include="RectangleArtist.h" />
     <ClInclude Include="SharedObject.h" />
@@ -161,6 +162,7 @@
     <ClCompile Include="DrawableEllipse.cpp" />
     <ClCompile Include="DrawableRectangle.cpp" />
     <ClCompile Include="EllipseArtist.cpp" />
+    <ClCompile Include="Line.cpp" />
     <ClCompile Include="LineArtist.cpp" />
     <ClCompile Include="RectangleArtist.cpp" />
     <ClCompile Include="SharedObject.cpp" />
@@ -181,6 +183,7 @@
   <ItemGroup>
     <None Include="Color.inl" />
     <None Include="Factory.inl" />
+    <None Include="Line.inl" />
     <None Include="Point.inl" />
     <None Include="Rectangle.inl" />
     <None Include="SharedObject.inl" />

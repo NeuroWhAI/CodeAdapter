@@ -17,6 +17,7 @@
 #include "Size.h"
 #include "Vector.h"
 #include "Rectangle.h"
+#include "Line.h"
 #include "Color.h"
 #include "Transform.h"
 

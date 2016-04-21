@@ -36,6 +36,11 @@ using Rectangle = RectangleT<i32>;
 using RectangleF = RectangleT<f32>;
 
 template <typename T>
+class LineT;
+using Line = LineT<i32>;
+using LineF = LineT<f32>;
+
+template <typename T>
 class ColorT;
 using Color = ColorT<i32>;
 using ColorF = ColorT<f32>;

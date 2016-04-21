@@ -77,7 +77,7 @@ void LineArtist::drawLine(const Point* vertexArray[], usize vertexCount, const C
 
 	sf::Color sfColor = sf::Color(color.getRgba());
 
-	for (std::size_t i = 0; i < vertexCount; ++i)
+	for (usize i = 0; i < vertexCount; ++i)
 	{
 		vertexList[i].color = sfColor;
 		vertexList[i].position = {
@@ -117,7 +117,7 @@ void LineArtist::drawLine(const PointF* vertexArray[], usize vertexCount, const 
 
 	sf::Color sfColor = sf::Color(color.getRgba());
 
-	for (std::size_t i = 0; i < vertexCount; ++i)
+	for (usize i = 0; i < vertexCount; ++i)
 	{
 		vertexList[i].color = sfColor;
 		vertexList[i].position = {

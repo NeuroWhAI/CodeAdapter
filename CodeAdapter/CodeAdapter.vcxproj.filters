@@ -105,6 +105,9 @@
     <ClInclude Include="LineArtist.h">
       <Filter>Drawing</Filter>
     </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -167,6 +170,9 @@
     <ClCompile Include="LineArtist.cpp">
       <Filter>Drawing</Filter>
     </ClCompile>
+    <ClCompile Include="Line.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Point.inl">
@@ -189,6 +195,9 @@
     </None>
     <None Include="SharedObject.inl">
       <Filter>Utility</Filter>
+    </None>
+    <None Include="Line.inl">
+      <Filter>Drawing</Filter>
     </None>
   </ItemGroup>
 </Project>
