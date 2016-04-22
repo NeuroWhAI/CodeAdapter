@@ -88,6 +88,20 @@ const T VectorT<T>::dotProduct(const VectorT<T>& right) const
 //###########################################################################
 
 template <typename T>
+VectorT<T> VectorT<T>::operator+ () const
+{
+	return *this;
+}
+
+
+template <typename T>
+VectorT<T> VectorT<T>::operator- () const
+{
+	return VectorT<T>(-x, -y);
+}
+
+
+template <typename T>
 VectorT<T> VectorT<T>::operator+ (const VectorT<T>& right) const
 {
 	return VectorT<T>(x + right.x, y + right.y);

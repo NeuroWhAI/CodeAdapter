@@ -43,6 +43,8 @@ public:
 
 
 public:
+	VectorT<T> operator+ () const;
+	VectorT<T> operator- () const;
 	VectorT<T> operator+ (const VectorT<T>& right) const;
 	VectorT<T>& operator+= (const VectorT<T>& right);
 	VectorT<T> operator- (const VectorT<T>& right) const;
