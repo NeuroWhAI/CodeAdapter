@@ -35,6 +35,12 @@ int main()
 	ellipse2->edgeWidth = 1.0f;
 
 
+	auto line1 = std::make_shared<Drawing::DrawableLine>(rect->x,
+		rect->y, rect->x + rect->width, rect->y + rect->height);
+	line1->color = Drawing::Color::Cyan;
+	line1->thickness = 8.0f;
+
+
 	auto panel = std::make_shared<Drawing::Panel>();
 	panel->transform.position = { 256, 256 };
 	panel->size = { 1024, 768 };
@@ -42,6 +48,7 @@ int main()
 	panel->addDrawable(rect);
 	panel->addDrawable(ellipse);
 	panel->addDrawable(ellipse2);
+	panel->addDrawable(line1);
 
 	window1->addPanel(panel);
 

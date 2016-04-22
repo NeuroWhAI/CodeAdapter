@@ -60,6 +60,7 @@ class EllipseArtist;
 class LineArtist;
 class DrawableRectangle;
 class DrawableEllipse;
+class DrawableLine;
 
 
 END_NAMESPACE_CA_DRAWING

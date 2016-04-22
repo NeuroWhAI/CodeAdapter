@@ -21,6 +21,7 @@ public:
 	USING_CA_DRAWING(Color);
 	USING_CA_DRAWING(Point);
 	USING_CA_DRAWING(PointF);
+	USING_CA_DRAWING(VectorF);
 
 
 public:
@@ -46,10 +47,8 @@ public:
 	virtual void endDrawLine() override;
 	virtual void drawLine(i32 x1, i32 y1, i32 x2, i32 y2, const Color& color) override;
 	virtual void drawLine(const Point& point1, const Point& point2, const Color& color) override;
-	virtual void drawLine(const Point* vertexArray[], usize vertexCount, const Color& color, bool closed = false) override;
 	virtual void drawLine(f32 x1, f32 y1, f32 x2, f32 y2, const Color& color) override;
 	virtual void drawLine(const PointF& point1, const PointF& point2, const Color& color) override;
-	virtual void drawLine(const PointF* vertexArray[], usize vertexCount, const Color& color, bool closed = false) override;
 };
 
 

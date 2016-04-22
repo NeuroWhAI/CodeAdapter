@@ -34,6 +34,7 @@
 #include "LineArtist.h"
 #include "DrawableRectangle.h"
 #include "DrawableEllipse.h"
+#include "DrawableLine.h"
 
 
 // System ------------------------------------------------------------------

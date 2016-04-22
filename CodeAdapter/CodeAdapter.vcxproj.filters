@@ -108,6 +108,9 @@
     <ClInclude Include="Line.h">
       <Filter>Drawing</Filter>
     </ClInclude>
+    <ClInclude Include="DrawableLine.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -171,6 +174,9 @@
       <Filter>Drawing</Filter>
     </ClCompile>
     <ClCompile Include="Line.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawableLine.cpp">
       <Filter>Drawing</Filter>
     </ClCompile>
   </ItemGroup>
