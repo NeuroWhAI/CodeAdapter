@@ -49,6 +49,7 @@ ColorT<T>::ColorT(i32 argb)
 
 template <typename T>
 ColorT<T>::ColorT(const T& r, const T& g, const T& b)
+	: a(T(255))
 {
 	setRgb(r, g, b);
 }

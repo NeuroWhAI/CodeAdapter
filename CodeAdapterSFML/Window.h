@@ -11,7 +11,7 @@
 
 class Window : public CodeAdapter::Drawing::Window
 {
-public:
+private:
 	USING_CA_UTILITY(String);
 	USING_CA_UTILITY_T(SharedObject, T);
 

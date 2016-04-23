@@ -61,6 +61,8 @@ class LineArtist;
 class DrawableRectangle;
 class DrawableEllipse;
 class DrawableLine;
+class DrawableText;
+class Font;
 
 
 END_NAMESPACE_CA_DRAWING

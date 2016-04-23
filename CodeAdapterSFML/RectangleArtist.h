@@ -11,7 +11,7 @@
 
 class RectangleArtist : public CodeAdapter::Drawing::RectangleArtist
 {
-public:
+private:
 	USING_CA(i32);
 	USING_CA(f32);
 

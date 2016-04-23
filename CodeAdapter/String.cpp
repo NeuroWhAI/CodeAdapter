@@ -12,6 +12,14 @@ String::String()
 }
 
 
+String::String(const String& other)
+	: m_str(other.m_str)
+	, m_wstr(other.m_wstr)
+{
+
+}
+
+
 String::String(String&& rhs)
 	: m_str(std::move(rhs.m_str))
 	, m_wstr(std::move(rhs.m_wstr))
@@ -20,9 +28,21 @@ String::String(String&& rhs)
 }
 
 
+String::String(const char str[])
+{
+	setStr(str);
+}
+
+
 String::String(const std::string& str)
 {
 	setStr(str);
+}
+
+
+String::String(const wchar_t wstr[])
+{
+	setStr(wstr);
 }
 
 
@@ -95,16 +115,10 @@ String::operator std::wstring() const
 
 //--------------------------------------------------------------------------
 
-String& String::operator= (const std::string& right)
+String& String::operator= (const String& right)
 {
-	setStr(right);
-	return *this;
-}
-
-
-String& String::operator= (const std::wstring& right)
-{
-	setStr(right);
+	m_str = right.m_str;
+	m_wstr = right.m_wstr;
 	return *this;
 }
 

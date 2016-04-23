@@ -56,12 +56,9 @@ void EllipseArtist::endDrawEllipse()
 
 void EllipseArtist::drawEllipse(i32 x, i32 y, i32 width, i32 height, const Color& color)
 {
-	m_drawCircle.setPosition(static_cast<float>(x), static_cast<float>(y));
-	m_drawCircle.setRadius(width / 2.0f);
-	m_drawCircle.setScale(1.0f, static_cast<float>(height) / width);
-	m_drawCircle.setOutlineColor(sf::Color(color.getRgba()));
-
-	m_sharedWin.getObject()->draw(m_drawCircle, m_renderStates);
+	drawEllipse(static_cast<float>(x), static_cast<float>(y),
+		static_cast<float>(width), static_cast<float>(height),
+		color);
 }
 
 
@@ -123,12 +120,9 @@ void EllipseArtist::endFillEllipse()
 
 void EllipseArtist::fillEllipse(i32 x, i32 y, i32 width, i32 height, const Color& color)
 {
-	m_fillCircle.setPosition(static_cast<float>(x), static_cast<float>(y));
-	m_fillCircle.setRadius(width / 2.0f);
-	m_fillCircle.setScale(1.0f, static_cast<float>(height) / width);
-	m_fillCircle.setFillColor(sf::Color(color.getRgba()));
-
-	m_sharedWin.getObject()->draw(m_fillCircle, m_renderStates);
+	fillEllipse(static_cast<float>(x), static_cast<float>(y),
+		static_cast<float>(width), static_cast<float>(height),
+		color);
 }
 
 

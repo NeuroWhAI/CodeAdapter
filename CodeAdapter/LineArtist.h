@@ -2,8 +2,6 @@
 #define __CA__LINE_ARTIST_H__
 
 
-#include <iterator>
-
 #include "BasicDeclaration.h"
 
 #include "Artist.h"

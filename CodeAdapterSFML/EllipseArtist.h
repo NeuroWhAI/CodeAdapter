@@ -11,7 +11,7 @@
 
 class EllipseArtist : public CodeAdapter::Drawing::EllipseArtist
 {
-public:
+private:
 	USING_CA(i32);
 	USING_CA(f32);
 

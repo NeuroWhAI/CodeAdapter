@@ -41,6 +41,19 @@ int main()
 	line1->thickness = 8.0f;
 
 
+	auto font1 = Factory::getInstance()->createFont();
+	font1->loadFromFile("ÀÕ°ÉÃ¼.ttf");
+	font1->setCharacterSize(64);
+	font1->setStyle(Drawing::FontStyles::StrikeOut | Drawing::FontStyles::Bold);
+
+
+	auto text1 = std::make_shared<Drawing::DrawableText>();
+	text1->setFont(font1);
+	text1->text = L"Hello, World!\n¾È³ç ¼¼»ó¾Æ!";
+	text1->location.setLocation(-64, -8);
+	text1->color = Drawing::Color(34, 177, 76);
+
+
 	auto panel = std::make_shared<Drawing::Panel>();
 	panel->transform.position = { 256, 256 };
 	panel->size = { 1024, 768 };
@@ -49,16 +62,17 @@ int main()
 	panel->addDrawable(ellipse);
 	panel->addDrawable(ellipse2);
 	panel->addDrawable(line1);
+	panel->addDrawable(text1);
 
 	window1->addPanel(panel);
 
 
 	while (window1->isRunning())
 	{
-		panel->transform.angle += 0.02f;
+		panel->transform.angle += 0.2f;
 
-		ellipse2->x += 0.02f;
-		ellipse2->y += 0.04f;
+		ellipse2->x += 0.2f;
+		ellipse2->y += 0.4f;
 
 		rect->setVisible(ellipse->containsPoint(ellipse2->x, ellipse2->y));
 

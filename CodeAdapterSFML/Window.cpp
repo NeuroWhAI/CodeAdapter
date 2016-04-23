@@ -1,10 +1,10 @@
 #include "Window.h"
 
+#include "CodeAdapter\String.h"
 #include "CodeAdapter\SharedObject.h"
 
 #include "CodeAdapter\Size.h"
 #include "CodeAdapter\Color.h"
-#include "CodeAdapter\String.h"
 
 
 
@@ -12,7 +12,6 @@
 Window::Window(SharedObject<sf::RenderWindow>& sharedWin)
 	: m_sharedWin(sharedWin)
 {
-
 }
 
 
@@ -27,6 +26,8 @@ void Window::create(const Size& size, const String& title)
 {
 	m_win.create(sf::VideoMode(size.width, size.height),
 		title.getStr());
+
+	m_win.setFramerateLimit(60);
 }
 
 

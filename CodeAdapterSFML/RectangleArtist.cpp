@@ -56,12 +56,9 @@ void RectangleArtist::endDrawRectangle()
 
 void RectangleArtist::drawRectangle(i32 x, i32 y, i32 width, i32 height, const Color& color)
 {
-	m_drawRect.setPosition(static_cast<float>(x), static_cast<float>(y));
-	m_drawRect.setSize(sf::Vector2f(static_cast<float>(width),
-		static_cast<float>(height)));
-	m_drawRect.setOutlineColor(sf::Color(color.getRgba()));
-
-	m_sharedWin.getObject()->draw(m_drawRect, m_renderStates);
+	drawRectangle(static_cast<float>(x), static_cast<float>(y),
+		static_cast<float>(width), static_cast<float>(height),
+		color);
 }
 
 
@@ -122,12 +119,9 @@ void RectangleArtist::endFillRectangle()
 
 void RectangleArtist::fillRectangle(i32 x, i32 y, i32 width, i32 height, const Color& color)
 {
-	m_fillRect.setPosition(static_cast<float>(x), static_cast<float>(y));
-	m_fillRect.setSize(sf::Vector2f(static_cast<float>(width),
-		static_cast<float>(height)));
-	m_fillRect.setFillColor(sf::Color(color.getRgba()));
-
-	m_sharedWin.getObject()->draw(m_fillRect, m_renderStates);
+	fillRectangle(static_cast<float>(x), static_cast<float>(y),
+		static_cast<float>(width), static_cast<float>(height),
+		color);
 }
 
 

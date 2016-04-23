@@ -111,6 +111,12 @@
     <ClInclude Include="DrawableLine.h">
       <Filter>Drawing</Filter>
     </ClInclude>
+    <ClInclude Include="Font.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawableText.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -177,6 +183,12 @@
       <Filter>Drawing</Filter>
     </ClCompile>
     <ClCompile Include="DrawableLine.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="Font.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawableText.cpp">
       <Filter>Drawing</Filter>
     </ClCompile>
   </ItemGroup>

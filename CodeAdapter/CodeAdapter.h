@@ -35,6 +35,8 @@
 #include "DrawableRectangle.h"
 #include "DrawableEllipse.h"
 #include "DrawableLine.h"
+#include "DrawableText.h"
+#include "Font.h"
 
 
 // System ------------------------------------------------------------------

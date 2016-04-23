@@ -16,8 +16,11 @@ class String
 {
 public:
 	String();
+	String(const String& other);
 	String(String&& rhs);
+	String(const char str[]);
 	String(const std::string& str);
+	String(const wchar_t wstr[]);
 	String(const std::wstring& wstr);
 	virtual ~String();
 
@@ -41,11 +44,10 @@ public:
 
 
 public:
-	operator std::string() const;
-	operator std::wstring() const;
+	explicit operator std::string() const;
+	explicit operator std::wstring() const;
 
-	String& operator= (const std::string& right);
-	String& operator= (const std::wstring& right);
+	String& operator= (const String& right);
 
 	bool operator== (const String& right) const;
 	bool operator== (const std::string& right) const;

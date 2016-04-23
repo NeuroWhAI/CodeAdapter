@@ -1,3 +1,6 @@
+# Resource files
+*.ttf
+
 # Compiled Object files
 *.slo
 *.lo

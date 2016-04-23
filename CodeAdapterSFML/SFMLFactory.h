@@ -12,12 +12,13 @@
 namespace sf
 {
 	class RenderWindow;
+	class Text;
 }
 
 
 class SFMLFactory : public CodeAdapter::Factory
 {
-public:
+private:
 	USING_CA_UTILITY_T(SharedObject, T);
 
 
@@ -28,6 +29,7 @@ public:
 
 protected:
 	SharedObject<sf::RenderWindow> m_sharedWindow;
+	SharedObject<sf::Text> m_sharedFontText;
 
 
 public:
@@ -36,6 +38,7 @@ public:
 	virtual std::shared_ptr<CodeAdapter::Drawing::RectangleArtist> createRectangleArtist() override;
 	virtual std::shared_ptr<CodeAdapter::Drawing::EllipseArtist> createEllipseArtist() override;
 	virtual std::shared_ptr<CodeAdapter::Drawing::LineArtist> createLineArtist() override;
+	virtual std::shared_ptr<CodeAdapter::Drawing::Font> createFont() override;
 };
 
 

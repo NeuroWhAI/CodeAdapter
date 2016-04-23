@@ -11,7 +11,7 @@
 
 class LineArtist : public CodeAdapter::Drawing::LineArtist
 {
-public:
+private:
 	USING_CA(i32);
 	USING_CA(f32);
 	USING_CA(usize);
