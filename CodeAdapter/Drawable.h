@@ -4,6 +4,8 @@
 
 #include "BasicDeclaration.h"
 
+#include "Transform.h"
+
 
 
 
@@ -19,6 +21,10 @@ public:
 
 protected:
 	bool m_visible;
+
+
+public:
+	Transform transform;
 
 
 public:

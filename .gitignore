@@ -1,5 +1,8 @@
 # Resource files
 *.ttf
+*.png
+*.jpg
+*.bmp
 
 # Compiled Object files
 *.slo

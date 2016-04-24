@@ -24,12 +24,12 @@ public:
 
 
 public:
-	virtual void beginDrawString(Font& font, const Color& color) = 0;
+	virtual void beginDrawString(Font& font) = 0;
 	virtual void endDrawString() = 0;
-	virtual void drawString(const String& text, int x, int y) = 0;
-	virtual void drawString(const String& text, const Point& location) = 0;
-	virtual void drawString(const String& text, float x, float y) = 0;
-	virtual void drawString(const String& text, const PointF& location) = 0;
+	virtual void drawString(const String& text, i32 x, i32 y, const Color& color) = 0;
+	virtual void drawString(const String& text, const Point& location, const Color& color) = 0;
+	virtual void drawString(const String& text, f32 x, f32 y, const Color& color) = 0;
+	virtual void drawString(const String& text, const PointF& location, const Color& color) = 0;
 };
 
 

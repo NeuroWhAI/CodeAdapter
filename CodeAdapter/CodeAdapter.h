@@ -32,11 +32,14 @@
 #include "RectangleArtist.h"
 #include "EllipseArtist.h"
 #include "LineArtist.h"
+#include "TextureArtist.h"
 #include "DrawableRectangle.h"
 #include "DrawableEllipse.h"
 #include "DrawableLine.h"
 #include "DrawableText.h"
+#include "DrawableTexture.h"
 #include "Font.h"
+#include "Texture.h"
 
 
 // System ------------------------------------------------------------------

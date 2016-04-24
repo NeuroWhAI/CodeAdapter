@@ -48,6 +48,17 @@ ColorT<T>::ColorT(i32 argb)
 
 
 template <typename T>
+ColorT<T>::ColorT(const ColorT<T>& original, const T& newAlpha)
+	: a(newAlpha)
+	, r(T(original.r))
+	, g(T(original.g))
+	, b(T(original.b))
+{
+
+}
+
+
+template <typename T>
 ColorT<T>::ColorT(const T& r, const T& g, const T& b)
 	: a(T(255))
 {

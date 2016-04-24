@@ -24,6 +24,7 @@ public:
 	std::shared_ptr<RectangleArtist> rectangleArtist;
 	std::shared_ptr<EllipseArtist> ellipseArtist;
 	std::shared_ptr<LineArtist> lineArtist;
+	std::shared_ptr<TextureArtist> textureArtist;
 };
 
 

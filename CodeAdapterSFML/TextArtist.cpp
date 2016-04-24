@@ -40,12 +40,11 @@ void TextArtist::updateRenderTransform()
 
 //###########################################################################
 
-void TextArtist::beginDrawString(Font& font, const Color& color)
+void TextArtist::beginDrawString(Font& font)
 {
 	font.attachToGraphics();
 
 	m_text = m_sharedFontText.getObject();
-	m_text->setColor(sf::Color(color.getRgba()));
 
 	updateRenderTransform();
 }
@@ -59,29 +58,30 @@ void TextArtist::endDrawString()
 }
 
 
-void TextArtist::drawString(const String& text, int x, int y)
+void TextArtist::drawString(const String& text, i32 x, i32 y, const Color& color)
 {
-	drawString(text, static_cast<float>(x), static_cast<float>(y));
+	drawString(text, static_cast<float>(x), static_cast<float>(y), color);
 }
 
 
-void TextArtist::drawString(const String& text, const Point& location)
+void TextArtist::drawString(const String& text, const Point& location, const Color& color)
 {
-	drawString(text, location.x, location.y);
+	drawString(text, location.x, location.y, color);
 }
 
 
-void TextArtist::drawString(const String& text, float x, float y)
+void TextArtist::drawString(const String& text, f32 x, f32 y, const Color& color)
 {
 	m_text->setString(text.getWStr());
 	m_text->setPosition(x, y);
+	m_text->setColor(sf::Color(color.getRgba()));
 
 	m_sharedWin.getObject()->draw(*m_text, m_renderStates);
 }
 
 
-void TextArtist::drawString(const String& text, const PointF& location)
+void TextArtist::drawString(const String& text, const PointF& location, const Color& color)
 {
-	drawString(text, location.x, location.y);
+	drawString(text, location.x, location.y, color);
 }
 

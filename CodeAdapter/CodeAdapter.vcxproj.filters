@@ -117,6 +117,15 @@
     <ClInclude Include="DrawableText.h">
       <Filter>Drawing</Filter>
     </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureArtist.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawableTexture.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -189,6 +198,15 @@
       <Filter>Drawing</Filter>
     </ClCompile>
     <ClCompile Include="DrawableText.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureArtist.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawableTexture.cpp">
       <Filter>Drawing</Filter>
     </ClCompile>
   </ItemGroup>

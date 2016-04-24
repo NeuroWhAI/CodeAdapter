@@ -58,11 +58,14 @@ class TextArtist;
 class RectangleArtist;
 class EllipseArtist;
 class LineArtist;
+class TextureArtist;
 class DrawableRectangle;
 class DrawableEllipse;
 class DrawableLine;
 class DrawableText;
+class DrawableTexture;
 class Font;
+class Texture;
 
 
 END_NAMESPACE_CA_DRAWING

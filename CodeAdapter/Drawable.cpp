@@ -24,7 +24,9 @@ void Drawable::draw(Graphics& g, const Transform& parentTransform)
 {
 	if (m_visible)
 	{
-		onDraw(g, parentTransform);
+		Transform combined = parentTransform;
+		combined.addTransform(transform);
+		onDraw(g, combined);
 	}
 }
 

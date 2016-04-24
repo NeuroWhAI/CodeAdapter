@@ -7,7 +7,9 @@
 #include "RectangleArtist.h"
 #include "EllipseArtist.h"
 #include "LineArtist.h"
+#include "TextureArtist.h"
 #include "Font.h"
+#include "Texture.h"
 
 
 
@@ -55,8 +57,19 @@ std::shared_ptr<CodeAdapter::Drawing::LineArtist> SFMLFactory::createLineArtist(
 }
 
 
+std::shared_ptr<CodeAdapter::Drawing::TextureArtist> SFMLFactory::createTextureArtist()
+{
+	return std::make_shared<TextureArtist>(m_sharedWindow, m_sharedTexture);
+}
+
+
 std::shared_ptr<CodeAdapter::Drawing::Font> SFMLFactory::createFont()
 {
 	return std::make_shared<Font>(m_sharedFontText);
+}
+
+std::shared_ptr<CodeAdapter::Drawing::Texture> SFMLFactory::createTexture()
+{
+	return std::make_shared<Texture>(m_sharedTexture);
 }
 

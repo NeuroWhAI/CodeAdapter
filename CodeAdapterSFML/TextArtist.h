@@ -45,12 +45,12 @@ protected:
 
 
 public:
-	virtual void beginDrawString(Font& font, const Color& color) override;
+	virtual void beginDrawString(Font& font) override;
 	virtual void endDrawString() override;
-	virtual void drawString(const String& text, int x, int y) override;
-	virtual void drawString(const String& text, const Point& location)override;
-	virtual void drawString(const String& text, float x, float y) override;
-	virtual void drawString(const String& text, const PointF& location) override;
+	virtual void drawString(const String& text, i32 x, i32 y, const Color& color) override;
+	virtual void drawString(const String& text, const Point& location, const Color& color)override;
+	virtual void drawString(const String& text, f32 x, f32 y, const Color& color) override;
+	virtual void drawString(const String& text, const PointF& location, const Color& color) override;
 };
 
 

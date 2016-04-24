@@ -20,7 +20,7 @@ private:
 
 
 public:
-	Window(SharedObject<sf::RenderWindow>& sharedWin);
+	explicit Window(SharedObject<sf::RenderWindow>& sharedWin);
 	virtual ~Window();
 
 

@@ -27,7 +27,7 @@ private:
 
 
 public:
-	RectangleArtist(SharedObject<sf::RenderWindow>& sharedWin);
+	explicit RectangleArtist(SharedObject<sf::RenderWindow>& sharedWin);
 	virtual ~RectangleArtist();
 
 

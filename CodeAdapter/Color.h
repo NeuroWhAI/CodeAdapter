@@ -29,6 +29,7 @@ public:
 public:
 	ColorT();
 	explicit ColorT(i32 argb);
+	ColorT(const ColorT<T>& original, const T& newAlpha);
 	ColorT(const T& r, const T& g, const T& b);
 	ColorT(const T& a, const T& r, const T& g, const T& b);
 	virtual ~ColorT();

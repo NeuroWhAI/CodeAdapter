@@ -25,7 +25,7 @@ protected:
 
 
 public:
-	Font(SharedObject<sf::Text>& sharedFontText);
+	explicit Font(SharedObject<sf::Text>& sharedFontText);
 	virtual ~Font();
 
 

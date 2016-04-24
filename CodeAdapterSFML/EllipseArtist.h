@@ -27,7 +27,7 @@ private:
 
 
 public:
-	EllipseArtist(SharedObject<sf::RenderWindow>& sharedWin);
+	explicit EllipseArtist(SharedObject<sf::RenderWindow>& sharedWin);
 	virtual ~EllipseArtist();
 
 

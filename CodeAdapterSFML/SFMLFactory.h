@@ -13,6 +13,7 @@ namespace sf
 {
 	class RenderWindow;
 	class Text;
+	class Texture;
 }
 
 
@@ -30,6 +31,7 @@ public:
 protected:
 	SharedObject<sf::RenderWindow> m_sharedWindow;
 	SharedObject<sf::Text> m_sharedFontText;
+	SharedObject<sf::Texture> m_sharedTexture;
 
 
 public:
@@ -38,7 +40,9 @@ public:
 	virtual std::shared_ptr<CodeAdapter::Drawing::RectangleArtist> createRectangleArtist() override;
 	virtual std::shared_ptr<CodeAdapter::Drawing::EllipseArtist> createEllipseArtist() override;
 	virtual std::shared_ptr<CodeAdapter::Drawing::LineArtist> createLineArtist() override;
+	virtual std::shared_ptr<CodeAdapter::Drawing::TextureArtist> createTextureArtist() override;
 	virtual std::shared_ptr<CodeAdapter::Drawing::Font> createFont() override;
+	virtual std::shared_ptr<CodeAdapter::Drawing::Texture> createTexture() override;
 };
 
 

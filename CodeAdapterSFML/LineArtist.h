@@ -25,7 +25,7 @@ private:
 
 
 public:
-	LineArtist(SharedObject<sf::RenderWindow>& sharedWin);
+	explicit LineArtist(SharedObject<sf::RenderWindow>& sharedWin);
 	virtual ~LineArtist();
 
 

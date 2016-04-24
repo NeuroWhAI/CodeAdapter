@@ -54,10 +54,41 @@ int main()
 	text1->color = Drawing::Color(34, 177, 76);
 
 
+	auto texture1 = Factory::getInstance()->createTexture();
+	texture1->loadFromFile("neurowhai.png");
+
+
+	auto sprite1 = std::make_shared<Drawing::DrawableTexture>();
+	sprite1->setTexture(texture1);
+	sprite1->location.setLocation(-512.f, -512.f);
+	sprite1->color = Drawing::Color(Drawing::Color::Red, 85);
+	sprite1->transform.scale.setVector(0.5f, 0.5f);
+
+	auto sprite2 = std::make_shared<Drawing::DrawableTexture>();
+	sprite2->setTexture(texture1);
+	sprite2->location.setLocation(-512.f + 16.f, -512.f);
+	sprite2->color = Drawing::Color(Drawing::Color::Green, 85);
+	sprite2->transform.scale.setVector(0.5f, 0.5f);
+
+	auto sprite3 = std::make_shared<Drawing::DrawableTexture>();
+	sprite3->setTexture(texture1);
+	sprite3->location.setLocation(-512.f + 8.f, -512.f + 13.85f);
+	sprite3->color = Drawing::Color(Drawing::Color::Blue, 85);
+	sprite3->transform.scale.setVector(0.5f, 0.5f);
+
+	auto sprite4 = std::make_shared<Drawing::DrawableTexture>();
+	sprite4->setTexture(texture1);
+	sprite4->location.setLocation(-512.f, -512.f);
+
+
 	auto panel = std::make_shared<Drawing::Panel>();
 	panel->transform.position = { 256, 256 };
 	panel->size = { 1024, 768 };
 
+	panel->addDrawable(sprite4);
+	panel->addDrawable(sprite1);
+	panel->addDrawable(sprite2);
+	panel->addDrawable(sprite3);
 	panel->addDrawable(rect);
 	panel->addDrawable(ellipse);
 	panel->addDrawable(ellipse2);
@@ -67,8 +98,32 @@ int main()
 	window1->addPanel(panel);
 
 
+	f32 myScale = 1.0f;
+	f32 scaleDir = 1.0f;
+
+
 	while (window1->isRunning())
 	{
+		myScale -= scaleDir * myScale / 64.0f;
+		if (scaleDir > 0.0f && myScale < 0.1f)
+		{
+			scaleDir = -1.0f;
+		}
+		else if (scaleDir < 0.0f && myScale > 2.0f)
+		{
+			scaleDir = 1.0f;
+		}
+
+		sprite1->transform.scale.setVector(myScale, myScale);
+		sprite2->transform.scale.setVector(myScale, myScale);
+		sprite3->transform.scale.setVector(myScale, myScale);
+
+		sprite4->transform.angle -= 0.4f;
+
+		rect->transform.angle -= 0.3f;
+
+		text1->transform.angle -= 0.1;
+
 		panel->transform.angle += 0.2f;
 
 		ellipse2->x += 0.2f;
