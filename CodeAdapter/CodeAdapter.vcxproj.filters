@@ -126,6 +126,9 @@
     <ClInclude Include="DrawableTexture.h">
       <Filter>Drawing</Filter>
     </ClInclude>
+    <ClInclude Include="Angle.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -208,6 +211,9 @@
     </ClCompile>
     <ClCompile Include="DrawableTexture.cpp">
       <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="Angle.cpp">
+      <Filter>Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

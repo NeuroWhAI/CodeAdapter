@@ -6,6 +6,7 @@
 
 #include "Point.h"
 #include "Vector.h"
+#include "Angle.h"
 
 
 
@@ -23,7 +24,7 @@ public:
 public:
 	PointF position;
 	VectorF scale;
-	f32 angle;
+	Utility::Angle angle;
 
 
 public:

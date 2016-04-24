@@ -131,6 +131,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Angle.h" />
     <ClInclude Include="Artist.h" />
     <ClInclude Include="BasicDeclaration.h" />
     <ClInclude Include="DrawableEllipse.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Angle.cpp" />
     <ClCompile Include="Artist.cpp" />
     <ClCompile Include="DrawableEllipse.cpp" />
     <ClCompile Include="DrawableLine.cpp" />
