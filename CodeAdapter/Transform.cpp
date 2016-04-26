@@ -30,8 +30,6 @@ void Transform::addTransform(const Transform& other)
 	scale.y *= other.scale.y;
 
 	angle += other.angle;
-	while (angle >= 360.0f) angle -= 360.0f;
-	while (angle < 0.0f) angle += 360.0f;
 }
 
 
