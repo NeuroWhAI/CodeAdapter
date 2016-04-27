@@ -56,6 +56,10 @@ protected:
 
 
 public:
+	virtual void attachToSystem() = 0;
+
+
+public:
 	bool addPanel(std::shared_ptr<Panel> panel);
 	bool removePanel(std::shared_ptr<const Panel> panel);
 };

@@ -47,6 +47,10 @@ protected:
 	virtual void onUpdate() override;
 	virtual void beginDraw(const Color& backColor) override;
 	virtual void endDraw() override;
+
+
+public:
+	virtual void attachToSystem() override;
 };
 
 

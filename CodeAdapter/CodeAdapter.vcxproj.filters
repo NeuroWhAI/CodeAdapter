@@ -129,6 +129,9 @@
     <ClInclude Include="Angle.h">
       <Filter>Utility</Filter>
     </ClInclude>
+    <ClInclude Include="Touch.h">
+      <Filter>System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -214,6 +217,9 @@
     </ClCompile>
     <ClCompile Include="Angle.cpp">
       <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Touch.cpp">
+      <Filter>System</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

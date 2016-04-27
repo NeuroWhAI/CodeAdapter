@@ -160,6 +160,7 @@
     <ClInclude Include="String.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureArtist.h" />
+    <ClInclude Include="Touch.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Window.h" />
@@ -190,6 +191,7 @@
     <ClCompile Include="String.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureArtist.cpp" />
+    <ClCompile Include="Touch.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Vector.cpp" />
     <ClCompile Include="Window.cpp" />

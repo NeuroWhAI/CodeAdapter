@@ -51,6 +51,10 @@ public:
 	virtual std::shared_ptr<Drawing::TextureArtist> createTextureArtist() = 0;
 	virtual std::shared_ptr<Drawing::Font> createFont() = 0;
 	virtual std::shared_ptr<Drawing::Texture> createTexture() = 0;
+
+
+public:
+	virtual std::shared_ptr<System::Touch> createTouch() = 0;
 };
 
 

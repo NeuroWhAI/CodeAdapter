@@ -84,12 +84,19 @@ void Window::beginDraw(const Color& backColor)
 		backColor.b,
 		backColor.a));
 
-	m_sharedWin.setObject(&m_win);
+	attachToSystem();
 }
 
 
 void Window::endDraw()
 {
 	m_win.display();
+}
+
+//###########################################################################
+
+void Window::attachToSystem()
+{
+	m_sharedWin.setObject(&m_win);
 }
 

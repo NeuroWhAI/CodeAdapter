@@ -43,6 +43,10 @@ public:
 	virtual std::shared_ptr<CodeAdapter::Drawing::TextureArtist> createTextureArtist() override;
 	virtual std::shared_ptr<CodeAdapter::Drawing::Font> createFont() override;
 	virtual std::shared_ptr<CodeAdapter::Drawing::Texture> createTexture() override;
+
+
+public:
+	virtual std::shared_ptr<CodeAdapter::System::Touch> createTouch() override;
 };
 
 

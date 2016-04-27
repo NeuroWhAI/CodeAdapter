@@ -60,6 +60,9 @@
     <ClInclude Include="TextureArtist.h">
       <Filter>Drawing</Filter>
     </ClInclude>
+    <ClInclude Include="Touch.h">
+      <Filter>System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window.cpp">
@@ -88,6 +91,9 @@
     </ClCompile>
     <ClCompile Include="TextureArtist.cpp">
       <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="Touch.cpp">
+      <Filter>System</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

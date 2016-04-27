@@ -104,6 +104,17 @@ int main()
 
 	while (window1->isRunning())
 	{
+		CodeAdapter::System::Touch::getInstance()->update();
+
+
+		if (CodeAdapter::System::Touch::getInstance()->
+			isPressed())
+		{
+			panel->transform.position = CodeAdapter::System::Touch::getInstance()->
+				getPositionF(*window1);
+		}
+
+
 		myScale -= scaleDir * myScale / 64.0f;
 		if (scaleDir > 0.0f && myScale < 0.1f)
 		{

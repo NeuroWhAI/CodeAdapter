@@ -166,6 +166,7 @@
     <ClInclude Include="TextArtist.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureArtist.h" />
+    <ClInclude Include="Touch.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +178,7 @@
     <ClCompile Include="TextArtist.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureArtist.cpp" />
+    <ClCompile Include="Touch.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
