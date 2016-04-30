@@ -144,6 +144,12 @@
     <ClInclude Include="Keys.h">
       <Filter>System</Filter>
     </ClInclude>
+    <ClInclude Include="SingletonWrapper.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="EasyCA.h">
+      <Filter>CodeAdapter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -242,6 +248,9 @@
     <ClCompile Include="Keyboard.cpp">
       <Filter>System</Filter>
     </ClCompile>
+    <ClCompile Include="SingletonWrapper.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Point.inl">
@@ -267,6 +276,12 @@
     </None>
     <None Include="Line.inl">
       <Filter>Drawing</Filter>
+    </None>
+    <None Include="SingletonWrapper.inl">
+      <Filter>Utility</Filter>
+    </None>
+    <None Include="EasyCA.inl">
+      <Filter>CodeAdapter</Filter>
     </None>
   </ItemGroup>
 </Project>

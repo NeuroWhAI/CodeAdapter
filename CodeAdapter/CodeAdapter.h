@@ -60,6 +60,7 @@
 #include "SharedObject.h"
 #include "Sharable.h"
 #include "UsingSharable.h"
+#include "SingletonWrapper.h"
 
 
 #endif

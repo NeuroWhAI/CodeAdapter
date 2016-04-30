@@ -114,6 +114,9 @@ class SharedObject;
 class Sharable;
 class UsingSharable;
 
+template <typename T>
+class SingletonWrapper;
+
 
 END_NAMESPACE_CA_UTILITY
 

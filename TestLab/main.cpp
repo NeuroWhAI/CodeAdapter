@@ -1,87 +1,83 @@
-#include <CodeAdapter\CodeAdapter.h>
+#include <CodeAdapter\EasyCA.h>
 #include <CodeAdapterSFML\SFMLFactory.h>
 
 
 
 
-using namespace CodeAdapter;
-
-
 int main()
 {
-	Factory::initializeInstance<SFMLFactory>();
+	initializeCA<SFMLFactory>();
 
 
-	auto window1 = Factory::getInstance()->createWindow();
-	window1->create(Drawing::Size(1024, 768),
-		Utility::String("Hello, World!"));
+	auto window1 = caFactory->createWindow();
+	window1->create(caDraw::Size(1024, 768), caUtil::String("Hello, World!"));
 
 
-	auto rect = std::make_shared<Drawing::DrawableRectangle>(-32, -64, 256, 128);
-	rect->edgeColor = Drawing::Color::Magenta;
-	rect->fillColor = Drawing::Color::Yellow;
+	auto rect = canew<caDraw::DrawableRectangle>(-32, -64, 256, 128);
+	rect->edgeColor = caDraw::Color::Magenta;
+	rect->fillColor = caDraw::Color::Yellow;
 	rect->edgeWidth = 8.0f;
 
 
-	auto ellipse = std::make_shared<Drawing::DrawableEllipse>(-32, -64, 256, 128);
-	ellipse->edgeColor = Drawing::Color::Yellow;
-	ellipse->fillColor = Drawing::Color::Magenta;
+	auto ellipse = canew<caDraw::DrawableEllipse>(-32, -64, 256, 128);
+	ellipse->edgeColor = caDraw::Color::Yellow;
+	ellipse->fillColor = caDraw::Color::Magenta;
 	ellipse->edgeWidth = 2.0f;
 
 
-	auto ellipse2 = std::make_shared<Drawing::DrawableEllipse>(-40, -70, 2, 2);
-	ellipse2->edgeColor = Drawing::Color::Red;
-	ellipse2->fillColor = Drawing::Color::Red;
+	auto ellipse2 = canew<caDraw::DrawableEllipse>(-40, -70, 2, 2);
+	ellipse2->edgeColor = caDraw::Color::Red;
+	ellipse2->fillColor = caDraw::Color::Red;
 	ellipse2->edgeWidth = 1.0f;
 
 
-	auto line1 = std::make_shared<Drawing::DrawableLine>(rect->x,
-		rect->y, rect->x + rect->width, rect->y + rect->height);
-	line1->color = Drawing::Color::Cyan;
+	auto line1 = canew<caDraw::DrawableLine>(rect->x, rect->y,
+		rect->x + rect->width, rect->y + rect->height);
+	line1->color = caDraw::Color::Cyan;
 	line1->thickness = 8.0f;
 
 
-	auto font1 = Factory::getInstance()->createFont();
+	auto font1 = caFactory->createFont();
 	font1->loadFromFile("ÀÕ°ÉÃ¼.ttf");
 	font1->setCharacterSize(64);
-	font1->setStyle(Drawing::FontStyles::StrikeOut | Drawing::FontStyles::Bold);
+	font1->setStyle(caDraw::FontStyles::StrikeOut | caDraw::FontStyles::Bold);
 
 
-	auto text1 = std::make_shared<Drawing::DrawableText>();
+	auto text1 = canew<caDraw::DrawableText>();
 	text1->setFont(font1);
 	text1->text = L"Hello, World!\n¾È³ç ¼¼»ó¾Æ!";
 	text1->location.setLocation(-64, -8);
-	text1->color = Drawing::Color(34, 177, 76);
+	text1->color = caDraw::Color(34, 177, 76);
 
 
-	auto texture1 = Factory::getInstance()->createTexture();
+	auto texture1 = caFactory->createTexture();
 	texture1->loadFromFile("neurowhai.png");
 
 
-	auto sprite1 = std::make_shared<Drawing::DrawableTexture>();
+	auto sprite1 = canew<caDraw::DrawableTexture>();
 	sprite1->setTexture(texture1);
 	sprite1->location.setLocation(-512.f, -512.f);
-	sprite1->color = Drawing::Color(Drawing::Color::Red, 85);
+	sprite1->color = caDraw::Color(caDraw::Color::Red, 85);
 	sprite1->transform.scale.setVector(0.5f, 0.5f);
 
-	auto sprite2 = std::make_shared<Drawing::DrawableTexture>();
+	auto sprite2 = canew<caDraw::DrawableTexture>();
 	sprite2->setTexture(texture1);
 	sprite2->location.setLocation(-512.f + 16.f, -512.f);
-	sprite2->color = Drawing::Color(Drawing::Color::Green, 85);
+	sprite2->color = caDraw::Color(caDraw::Color::Green, 85);
 	sprite2->transform.scale.setVector(0.5f, 0.5f);
 
-	auto sprite3 = std::make_shared<Drawing::DrawableTexture>();
+	auto sprite3 = canew<caDraw::DrawableTexture>();
 	sprite3->setTexture(texture1);
 	sprite3->location.setLocation(-512.f + 8.f, -512.f + 13.85f);
-	sprite3->color = Drawing::Color(Drawing::Color::Blue, 85);
+	sprite3->color = caDraw::Color(caDraw::Color::Blue, 85);
 	sprite3->transform.scale.setVector(0.5f, 0.5f);
 
-	auto sprite4 = std::make_shared<Drawing::DrawableTexture>();
+	auto sprite4 = canew<caDraw::DrawableTexture>();
 	sprite4->setTexture(texture1);
 	sprite4->location.setLocation(-512.f, -512.f);
 
 
-	auto panel = Factory::getInstance()->createPanel();
+	auto panel = caFactory->createPanel();
 	panel->transform.position = { 64, 64 };
 	panel->size = { 800, 600 };
 
@@ -98,7 +94,7 @@ int main()
 	window1->addPanel(panel);
 
 
-	auto panel2 = Factory::getInstance()->createPanel();
+	auto panel2 = caFactory->createPanel();
 	panel2->transform.position = { 512, 400 };
 	panel2->size = { 400, 300 };
 
@@ -121,36 +117,30 @@ int main()
 
 	while (window1->isRunning())
 	{
-		CodeAdapter::System::Touch::getInstance()->update();
+		caTouch->update();
 
-		if (CodeAdapter::System::Touch::getInstance()->
-			isPressed())
+		if (caTouch->isPressed())
 		{
-			panel2->transform.position = CodeAdapter::System::Touch::getInstance()->
-				getPositionF(*window1);
+			panel2->transform.position = caTouch->getPositionF(*window1);
 		}
 
 
-		CodeAdapter::System::Keyboard::getInstance()->update();
+		caKeyboard->update();
 
-		if (CodeAdapter::System::Keyboard::getInstance()->
-			isKeyPressed(CodeAdapter::System::Keys::W))
+		if (caKeyboard->isKeyPressed(caSys::Keys::W))
 		{
 			ellipse2->y -= 0.4f;
 		}
-		else if (CodeAdapter::System::Keyboard::getInstance()->
-			isKeyPressed(CodeAdapter::System::Keys::S))
+		else if (caKeyboard->isKeyPressed(caSys::Keys::S))
 		{
 			ellipse2->y += 0.4f;
 		}
 
-		if (CodeAdapter::System::Keyboard::getInstance()->
-			isKeyPressed(CodeAdapter::System::Keys::A))
+		if (caKeyboard->isKeyPressed(caSys::Keys::A))
 		{
 			ellipse2->x -= 0.4f;
 		}
-		else if (CodeAdapter::System::Keyboard::getInstance()->
-			isKeyPressed(CodeAdapter::System::Keys::D))
+		else if (caKeyboard->isKeyPressed(caSys::Keys::D))
 		{
 			ellipse2->x += 0.4f;
 		}
@@ -174,7 +164,7 @@ int main()
 
 		rect->transform.angle -= 0.3f;
 
-		text1->transform.angle -= 0.1;
+		text1->transform.angle -= 0.1f;
 
 		panel->transform.angle += 0.2f;
 		panel2->transform.angle += 0.2f;
@@ -184,7 +174,7 @@ int main()
 
 
 		window1->update();
-		window1->draw(Drawing::Color::Gray);
+		window1->draw(caDraw::Color::Gray);
 	}
 
 

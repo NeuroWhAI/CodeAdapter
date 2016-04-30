@@ -134,6 +134,8 @@
     <ClInclude Include="Angle.h" />
     <ClInclude Include="Artist.h" />
     <ClInclude Include="BasicDeclaration.h" />
+    <ClInclude Include="EasyCA.h" />
+    <ClInclude Include="SingletonWrapper.h" />
     <ClInclude Include="DrawableEllipse.h" />
     <ClInclude Include="DrawableLine.h" />
     <ClInclude Include="DrawableRectangle.h" />
@@ -172,6 +174,7 @@
   <ItemGroup>
     <ClCompile Include="Angle.cpp" />
     <ClCompile Include="Artist.cpp" />
+    <ClCompile Include="SingletonWrapper.cpp" />
     <ClCompile Include="DrawableEllipse.cpp" />
     <ClCompile Include="DrawableLine.cpp" />
     <ClCompile Include="DrawableRectangle.cpp" />
@@ -204,6 +207,8 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="EasyCA.inl" />
+    <None Include="SingletonWrapper.inl" />
     <None Include="Color.inl" />
     <None Include="Factory.inl" />
     <None Include="Line.inl" />
