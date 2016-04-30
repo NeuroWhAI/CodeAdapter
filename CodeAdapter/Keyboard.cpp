@@ -1,4 +1,4 @@
-#include "Touch.h"
+#include "Keyboard.h"
 
 #include "Factory.h"
 
@@ -8,29 +8,29 @@
 BEGIN_NAMESPACE_CA_SYSTEM
 
 
-std::shared_ptr<Touch> Touch::s_instance = nullptr;
-Touch::Cleaner Touch::s_cleaner;
+std::shared_ptr<Keyboard> Keyboard::s_instance = nullptr;
+Keyboard::Cleaner Keyboard::s_cleaner;
 
 //###########################################################################
 
-Touch::Touch()
+Keyboard::Keyboard()
 {
 
 }
 
 
-Touch::~Touch()
+Keyboard::~Keyboard()
 {
 
 }
 
 //###########################################################################
 
-Touch* Touch::getInstance()
+Keyboard* Keyboard::getInstance()
 {
 	if (s_instance == nullptr)
 	{
-		s_instance = Factory::getInstance()->createTouch();
+		s_instance = Factory::getInstance()->createKeyboard();
 	}
 
 

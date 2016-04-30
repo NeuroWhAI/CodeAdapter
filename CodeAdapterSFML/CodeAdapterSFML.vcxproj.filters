@@ -66,6 +66,9 @@
     <ClInclude Include="SFMLArtist.h">
       <Filter>Drawing</Filter>
     </ClInclude>
+    <ClInclude Include="Keyboard.h">
+      <Filter>System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window.cpp">
@@ -100,6 +103,9 @@
     </ClCompile>
     <ClCompile Include="SFMLArtist.cpp">
       <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="Keyboard.cpp">
+      <Filter>System</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

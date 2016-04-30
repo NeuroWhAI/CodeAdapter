@@ -22,7 +22,7 @@ public:
 
 
 protected:
-	static std::shared_ptr<Touch> s_touchListener;
+	static std::shared_ptr<Touch> s_instance;
 
 
 private:
@@ -31,9 +31,9 @@ private:
 	public:
 		virtual ~Cleaner()
 		{
-			if (s_touchListener)
+			if (s_instance)
 			{
-				s_touchListener.reset();
+				s_instance.reset();
 			}
 		}
 	};

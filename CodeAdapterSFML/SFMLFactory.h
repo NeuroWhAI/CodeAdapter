@@ -47,6 +47,7 @@ public:
 
 public:
 	virtual std::shared_ptr<CodeAdapter::System::Touch> createTouch() override;
+	virtual std::shared_ptr<CodeAdapter::System::Keyboard> createKeyboard() override;
 };
 
 

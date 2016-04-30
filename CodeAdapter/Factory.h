@@ -55,6 +55,7 @@ public:
 
 public:
 	virtual std::shared_ptr<System::Touch> createTouch() = 0;
+	virtual std::shared_ptr<System::Keyboard> createKeyboard() = 0;
 };
 
 

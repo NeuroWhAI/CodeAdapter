@@ -138,6 +138,12 @@
     <ClInclude Include="UsingSharable.h">
       <Filter>Utility</Filter>
     </ClInclude>
+    <ClInclude Include="Keyboard.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Keys.h">
+      <Filter>System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -232,6 +238,9 @@
     </ClCompile>
     <ClCompile Include="UsingSharable.cpp">
       <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Keyboard.cpp">
+      <Filter>System</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

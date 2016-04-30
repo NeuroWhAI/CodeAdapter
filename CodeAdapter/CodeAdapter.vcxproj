@@ -141,6 +141,8 @@
     <ClInclude Include="DrawableTexture.h" />
     <ClInclude Include="EllipseArtist.h" />
     <ClInclude Include="Font.h" />
+    <ClInclude Include="Keyboard.h" />
+    <ClInclude Include="Keys.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="LineArtist.h" />
     <ClInclude Include="RectangleArtist.h" />
@@ -177,6 +179,7 @@
     <ClCompile Include="DrawableTexture.cpp" />
     <ClCompile Include="EllipseArtist.cpp" />
     <ClCompile Include="Font.cpp" />
+    <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="LineArtist.cpp" />
     <ClCompile Include="RectangleArtist.cpp" />

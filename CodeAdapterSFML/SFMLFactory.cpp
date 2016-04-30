@@ -12,6 +12,7 @@
 #include "Texture.h"
 
 #include "Touch.h"
+#include "Keyboard.h"
 
 
 
@@ -80,5 +81,11 @@ std::shared_ptr<CodeAdapter::Drawing::Texture> SFMLFactory::createTexture()
 std::shared_ptr<CodeAdapter::System::Touch> SFMLFactory::createTouch()
 {
 	return std::make_shared<Touch>(m_sharedWindow);
+}
+
+
+std::shared_ptr<CodeAdapter::System::Keyboard> SFMLFactory::createKeyboard()
+{
+	return std::make_shared<Keyboard>();
 }
 

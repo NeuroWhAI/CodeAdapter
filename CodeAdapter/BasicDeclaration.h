@@ -76,6 +76,7 @@ BEGIN_NAMESPACE_CA_SYSTEM
 
 
 class Touch;
+class Keyboard;
 
 
 END_NAMESPACE_CA_SYSTEM

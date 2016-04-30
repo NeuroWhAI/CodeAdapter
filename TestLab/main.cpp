@@ -106,12 +106,36 @@ int main()
 	{
 		CodeAdapter::System::Touch::getInstance()->update();
 
-
 		if (CodeAdapter::System::Touch::getInstance()->
 			isPressed())
 		{
 			panel->transform.position = CodeAdapter::System::Touch::getInstance()->
 				getPositionF(*window1);
+		}
+
+
+		CodeAdapter::System::Keyboard::getInstance()->update();
+
+		if (CodeAdapter::System::Keyboard::getInstance()->
+			isKeyPressed(CodeAdapter::System::Keys::W))
+		{
+			ellipse2->y -= 0.4f;
+		}
+		else if (CodeAdapter::System::Keyboard::getInstance()->
+			isKeyPressed(CodeAdapter::System::Keys::S))
+		{
+			ellipse2->y += 0.4f;
+		}
+
+		if (CodeAdapter::System::Keyboard::getInstance()->
+			isKeyPressed(CodeAdapter::System::Keys::A))
+		{
+			ellipse2->x -= 0.4f;
+		}
+		else if (CodeAdapter::System::Keyboard::getInstance()->
+			isKeyPressed(CodeAdapter::System::Keys::D))
+		{
+			ellipse2->x += 0.4f;
 		}
 
 
@@ -137,8 +161,6 @@ int main()
 
 		panel->transform.angle += 0.2f;
 
-		ellipse2->x += 0.2f;
-		ellipse2->y += 0.4f;
 
 		rect->setVisible(ellipse->containsPoint(ellipse2->x, ellipse2->y));
 
