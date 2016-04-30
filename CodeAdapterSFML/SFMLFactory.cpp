@@ -3,6 +3,7 @@
 #include "SFML\Graphics.hpp"
 
 #include "Window.h"
+#include "Panel.h"
 #include "TextArtist.h"
 #include "RectangleArtist.h"
 #include "EllipseArtist.h"
@@ -33,6 +34,12 @@ SFMLFactory::~SFMLFactory()
 std::shared_ptr<CodeAdapter::Drawing::Window> SFMLFactory::createWindow()
 {
 	return std::make_shared<Window>(m_sharedWindow);
+}
+
+
+std::shared_ptr<CodeAdapter::Drawing::Panel> SFMLFactory::createPanel()
+{
+	return std::make_shared<Panel>(m_sharedWindow);
 }
 
 

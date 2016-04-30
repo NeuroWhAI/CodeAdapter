@@ -162,6 +162,7 @@
     <ClInclude Include="Font.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="LineArtist.h" />
+    <ClInclude Include="Panel.h" />
     <ClInclude Include="SFMLArtist.h" />
     <ClInclude Include="SFMLFactory.h" />
     <ClInclude Include="RectangleArtist.h" />
@@ -176,6 +177,7 @@
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="LineArtist.cpp" />
+    <ClCompile Include="Panel.cpp" />
     <ClCompile Include="SFMLArtist.cpp" />
     <ClCompile Include="SFMLFactory.cpp" />
     <ClCompile Include="RectangleArtist.cpp" />

@@ -69,6 +69,9 @@
     <ClInclude Include="Keyboard.h">
       <Filter>System</Filter>
     </ClInclude>
+    <ClInclude Include="Panel.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window.cpp">
@@ -106,6 +109,9 @@
     </ClCompile>
     <ClCompile Include="Keyboard.cpp">
       <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="Panel.cpp">
+      <Filter>Drawing</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

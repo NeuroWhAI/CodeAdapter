@@ -44,6 +44,7 @@ public:
 
 public:
 	virtual std::shared_ptr<Drawing::Window> createWindow() = 0;
+	virtual std::shared_ptr<Drawing::Panel> createPanel() = 0;
 	virtual std::shared_ptr<Drawing::TextArtist> createTextArtist() = 0;
 	virtual std::shared_ptr<Drawing::RectangleArtist> createRectangleArtist() = 0;
 	virtual std::shared_ptr<Drawing::EllipseArtist> createEllipseArtist() = 0;

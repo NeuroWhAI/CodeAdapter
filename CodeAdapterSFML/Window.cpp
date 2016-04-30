@@ -12,6 +12,7 @@
 Window::Window(SharedObject<sf::RenderWindow>& sharedWin)
 	: m_sharedWin(sharedWin)
 {
+	
 }
 
 

@@ -81,9 +81,9 @@ int main()
 	sprite4->location.setLocation(-512.f, -512.f);
 
 
-	auto panel = std::make_shared<Drawing::Panel>();
-	panel->transform.position = { 256, 256 };
-	panel->size = { 1024, 768 };
+	auto panel = Factory::getInstance()->createPanel();
+	panel->transform.position = { 64, 64 };
+	panel->size = { 800, 600 };
 
 	panel->addDrawable(sprite4);
 	panel->addDrawable(sprite1);
@@ -98,6 +98,23 @@ int main()
 	window1->addPanel(panel);
 
 
+	auto panel2 = Factory::getInstance()->createPanel();
+	panel2->transform.position = { 512, 400 };
+	panel2->size = { 400, 300 };
+
+	panel2->addDrawable(sprite4);
+	panel2->addDrawable(sprite1);
+	panel2->addDrawable(sprite2);
+	panel2->addDrawable(sprite3);
+	panel2->addDrawable(rect);
+	panel2->addDrawable(ellipse);
+	panel2->addDrawable(ellipse2);
+	panel2->addDrawable(line1);
+	panel2->addDrawable(text1);
+
+	window1->addPanel(panel2);
+
+
 	f32 myScale = 1.0f;
 	f32 scaleDir = 1.0f;
 
@@ -109,7 +126,7 @@ int main()
 		if (CodeAdapter::System::Touch::getInstance()->
 			isPressed())
 		{
-			panel->transform.position = CodeAdapter::System::Touch::getInstance()->
+			panel2->transform.position = CodeAdapter::System::Touch::getInstance()->
 				getPositionF(*window1);
 		}
 
@@ -160,6 +177,7 @@ int main()
 		text1->transform.angle -= 0.1;
 
 		panel->transform.angle += 0.2f;
+		panel2->transform.angle += 0.2f;
 
 
 		rect->setVisible(ellipse->containsPoint(ellipse2->x, ellipse2->y));

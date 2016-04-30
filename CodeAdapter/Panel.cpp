@@ -24,7 +24,7 @@ Panel::~Panel()
 
 void Panel::onDraw(Graphics& g, const Transform& parentTransform)
 {
-	// TODO: 패널 영역만큼 클리핑
+	beginDraw();
 
 
 	// 로컬변환과 전역변환을 합쳐서 draw의 인수로 넘김
@@ -37,6 +37,9 @@ void Panel::onDraw(Graphics& g, const Transform& parentTransform)
 	{
 		drawable.lock()->draw(g, combinedTransform);
 	}
+
+
+	endDraw();
 }
 
 //###########################################################################
@@ -49,11 +52,17 @@ void Panel::update()
 
 void Panel::draw(Graphics& g)
 {
+	beginDraw();
+
+
 	// 요소 그리기
 	for (auto& drawable : m_drawables)
 	{
 		drawable.lock()->draw(g, transform);
 	}
+
+
+	endDraw();
 }
 
 //###########################################################################

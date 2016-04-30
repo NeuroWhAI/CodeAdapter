@@ -38,6 +38,11 @@ protected:
 	virtual void onDraw(Graphics& g, const Transform& parentTransform);
 
 
+protected:
+	virtual void beginDraw() = 0;
+	virtual void endDraw() = 0;
+
+
 public:
 	void update();
 	void draw(Graphics& g);
