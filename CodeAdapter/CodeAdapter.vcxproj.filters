@@ -251,6 +251,9 @@
     <ClCompile Include="SingletonWrapper.cpp">
       <Filter>Utility</Filter>
     </ClCompile>
+    <ClCompile Include="EasyCA.cpp">
+      <Filter>CodeAdapter</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Point.inl">

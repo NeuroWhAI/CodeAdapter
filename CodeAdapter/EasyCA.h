@@ -4,7 +4,7 @@
 
 #include <memory>
 
-#include <CodeAdapter\CodeAdapter.h>
+#include "CodeAdapter.h"
 
 
 
@@ -32,13 +32,8 @@ template <typename T, typename... Args>
 std::shared_ptr<T> canew(Args... args);
 
 
-caUtil::SingletonWrapper<ca::Factory> caFactory;
 extern caUtil::SingletonWrapper<ca::Factory> caFactory;
-
-caUtil::SingletonWrapper<caSys::Touch> caTouch;
 extern caUtil::SingletonWrapper<caSys::Touch> caTouch;
-
-caUtil::SingletonWrapper<caSys::Keyboard> caKeyboard;
 extern caUtil::SingletonWrapper<caSys::Keyboard> caKeyboard;
 
 
