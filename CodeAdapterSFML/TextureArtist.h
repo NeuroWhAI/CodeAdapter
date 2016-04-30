@@ -3,13 +3,16 @@
 
 
 #include "CodeAdapter\TextureArtist.h"
+#include "SFMLArtist.h"
 
 #include "SFML\Graphics.hpp"
 
 
 
 
-class TextureArtist : public CodeAdapter::Drawing::TextureArtist
+class TextureArtist :
+	public CodeAdapter::Drawing::TextureArtist,
+	public SFMLArtist
 {
 private:
 	USING_CA(i32);
@@ -32,16 +35,11 @@ public:
 
 protected:
 	SharedObject<sf::RenderWindow>& m_sharedWin;
-	sf::RenderStates m_renderStates;
 
 
 protected:
 	SharedObject<sf::Texture>& m_sharedTexture;
 	sf::Sprite m_sprite;
-
-
-protected:
-	void updateRenderTransform();
 
 
 public:

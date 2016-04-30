@@ -37,8 +37,14 @@ bool Texture::loadFromFile(const String& filename,
 
 //###########################################################################
 
-void Texture::attachToGraphics()
+void Texture::attach()
 {
-	m_sharedTexture.setObject(&m_texture);
+	m_sharedTexture.pushObject(&m_texture);
+}
+
+
+void Texture::detach()
+{
+	m_sharedTexture.popObject();
 }
 

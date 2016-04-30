@@ -3,13 +3,16 @@
 
 
 #include "CodeAdapter\LineArtist.h"
+#include "SFMLArtist.h"
 
 #include "SFML\Graphics.hpp"
 
 
 
 
-class LineArtist : public CodeAdapter::Drawing::LineArtist
+class LineArtist :
+	public CodeAdapter::Drawing::LineArtist,
+	public SFMLArtist
 {
 private:
 	USING_CA(i32);
@@ -31,15 +34,10 @@ public:
 
 protected:
 	SharedObject<sf::RenderWindow>& m_sharedWin;
-	sf::RenderStates m_renderStates;
 
 
 protected:
 	f32 m_thickness;
-
-
-protected:
-	void updateRenderTransform();
 
 
 public:

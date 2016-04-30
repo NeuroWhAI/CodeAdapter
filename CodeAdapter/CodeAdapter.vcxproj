@@ -144,6 +144,7 @@
     <ClInclude Include="Line.h" />
     <ClInclude Include="LineArtist.h" />
     <ClInclude Include="RectangleArtist.h" />
+    <ClInclude Include="Sharable.h" />
     <ClInclude Include="SharedObject.h" />
     <ClInclude Include="TextArtist.h" />
     <ClInclude Include="CodeAdapter.h" />
@@ -162,6 +163,7 @@
     <ClInclude Include="TextureArtist.h" />
     <ClInclude Include="Touch.h" />
     <ClInclude Include="Transform.h" />
+    <ClInclude Include="UsingSharable.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
@@ -178,6 +180,7 @@
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="LineArtist.cpp" />
     <ClCompile Include="RectangleArtist.cpp" />
+    <ClCompile Include="Sharable.cpp" />
     <ClCompile Include="SharedObject.cpp" />
     <ClCompile Include="TextArtist.cpp" />
     <ClCompile Include="Color.cpp" />
@@ -193,6 +196,7 @@
     <ClCompile Include="TextureArtist.cpp" />
     <ClCompile Include="Touch.cpp" />
     <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="UsingSharable.cpp" />
     <ClCompile Include="Vector.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>

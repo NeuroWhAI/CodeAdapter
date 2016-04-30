@@ -1,5 +1,7 @@
 #include "TextArtist.h"
 
+#include "CodeAdapter\UsingSharable.h"
+
 #include "CodeAdapter\String.h"
 #include "CodeAdapter\SharedObject.h"
 
@@ -13,7 +15,6 @@
 TextArtist::TextArtist(SharedObject<sf::RenderWindow>& sharedWin,
 	SharedObject<sf::Text>& sharedFontText)
 	: m_sharedWin(sharedWin)
-	, m_renderStates(sf::RenderStates::Default)
 	
 	, m_text(nullptr)
 	, m_sharedFontText(sharedFontText)
@@ -29,24 +30,13 @@ TextArtist::~TextArtist()
 
 //###########################################################################
 
-void TextArtist::updateRenderTransform()
-{
-	m_renderStates.transform.translate(transform.position.x,
-		transform.position.y);
-	m_renderStates.transform.rotate(transform.angle);
-	m_renderStates.transform.scale(transform.scale.x,
-		transform.scale.y);
-}
-
-//###########################################################################
-
 void TextArtist::beginDrawString(Font& font)
 {
-	font.attachToGraphics();
+	CodeAdapter::Utility::UsingSharable shareFont(font);
 
 	m_text = m_sharedFontText.getObject();
 
-	updateRenderTransform();
+	updateRenderTransform(transform);
 }
 
 

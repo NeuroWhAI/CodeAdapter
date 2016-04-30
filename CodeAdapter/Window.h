@@ -7,13 +7,15 @@
 
 #include "BasicDeclaration.h"
 
+#include "Sharable.h"
+
 
 
 
 BEGIN_NAMESPACE_CA_DRAWING
 
 
-class Window
+class Window : public Utility::Sharable
 {
 public:
 	using Ptr = std::shared_ptr<Window>;
@@ -53,10 +55,6 @@ protected:
 	virtual void onUpdate() = 0;
 	virtual void beginDraw(const Color& backColor) = 0;
 	virtual void endDraw() = 0;
-
-
-public:
-	virtual void attachToSystem() = 0;
 
 
 public:

@@ -12,7 +12,6 @@
 
 RectangleArtist::RectangleArtist(SharedObject<sf::RenderWindow>& sharedWin)
 	: m_sharedWin(sharedWin)
-	, m_renderStates(sf::RenderStates::Default)
 {
 
 }
@@ -25,23 +24,12 @@ RectangleArtist::~RectangleArtist()
 
 //###########################################################################
 
-void RectangleArtist::updateRenderTransform()
-{
-	m_renderStates.transform.translate(transform.position.x,
-		transform.position.y);
-	m_renderStates.transform.rotate(transform.angle);
-	m_renderStates.transform.scale(transform.scale.x,
-		transform.scale.y);
-}
-
-//###########################################################################
-
 void RectangleArtist::beginDrawRectangle(f32 thickness)
 {
 	m_drawRect.setOutlineThickness(thickness);
 	m_drawRect.setFillColor(sf::Color::Transparent);
 
-	updateRenderTransform();
+	updateRenderTransform(transform);
 }
 
 
@@ -107,7 +95,7 @@ void RectangleArtist::drawRectangle(const RectangleF& rectangle, const Color& co
 
 void RectangleArtist::beginFillRectangle()
 {
-	updateRenderTransform();
+	updateRenderTransform(transform);
 }
 
 

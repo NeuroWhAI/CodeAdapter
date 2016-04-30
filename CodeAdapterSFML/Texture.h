@@ -35,7 +35,8 @@ public:
 
 
 public:
-	virtual void attachToGraphics() override;
+	virtual void attach() override;
+	virtual void detach() override;
 };
 
 

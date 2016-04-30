@@ -110,6 +110,9 @@ class String;
 template <typename T>
 class SharedObject;
 
+class Sharable;
+class UsingSharable;
+
 
 END_NAMESPACE_CA_UTILITY
 

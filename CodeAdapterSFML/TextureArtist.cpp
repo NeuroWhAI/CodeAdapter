@@ -1,5 +1,7 @@
 #include "TextureArtist.h"
 
+#include "CodeAdapter\UsingSharable.h"
+
 #include "CodeAdapter\SharedObject.h"
 
 #include "CodeAdapter\Color.h"
@@ -13,7 +15,6 @@
 TextureArtist::TextureArtist(SharedObject<sf::RenderWindow>& sharedWin,
 	SharedObject<sf::Texture>& sharedTexture)
 	: m_sharedWin(sharedWin)
-	, m_renderStates(sf::RenderStates::Default)
 
 	, m_sharedTexture(sharedTexture)
 {
@@ -28,20 +29,9 @@ TextureArtist::~TextureArtist()
 
 //###########################################################################
 
-void TextureArtist::updateRenderTransform()
-{
-	m_renderStates.transform.translate(transform.position.x,
-		transform.position.y);
-	m_renderStates.transform.rotate(transform.angle);
-	m_renderStates.transform.scale(transform.scale.x,
-		transform.scale.y);
-}
-
-//###########################################################################
-
 void TextureArtist::beginDrawTexture()
 {
-	updateRenderTransform();
+	updateRenderTransform(transform);
 }
 
 
@@ -88,7 +78,7 @@ void TextureArtist::drawTexture(Texture& texture, const Point& location,
 void TextureArtist::drawTexture(Texture& texture, f32 x, f32 y,
 	const Color& maskColor)
 {
-	texture.attachToGraphics();
+	CodeAdapter::Utility::UsingSharable shareTexture(texture);
 
 	m_sprite.setTexture(*m_sharedTexture.getObject(), true);
 	m_sprite.setPosition(x, y);
@@ -102,7 +92,7 @@ void TextureArtist::drawTexture(Texture& texture, f32 x, f32 y,
 	const Rectangle& sliceRectangle,
 	const Color& maskColor)
 {
-	texture.attachToGraphics();
+	CodeAdapter::Utility::UsingSharable shareTexture(texture);
 
 	m_sprite.setTexture(*m_sharedTexture.getObject());
 	m_sprite.setPosition(x, y);

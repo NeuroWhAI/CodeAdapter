@@ -5,6 +5,7 @@
 #include "BasicDeclaration.h"
 
 #include "String.h"
+#include "Sharable.h"
 
 
 
@@ -22,7 +23,7 @@ enum FontStyles : i32
 };
 
 
-class Font
+class Font : public Utility::Sharable
 {
 public:
 	Font();
@@ -60,10 +61,6 @@ public:
 	void setStyle(i32 style);
 	void addStyle(i32 style);
 	void removeStyle(i32 style);
-
-
-public:
-	virtual void attachToGraphics() = 0;
 
 
 protected:

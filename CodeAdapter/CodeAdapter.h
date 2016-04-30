@@ -57,6 +57,8 @@
 // Utility -----------------------------------------------------------------
 #include "String.h"
 #include "SharedObject.h"
+#include "Sharable.h"
+#include "UsingSharable.h"
 
 
 #endif

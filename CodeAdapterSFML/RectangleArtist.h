@@ -3,13 +3,16 @@
 
 
 #include "CodeAdapter\RectangleArtist.h"
+#include "SFMLArtist.h"
 
 #include "SFML\Graphics.hpp"
 
 
 
 
-class RectangleArtist : public CodeAdapter::Drawing::RectangleArtist
+class RectangleArtist :
+	public CodeAdapter::Drawing::RectangleArtist,
+	public SFMLArtist
 {
 private:
 	USING_CA(i32);
@@ -33,16 +36,11 @@ public:
 
 protected:
 	SharedObject<sf::RenderWindow>& m_sharedWin;
-	sf::RenderStates m_renderStates;
 
 
 protected:
 	sf::RectangleShape m_drawRect;
 	sf::RectangleShape m_fillRect;
-
-
-protected:
-	void updateRenderTransform();
 
 
 public:

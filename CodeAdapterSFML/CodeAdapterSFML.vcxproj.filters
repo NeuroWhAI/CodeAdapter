@@ -63,6 +63,9 @@
     <ClInclude Include="Touch.h">
       <Filter>System</Filter>
     </ClInclude>
+    <ClInclude Include="SFMLArtist.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window.cpp">
@@ -94,6 +97,9 @@
     </ClCompile>
     <ClCompile Include="Touch.cpp">
       <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="SFMLArtist.cpp">
+      <Filter>Drawing</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

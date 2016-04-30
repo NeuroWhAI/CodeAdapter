@@ -83,8 +83,6 @@ void Window::beginDraw(const Color& backColor)
 		backColor.g,
 		backColor.b,
 		backColor.a));
-
-	attachToSystem();
 }
 
 
@@ -95,8 +93,14 @@ void Window::endDraw()
 
 //###########################################################################
 
-void Window::attachToSystem()
+void Window::attach()
 {
-	m_sharedWin.setObject(&m_win);
+	m_sharedWin.pushObject(&m_win);
+}
+
+
+void Window::detach()
+{
+	m_sharedWin.popObject();
 }
 

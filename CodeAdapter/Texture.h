@@ -4,13 +4,15 @@
 
 #include "BasicDeclaration.h"
 
+#include "Sharable.h"
+
 
 
 
 BEGIN_NAMESPACE_CA_DRAWING
 
 
-class Texture
+class Texture : public Utility::Sharable
 {
 public:
 	Texture();
@@ -21,10 +23,6 @@ public:
 	virtual bool loadFromFile(const Utility::String& filename) = 0;
 	virtual bool loadFromFile(const Utility::String& filename,
 		const Rectangle& rectangle) = 0;
-
-
-public:
-	virtual void attachToGraphics() = 0;
 };
 
 

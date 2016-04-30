@@ -132,6 +132,12 @@
     <ClInclude Include="Touch.h">
       <Filter>System</Filter>
     </ClInclude>
+    <ClInclude Include="Sharable.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="UsingSharable.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -220,6 +226,12 @@
     </ClCompile>
     <ClCompile Include="Touch.cpp">
       <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="Sharable.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="UsingSharable.cpp">
+      <Filter>Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

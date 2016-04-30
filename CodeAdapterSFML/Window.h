@@ -50,7 +50,8 @@ protected:
 
 
 public:
-	virtual void attachToSystem() override;
+	virtual void attach() override;
+	virtual void detach() override;
 };
 
 

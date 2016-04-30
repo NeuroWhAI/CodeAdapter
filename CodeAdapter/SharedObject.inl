@@ -8,9 +8,8 @@ BEGIN_NAMESPACE_CA_UTILITY
 
 template <typename T>
 SharedObject<T>::SharedObject()
-	: m_sharedObj(nullptr)
 {
-
+	m_sharedObjStack.push(nullptr);
 }
 
 
@@ -23,23 +22,43 @@ SharedObject<T>::~SharedObject()
 //###########################################################################
 
 template <typename T>
-void SharedObject<T>::setObject(T* obj)
+void SharedObject<T>::pushObject(T* obj)
 {
-	m_sharedObj = obj;
+	m_sharedObjStack.push(obj);
 }
 
 
 template <typename T>
 T* SharedObject<T>::getObject()
 {
-	return m_sharedObj;
+	return m_sharedObjStack.top();
 }
 
 
 template <typename T>
 const T* SharedObject<T>::getObject() const
 {
-	return m_sharedObj;
+	return m_sharedObjStack.top();
+}
+
+
+template <typename T>
+T* SharedObject<T>::popObject()
+{
+	auto topObj = m_sharedObjStack.top();
+	m_sharedObjStack.pop();
+
+	return topObj;
+}
+
+
+template <typename T>
+const T* SharedObject<T>::popObject() const
+{
+	const auto topObj = m_sharedObjStack.top();
+	m_sharedObjStack.pop();
+
+	return topObj;
 }
 
 

@@ -12,7 +12,6 @@
 
 LineArtist::LineArtist(SharedObject<sf::RenderWindow>& sharedWin)
 	: m_sharedWin(sharedWin)
-	, m_renderStates(sf::RenderStates::Default)
 
 	, m_thickness(0.0f)
 {
@@ -27,22 +26,11 @@ LineArtist::~LineArtist()
 
 //###########################################################################
 
-void LineArtist::updateRenderTransform()
-{
-	m_renderStates.transform.translate(transform.position.x,
-		transform.position.y);
-	m_renderStates.transform.rotate(transform.angle);
-	m_renderStates.transform.scale(transform.scale.x,
-		transform.scale.y);
-}
-
-//###########################################################################
-
 void LineArtist::beginDrawLine(f32 thickness)
 {
 	m_thickness = thickness;
 
-	updateRenderTransform();
+	updateRenderTransform(transform);
 }
 
 

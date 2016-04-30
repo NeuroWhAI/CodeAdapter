@@ -1,5 +1,7 @@
 #include "Window.h"
 
+#include "UsingSharable.h"
+
 #include "String.h"
 
 #include "Point.h"
@@ -41,6 +43,8 @@ void Window::update()
 
 void Window::draw(const Color& backColor)
 {
+	Utility::UsingSharable shareWin(*this);
+
 	beginDraw(backColor);
 
 	for (auto& panel : m_panelList)

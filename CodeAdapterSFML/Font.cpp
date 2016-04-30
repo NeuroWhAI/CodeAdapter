@@ -20,9 +20,15 @@ Font::~Font()
 
 //###########################################################################
 
-void Font::attachToGraphics()
+void Font::attach()
 {
-	m_sharedFontText.setObject(&m_text);
+	m_sharedFontText.pushObject(&m_text);
+}
+
+
+void Font::detach()
+{
+	m_sharedFontText.popObject();
 }
 
 //###########################################################################

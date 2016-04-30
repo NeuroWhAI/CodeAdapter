@@ -3,13 +3,16 @@
 
 
 #include "CodeAdapter\TextArtist.h"
+#include "SFMLArtist.h"
 
 #include "SFML\Graphics.hpp"
 
 
 
 
-class TextArtist : public CodeAdapter::Drawing::TextArtist
+class TextArtist :
+	public CodeAdapter::Drawing::TextArtist,
+	public SFMLArtist
 {
 private:
 	USING_CA(i32);
@@ -32,16 +35,11 @@ public:
 
 protected:
 	SharedObject<sf::RenderWindow>& m_sharedWin;
-	sf::RenderStates m_renderStates;
 
 
 protected:
 	sf::Text* m_text;
 	SharedObject<sf::Text>& m_sharedFontText;
-
-
-protected:
-	void updateRenderTransform();
 
 
 public:

@@ -161,6 +161,7 @@
     <ClInclude Include="EllipseArtist.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="LineArtist.h" />
+    <ClInclude Include="SFMLArtist.h" />
     <ClInclude Include="SFMLFactory.h" />
     <ClInclude Include="RectangleArtist.h" />
     <ClInclude Include="TextArtist.h" />
@@ -173,6 +174,7 @@
     <ClCompile Include="EllipseArtist.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="LineArtist.cpp" />
+    <ClCompile Include="SFMLArtist.cpp" />
     <ClCompile Include="SFMLFactory.cpp" />
     <ClCompile Include="RectangleArtist.cpp" />
     <ClCompile Include="TextArtist.cpp" />

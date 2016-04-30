@@ -2,6 +2,8 @@
 #define __CA__SHARED_OBJECT_H__
 
 
+#include <stack>
+
 #include "BasicDeclaration.h"
 
 
@@ -19,13 +21,15 @@ public:
 
 
 protected:
-	T* m_sharedObj;
+	std::stack<T*> m_sharedObjStack;
 
 
 public:
-	void setObject(T* obj);
+	void pushObject(T* obj);
 	T* getObject();
 	const T* getObject() const;
+	T* popObject();
+	const T* popObject() const;
 };
 
 

@@ -2,6 +2,8 @@
 
 #include "SFML\Graphics.hpp"
 
+#include "CodeAdapter\UsingSharable.h"
+
 #include "CodeAdapter\SharedObject.h"
 
 #include "CodeAdapter\Point.h"
@@ -101,7 +103,7 @@ bool Touch::isLongUp() const
 
 Touch::Point Touch::getPosition(Window& win) const
 {
-	win.attachToSystem();
+	CodeAdapter::Utility::UsingSharable shareWin(win);
 
 	auto cursor = sf::Mouse::getPosition(*m_sharedWin.getObject());
 
@@ -111,7 +113,7 @@ Touch::Point Touch::getPosition(Window& win) const
 
 Touch::PointF Touch::getPositionF(Window& win) const
 {
-	win.attachToSystem();
+	CodeAdapter::Utility::UsingSharable shareWin(win);
 
 	auto cursor = sf::Mouse::getPosition(*m_sharedWin.getObject());
 
@@ -121,7 +123,7 @@ Touch::PointF Touch::getPositionF(Window& win) const
 
 void Touch::getPosition(i32* pX, i32* pY, Window& win) const
 {
-	win.attachToSystem();
+	CodeAdapter::Utility::UsingSharable shareWin(win);
 
 	auto cursor = sf::Mouse::getPosition(*m_sharedWin.getObject());
 
@@ -132,7 +134,7 @@ void Touch::getPosition(i32* pX, i32* pY, Window& win) const
 
 void Touch::getPosition(f32* pX, f32* pY, Window& win) const
 {
-	win.attachToSystem();
+	CodeAdapter::Utility::UsingSharable shareWin(win);
 
 	auto cursor = sf::Mouse::getPosition(*m_sharedWin.getObject());
 
