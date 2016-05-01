@@ -31,6 +31,9 @@
     <Filter Include="Utility">
       <UniqueIdentifier>{813a8b64-b7a0-4dc5-9991-251a96fac1bd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{ac44ecbf-9c12-4937-8245-cbf9f175a1cd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Definition.h">
@@ -150,6 +153,12 @@
     <ClInclude Include="EasyCA.h">
       <Filter>CodeAdapter</Filter>
     </ClInclude>
+    <ClInclude Include="Updatable.h">
+      <Filter>Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="Control.h">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -253,6 +262,12 @@
     </ClCompile>
     <ClCompile Include="EasyCA.cpp">
       <Filter>CodeAdapter</Filter>
+    </ClCompile>
+    <ClCompile Include="Updatable.cpp">
+      <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="Control.cpp">
+      <Filter>UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

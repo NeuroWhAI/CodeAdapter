@@ -134,6 +134,7 @@
     <ClInclude Include="Angle.h" />
     <ClInclude Include="Artist.h" />
     <ClInclude Include="BasicDeclaration.h" />
+    <ClInclude Include="Control.h" />
     <ClInclude Include="EasyCA.h" />
     <ClInclude Include="SingletonWrapper.h" />
     <ClInclude Include="DrawableEllipse.h" />
@@ -167,6 +168,7 @@
     <ClInclude Include="TextureArtist.h" />
     <ClInclude Include="Touch.h" />
     <ClInclude Include="Transform.h" />
+    <ClInclude Include="Updatable.h" />
     <ClInclude Include="UsingSharable.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Window.h" />
@@ -174,6 +176,7 @@
   <ItemGroup>
     <ClCompile Include="Angle.cpp" />
     <ClCompile Include="Artist.cpp" />
+    <ClCompile Include="Control.cpp" />
     <ClCompile Include="EasyCA.cpp" />
     <ClCompile Include="SingletonWrapper.cpp" />
     <ClCompile Include="DrawableEllipse.cpp" />
@@ -203,6 +206,7 @@
     <ClCompile Include="TextureArtist.cpp" />
     <ClCompile Include="Touch.cpp" />
     <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="Updatable.cpp" />
     <ClCompile Include="UsingSharable.cpp" />
     <ClCompile Include="Vector.cpp" />
     <ClCompile Include="Window.cpp" />

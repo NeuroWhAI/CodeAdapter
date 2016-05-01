@@ -13,6 +13,7 @@ BEGIN_NAMESPACE_CA_DRAWING
 
 // * Interface
 class Drawable;
+class Updatable;
 
 // * Basic Element
 template <typename T>
@@ -119,6 +120,16 @@ class SingletonWrapper;
 
 
 END_NAMESPACE_CA_UTILITY
+
+
+// UI -----------------------------------------------------------------
+BEGIN_NAMESPACE_CA_UI
+
+
+class Control;
+
+
+END_NAMESPACE_CA_UI
 
 
 #endif

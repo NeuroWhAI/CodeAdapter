@@ -11,6 +11,7 @@
 // Drawing -----------------------------------------------------------------
 // * Interface
 #include "Drawable.h"
+#include "Updatable.h"
 
 // * Basic Element
 #include "Point.h"
@@ -61,6 +62,10 @@
 #include "Sharable.h"
 #include "UsingSharable.h"
 #include "SingletonWrapper.h"
+
+
+// UI -----------------------------------------------------------------
+#include "Control.h"
 
 
 #endif

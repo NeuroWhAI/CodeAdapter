@@ -16,6 +16,7 @@ namespace caAudio = ca::Audio;
 namespace caSys = ca::System;
 namespace caNet = ca::Network;
 namespace caUtil = ca::Utility;
+namespace caUI = ca::UI;
 
 
 template <typename T>

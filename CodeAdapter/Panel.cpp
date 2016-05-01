@@ -22,9 +22,25 @@ Panel::~Panel()
 
 //###########################################################################
 
+void Panel::update(const Transform& parentTransform)
+{
+	// 로컬변환과 전역변환을 합침
+	Transform combinedTransform = parentTransform;
+	combinedTransform.addTransform(transform);
+
+
+	// 요소 갱신
+	for (auto& updatable : m_updatables)
+	{
+		updatable.lock()->update(combinedTransform);
+	}
+}
+
+//###########################################################################
+
 void Panel::onDraw(Graphics& g, const Transform& parentTransform)
 {
-	// 로컬변환과 전역변환을 합쳐서 draw의 인수로 넘김
+	// 로컬변환과 전역변환을 합침
 	Transform combinedTransform = parentTransform;
 	combinedTransform.addTransform(transform);
 
@@ -46,7 +62,11 @@ void Panel::onDraw(Graphics& g, const Transform& parentTransform)
 
 void Panel::update()
 {
-	
+	// 요소 갱신
+	for (auto& updatable : m_updatables)
+	{
+		updatable.lock()->update(transform);
+	}
 }
 
 
@@ -105,6 +125,58 @@ bool Panel::removeDrawable(std::weak_ptr<const Drawable> drawable)
 			// 삭제
 			m_drawables.erase(m_drawables.begin() + index);
 			
+			return true;
+		}
+
+		++index;
+	}
+
+	// 존재 안함
+
+
+	return false;
+}
+
+//###########################################################################
+
+bool Panel::addUpdatable(std::weak_ptr<Updatable> updatable)
+{
+	// 중복 확인
+	auto target = updatable.lock();
+
+	for (const auto& item : m_updatables)
+	{
+		if (target == item.lock())
+		{
+			// 중복
+			return false;
+		}
+	}
+
+	// 중복 아님
+
+
+	m_updatables.emplace_back(updatable);
+
+
+	return true;
+}
+
+
+bool Panel::removeUpdatable(std::weak_ptr<const Updatable> updatable)
+{
+	// 존재 확인
+	auto target = updatable.lock();
+
+	usize index = 0;
+	for (const auto& item : m_updatables)
+	{
+		// 존재
+		if (target == item.lock())
+		{
+			// 삭제
+			m_updatables.erase(m_updatables.begin() + index);
+
 			return true;
 		}
 
