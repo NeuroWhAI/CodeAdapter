@@ -24,12 +24,12 @@ Panel::~Panel()
 
 void Panel::onDraw(Graphics& g, const Transform& parentTransform)
 {
-	beginDraw();
-
-
 	// 로컬변환과 전역변환을 합쳐서 draw의 인수로 넘김
 	Transform combinedTransform = parentTransform;
 	combinedTransform.addTransform(transform);
+
+
+	beginDraw(combinedTransform);
 
 
 	// 요소 그리기
@@ -52,7 +52,7 @@ void Panel::update()
 
 void Panel::draw(Graphics& g)
 {
-	beginDraw();
+	beginDraw(transform);
 
 
 	// 요소 그리기

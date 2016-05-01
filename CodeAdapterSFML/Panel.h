@@ -12,6 +12,8 @@
 class Panel : public CodeAdapter::Drawing::Panel
 {
 private:
+	USING_CA_DRAWING(Transform);
+
 	USING_CA_UTILITY_T(SharedObject, T);
 
 
@@ -27,7 +29,7 @@ protected:
 
 
 protected:
-	virtual void beginDraw() override;
+	virtual void beginDraw(const Transform& parentTransform) override;
 	virtual void endDraw() override;
 };
 

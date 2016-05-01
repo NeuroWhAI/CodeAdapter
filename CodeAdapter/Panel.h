@@ -38,7 +38,7 @@ protected:
 
 
 protected:
-	virtual void beginDraw() = 0;
+	virtual void beginDraw(const Transform& parentTransform) = 0;
 	virtual void endDraw() = 0;
 
 

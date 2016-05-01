@@ -19,19 +19,19 @@ Panel::~Panel()
 
 //###########################################################################
 
-void Panel::beginDraw()
+void Panel::beginDraw(const Transform& parentTransform)
 {
 	auto win = m_sharedWin.getObject();
 	auto winSize = win->getSize();
 
 	m_view.setViewport(sf::FloatRect(
-		transform.position.x / winSize.x,
-		transform.position.y / winSize.y,
+		parentTransform.position.x / winSize.x,
+		parentTransform.position.y / winSize.y,
 		size.width / winSize.x,
 		size.height / winSize.y));
 	m_view.reset(sf::FloatRect(
-		transform.position.x,
-		transform.position.y,
+		parentTransform.position.x,
+		parentTransform.position.y,
 		size.width,
 		size.height));
 
