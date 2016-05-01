@@ -38,15 +38,15 @@ int main()
 
 
 	auto font1 = caFactory->createFont();
-	font1->loadFromFile("ÀÕ°ÉÃ¼.ttf");
+	font1->loadFromFile("NanumGothic.ttf");
 	font1->setCharacterSize(64);
-	font1->setStyle(caDraw::FontStyles::StrikeOut | caDraw::FontStyles::Bold);
+	font1->setStyle(caDraw::FontStyles::Underline | caDraw::FontStyles::Bold);
 
 
 	auto text1 = canew<caDraw::DrawableText>();
 	text1->setFont(font1);
 	text1->text = L"Hello, World!\n¾È³ç ¼¼»ó¾Æ!";
-	text1->location.setLocation(-64, -8);
+	text1->location.setLocation(64, 8);
 	text1->color = caDraw::Color(34, 177, 76);
 
 

@@ -26,7 +26,6 @@ public:
 
 
 public:
-	Transform transform;
 	SizeF size;
 
 
