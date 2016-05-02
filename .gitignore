@@ -1,3 +1,6 @@
+# Other files
+*.mdj
+
 # Resource files
 *.ttf
 *.png
@@ -113,6 +116,7 @@ ipch/
 *.ncb
 *.opensdf
 *.sdf
+*.db
 *.cachefile
 
 # Visual Studio profiler

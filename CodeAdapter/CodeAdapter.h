@@ -45,6 +45,7 @@
 
 // System ------------------------------------------------------------------
 #include "Touch.h"
+#include "Keys.h"
 #include "Keyboard.h"
 
 
@@ -66,6 +67,7 @@
 
 // UI -----------------------------------------------------------------
 #include "Control.h"
+#include "ControlEvent.h"
 
 
 #endif
