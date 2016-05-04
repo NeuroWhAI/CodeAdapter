@@ -33,6 +33,8 @@ public:
 
 
 public:
+	template <typename T2>
+	explicit operator SizeT<T2>() const;
 	SizeT<T> operator+ (const SizeT<T>& right) const;
 	SizeT<T>& operator+= (const SizeT<T>& right);
 	SizeT<T> operator- (const SizeT<T>& right) const;

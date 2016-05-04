@@ -41,7 +41,7 @@ protected:
 
 
 public:
-	virtual void update(const Transform& parentTransform) override;
+	virtual void update(const Transform& parentTransform, const Point& cursor) override;
 
 
 protected:
@@ -49,7 +49,7 @@ protected:
 
 
 public:
-	void update();
+	void update(Window& win);
 	void draw(Graphics& g);
 
 

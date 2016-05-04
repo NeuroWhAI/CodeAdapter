@@ -18,7 +18,7 @@ public:
 
 
 public:
-	virtual void update(const Transform& parentTransform) = 0;
+	virtual void update(const Transform& parentTransform, const Point& cursor) = 0;
 };
 
 

@@ -1,6 +1,10 @@
 #include "Panel.h"
 
+#include <cmath>
+
 #include "Graphics.h"
+
+#include "Touch.h"
 
 
 
@@ -22,17 +26,21 @@ Panel::~Panel()
 
 //###########################################################################
 
-void Panel::update(const Transform& parentTransform)
+void Panel::update(const Transform& parentTransform, const Point& cursor)
 {
 	// 로컬변환과 전역변환을 합침
 	Transform combinedTransform = parentTransform;
 	combinedTransform.addTransform(transform);
 
 
+	// 커서 위치 변환
+	Point iLocalCursor = static_cast<Point>(combinedTransform.inverseTransformPoint(static_cast<PointF>(cursor)));
+
+
 	// 요소 갱신
 	for (auto& updatable : m_updatables)
 	{
-		updatable.lock()->update(combinedTransform);
+		updatable.lock()->update(combinedTransform, cursor);
 	}
 }
 
@@ -60,12 +68,17 @@ void Panel::onDraw(Graphics& g, const Transform& parentTransform)
 
 //###########################################################################
 
-void Panel::update()
+void Panel::update(Window& win)
 {
+	// 커서 위치 변환
+	PointF cursor = System::Touch::getInstance()->getPositionF(win);
+	Point iLocalCursor = static_cast<Point>(transform.inverseTransformPoint(cursor));
+
+
 	// 요소 갱신
 	for (auto& updatable : m_updatables)
 	{
-		updatable.lock()->update(transform);
+		updatable.lock()->update(transform, iLocalCursor);
 	}
 }
 

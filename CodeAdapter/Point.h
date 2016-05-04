@@ -33,6 +33,8 @@ public:
 
 
 public:
+	template <typename T2>
+	explicit operator PointT<T2>() const;
 	PointT<T> operator+ (const PointT<T>& right) const;
 	PointT<T>& operator+= (const PointT<T>& right);
 	PointT<T> operator- (const PointT<T>& right) const;

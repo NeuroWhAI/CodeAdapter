@@ -130,6 +130,18 @@ void ColorT<T>::setRgb(const T& r, const T& g, const T& b)
 	this->b = b;
 }
 
+//###########################################################################
+
+template <typename T>
+template <typename T2>
+ColorT<T>::operator ColorT<T2>() const
+{
+	return ColorT<T2>(static_cast<T2>(a),
+		static_cast<T2>(r),
+		static_cast<T2>(g),
+		static_cast<T2>(b));
+}
+
 
 END_NAMESPACE_CA_DRAWING
 

@@ -58,6 +58,14 @@ void PointT<T>::move(const T& deltaX, const T& deltaY)
 //###################################################################
 
 template <typename T>
+template <typename T2>
+PointT<T>::operator PointT<T2>() const
+{
+	return PointT<T2>(static_cast<T2>(x), static_cast<T2>(y));
+}
+
+
+template <typename T>
 PointT<T> PointT<T>::operator+ (const PointT<T>& right) const
 {
 	return PointT<T>(x + right.x, y + right.y);

@@ -104,7 +104,7 @@ int main()
 	panel2->addDrawable(sprite3);
 	panel2->addDrawable(rect);
 	panel2->addDrawable(ellipse);
-	panel2->addDrawable(ellipse2);
+	//panel2->addDrawable(ellipse2);
 	panel2->addDrawable(line1);
 	panel2->addDrawable(text1);
 
@@ -160,17 +160,21 @@ int main()
 		sprite2->transform.scale.setVector(myScale, myScale);
 		sprite3->transform.scale.setVector(myScale, myScale);
 
-		sprite4->transform.angle -= 0.4f;
+		//sprite4->transform.angle -= 0.04f;
 
-		rect->transform.angle -= 0.3f;
+		//rect->transform.angle -= 0.03f;
 
-		text1->transform.angle -= 0.1f;
+		//text1->transform.angle -= 0.01f;
 
-		panel->transform.angle += 0.2f;
-		panel2->transform.angle += 0.2f;
+		//panel->transform.angle += 0.02f;
+		panel2->transform.angle += 0.02f;
 
 
 		rect->setVisible(ellipse->containsPoint(ellipse2->x, ellipse2->y));
+
+
+		auto invPoint = panel2->transform.inverseTransformPoint(caTouch->getPositionF(*window1));
+		ellipse2->setLocation(invPoint.x, invPoint.y);
 
 
 		window1->update();

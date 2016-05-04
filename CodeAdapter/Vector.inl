@@ -88,6 +88,14 @@ const T VectorT<T>::dotProduct(const VectorT<T>& right) const
 //###########################################################################
 
 template <typename T>
+template <typename T2>
+VectorT<T>::operator VectorT<T2>() const
+{
+	return VectorT<T2>(static_cast<T2>(x), static_cast<T2>(y));
+}
+
+
+template <typename T>
 VectorT<T> VectorT<T>::operator+ () const
 {
 	return *this;

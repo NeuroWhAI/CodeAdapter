@@ -34,7 +34,7 @@ void Window::update()
 {
 	for (auto& panel : m_panelList)
 	{
-		panel->update();
+		panel->update(*this);
 	}
 
 	onUpdate();

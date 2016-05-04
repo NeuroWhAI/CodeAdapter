@@ -46,6 +46,11 @@ public:
 	void setArgb(i32 argb);
 	void setArgb(const T& a, const T& r, const T& g, const T& b);
 	void setRgb(const T& r, const T& g, const T& b);
+
+
+public:
+	template <typename T2>
+	explicit operator ColorT<T2>() const;
 };
 
 

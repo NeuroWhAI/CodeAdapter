@@ -43,6 +43,8 @@ public:
 
 
 public:
+	template <typename T2>
+	explicit operator VectorT<T2>() const;
 	VectorT<T> operator+ () const;
 	VectorT<T> operator- () const;
 	VectorT<T> operator+ (const VectorT<T>& right) const;

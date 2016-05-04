@@ -22,6 +22,7 @@ BEGIN_NAMESPACE_CA_UI
 class Control : public Drawing::Updatable, public Drawing::Drawable
 {
 private:
+	USING_CA_DRAWING(Point);
 	USING_CA_DRAWING(PointF);
 	USING_CA_DRAWING(SizeF);
 	USING_CA_DRAWING(Color);
@@ -50,7 +51,7 @@ public:
 
 
 public:
-	virtual void update(const Transform& parentTransform) override;
+	virtual void update(const Transform& parentTransform, const Point& cursor) override;
 	
 	
 protected:

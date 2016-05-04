@@ -58,6 +58,14 @@ void SizeT<T>::addSize(const T& deltaWidth, const T& deltaHeight)
 //###########################################################################
 
 template <typename T>
+template <typename T2>
+SizeT<T>::operator SizeT<T2>() const
+{
+	return SizeT<T2>(static_cast<T2>(width), static_cast<T2>(height));
+}
+
+
+template <typename T>
 SizeT<T> SizeT<T>::operator+ (const SizeT<T>& right) const
 {
 	return SizeT<T>(width + right.width, height + right.height);

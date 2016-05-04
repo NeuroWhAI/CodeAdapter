@@ -29,6 +29,10 @@ public:
 
 public:
 	void addTransform(const Transform& other);
+
+
+public:
+	PointF inverseTransformPoint(const PointF& point) const;
 };
 
 

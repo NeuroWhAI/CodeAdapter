@@ -1,5 +1,7 @@
 #include "Control.h"
 
+#include "Touch.h"
+
 #include "Transform.h"
 #include "Graphics.h"
 
@@ -28,10 +30,36 @@ Control::~Control()
 
 //###########################################################################
 
-void Control::update(const Transform& parentTransform)
+void Control::update(const Transform& parentTransform, const Point& cursor)
 {
-	// TODO: 터치입력은 변환행렬에 맞게 변환.
-	// TODO: 기본적인 이벤트(영역내 터치, 키입력, 포커스 등)
+	// 로컬변환과 전역변환을 합침
+	Transform combinedTransform = parentTransform;
+	combinedTransform.addTransform(transform);
+
+
+	// 커서 위치 변환
+	PointF localCursor = combinedTransform.inverseTransformPoint(static_cast<PointF>(cursor));
+
+
+	TouchEventArgs touchArgs = {
+		static_cast<i32>(localCursor.x),
+		static_cast<i32>(localCursor.y)
+	};
+
+	if (System::Touch::getInstance()->isDown())
+	{
+		if (WhenTouchDown)
+		{
+			WhenTouchDown(touchArgs);
+		}
+	}
+	else if (System::Touch::getInstance()->isUp())
+	{
+		if (WhenTouchUp)
+		{
+			WhenTouchUp(touchArgs);
+		}
+	}
 
 
 	onUpdateControl(parentTransform);
