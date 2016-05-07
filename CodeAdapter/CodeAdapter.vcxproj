@@ -137,6 +137,7 @@
     <ClInclude Include="Control.h" />
     <ClInclude Include="ControlEvent.h" />
     <ClInclude Include="EasyCA.h" />
+    <ClInclude Include="Label.h" />
     <ClInclude Include="SingletonWrapper.h" />
     <ClInclude Include="DrawableEllipse.h" />
     <ClInclude Include="DrawableLine.h" />
@@ -180,6 +181,7 @@
     <ClCompile Include="Control.cpp" />
     <ClCompile Include="ControlEvent.cpp" />
     <ClCompile Include="EasyCA.cpp" />
+    <ClCompile Include="Label.cpp" />
     <ClCompile Include="SingletonWrapper.cpp" />
     <ClCompile Include="DrawableEllipse.cpp" />
     <ClCompile Include="DrawableLine.cpp" />

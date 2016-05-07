@@ -162,6 +162,9 @@
     <ClInclude Include="ControlEvent.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="Label.h">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -273,6 +276,9 @@
       <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="ControlEvent.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Label.cpp">
       <Filter>UI</Filter>
     </ClCompile>
   </ItemGroup>

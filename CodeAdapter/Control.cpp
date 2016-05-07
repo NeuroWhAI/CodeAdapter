@@ -41,23 +41,30 @@ void Control::update(const Transform& parentTransform, const Point& cursor)
 	PointF localCursor = combinedTransform.inverseTransformPoint(static_cast<PointF>(cursor));
 
 
-	TouchEventArgs touchArgs = {
-		static_cast<i32>(localCursor.x),
-		static_cast<i32>(localCursor.y)
-	};
+	// 커서가 컨트롤 영역안에 들어와있다면
+	if (localCursor.x > m_position.x
+		&& localCursor.x < m_position.x + m_size.width
+		&& localCursor.y > m_position.y
+		&& localCursor.y < m_position.y + m_size.height)
+	{
+		TouchEventArgs touchArgs = {
+			static_cast<i32>(localCursor.x),
+			static_cast<i32>(localCursor.y)
+		};
 
-	if (System::Touch::getInstance()->isDown())
-	{
-		if (WhenTouchDown)
+		if (System::Touch::getInstance()->isDown())
 		{
-			WhenTouchDown(touchArgs);
+			if (WhenTouchDown)
+			{
+				WhenTouchDown(touchArgs);
+			}
 		}
-	}
-	else if (System::Touch::getInstance()->isUp())
-	{
-		if (WhenTouchUp)
+		else if (System::Touch::getInstance()->isUp())
 		{
-			WhenTouchUp(touchArgs);
+			if (WhenTouchUp)
+			{
+				WhenTouchUp(touchArgs);
+			}
 		}
 	}
 

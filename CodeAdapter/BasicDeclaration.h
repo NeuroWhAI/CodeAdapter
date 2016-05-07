@@ -127,6 +127,7 @@ BEGIN_NAMESPACE_CA_UI
 
 
 class Control;
+class Label;
 
 
 END_NAMESPACE_CA_UI

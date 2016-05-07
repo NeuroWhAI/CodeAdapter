@@ -68,6 +68,7 @@
 // UI -----------------------------------------------------------------
 #include "Control.h"
 #include "ControlEvent.h"
+#include "Label.h"
 
 
 #endif

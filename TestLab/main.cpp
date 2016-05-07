@@ -77,6 +77,22 @@ int main()
 	sprite4->location.setLocation(-512.f, -512.f);
 
 
+	auto label1 = canew<caUI::Label>();
+	label1->setFont(font1);
+	label1->setText(L"label1 text");
+	label1->setBackColor(caDraw::Color::Gray);
+	label1->setPosition({ 128, 128 });
+	label1->setSize({ 330, 100 });
+	label1->WhenTouchDown = [&label1](const caUI::TouchEventArgs& args) {
+		label1->setTextColor(caDraw::Color::Red);
+		label1->setPosition({ static_cast<f32>(args.x) - 165,
+			static_cast<f32>(args.y) - 50 });
+	};
+	label1->WhenTouchUp = [&label1](const caUI::TouchEventArgs& args) {
+		label1->setTextColor(caDraw::Color::Black);
+	};
+
+
 	auto panel = caFactory->createPanel();
 	panel->transform.position = { 64, 64 };
 	panel->size = { 800, 600 };
@@ -90,6 +106,8 @@ int main()
 	panel->addDrawable(ellipse2);
 	panel->addDrawable(line1);
 	panel->addDrawable(text1);
+	panel->addDrawable(label1);
+	panel->addUpdatable(label1);
 
 	window1->addPanel(panel);
 
@@ -104,9 +122,10 @@ int main()
 	panel2->addDrawable(sprite3);
 	panel2->addDrawable(rect);
 	panel2->addDrawable(ellipse);
-	//panel2->addDrawable(ellipse2);
 	panel2->addDrawable(line1);
 	panel2->addDrawable(text1);
+	panel2->addDrawable(label1);
+	panel2->addUpdatable(label1);
 
 	window1->addPanel(panel2);
 
@@ -119,7 +138,7 @@ int main()
 	{
 		caTouch->update();
 
-		if (caTouch->isPressed())
+		if (caTouch->isLongPressed())
 		{
 			panel2->transform.position = caTouch->getPositionF(*window1);
 		}
@@ -160,13 +179,6 @@ int main()
 		sprite2->transform.scale.setVector(myScale, myScale);
 		sprite3->transform.scale.setVector(myScale, myScale);
 
-		//sprite4->transform.angle -= 0.04f;
-
-		//rect->transform.angle -= 0.03f;
-
-		//text1->transform.angle -= 0.01f;
-
-		//panel->transform.angle += 0.02f;
 		panel2->transform.angle += 0.02f;
 
 

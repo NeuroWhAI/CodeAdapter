@@ -72,7 +72,7 @@ void Panel::update(Window& win)
 {
 	// 커서 위치 변환
 	PointF cursor = System::Touch::getInstance()->getPositionF(win);
-	Point iLocalCursor = static_cast<Point>(transform.inverseTransformPoint(cursor));
+	Point iLocalCursor = static_cast<Point>(cursor);//static_cast<Point>(transform.inverseTransformPoint(cursor));
 
 
 	// 요소 갱신
