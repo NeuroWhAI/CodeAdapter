@@ -32,38 +32,41 @@ Control::~Control()
 
 void Control::update(const Transform& parentTransform, const Point& cursor)
 {
-	// 로컬변환과 전역변환을 합침
-	Transform combinedTransform = parentTransform;
-	combinedTransform.addTransform(transform);
-
-
-	// 커서 위치 변환
-	PointF localCursor = combinedTransform.inverseTransformPoint(static_cast<PointF>(cursor));
-
-
-	// 커서가 컨트롤 영역안에 들어와있다면
-	if (localCursor.x > m_position.x
-		&& localCursor.x < m_position.x + m_size.width
-		&& localCursor.y > m_position.y
-		&& localCursor.y < m_position.y + m_size.height)
+	if (m_enabled)
 	{
-		TouchEventArgs touchArgs = {
-			static_cast<i32>(localCursor.x),
-			static_cast<i32>(localCursor.y)
-		};
+		// 로컬변환과 전역변환을 합침
+		Transform combinedTransform = parentTransform;
+		combinedTransform.addTransform(transform);
 
-		if (System::Touch::getInstance()->isDown())
+
+		// 커서 위치 변환
+		PointF localCursor = combinedTransform.inverseTransformPoint(static_cast<PointF>(cursor));
+
+
+		// 커서가 컨트롤 영역안에 들어와있다면
+		if (localCursor.x > m_position.x
+			&& localCursor.x < m_position.x + m_size.width
+			&& localCursor.y > m_position.y
+			&& localCursor.y < m_position.y + m_size.height)
 		{
-			if (WhenTouchDown)
+			TouchEventArgs touchArgs = {
+				static_cast<i32>(localCursor.x),
+				static_cast<i32>(localCursor.y)
+			};
+
+			if (System::Touch::getInstance()->isDown())
 			{
-				WhenTouchDown(touchArgs);
+				if (WhenTouchDown)
+				{
+					WhenTouchDown(touchArgs);
+				}
 			}
-		}
-		else if (System::Touch::getInstance()->isUp())
-		{
-			if (WhenTouchUp)
+			else if (System::Touch::getInstance()->isUp())
 			{
-				WhenTouchUp(touchArgs);
+				if (WhenTouchUp)
+				{
+					WhenTouchUp(touchArgs);
+				}
 			}
 		}
 	}

@@ -90,6 +90,7 @@ int main()
 	};
 	label1->WhenTouchUp = [&label1](const caUI::TouchEventArgs& args) {
 		label1->setTextColor(caDraw::Color::Black);
+		//label1->setEnabled(false);
 	};
 
 
