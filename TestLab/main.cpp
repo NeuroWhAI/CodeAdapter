@@ -93,6 +93,17 @@ int main()
 		//label1->setEnabled(false);
 	};
 
+	auto label2 = canew<caUI::Label>(*label1);
+	label2->WhenTouchDown = [&label2](const caUI::TouchEventArgs& args) {
+		label2->setTextColor(caDraw::Color::Red);
+		label2->setPosition({ static_cast<f32>(args.x) - 165,
+			static_cast<f32>(args.y) - 50 });
+	};
+	label2->WhenTouchUp = [&label2](const caUI::TouchEventArgs& args) {
+		label2->setTextColor(caDraw::Color::Black);
+		//label2->setEnabled(false);
+	};
+
 
 	auto panel = caFactory->createPanel();
 	panel->transform.position = { 64, 64 };
@@ -125,8 +136,8 @@ int main()
 	panel2->addDrawable(ellipse);
 	panel2->addDrawable(line1);
 	panel2->addDrawable(text1);
-	panel2->addDrawable(label1);
-	panel2->addUpdatable(label1);
+	panel2->addDrawable(label2);
+	panel2->addUpdatable(label2);
 
 	window1->addPanel(panel2);
 
@@ -188,6 +199,17 @@ int main()
 
 		auto invPoint = panel2->transform.inverseTransformPoint(caTouch->getPositionF(*window1));
 		ellipse2->setLocation(invPoint.x, invPoint.y);
+
+
+		if (label1->isFocused())
+		{
+			label1->transform.position.x += 0.2f;
+		}
+
+		if (label2->isFocused())
+		{
+			label2->transform.position.x += 0.2f;
+		}
 
 
 		window1->update();

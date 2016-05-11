@@ -27,10 +27,7 @@ template <typename T>
 std::shared_ptr<T> canew();
 
 template <typename T, typename... Args>
-std::shared_ptr<T> canew(Args&... args);
-
-template <typename T, typename... Args>
-std::shared_ptr<T> canew(Args... args);
+std::shared_ptr<T> canew(Args&&... args);
 
 
 extern caUtil::SingletonWrapper<ca::Factory> caFactory;

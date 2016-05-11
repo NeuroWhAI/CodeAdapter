@@ -12,7 +12,9 @@ BEGIN_NAMESPACE_CA_UI
 
 
 Label::Label()
-	: m_text("")
+	: Control(false)
+	
+	, m_text("")
 	, m_textColor(Color::Black)
 {
 

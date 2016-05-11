@@ -31,7 +31,7 @@ private:
 
 
 public:
-	Control();
+	explicit Control(bool canSelected);
 	virtual ~Control();
 
 
@@ -40,6 +40,9 @@ protected:
 	SizeF m_size;
 	Color m_backColor;
 	bool m_enabled;
+	bool m_focused;
+	bool m_canSelected;
+	bool m_selected;
 
 
 public:
@@ -72,6 +75,10 @@ public:
 	void setBackColor(const Color& backColor);
 	bool isEnabled() const;
 	void setEnabled(bool enabled);
+	bool isFocused() const;
+	bool canSelected() const;
+	void setSelectable(bool canSelected);
+	bool isSelected() const;
 };
 
 

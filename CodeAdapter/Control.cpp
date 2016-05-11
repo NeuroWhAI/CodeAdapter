@@ -13,11 +13,14 @@
 BEGIN_NAMESPACE_CA_UI
 
 
-Control::Control()
+Control::Control(bool canSelected)
 	: m_position(0, 0)
 	, m_size(1, 1)
 	, m_backColor(Color::Transparent)
 	, m_enabled(true)
+	, m_focused(false)
+	, m_canSelected(canSelected)
+	, m_selected(false)
 {
 
 }
@@ -49,13 +52,25 @@ void Control::update(const Transform& parentTransform, const Point& cursor)
 			&& localCursor.y > m_position.y
 			&& localCursor.y < m_position.y + m_size.height)
 		{
+			// 포커스 상태 설정
+			m_focused = true;
+
+
 			TouchEventArgs touchArgs = {
 				static_cast<i32>(localCursor.x),
 				static_cast<i32>(localCursor.y)
 			};
 
+			// 터치 입력 처리
 			if (System::Touch::getInstance()->isDown())
 			{
+				// 선택될 수 있으면 선택된 상태 설정
+				if (m_canSelected)
+				{
+					m_selected = true;
+				}
+
+
 				if (WhenTouchDown)
 				{
 					WhenTouchDown(touchArgs);
@@ -67,6 +82,18 @@ void Control::update(const Transform& parentTransform, const Point& cursor)
 				{
 					WhenTouchUp(touchArgs);
 				}
+			}
+		}
+		else
+		{
+			// 포커스를 잃은 상태 설정
+			m_focused = false;
+
+			// 밖을 클릭했다면
+			if (System::Touch::getInstance()->isDown())
+			{
+				// 선택된 상태 해제
+				m_selected = false;
 			}
 		}
 	}
@@ -138,6 +165,41 @@ bool Control::isEnabled() const
 void Control::setEnabled(bool enabled)
 {
 	m_enabled = enabled;
+
+	if (enabled == false)
+	{
+		m_focused = false;
+		m_selected = false;
+	}
+}
+
+
+bool Control::isFocused() const
+{
+	return m_focused;
+}
+
+
+bool Control::canSelected() const
+{
+	return m_canSelected;
+}
+
+
+void Control::setSelectable(bool canSelected)
+{
+	m_canSelected = canSelected;
+
+	if (canSelected == false)
+	{
+		m_selected = false;
+	}
+}
+
+
+bool Control::isSelected() const
+{
+	return m_selected;
 }
 
 

@@ -18,13 +18,7 @@ std::shared_ptr<T> canew()
 }
 
 template <typename T, typename... Args>
-std::shared_ptr<T> canew(Args&... args)
-{
-	return std::make_shared<T>(args...);
-}
-
-template <typename T, typename... Args>
-std::shared_ptr<T> canew(Args... args)
+std::shared_ptr<T> canew(Args&&... args)
 {
 	return std::make_shared<T>(args...);
 }
