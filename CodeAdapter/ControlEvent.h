@@ -7,6 +7,7 @@
 #include "BasicDeclaration.h"
 
 #include "Keys.h"
+#include "Event.h"
 
 
 
@@ -49,9 +50,9 @@ public:
 
 //############################################################
 
-using EventHandler = std::function<void(const EventArgs&)>;
-using TouchEventHandler = std::function<void(const TouchEventArgs&)>;
-using KeyEventHandler = std::function<void(const KeyEventArgs&)>;
+using EventHandler = Utility::Event<const EventArgs&>;
+using TouchEventHandler = Utility::Event<const TouchEventArgs&>;
+using KeyEventHandler = Utility::Event<const KeyEventArgs&>;
 
 
 END_NAMESPACE_CA_UI

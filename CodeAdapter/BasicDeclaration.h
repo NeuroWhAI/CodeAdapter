@@ -118,6 +118,9 @@ class UsingSharable;
 template <typename T>
 class SingletonWrapper;
 
+template <typename... ArgTypes>
+class Event;
+
 
 END_NAMESPACE_CA_UTILITY
 

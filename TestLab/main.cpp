@@ -1,3 +1,4 @@
+#include <iostream>
 #include <CodeAdapter\EasyCA.h>
 #include <CodeAdapterSFML\SFMLFactory.h>
 

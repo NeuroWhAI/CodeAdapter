@@ -137,6 +137,7 @@
     <ClInclude Include="Control.h" />
     <ClInclude Include="ControlEvent.h" />
     <ClInclude Include="EasyCA.h" />
+    <ClInclude Include="Event.h" />
     <ClInclude Include="Label.h" />
     <ClInclude Include="SingletonWrapper.h" />
     <ClInclude Include="DrawableEllipse.h" />
@@ -181,6 +182,7 @@
     <ClCompile Include="Control.cpp" />
     <ClCompile Include="ControlEvent.cpp" />
     <ClCompile Include="EasyCA.cpp" />
+    <ClCompile Include="Event.cpp" />
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="SingletonWrapper.cpp" />
     <ClCompile Include="DrawableEllipse.cpp" />
@@ -217,6 +219,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="EasyCA.inl" />
+    <None Include="Event.inl" />
     <None Include="SingletonWrapper.inl" />
     <None Include="Color.inl" />
     <None Include="Factory.inl" />
