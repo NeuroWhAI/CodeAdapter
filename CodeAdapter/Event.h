@@ -28,13 +28,18 @@ public:
 
 protected:
 	std::vector<DelegateType> m_funcList;
+	std::vector<const DelegateType*> m_ptrList;
 
 
 public:
 	void clear();
 	void operator() (ArgTypes&&... args);
-	Event& operator+= (const DelegateType& func);
-	Event& operator= (const DelegateType& func);
+	Event<ArgTypes...>& operator+= (const DelegateType& func);
+	Event<ArgTypes...>& operator+= (const DelegateType&& func);
+	Event<ArgTypes...>& operator-= (const DelegateType& func);
+	Event<ArgTypes...>& operator+= (const Event<ArgTypes...>& otherEvent);
+	Event<ArgTypes...>& operator-= (const Event<ArgTypes...>& otherEvent);
+	Event<ArgTypes...>& operator= (const DelegateType& func);
 	operator bool() const;
 };
 
