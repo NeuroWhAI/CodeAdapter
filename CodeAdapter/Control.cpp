@@ -53,7 +53,7 @@ void Control::update(const Transform& parentTransform, const Point& cursor)
 			&& localCursor.y < m_position.y + m_size.height)
 		{
 			// 포커스 상태 설정
-			m_focused = true;
+			setFocus(true);
 
 
 			TouchEventArgs touchArgs = {
@@ -67,7 +67,7 @@ void Control::update(const Transform& parentTransform, const Point& cursor)
 				// 선택될 수 있으면 선택된 상태 설정
 				if (m_canSelected)
 				{
-					m_selected = true;
+					setSelect(true);
 				}
 
 
@@ -87,13 +87,13 @@ void Control::update(const Transform& parentTransform, const Point& cursor)
 		else
 		{
 			// 포커스를 잃은 상태 설정
-			m_focused = false;
+			setFocus(false);
 
 			// 밖을 클릭했다면
 			if (System::Touch::getInstance()->isDown())
 			{
 				// 선택된 상태 해제
-				m_selected = false;
+				setSelect(false);
 			}
 		}
 	}
@@ -168,8 +168,8 @@ void Control::setEnabled(bool enabled)
 
 	if (enabled == false)
 	{
-		m_focused = false;
-		m_selected = false;
+		setFocus(false);
+		setSelect(false);
 	}
 }
 
@@ -192,7 +192,7 @@ void Control::setSelectable(bool canSelected)
 
 	if (canSelected == false)
 	{
-		m_selected = false;
+		setSelect(false);
 	}
 }
 
@@ -200,6 +200,67 @@ void Control::setSelectable(bool canSelected)
 bool Control::isSelected() const
 {
 	return m_selected;
+}
+
+//###########################################################################
+
+void Control::setFocus(bool focused)
+{
+	if (m_focused != focused)
+	{
+		m_focused = focused;
+
+		EventArgs args;
+
+		if (focused)
+		{
+			if (WhenEnterFocus)
+			{
+				WhenEnterFocus(args);
+			}
+		}
+		else
+		{
+			if (WhenLeaveFocus)
+			{
+				WhenLeaveFocus(args);
+			}
+		}
+	}
+	else
+	{
+		m_focused = focused;
+	}
+}
+
+
+void Control::setSelect(bool selected)
+{
+	if (m_selected != selected)
+	{
+		m_selected = selected;
+
+		EventArgs args;
+
+		if (selected)
+		{
+			if (WhenSelected)
+			{
+				WhenSelected(args);
+			}
+		}
+		else
+		{
+			if (WhenDeselected)
+			{
+				WhenDeselected(args);
+			}
+		}
+	}
+	else
+	{
+		m_selected = selected;
+	}
 }
 
 

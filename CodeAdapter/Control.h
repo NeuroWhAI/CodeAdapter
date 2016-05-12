@@ -39,6 +39,9 @@ protected:
 	PointF m_position;
 	SizeF m_size;
 	Color m_backColor;
+
+
+private:
 	bool m_enabled;
 	bool m_focused;
 	bool m_canSelected;
@@ -51,6 +54,12 @@ public:
 
 	KeyEventHandler WhenKeyDown;
 	KeyEventHandler WhenKeyUp;
+
+	EventHandler WhenEnterFocus;
+	EventHandler WhenLeaveFocus;
+
+	EventHandler WhenSelected;
+	EventHandler WhenDeselected;
 
 
 public:
@@ -79,6 +88,11 @@ public:
 	bool canSelected() const;
 	void setSelectable(bool canSelected);
 	bool isSelected() const;
+
+
+protected:
+	void setFocus(bool focused);
+	void setSelect(bool selected);
 };
 
 

@@ -90,7 +90,12 @@ int main()
 	};
 	label1->WhenTouchUp = [&label1](const caUI::TouchEventArgs& args) {
 		label1->setTextColor(caDraw::Color::Black);
-		//label1->setEnabled(false);
+	};
+	label1->WhenEnterFocus = [&label1](const caUI::EventArgs& args) {
+		label1->setTextColor(caDraw::Color::Blue);
+	};
+	label1->WhenLeaveFocus = [&label1](const caUI::EventArgs& args) {
+		label1->setTextColor(caDraw::Color::Black);
 	};
 
 	auto label2 = canew<caUI::Label>(*label1);
@@ -101,7 +106,12 @@ int main()
 	};
 	label2->WhenTouchUp = [&label2](const caUI::TouchEventArgs& args) {
 		label2->setTextColor(caDraw::Color::Black);
-		//label2->setEnabled(false);
+	};
+	label2->WhenEnterFocus = [&label2](const caUI::EventArgs& args) {
+		label2->setTextColor(caDraw::Color::Blue);
+	};
+	label2->WhenLeaveFocus = [&label2](const caUI::EventArgs& args) {
+		label2->setTextColor(caDraw::Color::Black);
 	};
 
 
