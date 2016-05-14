@@ -43,14 +43,24 @@ TouchEventArgs::~TouchEventArgs()
 //###########################################################################
 
 KeyEventArgs::KeyEventArgs()
-	: key(System::Keys::Unknown)
+	: KeyEventArgs(System::Keys::Unknown)
 {
 
 }
 
 
 KeyEventArgs::KeyEventArgs(System::Keys key)
+	: KeyEventArgs(key, false, false, false)
+{
+
+}
+
+
+KeyEventArgs::KeyEventArgs(System::Keys key, bool ctrl, bool shift, bool alt)
 	: key(key)
+	, ctrl(ctrl)
+	, shift(shift)
+	, alt(alt)
 {
 
 }

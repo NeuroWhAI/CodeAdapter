@@ -1,6 +1,7 @@
 #include "Control.h"
 
 #include "Touch.h"
+#include "Keyboard.h"
 
 #include "Transform.h"
 #include "Graphics.h"
@@ -29,6 +30,82 @@ Control::Control(bool canSelected)
 Control::~Control()
 {
 
+}
+
+//###########################################################################
+
+void Control::onTouchDown(const TouchEventArgs& args)
+{
+	if (WhenTouchDown)
+	{
+		WhenTouchDown(args);
+	}
+}
+
+
+void Control::onTouchUp(const TouchEventArgs& args)
+{
+	if (WhenTouchUp)
+	{
+		WhenTouchUp(args);
+	}
+}
+
+//--------------------------------------------------------------------------
+
+void Control::onKeyDown(const KeyEventArgs& args)
+{
+	if (WhenKeyDown)
+	{
+		WhenKeyDown(args);
+	}
+}
+
+
+void Control::onKeyUp(const KeyEventArgs& args)
+{
+	if (WhenKeyUp)
+	{
+		WhenKeyUp(args);
+	}
+}
+
+//--------------------------------------------------------------------------
+
+void Control::onEnterFocus(const EventArgs& args)
+{
+	if (WhenEnterFocus)
+	{
+		WhenEnterFocus(args);
+	}
+}
+
+
+void Control::onLeaveFocus(const EventArgs& args)
+{
+	if (WhenLeaveFocus)
+	{
+		WhenLeaveFocus(args);
+	}
+}
+
+//--------------------------------------------------------------------------
+
+void Control::onSelected(const EventArgs& args)
+{
+	if (WhenSelected)
+	{
+		WhenSelected(args);
+	}
+}
+
+
+void Control::onDeselected(const EventArgs& args)
+{
+	if (WhenDeselected)
+	{
+		WhenDeselected(args);
+	}
 }
 
 //###########################################################################
@@ -65,23 +142,14 @@ void Control::update(const Transform& parentTransform, const Point& cursor)
 			if (System::Touch::getInstance()->isDown())
 			{
 				// 선택될 수 있으면 선택된 상태 설정
-				if (m_canSelected)
-				{
-					setSelect(true);
-				}
+				setSelect(true);
 
 
-				if (WhenTouchDown)
-				{
-					WhenTouchDown(touchArgs);
-				}
+				onTouchDown(touchArgs);
 			}
 			else if (System::Touch::getInstance()->isUp())
 			{
-				if (WhenTouchUp)
-				{
-					WhenTouchUp(touchArgs);
-				}
+				onTouchUp(touchArgs);
 			}
 		}
 		else
@@ -94,6 +162,42 @@ void Control::update(const Transform& parentTransform, const Point& cursor)
 			{
 				// 선택된 상태 해제
 				setSelect(false);
+			}
+		}
+
+
+		if (isSelected())
+		{
+			auto keyboard = System::Keyboard::getInstance();
+
+			KeyEventArgs keyArgs;
+
+			auto downKey = keyboard->getLatestDownKey();
+			auto upKey = keyboard->getLatestUpKey();
+
+			if (downKey != System::Keys::Unknown
+				|| upKey != System::Keys::Unknown)
+			{
+				keyArgs.ctrl = keyboard->isKeyDown(System::Keys::LControl)
+					|| keyboard->isKeyPressed(System::Keys::LControl);
+				keyArgs.shift = keyboard->isKeyDown(System::Keys::LShift)
+					|| keyboard->isKeyPressed(System::Keys::LShift);
+				keyArgs.alt = keyboard->isKeyDown(System::Keys::LAlt)
+					|| keyboard->isKeyPressed(System::Keys::LAlt);
+			}
+
+			if (downKey != System::Keys::Unknown)
+			{
+				keyArgs.key = downKey;
+
+				onKeyDown(keyArgs);
+			}
+
+			if (upKey != System::Keys::Unknown)
+			{
+				keyArgs.key = upKey;
+
+				onKeyUp(keyArgs);
 			}
 		}
 	}
@@ -214,29 +318,23 @@ void Control::setFocus(bool focused)
 
 		if (focused)
 		{
-			if (WhenEnterFocus)
-			{
-				WhenEnterFocus(args);
-			}
+			onEnterFocus(args);
 		}
 		else
 		{
-			if (WhenLeaveFocus)
-			{
-				WhenLeaveFocus(args);
-			}
+			onLeaveFocus(args);
 		}
-	}
-	else
-	{
-		m_focused = focused;
 	}
 }
 
 
 void Control::setSelect(bool selected)
 {
-	if (m_selected != selected)
+	// 새롭게 설정될 선택 상태가 이전과 다르고
+	// 선택된 상태로 설정될때 선택 가능하도록 설정되어 있거나
+	// 선택해제된 상태로 설정될때
+	if (m_selected != selected
+		&& ((selected && m_canSelected) || !selected))
 	{
 		m_selected = selected;
 
@@ -244,22 +342,12 @@ void Control::setSelect(bool selected)
 
 		if (selected)
 		{
-			if (WhenSelected)
-			{
-				WhenSelected(args);
-			}
+			onSelected(args);
 		}
 		else
 		{
-			if (WhenDeselected)
-			{
-				WhenDeselected(args);
-			}
+			onDeselected(args);
 		}
-	}
-	else
-	{
-		m_selected = selected;
 	}
 }
 

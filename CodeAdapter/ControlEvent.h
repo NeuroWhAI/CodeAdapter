@@ -41,11 +41,13 @@ class KeyEventArgs : public EventArgs
 public:
 	KeyEventArgs();
 	explicit KeyEventArgs(System::Keys key);
+	KeyEventArgs(System::Keys key, bool ctrl, bool shift, bool alt);
 	virtual ~KeyEventArgs();
 
 
 public:
 	System::Keys key;
+	bool ctrl, shift, alt;
 };
 
 //############################################################

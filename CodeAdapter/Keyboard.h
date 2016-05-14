@@ -53,6 +53,9 @@ public:
 	virtual bool isKeyDown(Keys key) const = 0;
 	virtual bool isKeyPressed(Keys key) const = 0;
 	virtual bool isKeyUp(Keys key) const = 0;
+	virtual Keys getLatestDownKey() const = 0;
+	virtual Keys getLatestPressedKey() const = 0;
+	virtual Keys getLatestUpKey() const = 0;
 };
 
 

@@ -84,6 +84,7 @@ int main()
 	label1->setBackColor(caDraw::Color::Gray);
 	label1->setPosition({ 128, 128 });
 	label1->setSize({ 330, 100 });
+	label1->setSelectable(true);
 	label1->WhenTouchDown = [&label1](const caUI::TouchEventArgs& args) {
 		label1->setTextColor(caDraw::Color::Red);
 		label1->setPosition({ static_cast<f32>(args.x) - 165,
@@ -97,6 +98,20 @@ int main()
 	};
 	label1->WhenLeaveFocus = [&label1](const caUI::EventArgs& args) {
 		label1->setTextColor(caDraw::Color::Black);
+	};
+	label1->WhenSelected = [&label1](const caUI::EventArgs& args) {
+		label1->setBackColor(caDraw::Color::White);
+	};
+	label1->WhenDeselected = [&label1](const caUI::EventArgs& args) {
+		label1->setBackColor(caDraw::Color::Gray);
+	};
+	label1->WhenKeyDown = [&label1](const caUI::KeyEventArgs& args) {
+		switch (args.key)
+		{
+		case caSys::Keys::Space:
+			label1->setPosition({ 128, 128 });
+			break;
+		}
 	};
 
 	auto label2 = canew<caUI::Label>(*label1);
@@ -113,6 +128,20 @@ int main()
 	};
 	label2->WhenLeaveFocus = [&label2](const caUI::EventArgs& args) {
 		label2->setTextColor(caDraw::Color::Black);
+	};
+	label2->WhenSelected = [&label2](const caUI::EventArgs& args) {
+		label2->setBackColor(caDraw::Color::White);
+	};
+	label2->WhenDeselected = [&label2](const caUI::EventArgs& args) {
+		label2->setBackColor(caDraw::Color::Gray);
+	};
+	label2->WhenKeyDown = [&label2](const caUI::KeyEventArgs& args) {
+		switch (args.key)
+		{
+		case caSys::Keys::Space:
+			label2->setPosition({ 128, 128 });
+			break;
+		}
 	};
 
 
@@ -214,12 +243,12 @@ int main()
 
 		if (label1->isFocused())
 		{
-			label1->transform.position.x += 0.2f;
+			label1->setPosition(label1->getPosition() + caDraw::PointF(0.4f, 0.0f));
 		}
 
 		if (label2->isFocused())
 		{
-			label2->transform.position.x += 0.2f;
+			label2->setPosition(label2->getPosition() + caDraw::PointF(0.4f, 0.0f));
 		}
 
 

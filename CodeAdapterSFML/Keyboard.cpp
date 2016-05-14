@@ -22,11 +22,26 @@ Keyboard::~Keyboard()
 
 void Keyboard::update()
 {
+	m_latestDownKey = Keys::Unknown;
+	m_latestPressedKey = Keys::Unknown;
+	m_latestUpKey = Keys::Unknown;
+
+
 	for (int key = 0; key < sf::Keyboard::KeyCount; ++key)
 	{
 		m_oldKeyMap[key] = m_currentKeyMap[key];
 		m_currentKeyMap[key] = sf::Keyboard::isKeyPressed(
 			static_cast<sf::Keyboard::Key>(key));
+
+
+		Keys caKey = static_cast<Keys>(key);
+
+		if (isKeyPressed(caKey))
+			m_latestPressedKey = caKey;
+		else if (isKeyUp(caKey))
+			m_latestUpKey = caKey;
+		else if (isKeyDown(caKey))
+			m_latestDownKey = caKey;
 	}
 }
 
@@ -54,4 +69,24 @@ bool Keyboard::isKeyUp(Keys key) const
 
 	return (m_oldKeyMap[code] && !m_currentKeyMap[code]);
 }
+
+
+Keyboard::Keys Keyboard::getLatestDownKey() const
+{
+	return m_latestDownKey;
+}
+
+
+Keyboard::Keys Keyboard::getLatestPressedKey() const
+{
+	return m_latestPressedKey;
+}
+
+
+Keyboard::Keys Keyboard::getLatestUpKey() const
+{
+	return m_latestUpKey;
+}
+
+
 

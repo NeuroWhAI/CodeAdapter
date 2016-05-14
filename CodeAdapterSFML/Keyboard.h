@@ -23,6 +23,9 @@ public:
 protected:
 	bool m_oldKeyMap[sf::Keyboard::KeyCount];
 	bool m_currentKeyMap[sf::Keyboard::KeyCount];
+	Keys m_latestDownKey;
+	Keys m_latestPressedKey;
+	Keys m_latestUpKey;
 
 
 public:
@@ -33,6 +36,9 @@ public:
 	virtual bool isKeyDown(Keys key) const override;
 	virtual bool isKeyPressed(Keys key) const override;
 	virtual bool isKeyUp(Keys key) const override;
+	virtual Keys getLatestDownKey() const override;
+	virtual Keys getLatestPressedKey() const override;
+	virtual Keys getLatestUpKey() const override;
 };
 
 

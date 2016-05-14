@@ -63,6 +63,20 @@ public:
 
 
 public:
+	virtual void onTouchDown(const TouchEventArgs& args);
+	virtual void onTouchUp(const TouchEventArgs& args);
+
+	virtual void onKeyDown(const KeyEventArgs& args);
+	virtual void onKeyUp(const KeyEventArgs& args);
+
+	virtual void onEnterFocus(const EventArgs& args);
+	virtual void onLeaveFocus(const EventArgs& args);
+
+	virtual void onSelected(const EventArgs& args);
+	virtual void onDeselected(const EventArgs& args);
+
+
+public:
 	virtual void update(const Transform& parentTransform, const Point& cursor) override;
 	
 	
