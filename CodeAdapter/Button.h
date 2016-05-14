@@ -43,6 +43,10 @@ public:
 	EventHandler WhenClick;
 
 
+public:
+	virtual void onClick(const EventArgs& args);
+
+
 protected:
 	virtual void onTouchDown(const TouchEventArgs& args) override;
 	virtual void onTouchUp(const TouchEventArgs& args) override;

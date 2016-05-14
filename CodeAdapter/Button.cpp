@@ -32,6 +32,16 @@ Button::~Button()
 
 //###########################################################################
 
+void Button::onClick(const EventArgs& args)
+{
+	if (WhenClick)
+	{
+		WhenClick(args);
+	}
+}
+
+//###########################################################################
+
 void Button::onTouchDown(const TouchEventArgs& args)
 {
 	Control::onTouchDown(args);
@@ -50,10 +60,7 @@ void Button::onTouchUp(const TouchEventArgs& args)
 
 
 	// 버튼 클릭 이벤트 발생
-	if (WhenClick)
-	{
-		WhenClick(static_cast<const EventArgs&>(args));
-	}
+	onClick(static_cast<const EventArgs&>(args));
 }
 
 //--------------------------------------------------------------------------
