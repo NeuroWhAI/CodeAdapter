@@ -131,6 +131,7 @@ BEGIN_NAMESPACE_CA_UI
 
 class Control;
 class Label;
+class Button;
 
 
 END_NAMESPACE_CA_UI

@@ -1,5 +1,5 @@
-#ifndef __CA__LABEL_H__
-#define __CA__LABEL_H__
+#ifndef __CA__BUTTON_H__
+#define __CA__BUTTON_H__
 
 
 #include <memory>
@@ -9,7 +9,6 @@
 #include "Control.h"
 
 #include "String.h"
-#include "Point.h"
 #include "Color.h"
 
 
@@ -18,25 +17,38 @@
 BEGIN_NAMESPACE_CA_UI
 
 
-class Label : public Control
+class Button : public Control
 {
 private:
-	USING_CA_DRAWING(PointF);
 	USING_CA_DRAWING(Color);
 	USING_CA_DRAWING(Transform);
 	USING_CA_DRAWING(Graphics);
 
 
 public:
-	Label();
-	virtual ~Label();
+	Button();
+	virtual ~Button();
 
 
 protected:
 	Utility::String m_text;
 	std::weak_ptr<Drawing::Font> m_font;
 	Color m_textColor;
-	PointF m_textMargin;
+	Color m_overlayColor;
+	Color m_focusColor;
+	Color m_touchColor;
+
+
+public:
+	EventHandler WhenClick;
+
+
+protected:
+	virtual void onTouchDown(const TouchEventArgs& args) override;
+	virtual void onTouchUp(const TouchEventArgs& args) override;
+
+	virtual void onEnterFocus(const EventArgs& args) override;
+	virtual void onLeaveFocus(const EventArgs& args) override;
 
 
 protected:
@@ -50,8 +62,10 @@ public:
 	void setFont(std::weak_ptr<Drawing::Font> font);
 	void setTextColor(const Color& textColor);
 	const Color& getTextColor() const;
-	void setTextMargin(const PointF& margin);
-	const PointF& getTextMargin() const;
+	void setFocusColor(const Color& focusColor);
+	const Color& getFocusColor() const;
+	void setTouchColor(const Color& touchColor);
+	const Color& getTouchColor() const;
 };
 
 

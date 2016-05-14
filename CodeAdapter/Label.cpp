@@ -16,6 +16,7 @@ Label::Label()
 	
 	, m_text("")
 	, m_textColor(Color::Black)
+	, m_textMargin(0, 0)
 {
 
 }
@@ -46,7 +47,11 @@ void Label::onDrawControl(Graphics& g, const Transform& parentTransform)
 
 		artist->beginDrawString(*m_font.lock());
 
-		artist->drawString(m_text, m_position, m_textColor);
+		artist->drawString(m_text,
+			m_position.x + m_textMargin.x,
+			m_position.y + m_size.height / 2.0f + m_textMargin.y,
+			m_textColor,
+			Drawing::TextAligns::Right);
 
 		artist->endDrawString();
 	}
@@ -78,9 +83,21 @@ void Label::setTextColor(const Color& textColor)
 }
 
 
-const Drawing::Color& Label::getTextColor() const
+const Label::Color& Label::getTextColor() const
 {
 	return m_textColor;
+}
+
+
+void Label::setTextMargin(const PointF& margin)
+{
+	m_textMargin = margin;
+}
+
+
+const Label::PointF& Label::getTextMargin() const
+{
+	return m_textMargin;
 }
 
 

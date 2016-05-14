@@ -1,4 +1,3 @@
-#include <iostream>
 #include <CodeAdapter\EasyCA.h>
 #include <CodeAdapterSFML\SFMLFactory.h>
 
@@ -8,6 +7,9 @@
 int main()
 {
 	initializeCA<SFMLFactory>();
+
+
+	i32 button1ClickCount = 0;
 
 
 	auto window1 = caFactory->createWindow();
@@ -81,6 +83,7 @@ int main()
 	auto label1 = canew<caUI::Label>();
 	label1->setFont(font1);
 	label1->setText(L"label1 text");
+	label1->setTextMargin({ 8, 0 });
 	label1->setBackColor(caDraw::Color::Gray);
 	label1->setPosition({ 128, 128 });
 	label1->setSize({ 330, 100 });
@@ -145,6 +148,20 @@ int main()
 	};
 
 
+	auto button1 = canew<caUI::Button>();
+	button1->setFont(font1);
+	button1->setText(L"button1");
+	button1->setBackColor(caDraw::Color::Gray);
+	button1->setPosition({ 128, 300 });
+	button1->setSize({ 330, 100 });
+	button1->WhenClick = [&button1ClickCount, &label1](const caUI::EventArgs& args)
+	{
+		++button1ClickCount;
+
+		label1->setText(std::to_string(button1ClickCount));
+	};
+
+
 	auto panel = caFactory->createPanel();
 	panel->transform.position = { 64, 64 };
 	panel->size = { 800, 600 };
@@ -160,6 +177,8 @@ int main()
 	panel->addDrawable(text1);
 	panel->addDrawable(label1);
 	panel->addUpdatable(label1);
+	panel->addDrawable(button1);
+	panel->addUpdatable(button1);
 
 	window1->addPanel(panel);
 

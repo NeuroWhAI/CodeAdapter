@@ -134,6 +134,7 @@
     <ClInclude Include="Angle.h" />
     <ClInclude Include="Artist.h" />
     <ClInclude Include="BasicDeclaration.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Control.h" />
     <ClInclude Include="ControlEvent.h" />
     <ClInclude Include="EasyCA.h" />
@@ -154,6 +155,7 @@
     <ClInclude Include="RectangleArtist.h" />
     <ClInclude Include="Sharable.h" />
     <ClInclude Include="SharedObject.h" />
+    <ClInclude Include="TextAligns.h" />
     <ClInclude Include="TextArtist.h" />
     <ClInclude Include="CodeAdapter.h" />
     <ClInclude Include="Color.h" />
@@ -179,6 +181,7 @@
   <ItemGroup>
     <ClCompile Include="Angle.cpp" />
     <ClCompile Include="Artist.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Control.cpp" />
     <ClCompile Include="ControlEvent.cpp" />
     <ClCompile Include="EasyCA.cpp" />

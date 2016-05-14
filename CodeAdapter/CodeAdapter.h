@@ -21,6 +21,7 @@
 #include "Line.h"
 #include "Color.h"
 #include "Transform.h"
+#include "TextAligns.h"
 
 // * GUI
 #include "Window.h"
@@ -70,6 +71,7 @@
 #include "Control.h"
 #include "ControlEvent.h"
 #include "Label.h"
+#include "Button.h"
 
 
 #endif

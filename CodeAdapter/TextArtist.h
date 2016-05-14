@@ -6,6 +6,8 @@
 
 #include "Artist.h"
 
+#include "TextAligns.h"
+
 
 
 
@@ -26,10 +28,14 @@ public:
 public:
 	virtual void beginDrawString(Font& font) = 0;
 	virtual void endDrawString() = 0;
-	virtual void drawString(const String& text, i32 x, i32 y, const Color& color) = 0;
-	virtual void drawString(const String& text, const Point& location, const Color& color) = 0;
-	virtual void drawString(const String& text, f32 x, f32 y, const Color& color) = 0;
-	virtual void drawString(const String& text, const PointF& location, const Color& color) = 0;
+	virtual void drawString(const String& text, i32 x, i32 y, const Color& color,
+		TextAligns align = TextAligns::RightBottom) = 0;
+	virtual void drawString(const String& text, const Point& location, const Color& color,
+		TextAligns align = TextAligns::RightBottom) = 0;
+	virtual void drawString(const String& text, f32 x, f32 y, const Color& color,
+		TextAligns align = TextAligns::RightBottom) = 0;
+	virtual void drawString(const String& text, const PointF& location, const Color& color,
+		TextAligns align = TextAligns::RightBottom) = 0;
 };
 
 
