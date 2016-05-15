@@ -72,6 +72,7 @@
 #include "ControlEvent.h"
 #include "Label.h"
 #include "Button.h"
+#include "ScrollBar.h"
 
 
 #endif

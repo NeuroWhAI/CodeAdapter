@@ -84,7 +84,7 @@ void Button::onLeaveFocus(const EventArgs& args)
 
 //###########################################################################
 
-void Button::onUpdateControl(const Transform& parentTransform)
+void Button::onUpdateControl(const Transform& parentTransform, const PointF& localCursor)
 {
 	// Empty
 }

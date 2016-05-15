@@ -29,7 +29,7 @@ Label::~Label()
 
 //###########################################################################
 
-void Label::onUpdateControl(const Transform& parentTransform)
+void Label::onUpdateControl(const Transform& parentTransform, const PointF& localCursor)
 {
 	// Empty
 }

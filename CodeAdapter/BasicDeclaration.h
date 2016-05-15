@@ -132,6 +132,7 @@ BEGIN_NAMESPACE_CA_UI
 class Control;
 class Label;
 class Button;
+class ScrollBar;
 
 
 END_NAMESPACE_CA_UI

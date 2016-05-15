@@ -112,17 +112,17 @@ void Control::onDeselected(const EventArgs& args)
 
 void Control::update(const Transform& parentTransform, const Point& cursor)
 {
+	// 로컬변환과 전역변환을 합침
+	Transform combinedTransform = parentTransform;
+	combinedTransform.addTransform(transform);
+
+
+	// 커서 위치 변환
+	PointF localCursor = combinedTransform.inverseTransformPoint(static_cast<PointF>(cursor));
+
+
 	if (m_enabled)
 	{
-		// 로컬변환과 전역변환을 합침
-		Transform combinedTransform = parentTransform;
-		combinedTransform.addTransform(transform);
-
-
-		// 커서 위치 변환
-		PointF localCursor = combinedTransform.inverseTransformPoint(static_cast<PointF>(cursor));
-
-
 		// 커서가 컨트롤 영역안에 들어와있다면
 		if (localCursor.x > m_position.x
 			&& localCursor.x < m_position.x + m_size.width
@@ -203,7 +203,7 @@ void Control::update(const Transform& parentTransform, const Point& cursor)
 	}
 
 
-	onUpdateControl(parentTransform);
+	onUpdateControl(parentTransform, localCursor);
 }
 
 //###########################################################################
