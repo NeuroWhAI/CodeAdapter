@@ -67,7 +67,7 @@ void DrawableRectangle::onDraw(Graphics& g, const Transform& parentTransform)
 	auto& artist = g.rectangleArtist;
 
 
-	artist->transform = parentTransform;
+	artist->initialize(parentTransform);
 
 
 	artist->beginFillRectangle();

@@ -19,8 +19,12 @@ public:
 	virtual ~Artist();
 
 
+protected:
+	Transform m_transform;
+
+
 public:
-	Transform transform;
+	virtual void initialize(const Transform& transform);
 };
 
 

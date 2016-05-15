@@ -31,7 +31,7 @@ TextureArtist::~TextureArtist()
 
 void TextureArtist::beginDrawTexture()
 {
-	updateRenderTransform(transform);
+	updateRenderTransform(m_transform);
 }
 
 

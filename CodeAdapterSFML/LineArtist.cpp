@@ -30,7 +30,7 @@ void LineArtist::beginDrawLine(f32 thickness)
 {
 	m_thickness = thickness;
 
-	updateRenderTransform(transform);
+	updateRenderTransform(m_transform);
 }
 
 

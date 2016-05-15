@@ -29,7 +29,7 @@ void RectangleArtist::beginDrawRectangle(f32 thickness)
 	m_drawRect.setOutlineThickness(thickness);
 	m_drawRect.setFillColor(sf::Color::Transparent);
 
-	updateRenderTransform(transform);
+	updateRenderTransform(m_transform);
 }
 
 
@@ -95,7 +95,7 @@ void RectangleArtist::drawRectangle(const RectangleF& rectangle, const Color& co
 
 void RectangleArtist::beginFillRectangle()
 {
-	updateRenderTransform(transform);
+	updateRenderTransform(m_transform);
 }
 
 

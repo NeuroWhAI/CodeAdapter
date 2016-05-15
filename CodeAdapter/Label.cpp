@@ -42,7 +42,7 @@ void Label::onDrawControl(Graphics& g, const Transform& parentTransform)
 		auto& artist = g.textArtist;
 
 
-		artist->transform = parentTransform;
+		artist->initialize(parentTransform);
 
 
 		artist->beginDrawString(*m_font.lock());

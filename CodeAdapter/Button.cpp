@@ -94,7 +94,7 @@ void Button::onDrawControl(Graphics& g, const Transform& parentTransform)
 {
 	// 배경 그리기
 	auto& rectArtist = g.rectangleArtist;
-	rectArtist->transform = parentTransform;
+	rectArtist->initialize(parentTransform);
 
 	rectArtist->beginFillRectangle();
 	rectArtist->fillRectangle(m_position, m_size, m_overlayColor);
@@ -107,7 +107,7 @@ void Button::onDrawControl(Graphics& g, const Transform& parentTransform)
 		auto& artist = g.textArtist;
 
 
-		artist->transform = parentTransform;
+		artist->initialize(parentTransform);
 
 
 		artist->beginDrawString(*m_font.lock());

@@ -211,7 +211,7 @@ void Control::update(const Transform& parentTransform, const Point& cursor)
 void Control::onDraw(Graphics& g, const Transform& parentTransform)
 {
 	auto& rectArtist = g.rectangleArtist;
-	rectArtist->transform = parentTransform;
+	rectArtist->initialize(parentTransform);
 
 	// 배경색 채우기
 	rectArtist->beginFillRectangle();

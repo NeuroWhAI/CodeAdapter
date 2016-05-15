@@ -32,7 +32,7 @@ void DrawableTexture::onDraw(Graphics& g, const Transform& parentTransform)
 		auto& artist = g.textureArtist;
 
 
-		artist->transform = parentTransform;
+		artist->initialize(parentTransform);
 
 
 		auto texture = m_texture.lock();

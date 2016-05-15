@@ -38,7 +38,7 @@ void TextArtist::beginDrawString(Font& font)
 
 	m_text = m_sharedFontText.getObject();
 
-	updateRenderTransform(transform);
+	updateRenderTransform(m_transform);
 }
 
 

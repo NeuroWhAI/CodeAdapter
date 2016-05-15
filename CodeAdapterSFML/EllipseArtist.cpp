@@ -27,11 +27,11 @@ EllipseArtist::~EllipseArtist()
 
 void EllipseArtist::updateRenderTransform()
 {
-	m_renderStates.transform.translate(transform.position.x,
-		transform.position.y);
-	m_renderStates.transform.rotate(transform.angle);
-	m_renderStates.transform.scale(transform.scale.x,
-		transform.scale.y);
+	m_renderStates.transform.translate(m_transform.position.x,
+		m_transform.position.y);
+	m_renderStates.transform.rotate(m_transform.angle);
+	m_renderStates.transform.scale(m_transform.scale.x,
+		m_transform.scale.y);
 }
 
 //###########################################################################

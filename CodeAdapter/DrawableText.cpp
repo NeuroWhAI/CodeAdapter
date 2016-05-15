@@ -43,7 +43,7 @@ void DrawableText::onDraw(Graphics& g, const Transform& parentTransform)
 		auto& artist = g.textArtist;
 
 
-		artist->transform = parentTransform;
+		artist->initialize(parentTransform);
 
 
 		auto font = m_font.lock();

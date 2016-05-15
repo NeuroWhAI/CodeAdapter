@@ -94,7 +94,7 @@ void DrawableEllipse::onDraw(Graphics& g, const Transform& parentTransform)
 	auto& artist = g.ellipseArtist;
 
 
-	artist->transform = parentTransform;
+	artist->initialize(parentTransform);
 
 
 	artist->beginFillEllipse();
