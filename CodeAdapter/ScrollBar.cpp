@@ -1,5 +1,7 @@
 #include "ScrollBar.h"
 
+#include <numeric>
+
 #include "Touch.h"
 
 #include "Transform.h"
@@ -20,9 +22,12 @@ ScrollBar::ScrollBar()
 	, m_value(0)
 	, m_barControlMode(false)
 
-	, m_barColor({200, 200, 200})
+	, m_barColor({ 220, 220, 220 })
+	, m_barThicknessRate(0.8f)
+	, m_minBarLength(10.0f)
+	, m_barLengthScale(2.0f)
 {
-
+	m_backColor = { 140, 140, 140 };
 }
 
 
@@ -77,7 +82,7 @@ void ScrollBar::onDrawControl(Graphics& g, const Transform& parentTransform)
 	rectArtist->initialize(parentTransform);
 
 	rectArtist->beginFillRectangle();
-	rectArtist->drawRectangle(m_barRect, m_barColor);
+	rectArtist->fillRectangle(m_barRect, m_barColor);
 	rectArtist->endFillRectangle();
 }
 
@@ -85,6 +90,9 @@ void ScrollBar::onDrawControl(Graphics& g, const Transform& parentTransform)
 
 void ScrollBar::setMaxValue(f32 maxValue)
 {
+	if (maxValue < std::numeric_limits<f32>::epsilon())
+		maxValue = std::numeric_limits<f32>::epsilon();
+
 	m_maxValue = maxValue;
 
 	if (m_value > maxValue)
@@ -104,6 +112,8 @@ void ScrollBar::setValue(f32 value)
 {
 	if (value > m_maxValue)
 		value = m_maxValue;
+	else if (value < 0)
+		value = 0;
 
 	if (m_value != value)
 	{
@@ -132,6 +142,55 @@ void ScrollBar::setBarColor(const Color& barColor)
 const ScrollBar::Color& ScrollBar::getBarColor() const
 {
 	return m_barColor;
+}
+
+
+void ScrollBar::setBarThicknessRate(f32 rate)
+{
+	if (rate < std::numeric_limits<f32>::epsilon())
+		rate = std::numeric_limits<f32>::epsilon();
+	else if (rate > 1)
+		rate = 1;
+
+	m_barThicknessRate = rate;
+}
+
+
+f32 ScrollBar::getBarThicknessRate() const
+{
+	return m_barThicknessRate;
+}
+
+
+void ScrollBar::setMinBarLength(f32 length)
+{
+	if (length < 1)
+		length = 1;
+	else if (length > m_size.height - 1)
+		length = m_size.height - 1;
+
+	m_minBarLength = length;
+}
+
+
+f32 ScrollBar::getMinBarLength() const
+{
+	return m_minBarLength;
+}
+
+
+void ScrollBar::setBarLengthScale(f32 scale)
+{
+	if (scale < std::numeric_limits<f32>::epsilon())
+		scale = std::numeric_limits<f32>::epsilon();
+
+	m_barLengthScale = scale;
+}
+
+
+f32 ScrollBar::getBarLengthScale() const
+{
+	return m_barLengthScale;
 }
 
 

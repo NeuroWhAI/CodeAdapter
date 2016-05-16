@@ -73,6 +73,7 @@
 #include "Label.h"
 #include "Button.h"
 #include "ScrollBar.h"
+#include "VerticalScrollBar.h"
 
 
 #endif

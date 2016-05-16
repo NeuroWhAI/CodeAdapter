@@ -177,6 +177,9 @@
     <ClInclude Include="ScrollBar.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="VerticalScrollBar.h">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -300,6 +303,9 @@
       <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="ScrollBar.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="VerticalScrollBar.cpp">
       <Filter>UI</Filter>
     </ClCompile>
   </ItemGroup>

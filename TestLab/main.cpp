@@ -162,6 +162,27 @@ int main()
 	};
 
 
+	auto verticalScrollBar1 = canew<caUI::VerticalScrollBar>();
+	verticalScrollBar1->transform.position = { 750, 32 };
+	verticalScrollBar1->setSize({24, 256});
+	verticalScrollBar1->setMaxValue(1024);
+	verticalScrollBar1->WhenValueChanged = [&verticalScrollBar1, &label2](const caUI::EventArgs& args)
+	{
+		label2->setText(std::to_string(verticalScrollBar1->getValue()));
+	};
+
+
+	auto verticalScrollBar2 = canew<caUI::VerticalScrollBar>();
+	verticalScrollBar2->transform.position = { 700, 32 };
+	verticalScrollBar2->setSize({ 24, 256 });
+	verticalScrollBar2->setMaxValue(1024);
+	verticalScrollBar2->setMinBarLength(32);
+	verticalScrollBar2->WhenValueChanged = [&verticalScrollBar2, &verticalScrollBar1](const caUI::EventArgs& args)
+	{
+		verticalScrollBar1->setMaxValue(verticalScrollBar2->getValue());
+	};
+
+
 	auto panel = caFactory->createPanel();
 	panel->transform.position = { 64, 64 };
 	panel->size = { 800, 600 };
@@ -179,6 +200,10 @@ int main()
 	panel->addUpdatable(label1);
 	panel->addDrawable(button1);
 	panel->addUpdatable(button1);
+	panel->addDrawable(verticalScrollBar1);
+	panel->addUpdatable(verticalScrollBar1);
+	panel->addDrawable(verticalScrollBar2);
+	panel->addUpdatable(verticalScrollBar2);
 
 	window1->addPanel(panel);
 
@@ -208,11 +233,6 @@ int main()
 	while (window1->isRunning())
 	{
 		caTouch->update();
-
-		if (caTouch->isLongPressed())
-		{
-			panel2->transform.position = caTouch->getPositionF(*window1);
-		}
 
 
 		caKeyboard->update();
@@ -272,7 +292,7 @@ int main()
 
 
 		window1->update();
-		window1->draw(caDraw::Color::Gray);
+		window1->draw(caDraw::Color(230, 230, 230));
 	}
 
 

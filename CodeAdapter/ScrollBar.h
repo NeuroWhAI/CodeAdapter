@@ -39,6 +39,9 @@ private:
 protected:
 	RectangleF m_barRect;
 	Color m_barColor;
+	f32 m_barThicknessRate;
+	f32 m_minBarLength;
+	f32 m_barLengthScale;
 
 
 public:
@@ -73,6 +76,12 @@ public:
 public:
 	void setBarColor(const Color& barColor);
 	const Color& getBarColor() const;
+	void setBarThicknessRate(f32 rate);
+	f32 getBarThicknessRate() const;
+	void setMinBarLength(f32 length);
+	f32 getMinBarLength() const;
+	void setBarLengthScale(f32 scale);
+	f32 getBarLengthScale() const;
 };
 
 

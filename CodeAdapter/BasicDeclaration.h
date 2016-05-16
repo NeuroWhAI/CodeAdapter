@@ -133,6 +133,7 @@ class Control;
 class Label;
 class Button;
 class ScrollBar;
+class VerticalScrollBar;
 
 
 END_NAMESPACE_CA_UI
