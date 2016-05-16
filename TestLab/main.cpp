@@ -163,7 +163,7 @@ int main()
 
 
 	auto verticalScrollBar1 = canew<caUI::VerticalScrollBar>();
-	verticalScrollBar1->transform.position = { 750, 32 };
+	verticalScrollBar1->setPosition({ 750, 32 });
 	verticalScrollBar1->setSize({24, 256});
 	verticalScrollBar1->setMaxValue(1024);
 	verticalScrollBar1->WhenValueChanged = [&verticalScrollBar1, &label2](const caUI::EventArgs& args)
@@ -173,14 +173,16 @@ int main()
 
 
 	auto verticalScrollBar2 = canew<caUI::VerticalScrollBar>();
-	verticalScrollBar2->transform.position = { 700, 32 };
+	verticalScrollBar2->setPosition({ 700, 32 });
 	verticalScrollBar2->setSize({ 24, 256 });
-	verticalScrollBar2->setMaxValue(1024);
+	verticalScrollBar2->setMaxValue(256);
 	verticalScrollBar2->setMinBarLength(32);
 	verticalScrollBar2->WhenValueChanged = [&verticalScrollBar2, &verticalScrollBar1](const caUI::EventArgs& args)
 	{
 		verticalScrollBar1->setMaxValue(verticalScrollBar2->getValue());
 	};
+
+	verticalScrollBar1->setMaxValue(verticalScrollBar2->getValue());
 
 
 	auto panel = caFactory->createPanel();
