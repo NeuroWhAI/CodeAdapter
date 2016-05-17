@@ -20,6 +20,8 @@ Button::Button()
 	, m_overlayColor(Color::Transparent)
 	, m_focusColor(Color(Color::Cyan, 64))
 	, m_touchColor(Color(Color::Cyan, 128))
+
+	, m_wasTouchDown(false)
 {
 
 }
@@ -47,6 +49,10 @@ void Button::onTouchDown(const TouchEventArgs& args)
 	Control::onTouchDown(args);
 
 
+	// 버튼을 누르고 때었는지 판단하기 위한 플래그
+	m_wasTouchDown = true;
+
+
 	m_overlayColor = m_touchColor;
 }
 
@@ -59,8 +65,16 @@ void Button::onTouchUp(const TouchEventArgs& args)
 	m_overlayColor = m_focusColor;
 
 
-	// 버튼 클릭 이벤트 발생
-	onClick(static_cast<const EventArgs&>(args));
+	// 버튼을 누른뒤 땐거라면
+	if (m_wasTouchDown)
+	{
+		// 버튼 클릭 이벤트 발생
+		onClick(static_cast<const EventArgs&>(args));
+
+
+		// 버튼 눌림 플래그 리셋
+		m_wasTouchDown = false;
+	}
 }
 
 //--------------------------------------------------------------------------
@@ -77,6 +91,10 @@ void Button::onEnterFocus(const EventArgs& args)
 void Button::onLeaveFocus(const EventArgs& args)
 {
 	Control::onLeaveFocus(args);
+
+
+	// 포커스를 잃으면 버튼 눌림 플래그 리셋
+	m_wasTouchDown = false;
 
 
 	m_overlayColor = Color::Transparent;

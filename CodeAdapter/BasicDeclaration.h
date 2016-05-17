@@ -134,6 +134,7 @@ class Label;
 class Button;
 class ScrollBar;
 class VerticalScrollBar;
+class HorizontalScrollBar;
 
 
 END_NAMESPACE_CA_UI

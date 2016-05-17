@@ -40,6 +40,10 @@ protected:
 	Color m_touchColor;
 
 
+private:
+	bool m_wasTouchDown;
+
+
 public:
 	EventHandler WhenClick;
 

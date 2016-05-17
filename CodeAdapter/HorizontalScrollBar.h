@@ -1,5 +1,5 @@
-#ifndef __CA__VERTICAL_SCROLL_BAR_H__
-#define __CA__VERTICAL_SCROLL_BAR_H__
+#ifndef __CA__HORIZONTAL_SCROLL_BAR_H__
+#define __CA__HORIZONTAL_SCROLL_BAR_H__
 
 
 #include "BasicDeclaration.h"
@@ -12,7 +12,7 @@
 BEGIN_NAMESPACE_CA_UI
 
 
-class VerticalScrollBar : public ScrollBar
+class HorizontalScrollBar : public ScrollBar
 {
 private:
 	USING_CA_DRAWING(PointF);
@@ -21,8 +21,8 @@ private:
 
 
 public:
-	VerticalScrollBar();
-	virtual ~VerticalScrollBar();
+	HorizontalScrollBar();
+	virtual ~HorizontalScrollBar();
 
 
 protected:

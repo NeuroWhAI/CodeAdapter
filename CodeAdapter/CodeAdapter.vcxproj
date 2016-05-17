@@ -139,6 +139,7 @@
     <ClInclude Include="ControlEvent.h" />
     <ClInclude Include="EasyCA.h" />
     <ClInclude Include="Event.h" />
+    <ClInclude Include="HorizontalScrollBar.h" />
     <ClInclude Include="Label.h" />
     <ClInclude Include="ScrollBar.h" />
     <ClInclude Include="SingletonWrapper.h" />
@@ -188,6 +189,7 @@
     <ClCompile Include="ControlEvent.cpp" />
     <ClCompile Include="EasyCA.cpp" />
     <ClCompile Include="Event.cpp" />
+    <ClCompile Include="HorizontalScrollBar.cpp" />
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="ScrollBar.cpp" />
     <ClCompile Include="SingletonWrapper.cpp" />

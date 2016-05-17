@@ -74,6 +74,7 @@
 #include "Button.h"
 #include "ScrollBar.h"
 #include "VerticalScrollBar.h"
+#include "HorizontalScrollBar.h"
 
 
 #endif

@@ -68,6 +68,13 @@ VerticalScrollBar::RectangleF VerticalScrollBar::onUpdateScrollBar(
 		m_size.width * m_barThicknessRate - barXPosition, barLength };
 }
 
+//###########################################################################
+
+f32 VerticalScrollBar::getBarLength() const
+{
+	return m_barRect.height;
+}
+
 
 END_NAMESPACE_CA_UI
 

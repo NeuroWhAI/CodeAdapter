@@ -67,6 +67,10 @@ protected:
 
 
 public:
+	virtual f32 getBarLength() const = 0;
+
+
+public:
 	void setMaxValue(f32 maxValue);
 	f32 getMaxValue() const;
 	void setValue(f32 value);

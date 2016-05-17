@@ -172,17 +172,17 @@ int main()
 	};
 
 
-	auto verticalScrollBar2 = canew<caUI::VerticalScrollBar>();
-	verticalScrollBar2->setPosition({ 700, 32 });
-	verticalScrollBar2->setSize({ 24, 256 });
-	verticalScrollBar2->setMaxValue(256);
-	verticalScrollBar2->setMinBarLength(32);
-	verticalScrollBar2->WhenValueChanged = [&verticalScrollBar2, &verticalScrollBar1](const caUI::EventArgs& args)
+	auto horizontalScrollBar1 = canew<caUI::HorizontalScrollBar>();
+	horizontalScrollBar1->setPosition({ 420, 256 });
+	horizontalScrollBar1->setSize({ 256, 24 });
+	horizontalScrollBar1->setMaxValue(256);
+	horizontalScrollBar1->setMinBarLength(32);
+	horizontalScrollBar1->WhenValueChanged = [&horizontalScrollBar1, &verticalScrollBar1](const caUI::EventArgs& args)
 	{
-		verticalScrollBar1->setMaxValue(verticalScrollBar2->getValue());
+		verticalScrollBar1->setMaxValue(horizontalScrollBar1->getValue());
 	};
 
-	verticalScrollBar1->setMaxValue(verticalScrollBar2->getValue());
+	verticalScrollBar1->setMaxValue(horizontalScrollBar1->getValue());
 
 
 	auto panel = caFactory->createPanel();
@@ -204,8 +204,8 @@ int main()
 	panel->addUpdatable(button1);
 	panel->addDrawable(verticalScrollBar1);
 	panel->addUpdatable(verticalScrollBar1);
-	panel->addDrawable(verticalScrollBar2);
-	panel->addUpdatable(verticalScrollBar2);
+	panel->addDrawable(horizontalScrollBar1);
+	panel->addUpdatable(horizontalScrollBar1);
 
 	window1->addPanel(panel);
 
