@@ -166,6 +166,7 @@ void Control::update(const Transform& parentTransform, const Point& cursor)
 		}
 
 
+		// 선택된 상태라면
 		if (isSelected())
 		{
 			auto keyboard = System::Keyboard::getInstance();
@@ -200,7 +201,7 @@ void Control::update(const Transform& parentTransform, const Point& cursor)
 				onKeyUp(keyArgs);
 			}
 		}
-	}
+	} // if (m_enabled)
 
 
 	onUpdateControl(parentTransform, localCursor);

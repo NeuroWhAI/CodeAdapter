@@ -69,7 +69,7 @@ bool Window::isOpen() const
 void Window::onUpdate()
 {
 	sf::Event temp;
-	if (m_win.pollEvent(temp))
+	while (m_win.pollEvent(temp))
 	{
 		if (temp.type == sf::Event::Closed)
 			this->exit();
