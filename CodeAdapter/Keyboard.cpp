@@ -2,6 +2,8 @@
 
 #include "Factory.h"
 
+#include "Window.h"
+
 
 
 
@@ -14,6 +16,7 @@ Keyboard::Cleaner Keyboard::s_cleaner;
 //###########################################################################
 
 Keyboard::Keyboard()
+	: m_typedUnicode(0)
 {
 
 }
@@ -35,6 +38,36 @@ Keyboard* Keyboard::getInstance()
 
 
 	return s_instance.get();
+}
+
+//###########################################################################
+
+void Keyboard::update(Window& win)
+{
+	m_typedUnicode = 0;
+
+	// 텍스트가 입력되었으면
+	if (win.checkLatestEvent(System::WindowEvent::Types::TextEntered))
+	{
+		// 입력된 유니코드를 가져옴.
+		m_typedUnicode = win.getLatestEvent().text.unicode;
+	}
+
+
+	onUpdate(win);
+}
+
+//###########################################################################
+
+bool Keyboard::getTypedText(u32* outUnicode)
+{
+	if (outUnicode != nullptr)
+	{
+		*outUnicode = m_typedUnicode;
+	}
+
+
+	return (m_typedUnicode != 0);
 }
 
 

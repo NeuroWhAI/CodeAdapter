@@ -180,6 +180,7 @@
     <ClInclude Include="Vector.h" />
     <ClInclude Include="VerticalScrollBar.h" />
     <ClInclude Include="Window.h" />
+    <ClInclude Include="WindowEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Angle.cpp" />
@@ -225,6 +226,7 @@
     <ClCompile Include="Vector.cpp" />
     <ClCompile Include="VerticalScrollBar.cpp" />
     <ClCompile Include="Window.cpp" />
+    <ClCompile Include="WindowEvent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="EasyCA.inl" />

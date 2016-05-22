@@ -18,6 +18,8 @@ private:
 	USING_CA_DRAWING(Size);
 	USING_CA_DRAWING(Color);
 
+	USING_CA_SYSTEM(WindowEvent);
+
 
 public:
 	explicit Window(SharedObject<sf::RenderWindow>& sharedWin);
@@ -44,7 +46,7 @@ public:
 
 
 protected:
-	virtual void onUpdate() override;
+	virtual bool onUpdate(WindowEvent* outEvent) override;
 	virtual void beginDraw(const Color& backColor) override;
 	virtual void endDraw() override;
 

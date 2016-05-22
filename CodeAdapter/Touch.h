@@ -16,6 +16,12 @@ BEGIN_NAMESPACE_CA_SYSTEM
 
 class Touch
 {
+private:
+	USING_CA_DRAWING(Point);
+	USING_CA_DRAWING(PointF);
+	USING_CA_DRAWING(Window);
+
+
 public:
 	Touch();
 	virtual ~Touch();
@@ -57,10 +63,10 @@ public:
 	virtual bool isLongPressed() const = 0;
 	virtual bool isLongUp() const = 0;
 
-	virtual Drawing::Point getPosition(Drawing::Window& win) const = 0;
-	virtual Drawing::PointF getPositionF(Drawing::Window& win) const = 0;
-	virtual void getPosition(i32* pX, i32* pY, Drawing::Window& win) const = 0;
-	virtual void getPosition(f32* pX, f32* pY, Drawing::Window& win) const = 0;
+	virtual Point getPosition(Window& win) const = 0;
+	virtual PointF getPositionF(Window& win) const = 0;
+	virtual void getPosition(i32* pX, i32* pY, Window& win) const = 0;
+	virtual void getPosition(f32* pX, f32* pY, Window& win) const = 0;
 };
 
 

@@ -12,6 +12,8 @@
 class Keyboard : public CodeAdapter::System::Keyboard
 {
 private:
+	USING_CA_DRAWING(Window);
+
 	USING_CA_SYSTEM(Keys);
 
 
@@ -28,17 +30,17 @@ protected:
 	Keys m_latestUpKey;
 
 
-public:
-	virtual void update() override;
+protected:
+	virtual void onUpdate(Window& win) override;
 
 
 public:
 	virtual bool isKeyDown(Keys key) const override;
 	virtual bool isKeyPressed(Keys key) const override;
 	virtual bool isKeyUp(Keys key) const override;
-	virtual Keys getLatestDownKey() const override;
-	virtual Keys getLatestPressedKey() const override;
-	virtual Keys getLatestUpKey() const override;
+	virtual Keys getDownKey() const override;
+	virtual Keys getPressedKey() const override;
+	virtual Keys getUpKey() const override;
 };
 
 

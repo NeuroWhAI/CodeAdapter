@@ -16,6 +16,10 @@ BEGIN_NAMESPACE_CA_SYSTEM
 
 class Keyboard
 {
+private:
+	USING_CA_DRAWING(Window);
+
+
 public:
 	Keyboard();
 	virtual ~Keyboard();
@@ -41,21 +45,33 @@ private:
 	static Cleaner s_cleaner;
 
 
+private:
+	u32 m_typedUnicode;
+
+
 public:
 	static Keyboard* getInstance();
 
 
 public:
-	virtual void update() = 0;
+	void update(Window& win);
+
+
+protected:
+	virtual void onUpdate(Window& win) = 0;
+
+	
+public:
+	bool getTypedText(u32* outUnicode = nullptr);
 
 
 public:
 	virtual bool isKeyDown(Keys key) const = 0;
 	virtual bool isKeyPressed(Keys key) const = 0;
 	virtual bool isKeyUp(Keys key) const = 0;
-	virtual Keys getLatestDownKey() const = 0;
-	virtual Keys getLatestPressedKey() const = 0;
-	virtual Keys getLatestUpKey() const = 0;
+	virtual Keys getDownKey() const = 0;
+	virtual Keys getPressedKey() const = 0;
+	virtual Keys getUpKey() const = 0;
 };
 
 

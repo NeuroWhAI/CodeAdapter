@@ -30,14 +30,25 @@ Window::~Window()
 
 //###########################################################################
 
-void Window::update()
+bool Window::update(WindowEvent* outEvent)
 {
 	for (auto& panel : m_panelList)
 	{
 		panel->update(*this);
 	}
 
-	onUpdate();
+
+	m_latestEvent.setType(WindowEvent::Types::Unknown);
+
+	bool hadEvent = onUpdate(&m_latestEvent);
+
+	if (outEvent != nullptr)
+	{
+		*outEvent = m_latestEvent;
+	}
+
+
+	return hadEvent;
 }
 
 
@@ -92,6 +103,19 @@ bool Window::removePanel(std::shared_ptr<const Panel> panel)
 
 
 	return false;
+}
+
+//###########################################################################
+
+bool Window::checkLatestEvent(WindowEvent::Types type) const
+{
+	return (type == m_latestEvent.getType());
+}
+
+
+auto Window::getLatestEvent() const -> WindowEvent
+{
+	return m_latestEvent;
 }
 
 

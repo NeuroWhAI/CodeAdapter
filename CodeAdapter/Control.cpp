@@ -173,8 +173,8 @@ void Control::update(const Transform& parentTransform, const Point& cursor)
 
 			KeyEventArgs keyArgs;
 
-			auto downKey = keyboard->getLatestDownKey();
-			auto upKey = keyboard->getLatestUpKey();
+			auto downKey = keyboard->getDownKey();
+			auto upKey = keyboard->getUpKey();
 
 			if (downKey != System::Keys::Unknown
 				|| upKey != System::Keys::Unknown)

@@ -1,5 +1,7 @@
 #include "Keyboard.h"
 
+#include "CodeAdapter\Window.h"
+
 
 
 
@@ -20,7 +22,7 @@ Keyboard::~Keyboard()
 
 //###########################################################################
 
-void Keyboard::update()
+void Keyboard::onUpdate(Window& win)
 {
 	m_latestDownKey = Keys::Unknown;
 	m_latestPressedKey = Keys::Unknown;
@@ -71,19 +73,19 @@ bool Keyboard::isKeyUp(Keys key) const
 }
 
 
-Keyboard::Keys Keyboard::getLatestDownKey() const
+Keyboard::Keys Keyboard::getDownKey() const
 {
 	return m_latestDownKey;
 }
 
 
-Keyboard::Keys Keyboard::getLatestPressedKey() const
+Keyboard::Keys Keyboard::getPressedKey() const
 {
 	return m_latestPressedKey;
 }
 
 
-Keyboard::Keys Keyboard::getLatestUpKey() const
+Keyboard::Keys Keyboard::getUpKey() const
 {
 	return m_latestUpKey;
 }

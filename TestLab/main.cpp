@@ -82,7 +82,7 @@ int main()
 
 	auto label1 = canew<caUI::Label>();
 	label1->setFont(font1);
-	label1->setText(L"label1 text");
+	label1->setText(L"label text");
 	label1->setTextMargin({ 8, 0 });
 	label1->setBackColor(caDraw::Color::Gray);
 	label1->setPosition({ 128, 128 });
@@ -237,7 +237,7 @@ int main()
 		caTouch->update();
 
 
-		caKeyboard->update();
+		caKeyboard->update(*window1);
 
 		if (caKeyboard->isKeyPressed(caSys::Keys::W))
 		{
@@ -255,6 +255,12 @@ int main()
 		else if (caKeyboard->isKeyPressed(caSys::Keys::D))
 		{
 			ellipse2->x += 0.4f;
+		}
+		
+		u32 typedUnicode = 0;
+		if (caKeyboard->getTypedText(&typedUnicode))
+		{
+			label1->setText(std::wstring({ static_cast<wchar_t>(typedUnicode) }));
 		}
 
 
@@ -293,7 +299,16 @@ int main()
 		}
 
 
-		window1->update();
+		caSys::WindowEvent newEvent;
+		if (window1->update(&newEvent))
+		{
+			if (newEvent.getType() == caSys::WindowEvent::Types::Resized)
+			{
+				label1->setText(std::to_wstring(newEvent.size.width) +
+					L"x" + std::to_wstring(newEvent.size.height));
+			}
+		}
+
 		window1->draw(caDraw::Color(230, 230, 230));
 	}
 

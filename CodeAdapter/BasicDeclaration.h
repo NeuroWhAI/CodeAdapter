@@ -77,7 +77,9 @@ BEGIN_NAMESPACE_CA_SYSTEM
 
 
 class Touch;
+enum class Keys;
 class Keyboard;
+class WindowEvent;
 
 
 END_NAMESPACE_CA_SYSTEM

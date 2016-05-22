@@ -6,6 +6,8 @@
 #include "CodeAdapter\Size.h"
 #include "CodeAdapter\Color.h"
 
+#include "CodeAdapter\WindowEvent.h"
+
 
 
 
@@ -66,14 +68,49 @@ bool Window::isOpen() const
 
 //###########################################################################
 
-void Window::onUpdate()
+bool Window::onUpdate(WindowEvent* outEvent)
 {
-	sf::Event temp;
-	while (m_win.pollEvent(temp))
+	sf::Event newEvent;
+	if (m_win.pollEvent(newEvent))
 	{
-		if (temp.type == sf::Event::Closed)
+		if (newEvent.type == sf::Event::Closed)
 			this->exit();
+
+		if (outEvent != nullptr)
+		{
+			using EventTypes = WindowEvent::Types;
+
+			EventTypes eventType = EventTypes::Unknown;
+
+
+			switch (newEvent.type)
+			{
+			case sf::Event::Closed:
+				eventType = EventTypes::Closed;
+				break;
+
+			case sf::Event::Resized:
+				eventType = EventTypes::Resized;
+				outEvent->size.width = newEvent.size.width;
+				outEvent->size.height = newEvent.size.height;
+				break;
+
+			case sf::Event::TextEntered:
+				eventType = EventTypes::TextEntered;
+				outEvent->text.unicode = newEvent.text.unicode;
+				break;
+			}
+
+
+			outEvent->setType(eventType);
+		}
+
+
+		return true;
 	}
+
+
+	return false;
 }
 
 
