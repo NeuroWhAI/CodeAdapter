@@ -43,7 +43,7 @@ int main()
 	auto font1 = caFactory->createFont();
 	font1->loadFromFile("NanumGothic.ttf");
 	font1->setCharacterSize(64);
-	font1->setStyle(caDraw::FontStyles::Underline | caDraw::FontStyles::Bold);
+	font1->setStyle(caDraw::FontStyles::Bold);
 
 
 	auto text1 = canew<caDraw::DrawableText>();
@@ -185,6 +185,14 @@ int main()
 	verticalScrollBar1->setMaxValue(horizontalScrollBar1->getValue());
 
 
+	auto textbox1 = canew<caUI::TextBox>();
+	textbox1->setFont(font1);
+	textbox1->setTextMargin({ 8, 8 });
+	textbox1->setBackColor(caDraw::Color::Gray);
+	textbox1->setPosition({ 64, 420 });
+	textbox1->setSize({ 330, 100 });
+
+
 	auto panel = caFactory->createPanel();
 	panel->transform.position = { 64, 64 };
 	panel->size = { 800, 600 };
@@ -206,12 +214,14 @@ int main()
 	panel->addUpdatable(verticalScrollBar1);
 	panel->addDrawable(horizontalScrollBar1);
 	panel->addUpdatable(horizontalScrollBar1);
+	panel->addDrawable(textbox1);
+	panel->addUpdatable(textbox1);
 
 	window1->addPanel(panel);
 
 
 	auto panel2 = caFactory->createPanel();
-	panel2->transform.position = { 512, 400 };
+	panel2->transform.position = { 600, 400 };
 	panel2->size = { 400, 300 };
 
 	panel2->addDrawable(sprite4);
@@ -255,12 +265,6 @@ int main()
 		else if (caKeyboard->isKeyPressed(caSys::Keys::D))
 		{
 			ellipse2->x += 0.4f;
-		}
-		
-		u32 typedUnicode = 0;
-		if (caKeyboard->getTypedText(&typedUnicode))
-		{
-			label1->setText(std::wstring({ static_cast<wchar_t>(typedUnicode) }));
 		}
 
 

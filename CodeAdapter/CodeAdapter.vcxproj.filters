@@ -186,6 +186,9 @@
     <ClInclude Include="WindowEvent.h">
       <Filter>System</Filter>
     </ClInclude>
+    <ClInclude Include="TextBox.h">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -319,6 +322,9 @@
     </ClCompile>
     <ClCompile Include="WindowEvent.cpp">
       <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="TextBox.cpp">
+      <Filter>UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

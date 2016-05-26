@@ -171,6 +171,7 @@
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Size.h" />
     <ClInclude Include="String.h" />
+    <ClInclude Include="TextBox.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureArtist.h" />
     <ClInclude Include="Touch.h" />
@@ -217,6 +218,7 @@
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Size.cpp" />
     <ClCompile Include="String.cpp" />
+    <ClCompile Include="TextBox.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureArtist.cpp" />
     <ClCompile Include="Touch.cpp" />

@@ -76,6 +76,7 @@
 #include "ScrollBar.h"
 #include "VerticalScrollBar.h"
 #include "HorizontalScrollBar.h"
+#include "TextBox.h"
 
 
 #endif

@@ -17,6 +17,8 @@ BEGIN_NAMESPACE_CA_DRAWING
 class TextArtist : public Artist
 {
 private:
+	USING_CA_DRAWING(RectangleF);
+
 	USING_CA_UTILITY(String);
 
 
@@ -28,6 +30,7 @@ public:
 public:
 	virtual void beginDrawString(Font& font) = 0;
 	virtual void endDrawString() = 0;
+	virtual RectangleF getBoundRectangle(const String& text) = 0;
 	virtual void drawString(const String& text, i32 x, i32 y, const Color& color,
 		TextAligns align = TextAligns::RightBottom) = 0;
 	virtual void drawString(const String& text, const Point& location, const Color& color,

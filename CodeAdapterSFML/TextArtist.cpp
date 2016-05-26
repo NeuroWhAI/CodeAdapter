@@ -50,6 +50,18 @@ void TextArtist::endDrawString()
 }
 
 
+auto TextArtist::getBoundRectangle(const String& text) -> RectangleF
+{
+	m_text->setString(text.getWStr());
+
+	auto textRect = m_text->getLocalBounds();
+
+
+	return RectangleF(textRect.left, textRect.top,
+		textRect.width, textRect.height);
+}
+
+
 void TextArtist::drawString(const String& text, i32 x, i32 y, const Color& color,
 	TextAligns align)
 {

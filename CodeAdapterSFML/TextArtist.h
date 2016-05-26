@@ -25,6 +25,7 @@ private:
 	USING_CA_DRAWING(Point);
 	USING_CA_DRAWING(PointF);
 	USING_CA_DRAWING(Rectangle);
+	USING_CA_DRAWING(RectangleF);
 	USING_CA_DRAWING(TextAligns);
 	USING_CA_DRAWING(Font);
 
@@ -47,6 +48,7 @@ protected:
 public:
 	virtual void beginDrawString(Font& font) override;
 	virtual void endDrawString() override;
+	virtual RectangleF getBoundRectangle(const String& text) override;
 	virtual void drawString(const String& text, i32 x, i32 y, const Color& color,
 		TextAligns align = TextAligns::RightBottom) override;
 	virtual void drawString(const String& text, const Point& location, const Color& color,
