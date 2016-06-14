@@ -193,9 +193,21 @@ int main()
 	textbox1->setSize({ 330, 100 });
 
 
+	auto checkbox1 = canew<caUI::CheckBox>();
+	checkbox1->setFont(font1);
+	checkbox1->setText("checkbox1");
+	checkbox1->setTextMargin({ 4, 0 });
+	checkbox1->setPosition({ 64, 550 });
+	checkbox1->setSize({ 360, 64 });
+	checkbox1->WhenCheckedChanged = [&checkbox1, &ellipse](const caUI::EventArgs& args)
+	{
+		ellipse->setVisible(checkbox1->isChecked());
+	};
+
+
 	auto panel = caFactory->createPanel();
 	panel->transform.position = { 64, 64 };
-	panel->size = { 800, 600 };
+	panel->size = { 800, 700 };
 
 	panel->addDrawable(sprite4);
 	panel->addDrawable(sprite1);
@@ -216,6 +228,8 @@ int main()
 	panel->addUpdatable(horizontalScrollBar1);
 	panel->addDrawable(textbox1);
 	panel->addUpdatable(textbox1);
+	panel->addDrawable(checkbox1);
+	panel->addUpdatable(checkbox1);
 
 	window1->addPanel(panel);
 
@@ -268,14 +282,17 @@ int main()
 		}
 
 
-		myScale -= scaleDir * myScale / 64.0f;
-		if (scaleDir > 0.0f && myScale < 0.1f)
+		if (checkbox1->isChecked())
 		{
-			scaleDir = -1.0f;
-		}
-		else if (scaleDir < 0.0f && myScale > 2.0f)
-		{
-			scaleDir = 1.0f;
+			myScale -= scaleDir * myScale / 64.0f;
+			if (scaleDir > 0.0f && myScale < 0.1f)
+			{
+				scaleDir = -1.0f;
+			}
+			else if (scaleDir < 0.0f && myScale > 2.0f)
+			{
+				scaleDir = 1.0f;
+			}
 		}
 
 		sprite1->transform.scale.setVector(myScale, myScale);

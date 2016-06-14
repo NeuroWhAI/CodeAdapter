@@ -135,6 +135,7 @@
     <ClInclude Include="Artist.h" />
     <ClInclude Include="BasicDeclaration.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="CheckBox.h" />
     <ClInclude Include="Control.h" />
     <ClInclude Include="ControlEvent.h" />
     <ClInclude Include="EasyCA.h" />
@@ -187,6 +188,7 @@
     <ClCompile Include="Angle.cpp" />
     <ClCompile Include="Artist.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="CheckBox.cpp" />
     <ClCompile Include="Control.cpp" />
     <ClCompile Include="ControlEvent.cpp" />
     <ClCompile Include="EasyCA.cpp" />

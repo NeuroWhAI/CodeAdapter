@@ -189,6 +189,9 @@
     <ClInclude Include="TextBox.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="CheckBox.h">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -324,6 +327,9 @@
       <Filter>System</Filter>
     </ClCompile>
     <ClCompile Include="TextBox.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckBox.cpp">
       <Filter>UI</Filter>
     </ClCompile>
   </ItemGroup>
