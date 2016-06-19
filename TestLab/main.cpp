@@ -187,7 +187,7 @@ int main()
 
 	auto textbox1 = canew<caUI::TextBox>();
 	textbox1->setFont(font1);
-	textbox1->setTextMargin({ 8, 8 });
+	textbox1->setTextMargin({ 8, 0 });
 	textbox1->setBackColor(caDraw::Color::Gray);
 	textbox1->setPosition({ 64, 420 });
 	textbox1->setSize({ 330, 100 });

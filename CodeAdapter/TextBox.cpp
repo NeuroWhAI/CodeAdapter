@@ -157,9 +157,9 @@ void TextBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 
 		artist->drawString(m_text,
 			m_position.x + m_textMargin.x,
-			m_position.y + m_textMargin.y,
+			m_position.y + m_size.height / 2 + m_textMargin.y,
 			m_textColor,
-			Drawing::TextAligns::RightBottom);
+			Drawing::TextAligns::Right);
 
 		// 선택된 상태이면
 		if (isSelected())
@@ -177,9 +177,9 @@ void TextBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 
 			artist->drawString(L"｜",
 				m_position.x + beforeCursorRect.x + beforeCursorRect.width + m_textMargin.x,
-				m_position.y + m_textMargin.y,
+				m_position.y + m_size.height / 2 + m_textMargin.y,
 				m_textColor,
-				Drawing::TextAligns::RightBottom);
+				Drawing::TextAligns::Right);
 		}
 
 		artist->endDrawString();

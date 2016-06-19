@@ -74,7 +74,7 @@ void CheckBox::onTouchUp(const TouchEventArgs& args)
 		onCheckedChanged(static_cast<const EventArgs&>(args));
 
 
-		// 버튼 눌림 플래그 리셋
+		// 박스 눌림 플래그 리셋
 		m_wasTouchDown = false;
 	}
 }
@@ -86,7 +86,7 @@ void CheckBox::onLeaveFocus(const EventArgs& args)
 	Control::onLeaveFocus(args);
 
 
-	// 포커스를 잃으면 버튼 눌림 플래그 리셋
+	// 포커스를 잃으면 박스 눌림 플래그 리셋
 	m_wasTouchDown = false;
 }
 
