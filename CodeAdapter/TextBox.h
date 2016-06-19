@@ -32,26 +32,12 @@ public:
 	virtual ~TextBox();
 
 
-private:
-	Utility::String m_text;
-
-
 protected:
-	std::weak_ptr<Drawing::Font> m_font;
-	Color m_textColor;
 	PointF m_textMargin;
 
 
 protected:
 	i32 m_cursorIndex;
-
-
-public:
-	EventHandler WhenTextChanged;
-
-
-public:
-	virtual void onTextChanged(const EventArgs& args);
 
 
 protected:
@@ -67,11 +53,6 @@ protected:
 
 
 public:
-	void setText(const Utility::String& text);
-	const Utility::String& getText() const;
-	void setFont(std::weak_ptr<Drawing::Font> font);
-	void setTextColor(const Color& textColor);
-	const Color& getTextColor() const;
 	void setTextMargin(const PointF& margin);
 	const PointF& getTextMargin() const;
 };

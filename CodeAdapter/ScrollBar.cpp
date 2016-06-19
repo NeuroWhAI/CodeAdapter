@@ -164,10 +164,13 @@ f32 ScrollBar::getBarThicknessRate() const
 
 void ScrollBar::setMinBarLength(f32 length)
 {
+	const auto& size = getSize();
+
+
 	if (length < 1)
 		length = 1;
-	else if (length > m_size.height - 1)
-		length = m_size.height - 1;
+	else if (length > size.height - 1)
+		length = size.height - 1;
 
 	m_minBarLength = length;
 }

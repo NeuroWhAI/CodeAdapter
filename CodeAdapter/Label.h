@@ -33,9 +33,6 @@ public:
 
 
 protected:
-	Utility::String m_text;
-	std::weak_ptr<Drawing::Font> m_font;
-	Color m_textColor;
 	PointF m_textMargin;
 
 
@@ -45,11 +42,6 @@ protected:
 
 
 public:
-	void setText(const Utility::String& text);
-	const Utility::String& getText() const;
-	void setFont(std::weak_ptr<Drawing::Font> font);
-	void setTextColor(const Color& textColor);
-	const Color& getTextColor() const;
 	void setTextMargin(const PointF& margin);
 	const PointF& getTextMargin() const;
 };

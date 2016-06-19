@@ -14,8 +14,6 @@ BEGIN_NAMESPACE_CA_UI
 Label::Label()
 	: Control(false)
 	
-	, m_text("")
-	, m_textColor(Color::Black)
 	, m_textMargin(0, 0)
 {
 
@@ -39,6 +37,10 @@ void Label::onDrawControl(Graphics& g, const Transform& parentTransform)
 {
 	if (!m_font.expired())
 	{
+		const auto& position = getPosition();
+		const auto& size = getSize();
+
+
 		auto& artist = g.textArtist;
 
 
@@ -47,10 +49,10 @@ void Label::onDrawControl(Graphics& g, const Transform& parentTransform)
 
 		artist->beginDrawString(*m_font.lock());
 
-		artist->drawString(m_text,
-			m_position.x + m_textMargin.x,
-			m_position.y + m_size.height / 2.0f + m_textMargin.y,
-			m_textColor,
+		artist->drawString(getText(),
+			position.x + m_textMargin.x,
+			position.y + size.height / 2.0f + m_textMargin.y,
+			m_foreColor,
 			Drawing::TextAligns::Right);
 
 		artist->endDrawString();
@@ -58,36 +60,6 @@ void Label::onDrawControl(Graphics& g, const Transform& parentTransform)
 }
 
 //###########################################################################
-
-void Label::setText(const Utility::String& text)
-{
-	m_text = text;
-}
-
-
-const Utility::String& Label::getText() const
-{
-	return m_text;
-}
-
-
-void Label::setFont(std::weak_ptr<Drawing::Font> font)
-{
-	m_font = font;
-}
-
-
-void Label::setTextColor(const Color& textColor)
-{
-	m_textColor = textColor;
-}
-
-
-const Label::Color& Label::getTextColor() const
-{
-	return m_textColor;
-}
-
 
 void Label::setTextMargin(const PointF& margin)
 {

@@ -17,8 +17,6 @@ BEGIN_NAMESPACE_CA_UI
 TextBox::TextBox()
 	: Control(true)
 
-	, m_text("")
-	, m_textColor(Color::Black)
 	, m_textMargin(0, 0)
 
 	, m_cursorIndex(0)
@@ -34,19 +32,13 @@ TextBox::~TextBox()
 
 //###########################################################################
 
-void TextBox::onTextChanged(const EventArgs& args)
-{
-	if (WhenTextChanged)
-	{
-		WhenTextChanged(args);
-	}
-}
-
-//###########################################################################
-
 void TextBox::onKeyDown(const KeyEventArgs& args)
 {
 	using Keys = System::Keys;
+
+
+	auto& text = getText();
+
 
 	switch (args.key)
 	{
@@ -58,7 +50,7 @@ void TextBox::onKeyDown(const KeyEventArgs& args)
 		break;
 
 	case Keys::Right:
-		if (m_cursorIndex < m_text.getLength())
+		if (m_cursorIndex < text.getLength())
 		{
 			++m_cursorIndex;
 		}
@@ -69,13 +61,13 @@ void TextBox::onKeyDown(const KeyEventArgs& args)
 		break;
 
 	case Keys::End:
-		m_cursorIndex = m_text.getLength();
+		m_cursorIndex = text.getLength();
 		break;
 
 	case Keys::Delete:
-		if (m_cursorIndex < m_text.getLength())
+		if (m_cursorIndex < text.getLength())
 		{
-			m_text.eraseAt(m_cursorIndex);
+			text.eraseAt(m_cursorIndex);
 
 
 			EventArgs args;
@@ -106,6 +98,10 @@ void TextBox::onUpdateControl(const Transform& parentTransform, const PointF& lo
 	{
 		auto keyboard = System::Keyboard::getInstance();
 
+
+		auto& text = getText();
+
+
 		u32 unicode = 0;
 		if (keyboard->getTypedText(&unicode))
 		{
@@ -115,10 +111,10 @@ void TextBox::onUpdateControl(const Transform& parentTransform, const PointF& lo
 			if (ch == L'\b'/*Key_Backspace*/)
 			{
 				if (m_cursorIndex > 0
-					&& m_cursorIndex <= m_text.getLength())
+					&& m_cursorIndex <= text.getLength())
 				{
 					--m_cursorIndex;
-					m_text.eraseAt(m_cursorIndex);
+					text.eraseAt(m_cursorIndex);
 
 
 					EventArgs args;
@@ -131,7 +127,7 @@ void TextBox::onUpdateControl(const Transform& parentTransform, const PointF& lo
 			}
 			else if (ch != 0x0d/*Key_Return*/)
 			{
-				m_text.InsertChar(ch, m_cursorIndex);
+				text.InsertChar(ch, m_cursorIndex);
 				++m_cursorIndex;
 
 
@@ -147,6 +143,12 @@ void TextBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 {
 	if (!m_font.expired())
 	{
+		const auto& position = getPosition();
+		const auto& size = getSize();
+
+		const auto& text = getText();
+
+
 		auto& artist = g.textArtist;
 
 
@@ -155,10 +157,10 @@ void TextBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 
 		artist->beginDrawString(*m_font.lock());
 
-		artist->drawString(m_text,
-			m_position.x + m_textMargin.x,
-			m_position.y + m_size.height / 2 + m_textMargin.y,
-			m_textColor,
+		artist->drawString(text,
+			position.x + m_textMargin.x,
+			position.y + size.height / 2 + m_textMargin.y,
+			m_foreColor,
 			Drawing::TextAligns::Right);
 
 		// 선택된 상태이면
@@ -166,7 +168,7 @@ void TextBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 		{
 			// 커서를 그림
 
-			Utility::String beforeCursorText = m_text;
+			Utility::String beforeCursorText = text;
 
 			if (m_cursorIndex < beforeCursorText.getLength())
 			{
@@ -176,9 +178,9 @@ void TextBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 			auto beforeCursorRect = artist->getBoundRectangle(beforeCursorText);
 
 			artist->drawString(L"｜",
-				m_position.x + beforeCursorRect.x + beforeCursorRect.width + m_textMargin.x,
-				m_position.y + m_size.height / 2 + m_textMargin.y,
-				m_textColor,
+				position.x + beforeCursorRect.x + beforeCursorRect.width + m_textMargin.x,
+				position.y + size.height / 2 + m_textMargin.y,
+				m_foreColor,
 				Drawing::TextAligns::Right);
 		}
 
@@ -187,43 +189,6 @@ void TextBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 }
 
 //###########################################################################
-
-void TextBox::setText(const Utility::String& text)
-{
-	if (m_text != text)
-	{
-		m_text = text;
-
-
-		EventArgs args;
-		onTextChanged(args);
-	}
-}
-
-
-const Utility::String& TextBox::getText() const
-{
-	return m_text;
-}
-
-
-void TextBox::setFont(std::weak_ptr<Drawing::Font> font)
-{
-	m_font = font;
-}
-
-
-void TextBox::setTextColor(const Color& textColor)
-{
-	m_textColor = textColor;
-}
-
-
-const TextBox::Color& TextBox::getTextColor() const
-{
-	return m_textColor;
-}
-
 
 void TextBox::setTextMargin(const PointF& margin)
 {

@@ -25,15 +25,19 @@ VerticalScrollBar::RectangleF VerticalScrollBar::onUpdateScrollBar(
 	const PointF& localCursor,
 	bool barControlMode)
 {
-	f32 barLength = m_size.height / getMaxValue() * m_barLengthScale;
+	const auto& position = getPosition();
+	const auto& size = getSize();
+
+
+	f32 barLength = size.height / getMaxValue() * m_barLengthScale;
 
 	if (barLength < m_minBarLength)
 		barLength = m_minBarLength;
-	if (barLength > m_size.height - 1)
-		barLength = m_size.height - 1;
+	if (barLength > size.height - 1)
+		barLength = size.height - 1;
 
 
-	f32 valuePerPixel = getMaxValue() / (m_size.height - barLength);
+	f32 valuePerPixel = getMaxValue() / (size.height - barLength);
 
 
 	f32 barYPosition = getValue() / valuePerPixel;
@@ -61,11 +65,11 @@ VerticalScrollBar::RectangleF VerticalScrollBar::onUpdateScrollBar(
 	}
 
 
-	f32 barXPosition = m_size.width * (1.0f - m_barThicknessRate);
+	f32 barXPosition = size.width * (1.0f - m_barThicknessRate);
 
-	return RectangleF{ m_position.x + barXPosition,
-		m_position.y + barYPosition,
-		m_size.width * m_barThicknessRate - barXPosition, barLength };
+	return RectangleF{ position.x + barXPosition,
+		position.y + barYPosition,
+		size.width * m_barThicknessRate - barXPosition, barLength };
 }
 
 //###########################################################################

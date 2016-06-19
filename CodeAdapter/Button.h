@@ -32,24 +32,9 @@ public:
 
 
 protected:
-	Utility::String m_text;
-	std::weak_ptr<Drawing::Font> m_font;
-	Color m_textColor;
 	Color m_overlayColor;
 	Color m_focusColor;
 	Color m_touchColor;
-
-
-private:
-	bool m_wasTouchDown;
-
-
-public:
-	EventHandler WhenClick;
-
-
-public:
-	virtual void onClick(const EventArgs& args);
 
 
 protected:
@@ -66,11 +51,6 @@ protected:
 
 
 public:
-	void setText(const Utility::String& text);
-	const Utility::String& getText() const;
-	void setFont(std::weak_ptr<Drawing::Font> font);
-	void setTextColor(const Color& textColor);
-	const Color& getTextColor() const;
 	void setFocusColor(const Color& focusColor);
 	const Color& getFocusColor() const;
 	void setTouchColor(const Color& touchColor);

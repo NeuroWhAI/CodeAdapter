@@ -15,13 +15,18 @@ BEGIN_NAMESPACE_CA_UI
 
 
 Control::Control(bool canSelected)
-	: m_position(0, 0)
-	, m_size(1, 1)
-	, m_backColor(Color::Transparent)
+	: m_backColor(Color::Transparent)
+	, m_foreColor(Color::Black)
+
+	, m_position(0, 0)
+	, m_size(16, 16)
 	, m_enabled(true)
 	, m_focused(false)
 	, m_canSelected(canSelected)
 	, m_selected(false)
+	, m_text(L"")
+
+	, m_wasTouchDown(false)
 {
 
 }
@@ -34,8 +39,47 @@ Control::~Control()
 
 //###########################################################################
 
+void Control::onMove(const EventArgs& args)
+{
+	if (WhenMove)
+	{
+		WhenMove(args);
+	}
+}
+
+//--------------------------------------------------------------------------
+
+void Control::onResize(const EventArgs& args)
+{
+	if (WhenResize)
+	{
+		WhenResize(args);
+	}
+}
+
+//--------------------------------------------------------------------------
+
+void Control::onClick(const TouchEventArgs& args)
+{
+	if (WhenClick)
+	{
+		WhenClick(args);
+	}
+}
+
+//--------------------------------------------------------------------------
+
 void Control::onTouchDown(const TouchEventArgs& args)
 {
+	// 선택될 수 있으면 선택된 상태 설정
+	setSelect(true);
+
+
+	// 컨트롤을 누르고 때었는지 판단하기 위한 플래그
+	m_wasTouchDown = true;
+
+
+	// 이벤트 발생
 	if (WhenTouchDown)
 	{
 		WhenTouchDown(args);
@@ -45,6 +89,19 @@ void Control::onTouchDown(const TouchEventArgs& args)
 
 void Control::onTouchUp(const TouchEventArgs& args)
 {
+	// 컨트롤을 누른뒤 땐거라면
+	if (m_wasTouchDown)
+	{
+		// 클릭 이벤트 발생
+		onClick(args);
+
+
+		// 컨트롤 눌림 플래그 리셋
+		m_wasTouchDown = false;
+	}
+
+
+	// 이벤트 발생
 	if (WhenTouchUp)
 	{
 		WhenTouchUp(args);
@@ -83,6 +140,11 @@ void Control::onEnterFocus(const EventArgs& args)
 
 void Control::onLeaveFocus(const EventArgs& args)
 {
+	// 포커스를 잃으면 컨트롤 눌림 플래그 리셋
+	m_wasTouchDown = false;
+
+
+	// 이벤트 발생
 	if (WhenLeaveFocus)
 	{
 		WhenLeaveFocus(args);
@@ -105,6 +167,16 @@ void Control::onDeselected(const EventArgs& args)
 	if (WhenDeselected)
 	{
 		WhenDeselected(args);
+	}
+}
+
+//--------------------------------------------------------------------------
+
+void Control::onTextChanged(const EventArgs& args)
+{
+	if (WhenTextChanged)
+	{
+		WhenTextChanged(args);
 	}
 }
 
@@ -141,10 +213,6 @@ void Control::update(const Transform& parentTransform, const Point& cursor)
 			// 터치 입력 처리
 			if (System::Touch::getInstance()->isDown())
 			{
-				// 선택될 수 있으면 선택된 상태 설정
-				setSelect(true);
-
-
 				onTouchDown(touchArgs);
 			}
 			else if (System::Touch::getInstance()->isUp())
@@ -233,7 +301,14 @@ const Drawing::PointF& Control::getPosition() const
 
 void Control::setPosition(const PointF& position)
 {
-	m_position = position;
+	if (m_position != position)
+	{
+		m_position = position;
+
+
+		EventArgs args;
+		onMove(args);
+	}
 }
 
 
@@ -245,7 +320,14 @@ const Drawing::SizeF& Control::getSize() const
 
 void Control::setSize(const SizeF& size)
 {
-	m_size = size;
+	if (m_size != size)
+	{
+		m_size = size;
+
+
+		EventArgs args;
+		onResize(args);
+	}
 }
 
 
@@ -258,6 +340,43 @@ const Drawing::Color& Control::getBackColor() const
 void Control::setBackColor(const Color& backColor)
 {
 	m_backColor = backColor;
+}
+
+
+auto Control::getForeColor() const -> const Color&
+{
+	return m_foreColor;
+}
+
+
+void Control::setForeColor(const Color& foreColor)
+{
+	m_foreColor = foreColor;
+}
+
+
+auto Control::getText() const -> const String&
+{
+	return m_text;
+}
+
+
+void Control::setText(const String& text)
+{
+	if (m_text != text)
+	{
+		m_text = text;
+
+
+		EventArgs args;
+		onTextChanged(args);
+	}
+}
+
+
+void Control::setFont(std::weak_ptr<Font> font)
+{
+	m_font = font;
 }
 
 
@@ -351,6 +470,13 @@ void Control::setSelect(bool selected)
 		}
 	}
 }
+
+
+auto Control::getText() -> String&
+{
+	return m_text;
+}
+
 
 
 END_NAMESPACE_CA_UI

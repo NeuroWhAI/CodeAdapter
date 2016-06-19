@@ -25,15 +25,19 @@ HorizontalScrollBar::RectangleF HorizontalScrollBar::onUpdateScrollBar(
 	const PointF& localCursor,
 	bool barControlMode)
 {
-	f32 barLength = m_size.width / getMaxValue() * m_barLengthScale;
+	const auto& position = getPosition();
+	const auto& size = getSize();
+
+
+	f32 barLength = size.width / getMaxValue() * m_barLengthScale;
 
 	if (barLength < m_minBarLength)
 		barLength = m_minBarLength;
-	if (barLength > m_size.width - 1)
-		barLength = m_size.width - 1;
+	if (barLength > size.width - 1)
+		barLength = size.width - 1;
 
 
-	f32 valuePerPixel = getMaxValue() / (m_size.width - barLength);
+	f32 valuePerPixel = getMaxValue() / (size.width - barLength);
 
 
 	f32 barXPosition = getValue() / valuePerPixel;
@@ -61,11 +65,11 @@ HorizontalScrollBar::RectangleF HorizontalScrollBar::onUpdateScrollBar(
 	}
 
 
-	f32 barYPosition = m_size.height * (1.0f - m_barThicknessRate);
+	f32 barYPosition = size.height * (1.0f - m_barThicknessRate);
 
-	return RectangleF{ m_position.x + barXPosition,
-		m_position.y + barYPosition,
-		barLength, m_size.height * m_barThicknessRate - barYPosition };
+	return RectangleF{ position.x + barXPosition,
+		position.y + barYPosition,
+		barLength, size.height * m_barThicknessRate - barYPosition };
 }
 
 //###########################################################################

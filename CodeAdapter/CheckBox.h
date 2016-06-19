@@ -33,9 +33,6 @@ public:
 
 
 protected:
-	Utility::String m_text;
-	std::weak_ptr<Drawing::Font> m_font;
-	Color m_textColor;
 	PointF m_textMargin;
 
 
@@ -47,10 +44,6 @@ private:
 	Color m_boxColor;
 
 
-private:
-	bool m_wasTouchDown;
-
-
 public:
 	EventHandler WhenCheckedChanged;
 
@@ -60,10 +53,7 @@ public:
 
 
 protected:
-	virtual void onTouchDown(const TouchEventArgs& args) override;
-	virtual void onTouchUp(const TouchEventArgs& args) override;
-
-	virtual void onLeaveFocus(const EventArgs& args) override;
+	virtual void onClick(const TouchEventArgs& args) override;
 
 
 protected:
@@ -72,11 +62,6 @@ protected:
 
 
 public:
-	void setText(const Utility::String& text);
-	const Utility::String& getText() const;
-	void setFont(std::weak_ptr<Drawing::Font> font);
-	void setTextColor(const Color& textColor);
-	const Color& getTextColor() const;
 	void setTextMargin(const PointF& margin);
 	const PointF& getTextMargin() const;
 	void setBoxColor(const Color& boxColor);
