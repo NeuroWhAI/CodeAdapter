@@ -131,6 +131,14 @@ void Window::endDraw()
 
 //###########################################################################
 
+auto Window::getSize() const -> Size
+{
+	auto size = m_win.getSize();
+	return Size(size.x, size.y);
+}
+
+//###########################################################################
+
 void Window::attach()
 {
 	m_sharedWin.pushObject(&m_win);

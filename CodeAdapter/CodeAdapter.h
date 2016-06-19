@@ -66,6 +66,8 @@
 #include "UsingSharable.h"
 #include "SingletonWrapper.h"
 #include "Event.h"
+#include "Scene.h"
+#include "SceneManager.h"
 
 
 // UI -----------------------------------------------------------------

@@ -36,7 +36,7 @@ protected:
 
 
 public:
-	void setVisible(bool visible);
+	virtual void setVisible(bool visible);
 	bool isVisible() const;
 };
 

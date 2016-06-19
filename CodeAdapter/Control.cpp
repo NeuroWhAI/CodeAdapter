@@ -193,7 +193,7 @@ void Control::update(const Transform& parentTransform, const Point& cursor)
 	PointF localCursor = combinedTransform.inverseTransformPoint(static_cast<PointF>(cursor));
 
 
-	if (m_enabled)
+	if (m_enabled && m_visible)
 	{
 		// 커서가 컨트롤 영역안에 들어와있다면
 		if (localCursor.x > m_position.x
@@ -292,6 +292,18 @@ void Control::onDraw(Graphics& g, const Transform& parentTransform)
 }
 
 //###########################################################################
+
+void Control::setVisible(bool visible)
+{
+	Drawable::setVisible(visible);
+
+	if (visible == false)
+	{
+		setFocus(false);
+		setSelect(false);
+	}
+}
+
 
 const Drawing::PointF& Control::getPosition() const
 {

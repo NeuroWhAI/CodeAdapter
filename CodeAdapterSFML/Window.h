@@ -52,6 +52,10 @@ protected:
 
 
 public:
+	virtual Size getSize() const override;
+
+
+public:
 	virtual void attach() override;
 	virtual void detach() override;
 };

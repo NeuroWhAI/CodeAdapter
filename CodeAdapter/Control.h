@@ -119,6 +119,7 @@ protected:
 
 
 public:
+	virtual void setVisible(bool visible) override;
 	const PointF& getPosition() const;
 	void setPosition(const PointF& position);
 	const SizeF& getSize() const;

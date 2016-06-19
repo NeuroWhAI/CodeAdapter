@@ -1,6 +1,8 @@
 #include <CodeAdapter\EasyCA.h>
 #include <CodeAdapterSFML\SFMLFactory.h>
 
+#include "HelloScene.h"
+
 
 
 
@@ -9,14 +11,20 @@ int main()
 	initializeCA<SFMLFactory>();
 
 
-	i32 button1ClickCount = 0;
+	//i32 button1ClickCount = 0;
 
 
 	auto window1 = caFactory->createWindow();
 	window1->create(caDraw::Size(1024, 768), caUtil::String("Hello, World!"));
 
 
-	auto rect = canew<caDraw::DrawableRectangle>(-32, -64, 256, 128);
+	auto sceneManager = canew<caUtil::SceneManager>();
+	sceneManager->replaceScene(*window1, canew<HelloScene>());
+
+	window1->setSceneManager(sceneManager);
+	
+
+	/*auto rect = canew<caDraw::DrawableRectangle>(-32, -64, 256, 128);
 	rect->edgeColor = caDraw::Color::Magenta;
 	rect->fillColor = caDraw::Color::Yellow;
 	rect->edgeWidth = 8.0f;
@@ -231,7 +239,7 @@ int main()
 	panel->addDrawable(checkbox1);
 	panel->addUpdatable(checkbox1);
 
-	window1->addPanel(panel);
+	helloScene->addPanel(panel);
 
 
 	auto panel2 = caFactory->createPanel();
@@ -249,21 +257,19 @@ int main()
 	panel2->addDrawable(label2);
 	panel2->addUpdatable(label2);
 
-	window1->addPanel(panel2);
+	helloScene->addPanel(panel2);
 
 
 	f32 myScale = 1.0f;
-	f32 scaleDir = 1.0f;
+	f32 scaleDir = 1.0f;*/
 
 
 	while (window1->isRunning())
 	{
 		caTouch->update();
-
-
 		caKeyboard->update(*window1);
 
-		if (caKeyboard->isKeyPressed(caSys::Keys::W))
+		/*if (caKeyboard->isKeyPressed(caSys::Keys::W))
 		{
 			ellipse2->y -= 0.4f;
 		}
@@ -317,19 +323,14 @@ int main()
 		if (label2->isFocused())
 		{
 			label2->setPosition(label2->getPosition() + caDraw::PointF(0.4f, 0.0f));
-		}
+		}*/
 
 
-		caSys::WindowEvent newEvent;
-		if (window1->update(&newEvent))
-		{
-			if (newEvent.getType() == caSys::WindowEvent::Types::Resized)
-			{
-				label1->setText(std::to_wstring(newEvent.size.width) +
-					L"x" + std::to_wstring(newEvent.size.height));
-			}
-		}
+		if (sceneManager->hasScene() == false)
+			window1->exit();
 
+
+		window1->update();
 		window1->draw(caDraw::Color(230, 230, 230));
 	}
 

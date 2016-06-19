@@ -7,8 +7,9 @@
 #include "Point.h"
 #include "Size.h"
 #include "Color.h"
-#include "Panel.h"
 #include "Graphics.h"
+
+#include "SceneManager.h"
 
 
 
@@ -18,6 +19,7 @@ BEGIN_NAMESPACE_CA_DRAWING
 
 Window::Window()
 	: m_graphics(std::make_shared<Graphics>())
+	, m_sceneManager(nullptr)
 {
 
 }
@@ -32,9 +34,9 @@ Window::~Window()
 
 bool Window::update(WindowEvent* outEvent)
 {
-	for (auto& panel : m_panelList)
+	if (m_sceneManager)
 	{
-		panel->update(*this);
+		m_sceneManager->update(*this);
 	}
 
 
@@ -58,9 +60,9 @@ void Window::draw(const Color& backColor)
 
 	beginDraw(backColor);
 
-	for (auto& panel : m_panelList)
+	if (m_sceneManager)
 	{
-		panel->draw(*m_graphics);
+		m_sceneManager->draw(*m_graphics);
 	}
 
 	endDraw();
@@ -68,41 +70,9 @@ void Window::draw(const Color& backColor)
 
 //###########################################################################
 
-bool Window::addPanel(std::shared_ptr<Panel> panel)
+void Window::setSceneManager(std::shared_ptr<SceneManager> mgr)
 {
-	for (const auto& panelItem : m_panelList)
-	{
-		if (panelItem == panel)
-		{
-			return false;
-		}
-	}
-
-
-	m_panelList.emplace_back(panel);
-
-
-	return true;
-}
-
-
-bool Window::removePanel(std::shared_ptr<const Panel> panel)
-{
-	usize index = 0;
-	for (const auto& panelItem : m_panelList)
-	{
-		if (panelItem == panel)
-		{
-			m_panelList.erase(m_panelList.begin() + index);
-
-			return true;
-		}
-
-		++index;
-	}
-
-
-	return false;
+	m_sceneManager = mgr;
 }
 
 //###########################################################################

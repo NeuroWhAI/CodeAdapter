@@ -148,6 +148,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Demo1Scene.cpp" />
+    <ClCompile Include="HelloScene.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +159,10 @@
     <ProjectReference Include="..\CodeAdapter\CodeAdapter.vcxproj">
       <Project>{70038f8d-a99a-42c6-b3a0-c1b5db45c74e}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Demo1Scene.h" />
+    <ClInclude Include="HelloScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

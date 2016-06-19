@@ -123,6 +123,9 @@ class SingletonWrapper;
 template <typename... ArgTypes>
 class Event;
 
+class Scene;
+class SceneManager;
+
 
 END_NAMESPACE_CA_UTILITY
 

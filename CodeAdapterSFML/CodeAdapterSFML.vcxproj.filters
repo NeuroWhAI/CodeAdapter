@@ -28,9 +28,6 @@
     <Filter Include="System">
       <UniqueIdentifier>{ee7e8f8d-b3e5-4954-95ee-2b68e57d6dbf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Utility">
-      <UniqueIdentifier>{7983645d-ac97-4890-8791-2fda73d9963c}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window.h">

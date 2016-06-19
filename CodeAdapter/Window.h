@@ -3,7 +3,6 @@
 
 
 #include <memory>
-#include <vector>
 
 #include "BasicDeclaration.h"
 
@@ -20,7 +19,11 @@ BEGIN_NAMESPACE_CA_DRAWING
 class Window : public Utility::Sharable
 {
 private:
+	USING_CA_DRAWING(Size);
+
 	USING_CA_SYSTEM(WindowEvent);
+
+	USING_CA_UTILITY(SceneManager);
 
 
 public:
@@ -35,7 +38,7 @@ public:
 
 protected:
 	std::shared_ptr<Graphics> m_graphics;
-	std::vector<std::shared_ptr<Panel>> m_panelList;
+	std::shared_ptr<SceneManager> m_sceneManager;
 
 
 private:
@@ -68,13 +71,16 @@ protected:
 
 
 public:
-	bool addPanel(std::shared_ptr<Panel> panel);
-	bool removePanel(std::shared_ptr<const Panel> panel);
+	void setSceneManager(std::shared_ptr<SceneManager> mgr);
 
 
 public:
 	bool checkLatestEvent(WindowEvent::Types type) const;
 	WindowEvent getLatestEvent() const;
+
+
+public:
+	virtual Size getSize() const = 0;
 };
 
 

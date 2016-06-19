@@ -192,6 +192,12 @@
     <ClInclude Include="CheckBox.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -332,6 +338,12 @@
     <ClCompile Include="CheckBox.cpp">
       <Filter>UI</Filter>
     </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Point.inl">
@@ -365,6 +377,9 @@
       <Filter>CodeAdapter</Filter>
     </None>
     <None Include="Event.inl">
+      <Filter>Utility</Filter>
+    </None>
+    <None Include="Scene.inl">
       <Filter>Utility</Filter>
     </None>
   </ItemGroup>
