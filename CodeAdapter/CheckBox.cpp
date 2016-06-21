@@ -22,6 +22,7 @@ CheckBox::CheckBox()
 	, m_boxThickness(3)
 	, m_innerBoxRate(0.8f)
 	, m_boxColor(Color::White)
+	, m_backBoxColor(Color::Gray)
 {
 	m_backColor = Color::Gray;
 }
@@ -91,7 +92,7 @@ void CheckBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 	
 	boxPosition += PointF(m_boxThickness, m_boxThickness);
 	rectArtist->fillRectangle(boxPosition,
-		SizeF(middleBoxSize, middleBoxSize), m_backColor);
+		SizeF(middleBoxSize, middleBoxSize), m_backBoxColor);
 
 	if (m_bChecked)
 	{
@@ -149,6 +150,18 @@ void CheckBox::setBoxColor(const Color& boxColor)
 const Drawing::Color& CheckBox::getBoxColor() const
 {
 	return m_boxColor;
+}
+
+
+void CheckBox::setBackBoxColor(const Color& backBoxColor)
+{
+	m_backBoxColor = backBoxColor;
+}
+
+
+const Drawing::Color& CheckBox::getBackBoxColor() const
+{
+	return m_backBoxColor;
 }
 
 

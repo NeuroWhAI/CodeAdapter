@@ -42,6 +42,7 @@ private:
 	f32 m_boxThickness;
 	f32 m_innerBoxRate;
 	Color m_boxColor;
+	Color m_backBoxColor;
 
 
 public:
@@ -66,6 +67,8 @@ public:
 	const PointF& getTextMargin() const;
 	void setBoxColor(const Color& boxColor);
 	const Color& getBoxColor() const;
+	void setBackBoxColor(const Color& backBoxColor);
+	const Color& getBackBoxColor() const;
 	void setBoxScale(f32 scale) noexcept;
 	f32 getBoxScale() const noexcept;
 	void setBoxThickness(f32 thickness) noexcept;

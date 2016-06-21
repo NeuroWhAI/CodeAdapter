@@ -19,7 +19,7 @@ void Scene::reserveNextScene(ARGS&&... args)
 		m_nextScene = nullptr;
 	}
 
-	m_nextScene = new SceneType(std::forward(args)...);
+	m_nextScene = new SceneType(std::forward<ARGS>(args)...);
 }
 
 

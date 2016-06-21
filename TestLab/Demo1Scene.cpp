@@ -1,5 +1,7 @@
 #include "Demo1Scene.h"
 
+#include "Demo2Scene.h"
+
 
 
 
@@ -35,7 +37,8 @@ void Demo1Scene::onInitialize(caDraw::Window& owner)
 	m_rect1->fillColor = caDraw::Color::Yellow;
 	m_rect1->edgeWidth = 8.0f;
 
-	m_ellipse1 = canew<caDraw::DrawableEllipse>(32, 64, 256, 128);
+	m_ellipse1 = canew<caDraw::DrawableEllipse>(-32, -64, 256, 128);
+	m_ellipse1->transform.position = { 64, 128 };
 	m_ellipse1->edgeColor = caDraw::Color::Yellow;
 	m_ellipse1->fillColor = caDraw::Color::Magenta;
 	m_ellipse1->edgeWidth = 2.0f;
@@ -54,14 +57,13 @@ void Demo1Scene::onInitialize(caDraw::Window& owner)
 
 	m_buttonNext = canew<caUI::Button>();
 	m_buttonNext->setFont(m_font);
-	m_buttonNext->setText(L"Exit");
+	m_buttonNext->setText(L"Next page");
 	m_buttonNext->setBackColor(caDraw::Color::Gray);
 	m_buttonNext->setPosition({ static_cast<f32>(winSize.width / 2 - 165), 600 });
 	m_buttonNext->setSize({ 330, 100 });
-	m_buttonNext->setVisible(false);
 	m_buttonNext->WhenClick = [me = this](const caUI::EventArgs& args)
 	{
-		me->reserveNextScene(nullptr);
+		me->reserveNextScene<Demo2Scene>();
 	};
 
 
@@ -94,12 +96,16 @@ void Demo1Scene::onUpdate(caDraw::Window& owner)
 	{
 		m_rect1->move(0, -8);
 
-		m_buttonNext->setVisible(true);
+		m_buttonNext->setVisible(false);
 	}
 	else if (caKeyboard->isKeyPressed(caSys::Keys::S))
 	{
 		m_rect1->move(0, 8);
 
+		m_buttonNext->setVisible(false);
+	}
+	else
+	{
 		m_buttonNext->setVisible(true);
 	}
 
@@ -107,14 +113,21 @@ void Demo1Scene::onUpdate(caDraw::Window& owner)
 	{
 		m_rect1->move(-8, 0);
 
-		m_buttonNext->setVisible(true);
+		m_buttonNext->setVisible(false);
 	}
 	else if (caKeyboard->isKeyPressed(caSys::Keys::D))
 	{
 		m_rect1->move(8, 0);
 
+		m_buttonNext->setVisible(false);
+	}
+	else
+	{
 		m_buttonNext->setVisible(true);
 	}
+
+
+	m_ellipse1->transform.angle += 1.0f;
 }
 
 

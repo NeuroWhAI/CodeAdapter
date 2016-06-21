@@ -27,12 +27,18 @@
     <ClCompile Include="Demo1Scene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Demo2Scene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HelloScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="Demo1Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Demo2Scene.h">
       <Filter>Scene</Filter>
     </ClInclude>
   </ItemGroup>

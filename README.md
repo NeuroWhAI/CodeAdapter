@@ -13,6 +13,7 @@
 
 ### To Do / Doing
   - [x] Add more GUI controls.
+  - [x] Upgrade demo project.
   - [ ] Network
   - [ ] Audio
   - [ ] System time and date
