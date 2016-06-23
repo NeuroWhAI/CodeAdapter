@@ -26,6 +26,8 @@ template <typename T>
 const ColorT<T> ColorT<T>::Magenta = { T(255), T(255), T(0), T(255) };
 template <typename T>
 const ColorT<T> ColorT<T>::Cyan = { T(255), T(0), T(255), T(255) };
+template <typename T>
+const ColorT<T> ColorT<T>::Silver = { T(255), T(192), T(192), T(192) };
 
 //###########################################################################
 

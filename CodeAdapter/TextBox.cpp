@@ -37,7 +37,7 @@ void TextBox::onKeyDown(const KeyEventArgs& args)
 	using Keys = System::Keys;
 
 
-	auto& text = getText();
+	auto& text = getMyText();
 
 
 	switch (args.key)
@@ -99,7 +99,7 @@ void TextBox::onUpdateControl(const Transform& parentTransform, const PointF& lo
 		auto keyboard = System::Keyboard::getInstance();
 
 
-		auto& text = getText();
+		auto& text = getMyText();
 
 
 		u32 unicode = 0;

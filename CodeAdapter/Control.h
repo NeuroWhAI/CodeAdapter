@@ -142,7 +142,7 @@ public:
 protected:
 	void setFocus(bool focused);
 	void setSelect(bool selected);
-	String& getText();
+	String& getMyText();
 };
 
 

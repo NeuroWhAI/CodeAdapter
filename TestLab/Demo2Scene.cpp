@@ -1,5 +1,7 @@
 #include "Demo2Scene.h"
 
+#include "Demo3Scene.h"
+
 
 
 
@@ -69,13 +71,13 @@ void Demo2Scene::onInitialize(caDraw::Window& owner)
 
 	m_buttonNext = canew<caUI::Button>();
 	m_buttonNext->setFont(m_font);
-	m_buttonNext->setText(L"Exit");
+	m_buttonNext->setText(L"Next page");
 	m_buttonNext->setBackColor(caDraw::Color::Gray);
 	m_buttonNext->setPosition({ static_cast<f32>(winSize.width / 2 - 165), 600 });
 	m_buttonNext->setSize({ 330, 100 });
 	m_buttonNext->WhenClick = [me = this](const caUI::EventArgs& args)
 	{
-		me->reserveNextScene(nullptr);
+		me->reserveNextScene<Demo3Scene>();
 	};
 
 
@@ -110,7 +112,13 @@ void Demo2Scene::onUpdate(caDraw::Window& owner)
 }
 
 
-void Demo2Scene::onDraw(caDraw::Graphics& g)
+void Demo2Scene::onDrawBack(caDraw::Graphics& g)
+{
+
+}
+
+
+void Demo2Scene::onDrawFront(caDraw::Graphics& g)
 {
 
 }

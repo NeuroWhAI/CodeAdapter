@@ -28,7 +28,8 @@ public:
 	virtual void onInitialize(caDraw::Window& owner) override;
 	virtual void onRelease() override;
 	virtual void onUpdate(caDraw::Window& owner) override;
-	virtual void onDraw(caDraw::Graphics& g) override;
+	virtual void onDrawBack(caDraw::Graphics& g) override;
+	virtual void onDrawFront(caDraw::Graphics& g) override;
 };
 
 

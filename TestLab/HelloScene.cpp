@@ -124,7 +124,13 @@ void HelloScene::onUpdate(caDraw::Window& owner)
 }
 
 
-void HelloScene::onDraw(caDraw::Graphics& g)
+void HelloScene::onDrawBack(caDraw::Graphics& g)
+{
+
+}
+
+
+void HelloScene::onDrawFront(caDraw::Graphics& g)
 {
 
 }

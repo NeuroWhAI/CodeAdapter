@@ -48,7 +48,8 @@ protected:
 	virtual void onInitialize(Window& owner) = 0;
 	virtual void onRelease() = 0;
 	virtual void onUpdate(Window& owner) = 0;
-	virtual void onDraw(Graphics& g) = 0;
+	virtual void onDrawBack(Graphics& g) = 0;
+	virtual void onDrawFront(Graphics& g) = 0;
 
 
 protected:

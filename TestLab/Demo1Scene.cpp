@@ -131,7 +131,13 @@ void Demo1Scene::onUpdate(caDraw::Window& owner)
 }
 
 
-void Demo1Scene::onDraw(caDraw::Graphics& g)
+void Demo1Scene::onDrawBack(caDraw::Graphics& g)
+{
+
+}
+
+
+void Demo1Scene::onDrawFront(caDraw::Graphics& g)
 {
 
 }

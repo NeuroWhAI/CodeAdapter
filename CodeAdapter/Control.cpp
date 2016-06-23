@@ -484,7 +484,7 @@ void Control::setSelect(bool selected)
 }
 
 
-auto Control::getText() -> String&
+auto Control::getMyText() -> String&
 {
 	return m_text;
 }

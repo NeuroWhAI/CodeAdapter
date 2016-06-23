@@ -24,6 +24,7 @@ public:
 	static const ColorT<T> Yellow;
 	static const ColorT<T> Magenta;
 	static const ColorT<T> Cyan;
+	static const ColorT<T> Silver;
 
 
 public:

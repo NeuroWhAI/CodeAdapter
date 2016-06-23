@@ -54,13 +54,16 @@ void Scene::update(Window& win)
 
 void Scene::draw(Graphics& g)
 {
+	onDrawBack(g);
+
+
 	for (auto& panel : m_panelList)
 	{
 		panel->draw(g);
 	}
 
 
-	onDraw(g);
+	onDrawFront(g);
 }
 
 //###########################################################################
