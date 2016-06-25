@@ -137,7 +137,7 @@ public:
 	void setTouchColor(const Color& touchColor);
 	const String& getText() const noexcept;
 	virtual void setText(const String& text);
-	void setFont(std::weak_ptr<Font> font);
+	virtual void setFont(std::weak_ptr<Font> font);
 	bool isEnabled() const noexcept;
 	void setEnabled(bool enabled);
 	bool isFocused() const noexcept;

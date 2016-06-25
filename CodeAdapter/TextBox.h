@@ -3,6 +3,7 @@
 
 
 #include <memory>
+#include <vector>
 
 #include "BasicDeclaration.h"
 
@@ -21,10 +22,12 @@ BEGIN_NAMESPACE_CA_UI
 class TextBox : public Control
 {
 private:
+	USING_CA_DRAWING(Point);
 	USING_CA_DRAWING(PointF);
 	USING_CA_DRAWING(Color);
 	USING_CA_DRAWING(Transform);
 	USING_CA_DRAWING(Graphics);
+	USING_CA_DRAWING(Font);
 
 	USING_CA_UTILITY(String);
 
@@ -36,10 +39,13 @@ public:
 
 protected:
 	PointF m_textMargin;
+	bool m_isMultiline;
 
 
 protected:
-	i32 m_cursorIndex;
+	Point m_cursorIndex;
+	std::vector<String> m_linedText;
+	f32 m_lineSpacing;
 
 
 protected:
@@ -56,11 +62,18 @@ protected:
 
 public:
 	virtual void setText(const String& text) override;
+	virtual void setFont(std::weak_ptr<Font> font) override;
 
 
 public:
 	void setTextMargin(const PointF& margin);
 	const PointF& getTextMargin() const;
+	void setMultiline(bool isMultiline);
+	bool isMultiline() const noexcept;
+
+
+protected:
+	void syncMyText();
 };
 
 

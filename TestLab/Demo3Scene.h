@@ -19,10 +19,12 @@ public:
 protected:
 	std::shared_ptr<caDraw::Panel> m_panel;
 	std::shared_ptr<caDraw::Font> m_font;
+	std::shared_ptr<caDraw::Font> m_smallFont;
 	std::shared_ptr<caUI::TextBox> m_textbox;
 	std::shared_ptr<caUI::TextBox> m_textboxRed;
 	std::shared_ptr<caUI::TextBox> m_textboxGreen;
 	std::shared_ptr<caUI::TextBox> m_textboxBlue;
+	std::shared_ptr<caUI::TextBox> m_textboxNote;
 	std::shared_ptr<caUI::Button> m_buttonNext;
 
 

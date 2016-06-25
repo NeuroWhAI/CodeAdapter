@@ -33,6 +33,11 @@ void Demo3Scene::onInitialize(caDraw::Window& owner)
 	m_font->setCharacterSize(64);
 	m_font->setStyle(caDraw::FontStyles::Bold);
 
+	m_smallFont = caFactory->createFont();
+	m_smallFont->loadFromFile("NanumGothic.ttf");
+	m_smallFont->setCharacterSize(24);
+	m_font->setStyle(caDraw::FontStyles::Bold);
+
 	m_textbox = canew<caUI::TextBox>();
 	m_textbox->setFont(m_font);
 	m_textbox->setText(L"*");
@@ -46,7 +51,7 @@ void Demo3Scene::onInitialize(caDraw::Window& owner)
 	m_textboxRed->setText(L"0");
 	m_textboxRed->setTextMargin({ 8, 0 });
 	m_textboxRed->setBackColor(caDraw::Color(128, 0, 0));
-	m_textboxRed->setPosition({ 64, 256 });
+	m_textboxRed->setPosition({ 64, 200 });
 	m_textboxRed->setSize({ 256, 100 });
 	m_textboxRed->WhenTextChanged = [me = this, box = m_textboxRed]
 	(const caUI::EventArgs args) {
@@ -64,7 +69,7 @@ void Demo3Scene::onInitialize(caDraw::Window& owner)
 
 	m_textboxGreen = canew<caUI::TextBox>(*m_textboxRed);
 	m_textboxGreen->setBackColor(caDraw::Color(0, 128, 0));
-	m_textboxGreen->setPosition({ 64 + 280, 256 });
+	m_textboxGreen->setPosition({ 64 + 280, 200 });
 	m_textboxGreen->WhenTextChanged = [me = this, box = m_textboxGreen]
 	(const caUI::EventArgs args) {
 		const auto& text = box->getText();
@@ -81,7 +86,7 @@ void Demo3Scene::onInitialize(caDraw::Window& owner)
 
 	m_textboxBlue = canew<caUI::TextBox>(*m_textboxRed);
 	m_textboxBlue->setBackColor(caDraw::Color(0, 0, 128));
-	m_textboxBlue->setPosition({ 64 + 280 * 2, 256 });
+	m_textboxBlue->setPosition({ 64 + 280 * 2, 200 });
 	m_textboxBlue->WhenTextChanged = [me = this, box = m_textboxBlue]
 	(const caUI::EventArgs args) {
 		const auto& text = box->getText();
@@ -95,6 +100,15 @@ void Demo3Scene::onInitialize(caDraw::Window& owner)
 
 		}
 	};
+
+	m_textboxNote = canew<caUI::TextBox>();
+	m_textboxNote->setMultiline(true);
+	m_textboxNote->setFont(m_smallFont);
+	m_textboxNote->setText(L"This is textbox.\n\nHello?\nWorld!");
+	m_textboxNote->setBackColor(caDraw::Color::Silver);
+	m_textboxNote->setTextMargin({ 8, 0 });
+	m_textboxNote->setPosition({ 64, 332 });
+	m_textboxNote->setSize({ 512, 256 });
 
 	m_buttonNext = canew<caUI::Button>();
 	m_buttonNext->setFont(m_font);
@@ -119,6 +133,9 @@ void Demo3Scene::onInitialize(caDraw::Window& owner)
 
 	m_panel->addDrawable(m_textboxBlue);
 	m_panel->addUpdatable(m_textboxBlue);
+
+	m_panel->addDrawable(m_textboxNote);
+	m_panel->addUpdatable(m_textboxNote);
 
 	m_panel->addDrawable(m_buttonNext);
 	m_panel->addUpdatable(m_buttonNext);
