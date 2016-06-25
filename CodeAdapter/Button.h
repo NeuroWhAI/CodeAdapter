@@ -32,29 +32,8 @@ public:
 
 
 protected:
-	Color m_overlayColor;
-	Color m_focusColor;
-	Color m_touchColor;
-
-
-protected:
-	virtual void onTouchDown(const TouchEventArgs& args) override;
-	virtual void onTouchUp(const TouchEventArgs& args) override;
-
-	virtual void onEnterFocus(const EventArgs& args) override;
-	virtual void onLeaveFocus(const EventArgs& args) override;
-
-
-protected:
 	virtual void onUpdateControl(const Transform& parentTransform, const PointF& localCursor) override;
 	virtual void onDrawControl(Graphics& g, const Transform& parentTransform) override;
-
-
-public:
-	void setFocusColor(const Color& focusColor);
-	const Color& getFocusColor() const;
-	void setTouchColor(const Color& touchColor);
-	const Color& getTouchColor() const;
 };
 
 

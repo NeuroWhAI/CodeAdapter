@@ -61,14 +61,30 @@ void ScrollBar::onTouchDown(const TouchEventArgs& args)
 	}
 }
 
+//--------------------------------------------------------------------------
+
+void ScrollBar::onLeaveFocus(const EventArgs& args)
+{
+	Control::onLeaveFocus(args);
+
+
+	if (m_barControlMode)
+	{
+		setOverlayColor(m_touchOverlayColor);
+	}
+}
+
 //###########################################################################
 
 void ScrollBar::onUpdateControl(const Transform& parentTransform, const PointF& localCursor)
 {
-	if (System::Touch::getInstance()->isUp())
+	if (m_barControlMode && System::Touch::getInstance()->isUp())
 	{
 		// 바 컨트롤 상태 해제
 		m_barControlMode = false;
+
+
+		setOverlayColor(Color::Transparent);
 	}
 
 
@@ -83,6 +99,7 @@ void ScrollBar::onDrawControl(Graphics& g, const Transform& parentTransform)
 
 	rectArtist->beginFillRectangle();
 	rectArtist->fillRectangle(m_barRect, m_barColor);
+	rectArtist->fillRectangle(m_barRect, getOverlayColor());
 	rectArtist->endFillRectangle();
 }
 

@@ -26,6 +26,8 @@ private:
 	USING_CA_DRAWING(Transform);
 	USING_CA_DRAWING(Graphics);
 
+	USING_CA_UTILITY(String);
+
 
 public:
 	TextBox();
@@ -50,6 +52,10 @@ protected:
 protected:
 	virtual void onUpdateControl(const Transform& parentTransform, const PointF& localCursor) override;
 	virtual void onDrawControl(Graphics& g, const Transform& parentTransform) override;
+
+
+public:
+	virtual void setText(const String& text) override;
 
 
 public:

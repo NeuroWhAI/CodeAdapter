@@ -44,6 +44,8 @@ public:
 protected:
 	Color m_backColor;
 	Color m_foreColor;
+	Color m_focusOverlayColor;
+	Color m_touchOverlayColor;
 	std::weak_ptr<Font> m_font;
 
 
@@ -59,6 +61,7 @@ private:
 
 private:
 	bool m_wasTouchDown;
+	Color m_overlayColor;
 
 
 public:
@@ -120,29 +123,35 @@ protected:
 
 public:
 	virtual void setVisible(bool visible) override;
-	const PointF& getPosition() const;
+	const PointF& getPosition() const noexcept;
 	void setPosition(const PointF& position);
-	const SizeF& getSize() const;
+	const SizeF& getSize() const noexcept;
 	void setSize(const SizeF& size);
-	const Color& getBackColor() const;
+	const Color& getBackColor() const noexcept;
 	void setBackColor(const Color& backColor);
-	const Color& getForeColor() const;
+	const Color& getForeColor() const noexcept;
 	void setForeColor(const Color& foreColor);
-	const String& getText() const;
-	void setText(const String& text);
+	const Color& getFocusColor() const noexcept;
+	void setFocusColor(const Color& focusColor);
+	const Color& getTouchColor() const noexcept;
+	void setTouchColor(const Color& touchColor);
+	const String& getText() const noexcept;
+	virtual void setText(const String& text);
 	void setFont(std::weak_ptr<Font> font);
-	bool isEnabled() const;
+	bool isEnabled() const noexcept;
 	void setEnabled(bool enabled);
-	bool isFocused() const;
-	bool canSelected() const;
+	bool isFocused() const noexcept;
+	bool canSelected() const noexcept;
 	void setSelectable(bool canSelected);
-	bool isSelected() const;
+	bool isSelected() const noexcept;
 
 
 protected:
 	void setFocus(bool focused);
 	void setSelect(bool selected);
-	String& getMyText();
+	String& getMyText() noexcept;
+	const Color& getOverlayColor() const noexcept;
+	void setOverlayColor(const Color& overlayColor);
 };
 
 

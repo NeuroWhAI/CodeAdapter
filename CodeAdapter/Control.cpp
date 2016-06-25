@@ -17,6 +17,8 @@ BEGIN_NAMESPACE_CA_UI
 Control::Control(bool canSelected)
 	: m_backColor(Color::Transparent)
 	, m_foreColor(Color::Black)
+	, m_focusOverlayColor(Color(Color::Cyan, 64))
+	, m_touchOverlayColor(Color(Color::Cyan, 128))
 
 	, m_position(0, 0)
 	, m_size(16, 16)
@@ -27,6 +29,7 @@ Control::Control(bool canSelected)
 	, m_text(L"")
 
 	, m_wasTouchDown(false)
+	, m_overlayColor(Color::Transparent)
 {
 
 }
@@ -79,6 +82,10 @@ void Control::onTouchDown(const TouchEventArgs& args)
 	m_wasTouchDown = true;
 
 
+	// 덮색 설정
+	setOverlayColor(m_touchOverlayColor);
+
+
 	// 이벤트 발생
 	if (WhenTouchDown)
 	{
@@ -99,6 +106,10 @@ void Control::onTouchUp(const TouchEventArgs& args)
 		// 컨트롤 눌림 플래그 리셋
 		m_wasTouchDown = false;
 	}
+
+
+	// 덮색 설정
+	setOverlayColor(m_focusOverlayColor);
 
 
 	// 이벤트 발생
@@ -131,6 +142,11 @@ void Control::onKeyUp(const KeyEventArgs& args)
 
 void Control::onEnterFocus(const EventArgs& args)
 {
+	// 덮색 설정
+	setOverlayColor(m_focusOverlayColor);
+
+
+	// 이벤트 발생
 	if (WhenEnterFocus)
 	{
 		WhenEnterFocus(args);
@@ -142,6 +158,10 @@ void Control::onLeaveFocus(const EventArgs& args)
 {
 	// 포커스를 잃으면 컨트롤 눌림 플래그 리셋
 	m_wasTouchDown = false;
+
+
+	// 덮색 투명화
+	setOverlayColor(Color::Transparent);
 
 
 	// 이벤트 발생
@@ -305,7 +325,7 @@ void Control::setVisible(bool visible)
 }
 
 
-const Drawing::PointF& Control::getPosition() const
+const Drawing::PointF& Control::getPosition() const noexcept
 {
 	return m_position;
 }
@@ -324,7 +344,7 @@ void Control::setPosition(const PointF& position)
 }
 
 
-const Drawing::SizeF& Control::getSize() const
+const Drawing::SizeF& Control::getSize() const noexcept
 {
 	return m_size;
 }
@@ -343,7 +363,7 @@ void Control::setSize(const SizeF& size)
 }
 
 
-const Drawing::Color& Control::getBackColor() const
+const Drawing::Color& Control::getBackColor() const noexcept
 {
 	return m_backColor;
 }
@@ -355,7 +375,7 @@ void Control::setBackColor(const Color& backColor)
 }
 
 
-auto Control::getForeColor() const -> const Color&
+auto Control::getForeColor() const noexcept -> const Color&
 {
 	return m_foreColor;
 }
@@ -367,7 +387,31 @@ void Control::setForeColor(const Color& foreColor)
 }
 
 
-auto Control::getText() const -> const String&
+const Drawing::Color& Control::getFocusColor() const noexcept
+{
+	return m_focusOverlayColor;
+}
+
+
+void Control::setFocusColor(const Color& focusColor)
+{
+	m_focusOverlayColor = focusColor;
+}
+
+
+const Drawing::Color& Control::getTouchColor() const noexcept
+{
+	return m_touchOverlayColor;
+}
+
+
+void Control::setTouchColor(const Color& touchColor)
+{
+	m_touchOverlayColor = touchColor;
+}
+
+
+auto Control::getText() const noexcept -> const String&
 {
 	return m_text;
 }
@@ -392,7 +436,7 @@ void Control::setFont(std::weak_ptr<Font> font)
 }
 
 
-bool Control::isEnabled() const
+bool Control::isEnabled() const noexcept
 {
 	return m_enabled;
 }
@@ -410,13 +454,13 @@ void Control::setEnabled(bool enabled)
 }
 
 
-bool Control::isFocused() const
+bool Control::isFocused() const noexcept
 {
 	return m_focused;
 }
 
 
-bool Control::canSelected() const
+bool Control::canSelected() const noexcept
 {
 	return m_canSelected;
 }
@@ -433,7 +477,7 @@ void Control::setSelectable(bool canSelected)
 }
 
 
-bool Control::isSelected() const
+bool Control::isSelected() const noexcept
 {
 	return m_selected;
 }
@@ -484,11 +528,23 @@ void Control::setSelect(bool selected)
 }
 
 
-auto Control::getMyText() -> String&
+auto Control::getMyText() noexcept -> String&
 {
 	return m_text;
 }
 
+//###########################################################################
+
+auto Control::getOverlayColor() const noexcept -> const Color&
+{
+	return m_overlayColor;
+}
+
+
+void Control::setOverlayColor(const Color& overlayColor)
+{
+	m_overlayColor = overlayColor;
+}
 
 
 END_NAMESPACE_CA_UI

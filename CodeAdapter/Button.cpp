@@ -14,10 +14,6 @@ BEGIN_NAMESPACE_CA_UI
 
 Button::Button()
 	: Control(false)
-
-	, m_overlayColor(Color::Transparent)
-	, m_focusColor(Color(Color::Cyan, 64))
-	, m_touchColor(Color(Color::Cyan, 128))
 {
 
 }
@@ -26,44 +22,6 @@ Button::Button()
 Button::~Button()
 {
 
-}
-
-//###########################################################################
-
-void Button::onTouchDown(const TouchEventArgs& args)
-{
-	Control::onTouchDown(args);
-
-
-	m_overlayColor = m_touchColor;
-}
-
-
-void Button::onTouchUp(const TouchEventArgs& args)
-{
-	Control::onTouchUp(args);
-
-
-	m_overlayColor = m_focusColor;
-}
-
-//--------------------------------------------------------------------------
-
-void Button::onEnterFocus(const EventArgs& args)
-{
-	Control::onEnterFocus(args);
-
-
-	m_overlayColor = m_focusColor;
-}
-
-
-void Button::onLeaveFocus(const EventArgs& args)
-{
-	Control::onLeaveFocus(args);
-
-
-	m_overlayColor = Color::Transparent;
 }
 
 //###########################################################################
@@ -85,7 +43,8 @@ void Button::onDrawControl(Graphics& g, const Transform& parentTransform)
 	rectArtist->initialize(parentTransform);
 
 	rectArtist->beginFillRectangle();
-	rectArtist->fillRectangle(position, size, m_overlayColor);
+	rectArtist->fillRectangle(position, size, m_backColor);
+	rectArtist->fillRectangle(position, size, getOverlayColor());
 	rectArtist->endFillRectangle();
 
 
@@ -108,31 +67,6 @@ void Button::onDrawControl(Graphics& g, const Transform& parentTransform)
 
 		artist->endDrawString();
 	}
-}
-
-//###########################################################################
-
-void Button::setFocusColor(const Color& focusColor)
-{
-	m_focusColor = focusColor;
-}
-
-
-const Drawing::Color& Button::getFocusColor() const
-{
-	return m_focusColor;
-}
-
-
-void Button::setTouchColor(const Color& touchColor)
-{
-	m_touchColor = touchColor;
-}
-
-
-const Drawing::Color& Button::getTouchColor() const
-{
-	return m_touchColor;
 }
 
 

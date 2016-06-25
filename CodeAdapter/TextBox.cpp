@@ -6,6 +6,7 @@
 #include "Graphics.h"
 
 #include "TextArtist.h"
+#include "RectangleArtist.h"
 #include "Rectangle.h"
 
 
@@ -21,7 +22,8 @@ TextBox::TextBox()
 
 	, m_cursorIndex(0)
 {
-
+	m_focusOverlayColor = Color(Color::White, 64);
+	m_touchOverlayColor = m_focusOverlayColor;
 }
 
 
@@ -141,6 +143,14 @@ void TextBox::onUpdateControl(const Transform& parentTransform, const PointF& lo
 
 void TextBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 {
+	auto& rectArtist = g.rectangleArtist;
+
+
+	rectArtist->beginFillRectangle();
+	rectArtist->fillRectangle(getPosition(), getSize(), getOverlayColor());
+	rectArtist->endFillRectangle();
+
+
 	if (!m_font.expired())
 	{
 		const auto& position = getPosition();
@@ -186,6 +196,16 @@ void TextBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 
 		artist->endDrawString();
 	}
+}
+
+//###########################################################################
+
+void TextBox::setText(const String& text)
+{
+	Control::setText(text);
+
+
+	m_cursorIndex = getText().getLength();
 }
 
 //###########################################################################

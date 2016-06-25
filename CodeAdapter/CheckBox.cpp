@@ -89,6 +89,12 @@ void CheckBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 
 	rectArtist->fillRectangle(boxPosition,
 		SizeF(boxSize, boxSize), m_boxColor);
+
+	if (!m_bChecked)
+	{
+		rectArtist->fillRectangle(boxPosition,
+			SizeF(boxSize, boxSize), getOverlayColor());
+	}
 	
 	boxPosition += PointF(m_boxThickness, m_boxThickness);
 	rectArtist->fillRectangle(boxPosition,
@@ -101,6 +107,8 @@ void CheckBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 
 		rectArtist->fillRectangle(boxPosition,
 			SizeF(innerBoxSize, innerBoxSize), m_boxColor);
+		rectArtist->fillRectangle(boxPosition,
+			SizeF(innerBoxSize, innerBoxSize), getOverlayColor());
 	}
 
 	rectArtist->endFillRectangle();
