@@ -10,8 +10,12 @@
 class Demo1Scene : public caUtil::Scene
 {
 public:
-	Demo1Scene();
+	explicit Demo1Scene(const caUtil::ResourcePool& pool);
 	virtual ~Demo1Scene();
+
+
+protected:
+	caUtil::ResourcePool m_pool;
 
 
 protected:

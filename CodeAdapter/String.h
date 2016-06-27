@@ -15,6 +15,17 @@ BEGIN_NAMESPACE_CA_UTILITY
 class String
 {
 public:
+	class Hasher
+	{
+	public:
+		size_t operator() (const String& str) const
+		{
+			return std::hash<std::wstring>()(static_cast<std::wstring>(str));
+		}
+	};
+
+
+public:
 	String();
 	String(const String& other);
 	String(String&& rhs);

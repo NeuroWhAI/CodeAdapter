@@ -5,7 +5,8 @@
 
 
 
-Demo1Scene::Demo1Scene()
+Demo1Scene::Demo1Scene(const caUtil::ResourcePool& pool)
+	: m_pool(pool)
 {
 
 }
@@ -61,9 +62,9 @@ void Demo1Scene::onInitialize(caDraw::Window& owner)
 	m_buttonNext->setBackColor(caDraw::Color::Gray);
 	m_buttonNext->setPosition({ static_cast<f32>(winSize.width / 2 - 165), 600 });
 	m_buttonNext->setSize({ 330, 100 });
-	m_buttonNext->WhenClick = [me = this](const caUI::EventArgs& args)
+	m_buttonNext->WhenClick = [me = this, pool = m_pool](const caUI::EventArgs& args)
 	{
-		me->reserveNextScene<Demo2Scene>();
+		me->reserveNextScene<Demo2Scene>(pool);
 	};
 
 

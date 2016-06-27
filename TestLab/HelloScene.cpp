@@ -27,31 +27,31 @@ void HelloScene::onInitialize(caDraw::Window& owner)
 	m_panel->transform.position = { 0, 0 };
 	m_panel->size = static_cast<caDraw::SizeF>(winSize);
 
-	m_font = caFactory->createFont();
+	m_font = m_pool.createFont(L"BoldFont");
 	m_font->loadFromFile("NanumGothic.ttf");
 	m_font->setCharacterSize(64);
 	m_font->setStyle(caDraw::FontStyles::Bold);
 
-	m_font2 = caFactory->createFont();
+	m_font2 = m_pool.createFont(L"BoldLineFont");
 	m_font2->loadFromFile("NanumGothic.ttf");
 	m_font2->setCharacterSize(64);
 	m_font2->setStyle(caDraw::FontStyles::Bold | caDraw::FontStyles::Underline);
 
-	m_font3 = caFactory->createFont();
+	m_font3 = m_pool.createFont(L"StrikeItalicFont");
 	m_font3->loadFromFile("NanumGothic.ttf");
 	m_font3->setCharacterSize(64);
 	m_font3->setStyle(caDraw::FontStyles::StrikeOut | caDraw::FontStyles::Italic);
 
-	m_texLogo = caFactory->createTexture();
+	m_texLogo = m_pool.createTexture(L"Logo");
 	m_texLogo->loadFromFile("neurowhai.png");
 
 	m_sprLogo = canew<caDraw::DrawableTexture>();
-	m_sprLogo->setTexture(m_texLogo);
+	m_sprLogo->setTexture(m_pool.getTexture(L"Logo"));
 	m_sprLogo->location.setLocation(static_cast<f32>(winSize.width / 2 - 555),
 		static_cast<f32>(winSize.height / 2 - 555));
 
 	m_logo = canew<caUI::Label>();
-	m_logo->setFont(m_font);
+	m_logo->setFont(m_pool.getFont(L"BoldFont"));
 	m_logo->setText(L"NeuroWhAI");
 	m_logo->setTextMargin({ 8, 0 });
 	m_logo->setBackColor(caDraw::Color::Transparent);
@@ -72,9 +72,9 @@ void HelloScene::onInitialize(caDraw::Window& owner)
 	m_buttonNext->setBackColor(caDraw::Color::Gray);
 	m_buttonNext->setPosition({ static_cast<f32>(winSize.width / 2 - 165), 600 });
 	m_buttonNext->setSize({ 330, 100 });
-	m_buttonNext->WhenClick = [me = this](const caUI::EventArgs& args)
+	m_buttonNext->WhenClick = [me = this, pool = m_pool](const caUI::EventArgs& args)
 	{
-		me->reserveNextScene<Demo1Scene>();
+		me->reserveNextScene<Demo1Scene>(pool);
 	};
 
 	m_scrollOpacity = canew<caUI::VerticalScrollBar>();

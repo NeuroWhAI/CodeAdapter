@@ -142,6 +142,7 @@
     <ClInclude Include="Event.h" />
     <ClInclude Include="HorizontalScrollBar.h" />
     <ClInclude Include="Label.h" />
+    <ClInclude Include="ResourcePool.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="ScrollBar.h" />
@@ -197,6 +198,7 @@
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="HorizontalScrollBar.cpp" />
     <ClCompile Include="Label.cpp" />
+    <ClCompile Include="ResourcePool.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="ScrollBar.cpp" />
@@ -239,6 +241,7 @@
   <ItemGroup>
     <None Include="EasyCA.inl" />
     <None Include="Event.inl" />
+    <None Include="ResourcePool.inl" />
     <None Include="Scene.inl" />
     <None Include="SingletonWrapper.inl" />
     <None Include="Color.inl" />

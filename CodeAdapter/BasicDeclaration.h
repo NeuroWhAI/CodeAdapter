@@ -125,6 +125,7 @@ class Event;
 
 class Scene;
 class SceneManager;
+class ResourcePool;
 
 
 END_NAMESPACE_CA_UTILITY

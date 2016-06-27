@@ -5,7 +5,8 @@
 
 
 
-Demo2Scene::Demo2Scene()
+Demo2Scene::Demo2Scene(const caUtil::ResourcePool& pool)
+	: m_pool(pool)
 {
 
 }
@@ -27,13 +28,21 @@ void Demo2Scene::onInitialize(caDraw::Window& owner)
 	m_panel->transform.position = { 0, 0 };
 	m_panel->size = static_cast<caDraw::SizeF>(winSize);
 
-	m_font = caFactory->createFont();
-	m_font->loadFromFile("NanumGothic.ttf");
-	m_font->setCharacterSize(64);
-	m_font->setStyle(caDraw::FontStyles::Bold);
+	m_font = m_pool.getFont(L"BoldFont");
+	if (m_font == nullptr)
+	{
+		m_font = caFactory->createFont();
+		m_font->loadFromFile("NanumGothic.ttf");
+		m_font->setCharacterSize(64);
+		m_font->setStyle(caDraw::FontStyles::Bold);
+	}
 
-	m_texture1 = caFactory->createTexture();
-	m_texture1->loadFromFile("neurowhai.png");
+	m_texture1 = m_pool.getTexture(L"Logo");
+	if (m_texture1 == nullptr)
+	{
+		m_texture1 = caFactory->createTexture();
+		m_texture1->loadFromFile("neurowhai.png");
+	}
 
 	m_sprite1 = canew<caDraw::DrawableTexture>();
 	m_sprite1->setTexture(m_texture1);
