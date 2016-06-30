@@ -24,6 +24,11 @@ void Demo1Scene::onInitialize(caDraw::Window& owner)
 	auto winSize = owner.getSize();
 
 
+	auto smallFont = m_pool.createFont(L"SmallFont");
+	smallFont->loadFromFile("NanumGothic.ttf");
+	smallFont->setCharacterSize(18);
+	smallFont->setStyle(caDraw::FontStyles::Bold);
+
 	m_panel = caFactory->createPanel();
 	m_panel->transform.position = { 0, 0 };
 	m_panel->size = static_cast<caDraw::SizeF>(winSize);
@@ -56,12 +61,31 @@ void Demo1Scene::onInitialize(caDraw::Window& owner)
 	m_desc->setSize({ 300, 48 });
 	m_desc->setBackColor(caDraw::Color::Transparent);
 
+	m_progress = canew<caUI::ProgressBar>();
+	m_progress->setFont(smallFont);
+	m_progress->setPosition({ 0, static_cast<f32>(winSize.height) - 32 });
+	m_progress->setSize({ static_cast<f32>(winSize.width), 32 });
+	m_progress->setBackColor(caDraw::Color::Gray);
+	m_progress->setMinValue(0);
+	m_progress->setMaxValue(100);
+	m_progress->setValue(0);
+	m_progress->setText("Move!");
+	m_progress->WhenMaxValue = [button = &m_buttonNext](const caUI::ValueFEventArgs& args)
+	{
+		(*button)->setVisible(true);
+	};
+	m_progress->WhenMinValue = [button = &m_buttonNext](const caUI::ValueFEventArgs& args)
+	{
+		(*button)->setVisible(false);
+	};
+
 	m_buttonNext = canew<caUI::Button>();
 	m_buttonNext->setFont(m_font);
 	m_buttonNext->setText(L"Next page");
 	m_buttonNext->setBackColor(caDraw::Color::Gray);
 	m_buttonNext->setPosition({ static_cast<f32>(winSize.width / 2 - 165), 600 });
 	m_buttonNext->setSize({ 330, 100 });
+	m_buttonNext->setVisible(false);
 	m_buttonNext->WhenClick = [me = this, pool = m_pool](const caUI::EventArgs& args)
 	{
 		me->reserveNextScene<Demo2Scene>(pool);
@@ -76,6 +100,9 @@ void Demo1Scene::onInitialize(caDraw::Window& owner)
 
 	m_panel->addDrawable(m_desc);
 	m_panel->addUpdatable(m_desc);
+
+	m_panel->addDrawable(m_progress);
+	m_panel->addUpdatable(m_progress);
 
 	m_panel->addDrawable(m_buttonNext);
 	m_panel->addUpdatable(m_buttonNext);
@@ -93,38 +120,33 @@ void Demo1Scene::onRelease()
 
 void Demo1Scene::onUpdate(caDraw::Window& owner)
 {
+	m_progress->addValue(-0.05f);
+
+
 	if (caKeyboard->isKeyPressed(caSys::Keys::W))
 	{
 		m_rect1->move(0, -8);
 
-		m_buttonNext->setVisible(false);
+		m_progress->addValue(1);
 	}
 	else if (caKeyboard->isKeyPressed(caSys::Keys::S))
 	{
 		m_rect1->move(0, 8);
 
-		m_buttonNext->setVisible(false);
-	}
-	else
-	{
-		m_buttonNext->setVisible(true);
+		m_progress->addValue(1);
 	}
 
 	if (caKeyboard->isKeyPressed(caSys::Keys::A))
 	{
 		m_rect1->move(-8, 0);
 
-		m_buttonNext->setVisible(false);
+		m_progress->addValue(1);
 	}
 	else if (caKeyboard->isKeyPressed(caSys::Keys::D))
 	{
 		m_rect1->move(8, 0);
 
-		m_buttonNext->setVisible(false);
-	}
-	else
-	{
-		m_buttonNext->setVisible(true);
+		m_progress->addValue(1);
 	}
 
 

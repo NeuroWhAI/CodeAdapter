@@ -143,6 +143,7 @@ class VerticalScrollBar;
 class HorizontalScrollBar;
 class TextBox;
 class CheckBox;
+class ProgressBar;
 
 
 END_NAMESPACE_CA_UI

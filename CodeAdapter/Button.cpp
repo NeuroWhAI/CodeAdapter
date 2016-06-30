@@ -38,18 +38,18 @@ void Button::onDrawControl(Graphics& g, const Transform& parentTransform)
 	const auto& size = getSize();
 
 
-	// 배경 그리기
+	// 덮색 레이어 그리기
 	auto& rectArtist = g.rectangleArtist;
 	rectArtist->initialize(parentTransform);
 
 	rectArtist->beginFillRectangle();
-	rectArtist->fillRectangle(position, size, m_backColor);
 	rectArtist->fillRectangle(position, size, getOverlayColor());
 	rectArtist->endFillRectangle();
 
 
 	// 텍스트 그리기
-	if (!m_font.expired())
+	auto font = m_font.lock();
+	if (font)
 	{
 		auto& artist = g.textArtist;
 
@@ -57,7 +57,7 @@ void Button::onDrawControl(Graphics& g, const Transform& parentTransform)
 		artist->initialize(parentTransform);
 
 
-		artist->beginDrawString(*m_font.lock());
+		artist->beginDrawString(*font);
 
 		artist->drawString(getText(),
 			position.x + size.width / 2.0f,

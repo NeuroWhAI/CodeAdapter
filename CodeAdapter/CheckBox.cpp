@@ -71,10 +71,6 @@ void CheckBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 	auto& rectArtist = g.rectangleArtist;
 	rectArtist->initialize(parentTransform);
 
-	rectArtist->beginFillRectangle();
-	rectArtist->fillRectangle(position, size, m_backColor);
-	rectArtist->endFillRectangle();
-
 
 	// 박스 그리기
 	const f32 boxSize = size.height * m_boxRate;
@@ -115,7 +111,8 @@ void CheckBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 
 
 	// 텍스트 그리기
-	if (!m_font.expired())
+	auto font = m_font.lock();
+	if (font)
 	{
 		auto& artist = g.textArtist;
 
@@ -123,7 +120,7 @@ void CheckBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 		artist->initialize(parentTransform);
 
 
-		artist->beginDrawString(*m_font.lock());
+		artist->beginDrawString(*font);
 
 		artist->drawString(getText(),
 			position.x + boxSize + m_textMargin.x,

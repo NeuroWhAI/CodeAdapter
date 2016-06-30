@@ -27,8 +27,11 @@ int main()
 		caKeyboard->update(*window);
 
 
-		if (sceneManager->hasScene() == false)
+		if (sceneManager->hasScene() == false
+			|| caKeyboard->isKeyDown(caSys::Keys::Escape))
+		{
 			window->exit();
+		}
 
 
 		window->update();

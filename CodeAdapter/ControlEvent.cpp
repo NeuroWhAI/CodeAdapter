@@ -34,12 +34,6 @@ TouchEventArgs::TouchEventArgs(i32 x, i32 y)
 
 }
 
-
-TouchEventArgs::~TouchEventArgs()
-{
-
-}
-
 //###########################################################################
 
 KeyEventArgs::KeyEventArgs()
@@ -61,12 +55,6 @@ KeyEventArgs::KeyEventArgs(System::Keys key, bool ctrl, bool shift, bool alt)
 	, ctrl(ctrl)
 	, shift(shift)
 	, alt(alt)
-{
-
-}
-
-
-KeyEventArgs::~KeyEventArgs()
 {
 
 }

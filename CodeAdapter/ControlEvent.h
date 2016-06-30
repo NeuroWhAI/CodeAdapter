@@ -28,7 +28,6 @@ class TouchEventArgs : public EventArgs
 public:
 	TouchEventArgs();
 	TouchEventArgs(i32 x, i32 y);
-	virtual ~TouchEventArgs();
 
 
 public:
@@ -42,7 +41,6 @@ public:
 	KeyEventArgs();
 	explicit KeyEventArgs(System::Keys key);
 	KeyEventArgs(System::Keys key, bool ctrl, bool shift, bool alt);
-	virtual ~KeyEventArgs();
 
 
 public:
@@ -50,14 +48,34 @@ public:
 	bool ctrl, shift, alt;
 };
 
+
+template <typename T>
+class ValueTEventArgs : public EventArgs
+{
+public:
+	ValueTEventArgs();
+	explicit ValueTEventArgs(const T& value);
+
+
+public:
+	T value;
+};
+using ValueEventArgs = ValueTEventArgs<i32>;
+using ValueFEventArgs = ValueTEventArgs<f32>;
+
 //############################################################
 
 using EventHandler = Utility::Event<const EventArgs&>;
 using TouchEventHandler = Utility::Event<const TouchEventArgs&>;
 using KeyEventHandler = Utility::Event<const KeyEventArgs&>;
+using ValueEventHandler = Utility::Event<const ValueEventArgs&>;
+using ValueFEventHandler = Utility::Event<const ValueFEventArgs&>;
 
 
 END_NAMESPACE_CA_UI
+
+
+#include "ControlEvent.inl"
 
 
 #endif

@@ -36,7 +36,7 @@ void Demo3Scene::onInitialize(caDraw::Window& owner)
 	m_smallFont = caFactory->createFont();
 	m_smallFont->loadFromFile("NanumGothic.ttf");
 	m_smallFont->setCharacterSize(24);
-	m_font->setStyle(caDraw::FontStyles::Bold);
+	m_smallFont->setStyle(caDraw::FontStyles::Bold);
 
 	m_textbox = canew<caUI::TextBox>();
 	m_textbox->setFont(m_font);

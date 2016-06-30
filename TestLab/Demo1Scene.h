@@ -25,6 +25,7 @@ protected:
 	std::shared_ptr<caDraw::DrawableEllipse> m_ellipse1;
 	std::shared_ptr<caDraw::DrawableLine> m_line1;
 	std::shared_ptr<caUI::Label> m_desc;
+	std::shared_ptr<caUI::ProgressBar> m_progress;
 	std::shared_ptr<caUI::Button> m_buttonNext;
 
 

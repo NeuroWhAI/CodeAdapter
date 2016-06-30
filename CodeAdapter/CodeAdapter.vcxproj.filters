@@ -201,6 +201,9 @@
     <ClInclude Include="ResourcePool.h">
       <Filter>Utility</Filter>
     </ClInclude>
+    <ClInclude Include="ProgressBar.h">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -350,6 +353,9 @@
     <ClCompile Include="ResourcePool.cpp">
       <Filter>Utility</Filter>
     </ClCompile>
+    <ClCompile Include="ProgressBar.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Point.inl">
@@ -390,6 +396,9 @@
     </None>
     <None Include="ResourcePool.inl">
       <Filter>Utility</Filter>
+    </None>
+    <None Include="ControlEvent.inl">
+      <Filter>UI</Filter>
     </None>
   </ItemGroup>
 </Project>

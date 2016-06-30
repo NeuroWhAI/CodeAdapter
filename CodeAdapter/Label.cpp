@@ -35,7 +35,8 @@ void Label::onUpdateControl(const Transform& parentTransform, const PointF& loca
 
 void Label::onDrawControl(Graphics& g, const Transform& parentTransform)
 {
-	if (!m_font.expired())
+	auto font = m_font.lock();
+	if (font)
 	{
 		const auto& position = getPosition();
 		const auto& size = getSize();
@@ -47,7 +48,7 @@ void Label::onDrawControl(Graphics& g, const Transform& parentTransform)
 		artist->initialize(parentTransform);
 
 
-		artist->beginDrawString(*m_font.lock());
+		artist->beginDrawString(*font);
 
 		artist->drawString(getText(),
 			position.x + m_textMargin.x,

@@ -38,7 +38,7 @@ ScrollBar::~ScrollBar()
 
 //###########################################################################
 
-void ScrollBar::onValueChanged(const EventArgs& args)
+void ScrollBar::onValueChanged(const ValueFEventArgs& args)
 {
 	if (WhenValueChanged)
 	{
@@ -136,8 +136,7 @@ void ScrollBar::setValue(f32 value)
 	{
 		m_value = value;
 
-		EventArgs args;
-
+		ValueFEventArgs args{ value };
 		onValueChanged(args);
 	}
 }

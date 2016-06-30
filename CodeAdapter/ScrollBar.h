@@ -45,11 +45,11 @@ protected:
 
 
 public:
-	EventHandler WhenValueChanged;
+	ValueFEventHandler WhenValueChanged;
 
 
 public:
-	virtual void onValueChanged(const EventArgs& args);
+	virtual void onValueChanged(const ValueFEventArgs& args);
 
 
 protected:

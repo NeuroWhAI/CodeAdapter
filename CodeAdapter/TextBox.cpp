@@ -231,7 +231,8 @@ void TextBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 	rectArtist->endFillRectangle();
 
 
-	if (!m_font.expired())
+	auto font = m_font.lock();
+	if (font)
 	{
 		const auto& position = getPosition();
 		const auto& size = getSize();
@@ -245,7 +246,7 @@ void TextBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 		textArtist->initialize(parentTransform);
 
 
-		textArtist->beginDrawString(*m_font.lock());
+		textArtist->beginDrawString(*font);
 
 		const f32 alignY = m_lineSpacing / 2 * (m_linedText.size() - 1);
 

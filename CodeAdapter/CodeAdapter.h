@@ -81,6 +81,7 @@
 #include "HorizontalScrollBar.h"
 #include "TextBox.h"
 #include "CheckBox.h"
+#include "ProgressBar.h"
 
 
 #endif
