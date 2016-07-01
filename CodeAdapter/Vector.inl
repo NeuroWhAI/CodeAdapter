@@ -119,7 +119,7 @@ VectorT<T> VectorT<T>::operator+ (const VectorT<T>& right) const
 template <typename T>
 VectorT<T>& VectorT<T>::operator+= (const VectorT<T>& right)
 {
-	move(right.x, right.y);
+	addVector(right.x, right.y);
 	return *this;
 }
 
@@ -134,7 +134,7 @@ VectorT<T> VectorT<T>::operator- (const VectorT<T>& right) const
 template <typename T>
 VectorT<T>& VectorT<T>::operator-= (const VectorT<T>& right)
 {
-	move(-right.x, -right.y);
+	addVector(-right.x, -right.y);
 	return *this;
 }
 
