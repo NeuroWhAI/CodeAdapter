@@ -40,7 +40,11 @@ void Panel::update(const Transform& parentTransform, const Point& cursor)
 	// 요소 갱신
 	for (auto& updatable : m_updatables)
 	{
-		updatable.lock()->update(combinedTransform, cursor);
+		auto ptr = updatable.lock();
+		if (ptr)
+		{
+			ptr->update(combinedTransform, cursor);
+		}
 	}
 }
 
@@ -59,7 +63,11 @@ void Panel::onDraw(Graphics& g, const Transform& parentTransform)
 	// 요소 그리기
 	for (auto& drawable : m_drawables)
 	{
-		drawable.lock()->draw(g, combinedTransform);
+		auto ptr = drawable.lock();
+		if (ptr)
+		{
+			ptr->draw(g, combinedTransform);
+		}
 	}
 
 
@@ -72,13 +80,17 @@ void Panel::update(Window& win)
 {
 	// 커서 위치 변환
 	PointF cursor = System::Touch::getInstance()->getPositionF(win);
-	Point iLocalCursor = static_cast<Point>(cursor);//static_cast<Point>(transform.inverseTransformPoint(cursor));
+	Point iLocalCursor = static_cast<Point>(cursor);
 
 
 	// 요소 갱신
 	for (auto& updatable : m_updatables)
 	{
-		updatable.lock()->update(transform, iLocalCursor);
+		auto ptr = updatable.lock();
+		if (ptr)
+		{
+			ptr->update(transform, iLocalCursor);
+		}
 	}
 }
 
@@ -91,7 +103,11 @@ void Panel::draw(Graphics& g)
 	// 요소 그리기
 	for (auto& drawable : m_drawables)
 	{
-		drawable.lock()->draw(g, transform);
+		auto ptr = drawable.lock();
+		if (ptr)
+		{
+			ptr->draw(g, transform);
+		}
 	}
 
 
