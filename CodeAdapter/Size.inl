@@ -130,7 +130,7 @@ SizeT<T>& SizeT<T>::operator/= (const T& right)
 template <typename T>
 bool SizeT<T>::operator== (const SizeT<T>& right) const
 {
-	return ((width == right.width) && (height == right.height));
+	return equals(right, Identity<T>());
 }
 
 

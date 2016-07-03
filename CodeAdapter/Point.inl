@@ -130,7 +130,7 @@ PointT<T>& PointT<T>::operator/= (const T& right)
 template <typename T>
 bool PointT<T>::operator== (const PointT<T>& right) const
 {
-	return ((x == right.x) && (y == right.y));
+	return equals(right, Identity<T>());
 }
 
 
