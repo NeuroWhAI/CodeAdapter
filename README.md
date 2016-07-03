@@ -57,8 +57,11 @@ int main()
 		caKeyboard->update(*window);
 
 
-		if (sceneManager->hasScene() == false)
+		if (sceneManager->hasScene() == false
+			|| caKeyboard->isKeyDown(caSys::Keys::Escape))
+		{
 			window->exit();
+		}
 
 
 		window->update();
@@ -208,9 +211,9 @@ void HelloScene::onInitialize(caDraw::Window& owner)
 	m_scrollOpacity->setValue(255);
 	m_scrollOpacity->setMinBarLength(64);
 	m_scrollOpacity->WhenValueChanged = 
-		[&logo = m_sprLogo, &bar = m_scrollOpacity](const caUI::EventArgs& args)
+		[&logo = m_sprLogo](const caUI::ValueFEventArgs& args)
 	{
-		logo->color.a = static_cast<i32>(bar->getValue());
+		logo->color.a = static_cast<i32>(args.value);
 	};
 
 
