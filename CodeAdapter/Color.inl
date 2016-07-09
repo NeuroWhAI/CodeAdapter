@@ -144,6 +144,42 @@ ColorT<T>::operator ColorT<T2>() const
 		static_cast<T2>(b));
 }
 
+//###########################################################################
+
+template <typename T>
+bool ColorT<T>::operator== (const ColorT<T>& right) const
+{
+	return equals(right, Identity<T>());
+}
+
+
+template <typename T>
+bool ColorT<T>::operator!= (const ColorT<T>& right) const
+{
+	return !this->operator==(right);
+}
+
+//###########################################################################
+
+template <typename T>
+template <typename ARG_TYPE>
+bool ColorT<T>::equals(const ColorT<T>& right, Identity<ARG_TYPE>) const
+{
+	return ((a == right.a)
+		&& (r == right.r) && (g == right.g) && (b == right.b));
+}
+
+
+template <typename T>
+bool ColorT<T>::equals(const ColorT<T>& right, Identity<f32>) const
+{
+	const float epsilon = std::numeric_limits<T>::epsilon();
+	return (abs(a - right.a) < epsilon
+		&& abs(r - right.r) < epsilon
+		&& abs(g - right.g) < epsilon
+		&& abs(b - right.b) < epsilon);
+}
+
 
 END_NAMESPACE_CA_DRAWING
 

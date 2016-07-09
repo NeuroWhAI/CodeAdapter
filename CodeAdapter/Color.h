@@ -52,6 +52,20 @@ public:
 public:
 	template <typename T2>
 	explicit operator ColorT<T2>() const;
+
+
+public:
+	bool operator== (const ColorT<T>& right) const;
+	bool operator!= (const ColorT<T>& right) const;
+
+
+private:
+	template <typename ID_TYPE>
+	struct Identity { };
+
+	template <typename ARG_TYPE>
+	bool equals(const ColorT<T>& right, Identity<ARG_TYPE>) const;
+	bool equals(const ColorT<T>& right, Identity<f32>) const;
 };
 
 
