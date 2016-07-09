@@ -29,8 +29,6 @@ void Window::create(const Size& size, const String& title)
 {
 	m_win.create(sf::VideoMode(size.width, size.height),
 		title.getStr());
-
-	m_win.setFramerateLimit(60);
 }
 
 
@@ -135,6 +133,18 @@ auto Window::getSize() const -> Size
 {
 	auto size = m_win.getSize();
 	return Size(size.x, size.y);
+}
+
+
+void Window::setFramerate(int framePerSec)
+{
+	m_win.setFramerateLimit(framePerSec);
+}
+
+
+void Window::disableFramerate()
+{
+	m_win.setFramerateLimit(0);
 }
 
 //###########################################################################

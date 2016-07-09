@@ -81,6 +81,8 @@ public:
 
 public:
 	virtual Size getSize() const = 0;
+	virtual void setFramerate(int framePerSec) = 0;
+	virtual void disableFramerate() = 0;
 };
 
 

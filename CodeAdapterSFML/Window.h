@@ -53,6 +53,8 @@ protected:
 
 public:
 	virtual Size getSize() const override;
+	virtual void setFramerate(int framePerSec) override;
+	virtual void disableFramerate() override;
 
 
 public:
