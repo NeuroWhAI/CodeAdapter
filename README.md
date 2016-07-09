@@ -1,4 +1,5 @@
 # Code Adapter
+C++ GUI, 2D Graphics  
 다른 라이브러리의 인터페이스를 강제시켜서 로직 코드의 변경을 최대한 줄일 수 있게 해주는 라이브러리.
 
 ### Project List
