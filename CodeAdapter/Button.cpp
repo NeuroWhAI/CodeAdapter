@@ -40,7 +40,7 @@ void Button::onDrawControl(Graphics& g, const Transform& parentTransform)
 
 	// 덮색 레이어 그리기
 	auto& rectArtist = g.rectangleArtist;
-	rectArtist->initialize(parentTransform);
+
 
 	rectArtist->beginFillRectangle();
 	rectArtist->fillRectangle(position, size, getOverlayColor());
@@ -52,9 +52,6 @@ void Button::onDrawControl(Graphics& g, const Transform& parentTransform)
 	if (font)
 	{
 		auto& artist = g.textArtist;
-
-
-		artist->initialize(parentTransform);
 
 
 		artist->beginDrawString(*font);

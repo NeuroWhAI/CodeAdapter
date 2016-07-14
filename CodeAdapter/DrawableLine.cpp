@@ -51,9 +51,6 @@ void DrawableLine::onDraw(Graphics& g, const Transform& parentTransform)
 	auto& artist = g.lineArtist;
 
 
-	artist->initialize(parentTransform);
-
-
 	artist->beginDrawLine(thickness);
 
 	artist->drawLine(begin, end, color);

@@ -107,6 +107,9 @@ void Panel::draw(Graphics& g)
 		if (ptr)
 		{
 			ptr->draw(g, transform);
+
+
+			g.setTransform(Transform::Identity);
 		}
 	}
 

@@ -25,11 +25,13 @@ protected:
 	std::shared_ptr<caUI::TextBox> m_textboxGreen;
 	std::shared_ptr<caUI::TextBox> m_textboxBlue;
 	std::shared_ptr<caUI::TextBox> m_textboxNote;
+	std::shared_ptr<caDraw::Panel> m_notePanel;
 	std::shared_ptr<caUI::Button> m_buttonNext;
 
 
 protected:
 	caDraw::Color m_effectColor;
+	f32 m_speed;
 	std::vector<caDraw::PointF> m_dotList;
 
 
@@ -42,7 +44,8 @@ public:
 
 
 private:
-	void drawEffect(caDraw::Graphics& g, i32 start, i32 skip);
+	void drawEffect(caDraw::Graphics& g, i32 start, i32 skip,
+		const caDraw::Color& color, const caDraw::PointF& offset);
 
 
 public:

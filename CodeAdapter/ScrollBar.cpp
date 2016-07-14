@@ -95,7 +95,7 @@ void ScrollBar::onUpdateControl(const Transform& parentTransform, const PointF& 
 void ScrollBar::onDrawControl(Graphics& g, const Transform& parentTransform)
 {
 	auto& rectArtist = g.rectangleArtist;
-	rectArtist->initialize(parentTransform);
+
 
 	rectArtist->beginFillRectangle();
 	rectArtist->fillRectangle(m_barRect, m_barColor);

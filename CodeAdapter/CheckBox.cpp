@@ -69,7 +69,6 @@ void CheckBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 
 	// 배경 그리기
 	auto& rectArtist = g.rectangleArtist;
-	rectArtist->initialize(parentTransform);
 
 
 	// 박스 그리기
@@ -115,9 +114,6 @@ void CheckBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 	if (font)
 	{
 		auto& artist = g.textArtist;
-
-
-		artist->initialize(parentTransform);
 
 
 		artist->beginDrawString(*font);

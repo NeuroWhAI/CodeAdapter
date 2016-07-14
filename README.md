@@ -44,6 +44,7 @@ int main()
 
 	auto window = caFactory->createWindow();
 	window->create(caDraw::Size(1024, 768), caUtil::String("Hello, World!"));
+	window->setFramerate(60);
 
 
 	auto sceneManager = canew<caUtil::SceneManager>();

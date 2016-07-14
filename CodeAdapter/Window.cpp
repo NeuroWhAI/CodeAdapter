@@ -8,6 +8,7 @@
 #include "Size.h"
 #include "Color.h"
 #include "Graphics.h"
+#include "Transform.h"
 
 #include "SceneManager.h"
 
@@ -64,6 +65,8 @@ void Window::draw(const Color& backColor)
 	{
 		m_sceneManager->draw(*m_graphics);
 	}
+
+	m_graphics->setTransform(Transform::Identity);
 
 	endDraw();
 }

@@ -6,7 +6,8 @@
 
 
 Demo3Scene::Demo3Scene()
-	: m_effectColor(caDraw::Color(caDraw::Color::Black, 200))
+	: m_effectColor(caDraw::Color(240, 255, 174, 201))
+	, m_speed(0)
 {
 	
 }
@@ -48,7 +49,7 @@ void Demo3Scene::onInitialize(caDraw::Window& owner)
 
 	m_textboxRed = canew<caUI::TextBox>();
 	m_textboxRed->setFont(m_font);
-	m_textboxRed->setText(L"0");
+	m_textboxRed->setText(L"255");
 	m_textboxRed->setTextMargin({ 8, 0 });
 	m_textboxRed->setBackColor(caDraw::Color(128, 0, 0));
 	m_textboxRed->setPosition({ 64, 200 });
@@ -68,6 +69,7 @@ void Demo3Scene::onInitialize(caDraw::Window& owner)
 	};
 
 	m_textboxGreen = canew<caUI::TextBox>(*m_textboxRed);
+	m_textboxGreen->setText(L"174");
 	m_textboxGreen->setBackColor(caDraw::Color(0, 128, 0));
 	m_textboxGreen->setPosition({ 64 + 280, 200 });
 	m_textboxGreen->WhenTextChanged = [me = this, box = m_textboxGreen]
@@ -85,6 +87,7 @@ void Demo3Scene::onInitialize(caDraw::Window& owner)
 	};
 
 	m_textboxBlue = canew<caUI::TextBox>(*m_textboxRed);
+	m_textboxBlue->setText(L"201");
 	m_textboxBlue->setBackColor(caDraw::Color(0, 0, 128));
 	m_textboxBlue->setPosition({ 64 + 280 * 2, 200 });
 	m_textboxBlue->WhenTextChanged = [me = this, box = m_textboxBlue]
@@ -107,8 +110,11 @@ void Demo3Scene::onInitialize(caDraw::Window& owner)
 	m_textboxNote->setText(L"This is textbox.\n\nHello?\nWorld!");
 	m_textboxNote->setBackColor(caDraw::Color::Silver);
 	m_textboxNote->setTextMargin({ 8, 0 });
-	m_textboxNote->setPosition({ 64, 332 });
 	m_textboxNote->setSize({ 512, 256 });
+
+	m_notePanel = caFactory->createPanel();
+	m_notePanel->transform.position = { 64, 332 };
+	m_notePanel->size = m_textboxNote->getSize();
 
 	m_buttonNext = canew<caUI::Button>();
 	m_buttonNext->setFont(m_font);
@@ -134,14 +140,15 @@ void Demo3Scene::onInitialize(caDraw::Window& owner)
 	m_panel->addDrawable(m_textboxBlue);
 	m_panel->addUpdatable(m_textboxBlue);
 
-	m_panel->addDrawable(m_textboxNote);
-	m_panel->addUpdatable(m_textboxNote);
+	m_notePanel->addDrawable(m_textboxNote);
+	m_notePanel->addUpdatable(m_textboxNote);
 
 	m_panel->addDrawable(m_buttonNext);
 	m_panel->addUpdatable(m_buttonNext);
 
 
 	addPanel(m_panel);
+	addPanel(m_notePanel);
 
 
 	std::mt19937 engine;
@@ -168,12 +175,12 @@ void Demo3Scene::onUpdate(caDraw::Window& owner)
 	auto winSize = owner.getSize();
 
 
-	f32 xSpeed = winSize.width / 2 - caTouch->getPositionF(owner).x;
-	xSpeed *= -0.01f;
+	m_speed = winSize.width / 2 - caTouch->getPositionF(owner).x;
+	m_speed *= -0.01f;
 
 	for (auto& dot : m_dotList)
 	{
-		dot.move(xSpeed, 2);
+		dot.move(m_speed, 2);
 
 		if (dot.x < -64)
 			dot.x = static_cast<f32>(winSize.width + 64);
@@ -190,18 +197,23 @@ void Demo3Scene::onUpdate(caDraw::Window& owner)
 
 void Demo3Scene::onDrawBack(caDraw::Graphics& g)
 {
-	drawEffect(g, 0, 2);
+	drawEffect(g, 0, 2, m_effectColor, caDraw::PointF::Zero);
 }
 
 
 void Demo3Scene::onDrawFront(caDraw::Graphics& g)
 {
-	drawEffect(g, 1, 2);
+	// Shadow
+	caDraw::PointF offset{ -m_speed * 2, 8 };
+	drawEffect(g, 1, 2, caDraw::Color(128, 0, 0, 0), offset);
+
+	drawEffect(g, 1, 2, m_effectColor, caDraw::PointF::Zero);
 }
 
 //###########################################################################
 
-void Demo3Scene::drawEffect(caDraw::Graphics& g, i32 start, i32 skip)
+void Demo3Scene::drawEffect(caDraw::Graphics& g, i32 start, i32 skip,
+	const caDraw::Color& color, const caDraw::PointF& offset)
 {
 	auto& textArtist = g.textArtist;
 
@@ -217,8 +229,8 @@ void Demo3Scene::drawEffect(caDraw::Graphics& g, i32 start, i32 skip)
 	{
 		if (index % skip == 0)
 		{
-			textArtist->drawString(text, dot,
-				m_effectColor,
+			textArtist->drawString(text, dot + offset,
+				color,
 				caDraw::TextAligns::Center);
 		}
 

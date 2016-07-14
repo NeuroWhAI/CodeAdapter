@@ -17,7 +17,14 @@ BEGIN_NAMESPACE_CA_DRAWING
 class Transform
 {
 public:
+	static const Transform Identity;
+
+
+public:
 	Transform();
+	Transform(const PointF position,
+		const VectorF& scale,
+		const Utility::Angle& angle);
 	virtual ~Transform();
 
 

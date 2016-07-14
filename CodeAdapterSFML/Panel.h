@@ -25,7 +25,6 @@ public:
 protected:
 	SharedObject<sf::RenderWindow>& m_sharedWin;
 	sf::View m_view;
-	const sf::View* m_oldView;
 
 
 protected:

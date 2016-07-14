@@ -35,7 +35,6 @@ void Panel::beginDraw(const Transform& parentTransform)
 		size.width,
 		size.height));
 
-	m_oldView = &win->getView();
 	win->setView(m_view);
 }
 
@@ -43,6 +42,6 @@ void Panel::beginDraw(const Transform& parentTransform)
 void Panel::endDraw()
 {
 	auto win = m_sharedWin.getObject();
-	win->setView(*m_oldView);
+	win->setView(win->getDefaultView());
 }
 

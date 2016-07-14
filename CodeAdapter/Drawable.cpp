@@ -1,5 +1,7 @@
 #include "Drawable.h"
 
+#include "Graphics.h"
+
 
 
 
@@ -26,6 +28,9 @@ void Drawable::draw(Graphics& g, const Transform& parentTransform)
 	{
 		Transform combined = parentTransform;
 		combined.addTransform(transform);
+
+		g.setTransform(combined);
+
 		onDraw(g, combined);
 	}
 }

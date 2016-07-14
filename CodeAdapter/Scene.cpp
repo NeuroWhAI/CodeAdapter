@@ -1,6 +1,8 @@
 #include "Scene.h"
 
 #include "Panel.h"
+#include "Graphics.h"
+#include "Transform.h"
 
 
 
@@ -60,6 +62,9 @@ void Scene::draw(Graphics& g)
 	for (auto& panel : m_panelList)
 	{
 		panel->draw(g);
+
+
+		g.setTransform(Drawing::Transform::Identity);
 	}
 
 

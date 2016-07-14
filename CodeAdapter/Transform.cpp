@@ -6,10 +6,25 @@
 BEGIN_NAMESPACE_CA_DRAWING
 
 
+const Transform Transform::Identity{ {0, 0}, {1, 1}, 0 };
+
+//###########################################################################
+
 Transform::Transform()
 	: position(0, 0)
 	, scale(1, 1)
 	, angle(0)
+{
+
+}
+
+
+Transform::Transform(const PointF position,
+	const VectorF& scale,
+	const Utility::Angle& angle)
+	: position(position)
+	, scale(scale)
+	, angle(angle)
 {
 
 }

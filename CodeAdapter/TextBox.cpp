@@ -243,9 +243,6 @@ void TextBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 		auto& textArtist = g.textArtist;
 
 
-		textArtist->initialize(parentTransform);
-
-
 		textArtist->beginDrawString(*font);
 
 		const f32 alignY = m_lineSpacing / 2 * (m_linedText.size() - 1);

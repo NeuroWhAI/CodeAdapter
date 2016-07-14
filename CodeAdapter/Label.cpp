@@ -45,9 +45,6 @@ void Label::onDrawControl(Graphics& g, const Transform& parentTransform)
 		auto& artist = g.textArtist;
 
 
-		artist->initialize(parentTransform);
-
-
 		artist->beginDrawString(*font);
 
 		artist->drawString(getText(),
