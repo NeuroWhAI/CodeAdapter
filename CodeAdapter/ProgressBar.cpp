@@ -53,7 +53,8 @@ void ProgressBar::onMinValue(const ValueFEventArgs& args)
 
 //###########################################################################
 
-void ProgressBar::onUpdateControl(const Transform& parentTransform, const PointF& localCursor)
+void ProgressBar::onUpdateControl(const Transform& parentTransform, const PointF& parentCursor,
+	const Transform& localTransform, const PointF& localCursor)
 {
 	// Empty
 }

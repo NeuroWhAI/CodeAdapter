@@ -117,7 +117,8 @@ protected:
 
 
 protected:
-	virtual void onUpdateControl(const Transform& parentTransform, const PointF& localCursor) = 0;
+	virtual void onUpdateControl(const Transform& parentTransform, const PointF& parentCursor,
+		const Transform& localTransform, const PointF& localCursor) = 0;
 	virtual void onDrawControl(Graphics& g, const Transform& parentTransform) = 0;
 
 

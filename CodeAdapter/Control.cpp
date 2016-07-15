@@ -292,7 +292,8 @@ void Control::update(const Transform& parentTransform, const Point& cursor)
 	} // if (m_enabled)
 
 
-	onUpdateControl(parentTransform, localCursor);
+	onUpdateControl(parentTransform, static_cast<PointF>(cursor),
+		combinedTransform, localCursor);
 }
 
 //###########################################################################

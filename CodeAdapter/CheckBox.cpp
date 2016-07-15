@@ -55,7 +55,8 @@ void CheckBox::onClick(const TouchEventArgs& args)
 
 //###########################################################################
 
-void CheckBox::onUpdateControl(const Transform& parentTransform, const PointF& localCursor)
+void CheckBox::onUpdateControl(const Transform& parentTransform, const PointF& parentCursor,
+	const Transform& localTransform, const PointF& localCursor)
 {
 	// Empty
 }

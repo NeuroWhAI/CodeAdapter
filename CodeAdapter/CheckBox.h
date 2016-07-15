@@ -58,7 +58,8 @@ protected:
 
 
 protected:
-	virtual void onUpdateControl(const Transform& parentTransform, const PointF& localCursor) override;
+	virtual void onUpdateControl(const Transform& parentTransform, const PointF& parentCursor,
+		const Transform& localTransform, const PointF& localCursor) override;
 	virtual void onDrawControl(Graphics& g, const Transform& parentTransform) override;
 
 

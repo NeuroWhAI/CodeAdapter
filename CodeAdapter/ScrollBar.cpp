@@ -76,7 +76,8 @@ void ScrollBar::onLeaveFocus(const EventArgs& args)
 
 //###########################################################################
 
-void ScrollBar::onUpdateControl(const Transform& parentTransform, const PointF& localCursor)
+void ScrollBar::onUpdateControl(const Transform& parentTransform, const PointF& parentCursor,
+	const Transform& localTransform, const PointF& localCursor)
 {
 	if (m_barControlMode && System::Touch::getInstance()->isUp())
 	{

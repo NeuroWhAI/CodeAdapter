@@ -42,7 +42,7 @@ void Demo3Scene::onInitialize(caDraw::Window& owner)
 	m_textbox = canew<caUI::TextBox>();
 	m_textbox->setFont(m_font);
 	m_textbox->setText(L"*");
-	m_textbox->setTextMargin({ 8, 0 });
+	m_textbox->setTextMargin({ 8, 16 });
 	m_textbox->setBackColor(caDraw::Color::Silver);
 	m_textbox->setPosition({ 64, 64 });
 	m_textbox->setSize({ 512, 100 });
@@ -50,7 +50,7 @@ void Demo3Scene::onInitialize(caDraw::Window& owner)
 	m_textboxRed = canew<caUI::TextBox>();
 	m_textboxRed->setFont(m_font);
 	m_textboxRed->setText(L"255");
-	m_textboxRed->setTextMargin({ 8, 0 });
+	m_textboxRed->setTextMargin({ 8, 16 });
 	m_textboxRed->setBackColor(caDraw::Color(128, 0, 0));
 	m_textboxRed->setPosition({ 64, 200 });
 	m_textboxRed->setSize({ 256, 100 });
@@ -109,7 +109,7 @@ void Demo3Scene::onInitialize(caDraw::Window& owner)
 	m_textboxNote->setFont(m_smallFont);
 	m_textboxNote->setText(L"This is textbox.\n\nHello?\nWorld!");
 	m_textboxNote->setBackColor(caDraw::Color::Silver);
-	m_textboxNote->setTextMargin({ 8, 0 });
+	m_textboxNote->setTextMargin({ 8, 8 });
 	m_textboxNote->setSize({ 512, 256 });
 
 	m_notePanel = caFactory->createPanel();

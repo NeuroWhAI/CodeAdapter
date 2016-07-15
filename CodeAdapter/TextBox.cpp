@@ -1,5 +1,7 @@
 #include "TextBox.h"
 
+#include <algorithm>
+
 #include "Keyboard.h"
 
 #include "Transform.h"
@@ -9,6 +11,7 @@
 #include "TextArtist.h"
 #include "RectangleArtist.h"
 #include "Rectangle.h"
+#include "VerticalScrollBar.h"
 
 
 
@@ -24,12 +27,33 @@ TextBox::TextBox()
 
 	, m_cursorIndex(0, 0)
 	, m_lineSpacing(1)
+
+	, m_verticalBar(std::make_unique<VerticalScrollBar>())
 {
 	m_focusOverlayColor = Color(Color::White, 64);
 	m_touchOverlayColor = m_focusOverlayColor;
 
 
 	m_linedText.emplace_back();
+
+
+	m_verticalBar->setSize({ 24.0f, getSize().height });
+}
+
+
+TextBox::TextBox(const TextBox& right)
+	: Control(right)
+
+	, m_textMargin(right.m_textMargin)
+	, m_isMultiline(right.m_isMultiline)
+
+	, m_cursorIndex(right.m_cursorIndex)
+	, m_linedText(right.m_linedText)
+	, m_lineSpacing(right.m_lineSpacing)
+
+	, m_verticalBar(std::make_unique<VerticalScrollBar>(*right.m_verticalBar))
+{
+
 }
 
 
@@ -40,8 +64,27 @@ TextBox::~TextBox()
 
 //###########################################################################
 
+void TextBox::onResize(const EventArgs& args)
+{
+	Control::onResize(args);
+
+
+	const auto& size = getSize();
+
+
+	// 스크롤바 위치, 길이 재설정
+	m_verticalBar->setPosition({ size.width - 24, 0 });
+	m_verticalBar->setSize({ 24, size.height });
+	m_verticalBar->setMinBarLength(std::min(36.0f, size.height));
+}
+
+//--------------------------------------------------------------------------
+
 void TextBox::onKeyDown(const KeyEventArgs& args)
 {
+	Control::onKeyDown(args);
+
+
 	using Keys = System::Keys;
 
 
@@ -133,23 +176,20 @@ void TextBox::onKeyDown(const KeyEventArgs& args)
 	}
 }
 
-//--------------------------------------------------------------------------
-
-void TextBox::onSelected(const EventArgs& args)
-{
-
-}
-
-
-void TextBox::onDeselected(const EventArgs& args)
-{
-
-}
-
 //###########################################################################
 
-void TextBox::onUpdateControl(const Transform& parentTransform, const PointF& localCursor)
+void TextBox::onUpdateControl(const Transform& parentTransform, const PointF& parentCursor,
+	const Transform& localTransform, const PointF& localCursor)
 {
+	// 스크롤바 갱신
+	if (m_isMultiline)
+	{
+		updateScrollBar();
+
+		m_verticalBar->update(parentTransform, static_cast<Point>(parentCursor));
+	}
+
+
 	if (isSelected())
 	{
 		auto keyboard = System::Keyboard::getInstance();
@@ -240,19 +280,20 @@ void TextBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 		const auto& text = getText();
 
 
+		const f32 verticalScroll = m_verticalBar->getValue() * m_lineSpacing;
+
+
 		auto& textArtist = g.textArtist;
 
 
 		textArtist->beginDrawString(*font);
 
-		const f32 alignY = m_lineSpacing / 2 * (m_linedText.size() - 1);
-
-		f32 lineY = 0;
+		f32 lineY = m_lineSpacing / 2 + m_textMargin.y - verticalScroll;
 		for (const auto& str : m_linedText)
 		{
 			textArtist->drawString(str,
 				position.x + m_textMargin.x,
-				position.y - alignY + lineY + size.height / 2 + m_textMargin.y,
+				position.y + lineY,
 				m_foreColor,
 				Drawing::TextAligns::Right);
 
@@ -273,15 +314,46 @@ void TextBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 
 			auto beforeCursorRect = textArtist->getBoundRectangle(beforeCursorText);
 
+			lineY = m_lineSpacing / 2 - verticalScroll;
+
 			textArtist->drawString(L"｜",
 				position.x + beforeCursorRect.x + beforeCursorRect.width + m_textMargin.x,
-				position.y - alignY + m_cursorIndex.y * m_lineSpacing + size.height / 2 + m_textMargin.y,
+				position.y + lineY + m_cursorIndex.y * m_lineSpacing + m_textMargin.y,
 				m_foreColor,
 				Drawing::TextAligns::Right);
 		}
 
 		textArtist->endDrawString();
 	}
+
+	
+	// 스크롤바
+	if (m_isMultiline)
+	{
+		m_verticalBar->draw(g, parentTransform);
+	}
+}
+
+//###########################################################################
+
+TextBox& TextBox::operator= (const TextBox& right)
+{
+	Control::operator=(right);
+
+
+	m_textMargin = right.m_textMargin;
+	m_isMultiline = right.m_isMultiline;
+
+
+	m_cursorIndex = right.m_cursorIndex;
+	m_linedText = right.m_linedText;
+	m_lineSpacing = right.m_lineSpacing;
+
+
+	m_verticalBar->operator=(*right.m_verticalBar);
+
+
+	return *this;
 }
 
 //###########################################################################
@@ -328,6 +400,13 @@ void TextBox::setText(const String& text)
 	{
 		m_cursorIndex.y = static_cast<i32>(m_linedText.size() - 1);
 		m_cursorIndex.x = m_linedText[m_cursorIndex.y].getLength();
+	}
+
+
+	// 스크롤바 갱신
+	if (m_isMultiline)
+	{
+		updateScrollBar();
 	}
 }
 
@@ -386,6 +465,16 @@ void TextBox::syncMyText()
 
 	EventArgs args;
 	onTextChanged(args);
+}
+
+
+void TextBox::updateScrollBar()
+{
+	f32 height = m_lineSpacing * static_cast<f32>(m_linedText.size());
+	height += m_textMargin.y * 2;
+
+	m_verticalBar->setMaxValue(std::max(0.0f,
+		(height - getSize().height) / m_lineSpacing));
 }
 
 

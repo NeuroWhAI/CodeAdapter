@@ -26,7 +26,8 @@ Button::~Button()
 
 //###########################################################################
 
-void Button::onUpdateControl(const Transform& parentTransform, const PointF& localCursor)
+void Button::onUpdateControl(const Transform& parentTransform, const PointF& parentCursor,
+	const Transform& localTransform, const PointF& localCursor)
 {
 	// Empty
 }

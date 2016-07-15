@@ -34,6 +34,7 @@ private:
 
 public:
 	TextBox();
+	TextBox(const TextBox& right);
 	virtual ~TextBox();
 
 
@@ -49,15 +50,23 @@ protected:
 
 
 protected:
-	virtual void onKeyDown(const KeyEventArgs& args) override;
-
-	virtual void onSelected(const EventArgs& args) override;
-	virtual void onDeselected(const EventArgs& args) override;
+	std::unique_ptr<VerticalScrollBar> m_verticalBar;
 
 
 protected:
-	virtual void onUpdateControl(const Transform& parentTransform, const PointF& localCursor) override;
+	virtual void onResize(const EventArgs& args) override;
+
+	virtual void onKeyDown(const KeyEventArgs& args) override;
+
+
+protected:
+	virtual void onUpdateControl(const Transform& parentTransform, const PointF& parentCursor,
+		const Transform& localTransform, const PointF& localCursor) override;
 	virtual void onDrawControl(Graphics& g, const Transform& parentTransform) override;
+
+
+public:
+	TextBox& operator= (const TextBox& right);
 
 
 public:
@@ -74,6 +83,7 @@ public:
 
 protected:
 	void syncMyText();
+	void updateScrollBar();
 };
 
 
