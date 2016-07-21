@@ -143,6 +143,8 @@
     <ClInclude Include="HorizontalScrollBar.h" />
     <ClInclude Include="Label.h" />
     <ClInclude Include="ProgressBar.h" />
+    <ClInclude Include="RadioButton.h" />
+    <ClInclude Include="RadioButtonGroup.h" />
     <ClInclude Include="ResourcePool.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
@@ -200,6 +202,8 @@
     <ClCompile Include="HorizontalScrollBar.cpp" />
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="ProgressBar.cpp" />
+    <ClCompile Include="RadioButton.cpp" />
+    <ClCompile Include="RadioButtonGroup.cpp" />
     <ClCompile Include="ResourcePool.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />

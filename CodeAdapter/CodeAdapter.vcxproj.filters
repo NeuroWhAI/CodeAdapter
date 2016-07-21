@@ -204,6 +204,12 @@
     <ClInclude Include="ProgressBar.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="RadioButton.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="RadioButtonGroup.h">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -354,6 +360,12 @@
       <Filter>Utility</Filter>
     </ClCompile>
     <ClCompile Include="ProgressBar.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="RadioButton.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="RadioButtonGroup.cpp">
       <Filter>UI</Filter>
     </ClCompile>
   </ItemGroup>

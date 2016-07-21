@@ -144,6 +144,8 @@ class HorizontalScrollBar;
 class TextBox;
 class CheckBox;
 class ProgressBar;
+class RadioButton;
+class RadioButtonGroup;
 
 
 END_NAMESPACE_CA_UI

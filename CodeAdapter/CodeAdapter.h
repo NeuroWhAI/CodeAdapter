@@ -82,6 +82,8 @@
 #include "TextBox.h"
 #include "CheckBox.h"
 #include "ProgressBar.h"
+#include "RadioButton.h"
+#include "RadioButtonGroup.h"
 
 
 #endif

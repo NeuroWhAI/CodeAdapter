@@ -26,6 +26,10 @@ protected:
 	std::shared_ptr<caUI::CheckBox> m_checkboxRed;
 	std::shared_ptr<caUI::CheckBox> m_checkboxGreen;
 	std::shared_ptr<caUI::CheckBox> m_checkboxBlue;
+	std::shared_ptr<caUI::RadioButtonGroup> m_colorRadioGroup;
+	std::shared_ptr<caUI::RadioButton> m_radioRed;
+	std::shared_ptr<caUI::RadioButton> m_radioGreen;
+	std::shared_ptr<caUI::RadioButton> m_radioBlue;
 	std::shared_ptr<caUI::Button> m_buttonNext;
 
 
