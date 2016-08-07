@@ -210,6 +210,9 @@
     <ClInclude Include="RadioButtonGroup.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -367,6 +370,9 @@
     </ClCompile>
     <ClCompile Include="RadioButtonGroup.cpp">
       <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>Audio</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

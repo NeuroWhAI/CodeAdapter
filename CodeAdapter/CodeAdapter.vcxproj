@@ -164,6 +164,7 @@
     <ClInclude Include="RectangleArtist.h" />
     <ClInclude Include="Sharable.h" />
     <ClInclude Include="SharedObject.h" />
+    <ClInclude Include="Sound.h" />
     <ClInclude Include="TextAligns.h" />
     <ClInclude Include="TextArtist.h" />
     <ClInclude Include="CodeAdapter.h" />
@@ -222,6 +223,7 @@
     <ClCompile Include="RectangleArtist.cpp" />
     <ClCompile Include="Sharable.cpp" />
     <ClCompile Include="SharedObject.cpp" />
+    <ClCompile Include="Sound.cpp" />
     <ClCompile Include="TextArtist.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Drawable.cpp" />

@@ -69,6 +69,9 @@
     <ClInclude Include="Panel.h">
       <Filter>Drawing</Filter>
     </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window.cpp">
@@ -109,6 +112,9 @@
     </ClCompile>
     <ClCompile Include="Panel.cpp">
       <Filter>Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>Audio</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

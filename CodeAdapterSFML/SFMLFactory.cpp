@@ -15,6 +15,8 @@
 #include "Touch.h"
 #include "Keyboard.h"
 
+#include "Sound.h"
+
 
 
 
@@ -94,5 +96,12 @@ std::shared_ptr<CodeAdapter::System::Touch> SFMLFactory::createTouch()
 std::shared_ptr<CodeAdapter::System::Keyboard> SFMLFactory::createKeyboard()
 {
 	return std::make_shared<Keyboard>();
+}
+
+//###########################################################################
+
+std::shared_ptr<CodeAdapter::Audio::Sound> SFMLFactory::createSound()
+{
+	return std::make_shared<Sound>();
 }
 

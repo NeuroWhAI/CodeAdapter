@@ -83,10 +83,12 @@ void HelloScene::onInitialize(caDraw::Window& owner)
 	m_scrollOpacity->setMaxValue(255);
 	m_scrollOpacity->setValue(255);
 	m_scrollOpacity->setMinBarLength(64);
-	m_scrollOpacity->WhenValueChanged = 
-		[&logo = m_sprLogo](const caUI::ValueFEventArgs& args)
+	m_scrollOpacity->WhenValueChanged = [&logo = m_sprLogo, &bgm = m_bgm]
+	(const caUI::ValueFEventArgs& args)
 	{
 		logo->color.a = static_cast<i32>(args.value);
+
+		bgm->setVolume(args.value / 255.0f * 100.0f);
 	};
 
 
@@ -109,12 +111,17 @@ void HelloScene::onInitialize(caDraw::Window& owner)
 
 
 	addPanel(m_panel);
+
+
+	m_bgm = m_pool.createSound(L"Bgm");
+	m_bgm->loadFromFile("bgm.wav");
+	m_bgm->play(true);
 }
 
 
 void HelloScene::onRelease()
 {
-
+	m_bgm->stop();
 }
 
 

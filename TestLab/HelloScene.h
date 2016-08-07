@@ -32,6 +32,10 @@ protected:
 	std::shared_ptr<caUI::VerticalScrollBar> m_scrollOpacity;
 
 
+protected:
+	std::shared_ptr<caAudio::Sound> m_bgm;
+
+
 public:
 	virtual void onInitialize(caDraw::Window& owner) override;
 	virtual void onRelease() override;

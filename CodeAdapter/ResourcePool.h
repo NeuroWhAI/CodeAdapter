@@ -26,6 +26,8 @@ private:
 	USING_CA_DRAWING(Font);
 	USING_CA_DRAWING(Texture);
 
+	USING_CA_AUDIO(Sound);
+
 
 public:
 	ResourcePool();
@@ -35,6 +37,7 @@ public:
 protected:
 	MapType<Font> m_fontMap;
 	MapType<Texture> m_textureMap;
+	MapType<Sound> m_soundMap;
 
 
 protected:
@@ -51,11 +54,13 @@ protected:
 public:
 	std::shared_ptr<Font> createFont(const String& key);
 	std::shared_ptr<Texture> createTexture(const String& key);
+	std::shared_ptr<Sound> createSound(const String& key);
 
 
 public:
 	std::shared_ptr<Font> getFont(const String& key);
 	std::shared_ptr<Texture> getTexture(const String& key);
+	std::shared_ptr<Sound> getSound(const String& key);
 };
 
 

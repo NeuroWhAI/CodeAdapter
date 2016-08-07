@@ -6,6 +6,9 @@
 *.png
 *.jpg
 *.bmp
+*.gif
+*.wav
+*.ogg
 
 # Compiled Object files
 *.slo

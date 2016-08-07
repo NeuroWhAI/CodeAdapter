@@ -99,7 +99,7 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>H:\Programming\SFML-2.3.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -136,7 +136,7 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>H:\Programming\SFML-2.3.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -166,6 +166,7 @@
     <ClInclude Include="SFMLArtist.h" />
     <ClInclude Include="SFMLFactory.h" />
     <ClInclude Include="RectangleArtist.h" />
+    <ClInclude Include="Sound.h" />
     <ClInclude Include="TextArtist.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureArtist.h" />
@@ -181,6 +182,7 @@
     <ClCompile Include="SFMLArtist.cpp" />
     <ClCompile Include="SFMLFactory.cpp" />
     <ClCompile Include="RectangleArtist.cpp" />
+    <ClCompile Include="Sound.cpp" />
     <ClCompile Include="TextArtist.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureArtist.cpp" />
