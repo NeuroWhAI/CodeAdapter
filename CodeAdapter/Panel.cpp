@@ -76,6 +76,23 @@ void Panel::onDraw(Graphics& g, const Transform& parentTransform)
 
 //###########################################################################
 
+void Panel::setVisible(bool visible)
+{
+	Drawable::setVisible(visible);
+
+
+	for (auto& drawable : m_drawables)
+	{
+		auto ptr = drawable.lock();
+		if (ptr)
+		{
+			ptr->setVisible(visible);
+		}
+	}
+}
+
+//###########################################################################
+
 void Panel::update(Window& win)
 {
 	// 커서 위치 변환
@@ -97,24 +114,27 @@ void Panel::update(Window& win)
 
 void Panel::draw(Graphics& g)
 {
-	beginDraw(transform);
-
-
-	// 요소 그리기
-	for (auto& drawable : m_drawables)
+	if (m_visible)
 	{
-		auto ptr = drawable.lock();
-		if (ptr)
+		beginDraw(transform);
+
+
+		// 요소 그리기
+		for (auto& drawable : m_drawables)
 		{
-			ptr->draw(g, transform);
+			auto ptr = drawable.lock();
+			if (ptr)
+			{
+				ptr->draw(g, transform);
 
 
-			g.setTransform(Transform::Identity);
+				g.setTransform(Transform::Identity);
+			}
 		}
+
+
+		endDraw();
 	}
-
-
-	endDraw();
 }
 
 //###########################################################################

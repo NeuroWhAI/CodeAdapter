@@ -289,7 +289,7 @@ void Control::update(const Transform& parentTransform, const Point& cursor)
 				onKeyUp(keyArgs);
 			}
 		}
-	} // if (m_enabled)
+	} // if (m_enabled && m_visible)
 
 
 	onUpdateControl(parentTransform, static_cast<PointF>(cursor),

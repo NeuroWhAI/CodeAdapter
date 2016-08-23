@@ -49,6 +49,10 @@ protected:
 
 
 public:
+	virtual void setVisible(bool visible) override;
+
+
+public:
 	void update(Window& win);
 	void draw(Graphics& g);
 
