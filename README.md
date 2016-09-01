@@ -1,22 +1,23 @@
 # Code Adapter
 C++ GUI, 2D Graphics  
-´Ù¸¥ ¶óÀÌºê·¯¸®ÀÇ ÀÎÅÍÆäÀÌ½º¸¦ °­Á¦½ÃÄÑ¼­ ·ÎÁ÷ ÄÚµåÀÇ º¯°æÀ» ÃÖ´ëÇÑ ÁÙÀÏ ¼ö ÀÖ°Ô ÇØÁÖ´Â ¶óÀÌºê·¯¸®.
+ë‹¤ë¥¸ ë¼ì´ë¸ŒëŸ¬ë¦¬ì˜ ì¸í„°íŽ˜ì´ìŠ¤ë¥¼ ê°•ì œì‹œì¼œì„œ ë¡œì§ ì½”ë“œì˜ ë³€ê²½ì„ ìµœëŒ€í•œ ì¤„ì¼ ìˆ˜ ìžˆê²Œ í•´ì£¼ëŠ” ë¼ì´ë¸ŒëŸ¬ë¦¬.
 
 ### Project List
-  - Code Adapter : °­Á¦½ÃÅ² ÀÎÅÍÆäÀÌ½º°¡ µÉ ¶óÀÌºê·¯¸®.
-  - CodeAdapterSFML : SFML ¶óÀÌºê·¯¸®ÀÇ ÀÎÅÍÆäÀÌ½º¸¦ °­Á¦½ÃÅ² ¿¹Á¦.
-  - TestLab : Å×½ºÆ® ¹× µ¥¸ð ÇÁ·ÎÁ§Æ®.
+  - Code Adapter : ê°•ì œì‹œí‚¨ ì¸í„°íŽ˜ì´ìŠ¤ê°€ ë  ë¼ì´ë¸ŒëŸ¬ë¦¬.
+  - CodeAdapterSFML : SFML ë¼ì´ë¸ŒëŸ¬ë¦¬ì˜ ì¸í„°íŽ˜ì´ìŠ¤ë¥¼ ê°•ì œì‹œí‚¨ ì˜ˆì œ.
+  - TestLab : í…ŒìŠ¤íŠ¸ ë° ë°ëª¨ í”„ë¡œì íŠ¸.
 
 ### Features
   - 2D Graphics
   - GUI
   - Scene System
+  - Audio
 
 ### To Do / Doing
   - [x] Add more GUI controls.
   - [x] Upgrade demo project.
   - [ ] Network
-  - [ ] Audio
+  - [x] Audio
   - [ ] System time and date
   - [ ] File stream
 
@@ -136,13 +137,13 @@ public:
 
 HelloScene::HelloScene()
 {
-	
+
 }
 
 
 HelloScene::~HelloScene()
 {
-	
+
 }
 
 //###########################################################################
@@ -212,7 +213,7 @@ void HelloScene::onInitialize(caDraw::Window& owner)
 	m_scrollOpacity->setMaxValue(255);
 	m_scrollOpacity->setValue(255);
 	m_scrollOpacity->setMinBarLength(64);
-	m_scrollOpacity->WhenValueChanged = 
+	m_scrollOpacity->WhenValueChanged =
 		[&logo = m_sprLogo](const caUI::ValueFEventArgs& args)
 	{
 		logo->color.a = static_cast<i32>(args.value);
@@ -249,7 +250,7 @@ void HelloScene::onRelease()
 
 void HelloScene::onUpdate(caDraw::Window& owner)
 {
-	
+
 }
 
 
