@@ -1,27 +1,32 @@
 # Code Adapter
+
 C++ GUI, 2D Graphics  
 다른 라이브러리의 인터페이스를 강제시켜서 로직 코드의 변경을 최대한 줄일 수 있게 해주는 라이브러리.
 
-### Project List
-  - Code Adapter : 강제시킨 인터페이스가 될 라이브러리.
-  - CodeAdapterSFML : SFML 라이브러리의 인터페이스를 강제시킨 예제.
-  - TestLab : 테스트 및 데모 프로젝트.
+## Project List
 
-### Features
-  - 2D Graphics
-  - GUI
-  - Scene System
-  - Audio
+* Code Adapter : 강제시킨 인터페이스가 될 라이브러리.
+* CodeAdapterSFML : SFML 라이브러리의 인터페이스를 강제시킨 예제.
+* TestLab : 테스트 및 데모 프로젝트.
 
-### To Do / Doing
-  - [x] Add more GUI controls.
-  - [x] Upgrade demo project.
-  - [ ] Network
-  - [x] Audio
-  - [ ] System time and date
-  - [ ] File stream
+## Features
 
-### Demo
+* 2D Graphics
+* GUI
+* Scene System
+* Audio
+
+## To Do / Doing
+
+* [x] Add more GUI controls.
+* [x] Upgrade demo project.
+* [ ] Network
+* [x] Audio
+* [ ] System time and date
+* [ ] File stream
+
+## Demo
+
 ![](https://cloud.githubusercontent.com/assets/1130686/16357706/0831e87c-3b39-11e6-8cde-315f82a426aa.PNG "")
 
 ```c++
