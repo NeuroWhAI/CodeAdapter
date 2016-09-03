@@ -10,7 +10,6 @@
 
 #include "String.h"
 #include "Point.h"
-#include "Color.h"
 
 
 
@@ -22,7 +21,6 @@ class Label : public Control
 {
 private:
 	USING_CA_DRAWING(PointF);
-	USING_CA_DRAWING(Color);
 	USING_CA_DRAWING(Transform);
 	USING_CA_DRAWING(Graphics);
 

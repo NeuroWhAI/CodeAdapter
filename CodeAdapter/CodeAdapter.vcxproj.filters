@@ -213,6 +213,9 @@
     <ClInclude Include="Sound.h">
       <Filter>Audio</Filter>
     </ClInclude>
+    <ClInclude Include="ListBox.h">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Point.cpp">
@@ -373,6 +376,9 @@
     </ClCompile>
     <ClCompile Include="Sound.cpp">
       <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="ListBox.cpp">
+      <Filter>UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

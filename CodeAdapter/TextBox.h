@@ -54,6 +54,8 @@ protected:
 
 
 protected:
+	virtual void onMove(const EventArgs& args) override;
+
 	virtual void onResize(const EventArgs& args) override;
 
 	virtual void onKeyDown(const KeyEventArgs& args) override;

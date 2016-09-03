@@ -2,6 +2,7 @@
 
 #include "Transform.h"
 #include "Graphics.h"
+#include "Color.h"
 
 #include "TextArtist.h"
 

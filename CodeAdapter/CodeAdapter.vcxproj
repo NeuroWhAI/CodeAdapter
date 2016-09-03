@@ -142,6 +142,7 @@
     <ClInclude Include="Event.h" />
     <ClInclude Include="HorizontalScrollBar.h" />
     <ClInclude Include="Label.h" />
+    <ClInclude Include="ListBox.h" />
     <ClInclude Include="ProgressBar.h" />
     <ClInclude Include="RadioButton.h" />
     <ClInclude Include="RadioButtonGroup.h" />
@@ -202,6 +203,7 @@
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="HorizontalScrollBar.cpp" />
     <ClCompile Include="Label.cpp" />
+    <ClCompile Include="ListBox.cpp" />
     <ClCompile Include="ProgressBar.cpp" />
     <ClCompile Include="RadioButton.cpp" />
     <ClCompile Include="RadioButtonGroup.cpp" />

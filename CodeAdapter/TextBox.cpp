@@ -64,18 +64,22 @@ TextBox::~TextBox()
 
 //###########################################################################
 
+void TextBox::onMove(const EventArgs& args)
+{
+	Control::onMove(args);
+
+
+	updateScrollBar();
+}
+
+//--------------------------------------------------------------------------
+
 void TextBox::onResize(const EventArgs& args)
 {
 	Control::onResize(args);
 
 
-	const auto& size = getSize();
-
-
-	// 스크롤바 위치, 길이 재설정
-	m_verticalBar->setPosition({ size.width - 24, 0 });
-	m_verticalBar->setSize({ 24, size.height });
-	m_verticalBar->setMinBarLength(std::min(36.0f, size.height));
+	updateScrollBar();
 }
 
 //--------------------------------------------------------------------------
@@ -338,19 +342,22 @@ void TextBox::onDrawControl(Graphics& g, const Transform& parentTransform)
 
 TextBox& TextBox::operator= (const TextBox& right)
 {
-	Control::operator=(right);
+	if (this != &right)
+	{
+		Control::operator=(right);
 
 
-	m_textMargin = right.m_textMargin;
-	m_isMultiline = right.m_isMultiline;
+		m_textMargin = right.m_textMargin;
+		m_isMultiline = right.m_isMultiline;
 
 
-	m_cursorIndex = right.m_cursorIndex;
-	m_linedText = right.m_linedText;
-	m_lineSpacing = right.m_lineSpacing;
+		m_cursorIndex = right.m_cursorIndex;
+		m_linedText = right.m_linedText;
+		m_lineSpacing = right.m_lineSpacing;
 
 
-	m_verticalBar->operator=(*right.m_verticalBar);
+		m_verticalBar->operator=(*right.m_verticalBar);
+	}
 
 
 	return *this;
@@ -470,6 +477,16 @@ void TextBox::syncMyText()
 
 void TextBox::updateScrollBar()
 {
+	const auto& position = getPosition();
+	const auto& size = getSize();
+
+
+	// 스크롤바 위치, 길이 재설정
+	m_verticalBar->setPosition({ position.x + size.width - 24, position.y });
+	m_verticalBar->setSize({ 24, size.height });
+	m_verticalBar->setMinBarLength(std::min(36.0f, size.height));
+
+
 	f32 height = m_lineSpacing * static_cast<f32>(m_linedText.size());
 	height += m_textMargin.y * 2;
 

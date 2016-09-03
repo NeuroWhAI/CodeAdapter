@@ -146,6 +146,7 @@ class CheckBox;
 class ProgressBar;
 class RadioButton;
 class RadioButtonGroup;
+class ListBox;
 
 
 END_NAMESPACE_CA_UI
