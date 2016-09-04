@@ -1,3 +1,4 @@
+#include <cmath>
 #include "Angle.h"
 
 
@@ -30,10 +31,7 @@ Angle::Angle(Angle&& angle)
 Angle::Angle(f32 angle)
 	: m_angle(angle)
 {
-	while (m_angle >= 360.0f)
-		m_angle -= 360.0f;
-	while (m_angle < 0.0f)
-		m_angle += 360.0f;
+	filterAngle();
 }
 
 
@@ -48,10 +46,7 @@ void Angle::setAngle(f32 angle)
 {
 	m_angle = angle;
 
-	while (m_angle >= 360.0f)
-		m_angle -= 360.0f;
-	while (m_angle < 0.0f)
-		m_angle += 360.0f;
+	filterAngle();
 }
 
 
@@ -59,9 +54,14 @@ void Angle::addAngle(f32 deltaAngle)
 {
 	m_angle += deltaAngle;
 
-	while (m_angle >= 360.0f)
-		m_angle -= 360.0f;
-	while (m_angle < 0.0f)
+	filterAngle();
+}
+
+
+void Angle::filterAngle()
+{
+	m_angle = std::fmod(m_angle, 360.0f);
+	if (m_angle < 0)
 		m_angle += 360.0f;
 }
 
