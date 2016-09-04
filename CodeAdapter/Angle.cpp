@@ -1,5 +1,6 @@
-#include <cmath>
 #include "Angle.h"
+
+#include <cmath>
 
 
 
