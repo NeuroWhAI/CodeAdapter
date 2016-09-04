@@ -27,6 +27,7 @@ protected:
 protected:
 	void setAngle(f32 angle);
 	void addAngle(f32 deltaAngle);
+	void filterAngle();
 
 
 public:
