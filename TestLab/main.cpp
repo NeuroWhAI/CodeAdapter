@@ -12,7 +12,7 @@ int main()
 
 
 	auto window = caFactory->createWindow();
-	window->create(caDraw::Size(1024, 768), caUtil::String("Hello, World!"));
+	window->create(caDraw::Size(1024, 768), caUtil::String("Hello, World!"), false);
 	window->setFramerate(60);
 
 

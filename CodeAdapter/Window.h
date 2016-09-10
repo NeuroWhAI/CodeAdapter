@@ -46,7 +46,7 @@ private:
 
 
 public:
-	virtual void create(const Size& size, const Utility::String& title) = 0;
+	virtual void create(const Size& size, const Utility::String& title, bool isFullscreen) = 0;
 	virtual void exit() = 0;
 
 	virtual bool isRunning() const = 0;

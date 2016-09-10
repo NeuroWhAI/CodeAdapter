@@ -25,10 +25,11 @@ Window::~Window()
 
 //###########################################################################
 
-void Window::create(const Size& size, const String& title)
+void Window::create(const Size& size, const String& title, bool isFullscreen)
 {
 	m_win.create(sf::VideoMode(size.width, size.height),
-		title.getStr());
+		title.getStr(),
+		isFullscreen ? sf::Style::Fullscreen : sf::Style::Default);
 }
 
 

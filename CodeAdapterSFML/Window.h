@@ -32,7 +32,7 @@ protected:
 
 
 public:
-	virtual void create(const Size& size, const String& title) override;
+	virtual void create(const Size& size, const String& title, bool isFullscreen) override;
 	virtual void exit() override;
 
 	virtual bool isRunning() const override;
