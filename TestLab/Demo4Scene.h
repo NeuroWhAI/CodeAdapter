@@ -15,10 +15,6 @@ public:
 
 
 protected:
-	caUtil::ResourcePool m_pool;
-
-
-protected:
 	std::shared_ptr<caDraw::Panel> m_panel;
 	std::shared_ptr<caDraw::Font> m_font;
 	std::shared_ptr<caDraw::Font> m_smallFont;
