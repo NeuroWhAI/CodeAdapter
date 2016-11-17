@@ -20,11 +20,11 @@ public:
 
 
 public:
-	std::shared_ptr<TextArtist> textArtist;
-	std::shared_ptr<RectangleArtist> rectangleArtist;
-	std::shared_ptr<EllipseArtist> ellipseArtist;
-	std::shared_ptr<LineArtist> lineArtist;
-	std::shared_ptr<TextureArtist> textureArtist;
+	TextArtistPtr textArtist;
+	RectangleArtistPtr rectangleArtist;
+	EllipseArtistPtr ellipseArtist;
+	LineArtistPtr lineArtist;
+	TextureArtistPtr textureArtist;
 
 
 public:

@@ -14,6 +14,10 @@ BEGIN_NAMESPACE_CA_UI
 
 class HorizontalScrollBar : public ScrollBar
 {
+public:
+	using Ptr = std::shared_ptr<HorizontalScrollBar>;
+
+
 private:
 	USING_CA_DRAWING(PointF);
 	USING_CA_DRAWING(RectangleF);

@@ -2,6 +2,8 @@
 #define __CA__TEXT_ARTIST_H__
 
 
+#include <memory>
+
 #include "BasicDeclaration.h"
 
 #include "Artist.h"
@@ -16,6 +18,10 @@ BEGIN_NAMESPACE_CA_DRAWING
 
 class TextArtist : public Artist
 {
+public:
+	using Ptr = std::shared_ptr<TextArtist>;
+
+
 private:
 	USING_CA_DRAWING(RectangleF);
 

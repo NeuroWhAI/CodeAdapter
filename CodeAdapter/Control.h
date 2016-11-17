@@ -24,6 +24,10 @@ BEGIN_NAMESPACE_CA_UI
 
 class Control : public Drawing::Updatable, public Drawing::Drawable
 {
+public:
+	using Ptr = std::shared_ptr<Control>;
+
+
 private:
 	USING_CA_DRAWING(Point);
 	USING_CA_DRAWING(PointF);

@@ -22,6 +22,10 @@ BEGIN_NAMESPACE_CA_DRAWING
 class Panel : public Updatable, public Drawable
 {
 public:
+	using Ptr = std::shared_ptr<Panel>;
+
+
+public:
 	Panel();
 	virtual ~Panel();
 

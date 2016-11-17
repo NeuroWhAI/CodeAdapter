@@ -19,21 +19,21 @@ protected:
 
 
 protected:
-	std::shared_ptr<caDraw::Panel> m_panel;
-	std::shared_ptr<caDraw::Font> m_font;
-	std::shared_ptr<caDraw::Font> m_font2;
-	std::shared_ptr<caDraw::Font> m_font3;
-	std::shared_ptr<caDraw::Texture> m_texLogo;
-	std::shared_ptr<caDraw::DrawableTexture> m_sprLogo;
-	std::shared_ptr<caUI::Label> m_logo;
-	std::shared_ptr<caUI::Label> m_logo2;
-	std::shared_ptr<caUI::Label> m_logo3;
-	std::shared_ptr<caUI::Button> m_buttonNext;
-	std::shared_ptr<caUI::VerticalScrollBar> m_scrollOpacity;
+	caDraw::Panel::Ptr m_panel;
+	caDraw::Font::Ptr m_font;
+	caDraw::Font::Ptr m_font2;
+	caDraw::Font::Ptr m_font3;
+	caDraw::Texture::Ptr m_texLogo;
+	caDraw::DrawableTexture::Ptr m_sprLogo;
+	caUI::Label::Ptr m_logo;
+	caUI::Label::Ptr m_logo2;
+	caUI::Label::Ptr m_logo3;
+	caUI::Button::Ptr m_buttonNext;
+	caUI::VerticalScrollBar::Ptr m_scrollOpacity;
 
 
 protected:
-	std::shared_ptr<caAudio::Sound> m_bgm;
+	caAudio::Sound::Ptr m_bgm;
 
 
 public:

@@ -43,24 +43,24 @@ public:
 
 
 public:
-	virtual std::shared_ptr<Drawing::Window> createWindow() = 0;
-	virtual std::shared_ptr<Drawing::Panel> createPanel() = 0;
-	virtual std::shared_ptr<Drawing::TextArtist> createTextArtist() = 0;
-	virtual std::shared_ptr<Drawing::RectangleArtist> createRectangleArtist() = 0;
-	virtual std::shared_ptr<Drawing::EllipseArtist> createEllipseArtist() = 0;
-	virtual std::shared_ptr<Drawing::LineArtist> createLineArtist() = 0;
-	virtual std::shared_ptr<Drawing::TextureArtist> createTextureArtist() = 0;
-	virtual std::shared_ptr<Drawing::Font> createFont() = 0;
-	virtual std::shared_ptr<Drawing::Texture> createTexture() = 0;
+	virtual Drawing::WindowPtr createWindow() = 0;
+	virtual Drawing::PanelPtr createPanel() = 0;
+	virtual Drawing::TextArtistPtr createTextArtist() = 0;
+	virtual Drawing::RectangleArtistPtr createRectangleArtist() = 0;
+	virtual Drawing::EllipseArtistPtr createEllipseArtist() = 0;
+	virtual Drawing::LineArtistPtr createLineArtist() = 0;
+	virtual Drawing::TextureArtistPtr createTextureArtist() = 0;
+	virtual Drawing::FontPtr createFont() = 0;
+	virtual Drawing::TexturePtr createTexture() = 0;
 
 
 public:
-	virtual std::shared_ptr<System::Touch> createTouch() = 0;
-	virtual std::shared_ptr<System::Keyboard> createKeyboard() = 0;
+	virtual System::TouchPtr createTouch() = 0;
+	virtual System::KeyboardPtr createKeyboard() = 0;
 
 
 public:
-	virtual std::shared_ptr<Audio::Sound> createSound() = 0;
+	virtual Audio::SoundPtr createSound() = 0;
 };
 
 

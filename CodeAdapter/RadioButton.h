@@ -17,6 +17,10 @@ BEGIN_NAMESPACE_CA_UI
 class RadioButton : public CheckBox
 {
 public:
+	using Ptr = std::shared_ptr<RadioButton>;
+
+
+public:
 	RadioButton();
 	virtual ~RadioButton();
 

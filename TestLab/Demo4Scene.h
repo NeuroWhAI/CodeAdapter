@@ -15,14 +15,14 @@ public:
 
 
 protected:
-	std::shared_ptr<caDraw::Panel> m_panel;
-	std::shared_ptr<caDraw::Font> m_font;
-	std::shared_ptr<caDraw::Font> m_smallFont;
-	std::shared_ptr<caDraw::Panel> m_panelListBox;
-	std::shared_ptr<caUI::ListBox> m_listBox;
-	std::shared_ptr<caUI::TextBox> m_textBox;
-	std::shared_ptr<caUI::Button> m_buttonAdd;
-	std::shared_ptr<caUI::Button> m_buttonNext;
+	caDraw::Panel::Ptr m_panel;
+	caDraw::Font::Ptr m_font;
+	caDraw::Font::Ptr m_smallFont;
+	caDraw::Panel::Ptr m_panelListBox;
+	caUI::ListBox::Ptr m_listBox;
+	caUI::TextBox::Ptr m_textBox;
+	caUI::Button::Ptr m_buttonAdd;
+	caUI::Button::Ptr m_buttonNext;
 
 
 public:

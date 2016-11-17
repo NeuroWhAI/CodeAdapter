@@ -16,6 +16,10 @@ BEGIN_NAMESPACE_CA_UI
 class RadioButtonGroup
 {
 public:
+	using Ptr = std::shared_ptr<RadioButtonGroup>;
+
+
+public:
 	RadioButtonGroup();
 
 

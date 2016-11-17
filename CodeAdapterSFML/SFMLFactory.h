@@ -35,24 +35,24 @@ protected:
 
 
 public:
-	virtual std::shared_ptr<CodeAdapter::Drawing::Window> createWindow() override;
-	virtual std::shared_ptr<CodeAdapter::Drawing::Panel> createPanel() override;
-	virtual std::shared_ptr<CodeAdapter::Drawing::TextArtist> createTextArtist() override;
-	virtual std::shared_ptr<CodeAdapter::Drawing::RectangleArtist> createRectangleArtist() override;
-	virtual std::shared_ptr<CodeAdapter::Drawing::EllipseArtist> createEllipseArtist() override;
-	virtual std::shared_ptr<CodeAdapter::Drawing::LineArtist> createLineArtist() override;
-	virtual std::shared_ptr<CodeAdapter::Drawing::TextureArtist> createTextureArtist() override;
-	virtual std::shared_ptr<CodeAdapter::Drawing::Font> createFont() override;
-	virtual std::shared_ptr<CodeAdapter::Drawing::Texture> createTexture() override;
+	virtual CodeAdapter::Drawing::WindowPtr createWindow() override;
+	virtual CodeAdapter::Drawing::PanelPtr createPanel() override;
+	virtual CodeAdapter::Drawing::TextArtistPtr createTextArtist() override;
+	virtual CodeAdapter::Drawing::RectangleArtistPtr createRectangleArtist() override;
+	virtual CodeAdapter::Drawing::EllipseArtistPtr createEllipseArtist() override;
+	virtual CodeAdapter::Drawing::LineArtistPtr createLineArtist() override;
+	virtual CodeAdapter::Drawing::TextureArtistPtr createTextureArtist() override;
+	virtual CodeAdapter::Drawing::FontPtr createFont() override;
+	virtual CodeAdapter::Drawing::TexturePtr createTexture() override;
 
 
 public:
-	virtual std::shared_ptr<CodeAdapter::System::Touch> createTouch() override;
-	virtual std::shared_ptr<CodeAdapter::System::Keyboard> createKeyboard() override;
+	virtual CodeAdapter::System::TouchPtr createTouch() override;
+	virtual CodeAdapter::System::KeyboardPtr createKeyboard() override;
 
 
 public:
-	virtual std::shared_ptr<CodeAdapter::Audio::Sound> createSound() override;
+	virtual CodeAdapter::Audio::SoundPtr createSound() override;
 };
 
 

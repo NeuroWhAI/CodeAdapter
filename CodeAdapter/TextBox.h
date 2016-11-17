@@ -21,6 +21,10 @@ BEGIN_NAMESPACE_CA_UI
 
 class TextBox : public Control
 {
+public:
+	using Ptr = std::shared_ptr<TextBox>;
+
+
 private:
 	USING_CA_DRAWING(Point);
 	USING_CA_DRAWING(PointF);

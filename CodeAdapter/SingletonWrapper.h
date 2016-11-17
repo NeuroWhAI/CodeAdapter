@@ -15,12 +15,13 @@ class SingletonWrapper
 {
 public:
 	SingletonWrapper();
+	SingletonWrapper(const SingletonWrapper&) = delete;
 	virtual ~SingletonWrapper();
 
 
 public:
-	T* operator->();
-	const T* operator->() const;
+	inline T* operator->();
+	inline const T* operator->() const;
 };
 
 

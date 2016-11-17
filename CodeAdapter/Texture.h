@@ -2,6 +2,8 @@
 #define __CA__TEXTURE_H__
 
 
+#include <memory>
+
 #include "BasicDeclaration.h"
 
 #include "Sharable.h"
@@ -14,6 +16,10 @@ BEGIN_NAMESPACE_CA_DRAWING
 
 class Texture : public Utility::Sharable
 {
+public:
+	using Ptr = std::shared_ptr<Texture>;
+
+
 public:
 	Texture();
 	virtual ~Texture();

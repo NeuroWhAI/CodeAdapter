@@ -19,6 +19,10 @@ BEGIN_NAMESPACE_CA_UI
 
 class Label : public Control
 {
+public:
+	using Ptr = std::shared_ptr<Label>;
+
+
 private:
 	USING_CA_DRAWING(PointF);
 	USING_CA_DRAWING(Transform);

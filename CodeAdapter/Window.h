@@ -18,17 +18,17 @@ BEGIN_NAMESPACE_CA_DRAWING
 
 class Window : public Utility::Sharable
 {
+public:
+	using Ptr = std::shared_ptr<Window>;
+	using ConstPtr = std::shared_ptr<const Window>;
+
+
 private:
 	USING_CA_DRAWING(Size);
 
 	USING_CA_SYSTEM(WindowEvent);
 
 	USING_CA_UTILITY(SceneManager);
-
-
-public:
-	using Ptr = std::shared_ptr<Window>;
-	using ConstPtr = std::shared_ptr<const Window>;
 
 
 public:

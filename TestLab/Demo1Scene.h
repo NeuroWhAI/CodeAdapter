@@ -19,14 +19,14 @@ protected:
 
 
 protected:
-	std::shared_ptr<caDraw::Panel> m_panel;
-	std::shared_ptr<caDraw::Font> m_font;
-	std::shared_ptr<caDraw::DrawableRectangle> m_rect1;
-	std::shared_ptr<caDraw::DrawableEllipse> m_ellipse1;
-	std::shared_ptr<caDraw::DrawableLine> m_line1;
-	std::shared_ptr<caUI::Label> m_desc;
-	std::shared_ptr<caUI::ProgressBar> m_progress;
-	std::shared_ptr<caUI::Button> m_buttonNext;
+	caDraw::Panel::Ptr m_panel;
+	caDraw::Font::Ptr m_font;
+	caDraw::DrawableRectangle::Ptr m_rect1;
+	caDraw::DrawableEllipse::Ptr m_ellipse1;
+	caDraw::DrawableLine::Ptr m_line1;
+	caUI::Label::Ptr m_desc;
+	caUI::ProgressBar::Ptr m_progress;
+	caUI::Button::Ptr m_buttonNext;
 
 
 public:

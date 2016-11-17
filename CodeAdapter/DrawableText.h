@@ -21,6 +21,10 @@ BEGIN_NAMESPACE_CA_DRAWING
 class DrawableText : public Drawable
 {
 public:
+	using Ptr = std::shared_ptr<DrawableText>;
+
+
+public:
 	DrawableText();
 	DrawableText(const Utility::String& text);
 	virtual ~DrawableText();

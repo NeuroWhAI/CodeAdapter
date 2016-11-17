@@ -2,6 +2,8 @@
 #define __CA__DRAWABLE_H__
 
 
+#include <memory>
+
 #include "BasicDeclaration.h"
 
 #include "Transform.h"
@@ -14,6 +16,10 @@ BEGIN_NAMESPACE_CA_DRAWING
 
 class Drawable
 {
+public:
+	using Ptr = std::shared_ptr<Drawable>;
+
+
 public:
 	Drawable();
 	virtual ~Drawable();

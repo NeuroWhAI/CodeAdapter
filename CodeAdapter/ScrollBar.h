@@ -2,6 +2,8 @@
 #define __CA__SCROLL_BAR_H__
 
 
+#include <memory>
+
 #include "BasicDeclaration.h"
 
 #include "Control.h"
@@ -17,6 +19,10 @@ BEGIN_NAMESPACE_CA_UI
 
 class ScrollBar : public Control
 {
+public:
+	using Ptr = std::shared_ptr<ScrollBar>;
+
+
 private:
 	USING_CA_DRAWING(PointF);
 	USING_CA_DRAWING(RectangleF);

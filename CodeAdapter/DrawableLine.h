@@ -2,6 +2,8 @@
 #define __CA__DRAWABLE_LINE_H__
 
 
+#include <memory>
+
 #include "BasicDeclaration.h"
 
 #include "Drawable.h"
@@ -17,6 +19,10 @@ BEGIN_NAMESPACE_CA_DRAWING
 
 class DrawableLine : public LineF, public Drawable
 {
+public:
+	using Ptr = std::shared_ptr<DrawableLine>;
+
+
 public:
 	DrawableLine();
 	DrawableLine(const PointF& begin, const PointF& end);

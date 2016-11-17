@@ -2,6 +2,8 @@
 #define __CA__DRAWABLE_RECTANGLE_H__
 
 
+#include <memory>
+
 #include "BasicDeclaration.h"
 
 #include "Drawable.h"
@@ -17,6 +19,10 @@ BEGIN_NAMESPACE_CA_DRAWING
 
 class DrawableRectangle : public RectangleF, public Drawable
 {
+public:
+	using Ptr = std::shared_ptr<DrawableRectangle>;
+
+
 public:
 	DrawableRectangle();
 	DrawableRectangle(const RectangleF&  rect);

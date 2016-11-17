@@ -33,74 +33,74 @@ SFMLFactory::~SFMLFactory()
 
 //###########################################################################
 
-std::shared_ptr<CodeAdapter::Drawing::Window> SFMLFactory::createWindow()
+CodeAdapter::Drawing::WindowPtr SFMLFactory::createWindow()
 {
 	return std::make_shared<Window>(m_sharedWindow);
 }
 
 
-std::shared_ptr<CodeAdapter::Drawing::Panel> SFMLFactory::createPanel()
+CodeAdapter::Drawing::PanelPtr SFMLFactory::createPanel()
 {
 	return std::make_shared<Panel>(m_sharedWindow);
 }
 
 
-std::shared_ptr<CodeAdapter::Drawing::TextArtist> SFMLFactory::createTextArtist()
+CodeAdapter::Drawing::TextArtistPtr SFMLFactory::createTextArtist()
 {
 	return std::make_shared<TextArtist>(m_sharedWindow, m_sharedFontText);
 }
 
 
-std::shared_ptr<CodeAdapter::Drawing::RectangleArtist> SFMLFactory::createRectangleArtist()
+CodeAdapter::Drawing::RectangleArtistPtr SFMLFactory::createRectangleArtist()
 {
 	return std::make_shared<RectangleArtist>(m_sharedWindow);
 }
 
 
-std::shared_ptr<CodeAdapter::Drawing::EllipseArtist> SFMLFactory::createEllipseArtist()
+CodeAdapter::Drawing::EllipseArtistPtr SFMLFactory::createEllipseArtist()
 {
 	return std::make_shared<EllipseArtist>(m_sharedWindow);
 }
 
 
-std::shared_ptr<CodeAdapter::Drawing::LineArtist> SFMLFactory::createLineArtist()
+CodeAdapter::Drawing::LineArtistPtr SFMLFactory::createLineArtist()
 {
 	return std::make_shared<LineArtist>(m_sharedWindow);
 }
 
 
-std::shared_ptr<CodeAdapter::Drawing::TextureArtist> SFMLFactory::createTextureArtist()
+CodeAdapter::Drawing::TextureArtistPtr SFMLFactory::createTextureArtist()
 {
 	return std::make_shared<TextureArtist>(m_sharedWindow, m_sharedTexture);
 }
 
 
-std::shared_ptr<CodeAdapter::Drawing::Font> SFMLFactory::createFont()
+CodeAdapter::Drawing::FontPtr SFMLFactory::createFont()
 {
 	return std::make_shared<Font>(m_sharedFontText);
 }
 
-std::shared_ptr<CodeAdapter::Drawing::Texture> SFMLFactory::createTexture()
+CodeAdapter::Drawing::TexturePtr SFMLFactory::createTexture()
 {
 	return std::make_shared<Texture>(m_sharedTexture);
 }
 
 //###########################################################################
 
-std::shared_ptr<CodeAdapter::System::Touch> SFMLFactory::createTouch()
+CodeAdapter::System::TouchPtr SFMLFactory::createTouch()
 {
 	return std::make_shared<Touch>(m_sharedWindow);
 }
 
 
-std::shared_ptr<CodeAdapter::System::Keyboard> SFMLFactory::createKeyboard()
+CodeAdapter::System::KeyboardPtr SFMLFactory::createKeyboard()
 {
 	return std::make_shared<Keyboard>();
 }
 
 //###########################################################################
 
-std::shared_ptr<CodeAdapter::Audio::Sound> SFMLFactory::createSound()
+CodeAdapter::Audio::SoundPtr SFMLFactory::createSound()
 {
 	return std::make_shared<Sound>();
 }

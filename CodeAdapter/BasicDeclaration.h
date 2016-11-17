@@ -2,9 +2,16 @@
 #define __BASIC_DECLARAION_H__
 
 
+#include <memory>
+
+
 // Code Adapter ------------------------------------------------------------
 #include "Definition.h"
 #include "CAType.h"
+
+
+// Macro -------------------------------------------------------------------
+#define PtrClass(name) class name; using name##Ptr = std::shared_ptr<name>;
 
 
 // Drawing -----------------------------------------------------------------
@@ -49,24 +56,24 @@ using ColorF = ColorT<f32>;
 class Transform;
 
 // * GUI
-class Window;
-class Panel;
+PtrClass(Window);
+PtrClass(Panel);
 
 // * Paint
 class Graphics;
-class Artist;
-class TextArtist;
-class RectangleArtist;
-class EllipseArtist;
-class LineArtist;
-class TextureArtist;
-class DrawableRectangle;
-class DrawableEllipse;
-class DrawableLine;
-class DrawableText;
-class DrawableTexture;
-class Font;
-class Texture;
+PtrClass(Artist);
+PtrClass(TextArtist);
+PtrClass(RectangleArtist);
+PtrClass(EllipseArtist);
+PtrClass(LineArtist);
+PtrClass(TextureArtist);
+PtrClass(DrawableRectangle);
+PtrClass(DrawableEllipse);
+PtrClass(DrawableLine);
+PtrClass(DrawableText);
+PtrClass(DrawableTexture);
+PtrClass(Font);
+PtrClass(Texture);
 
 
 END_NAMESPACE_CA_DRAWING
@@ -76,9 +83,9 @@ END_NAMESPACE_CA_DRAWING
 BEGIN_NAMESPACE_CA_SYSTEM
 
 
-class Touch;
+PtrClass(Touch);
 enum class Keys;
-class Keyboard;
+PtrClass(Keyboard);
 class WindowEvent;
 
 
@@ -89,7 +96,7 @@ END_NAMESPACE_CA_SYSTEM
 BEGIN_NAMESPACE_CA_AUDIO
 
 
-class Sound;
+PtrClass(Sound);
 
 
 END_NAMESPACE_CA_AUDIO
@@ -135,18 +142,18 @@ END_NAMESPACE_CA_UTILITY
 BEGIN_NAMESPACE_CA_UI
 
 
-class Control;
-class Label;
-class Button;
-class ScrollBar;
-class VerticalScrollBar;
-class HorizontalScrollBar;
-class TextBox;
-class CheckBox;
-class ProgressBar;
-class RadioButton;
-class RadioButtonGroup;
-class ListBox;
+PtrClass(Control);
+PtrClass(Label);
+PtrClass(Button);
+PtrClass(ScrollBar);
+PtrClass(VerticalScrollBar);
+PtrClass(HorizontalScrollBar);
+PtrClass(TextBox);
+PtrClass(CheckBox);
+PtrClass(ProgressBar);
+PtrClass(RadioButton);
+PtrClass(RadioButtonGroup);
+PtrClass(ListBox);
 
 
 END_NAMESPACE_CA_UI
