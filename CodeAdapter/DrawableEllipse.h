@@ -2,8 +2,6 @@
 #define __CA__DRAWABLE_ELLIPSE_H__
 
 
-#include <memory>
-
 #include "BasicDeclaration.h"
 
 #include "Drawable.h"
@@ -19,10 +17,6 @@ BEGIN_NAMESPACE_CA_DRAWING
 
 class DrawableEllipse : public RectangleF, public Drawable
 {
-public:
-	using Ptr = std::shared_ptr<DrawableEllipse>;
-
-
 public:
 	DrawableEllipse();
 	DrawableEllipse(const RectangleF&  rect);

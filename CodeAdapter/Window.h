@@ -2,8 +2,6 @@
 #define __CA__WINDOW_H__
 
 
-#include <memory>
-
 #include "BasicDeclaration.h"
 
 #include "Sharable.h"
@@ -18,11 +16,6 @@ BEGIN_NAMESPACE_CA_DRAWING
 
 class Window : public Utility::Sharable
 {
-public:
-	using Ptr = std::shared_ptr<Window>;
-	using ConstPtr = std::shared_ptr<const Window>;
-
-
 private:
 	USING_CA_DRAWING(Size);
 

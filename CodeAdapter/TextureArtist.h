@@ -2,8 +2,6 @@
 #define __CA__TEXTURE_ARTIST_H__
 
 
-#include <memory>
-
 #include "BasicDeclaration.h"
 
 #include "Artist.h"
@@ -19,10 +17,6 @@ BEGIN_NAMESPACE_CA_DRAWING
 
 class TextureArtist : public Artist
 {
-public:
-	using Ptr = std::shared_ptr<TextureArtist>;
-
-
 public:
 	TextureArtist();
 	virtual ~TextureArtist();

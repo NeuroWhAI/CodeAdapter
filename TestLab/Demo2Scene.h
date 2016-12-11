@@ -19,18 +19,18 @@ protected:
 
 
 protected:
-	caDraw::Panel::Ptr m_panel;
-	caDraw::Font::Ptr m_font;
-	caDraw::Texture::Ptr m_texture1;
-	caDraw::DrawableTexture::Ptr m_sprite1;
-	caUI::CheckBox::Ptr m_checkboxRed;
-	caUI::CheckBox::Ptr m_checkboxGreen;
-	caUI::CheckBox::Ptr m_checkboxBlue;
-	caUI::RadioButtonGroup::Ptr m_colorRadioGroup;
-	caUI::RadioButton::Ptr m_radioRed;
-	caUI::RadioButton::Ptr m_radioGreen;
-	caUI::RadioButton::Ptr m_radioBlue;
-	caUI::Button::Ptr m_buttonNext;
+	caDraw::PanelPtr m_panel;
+	caDraw::FontPtr m_font;
+	caDraw::TexturePtr m_texture1;
+	caDraw::DrawableTexturePtr m_sprite1;
+	caUI::CheckBoxPtr m_checkboxRed;
+	caUI::CheckBoxPtr m_checkboxGreen;
+	caUI::CheckBoxPtr m_checkboxBlue;
+	caUI::RadioButtonGroupPtr m_colorRadioGroup;
+	caUI::RadioButtonPtr m_radioRed;
+	caUI::RadioButtonPtr m_radioGreen;
+	caUI::RadioButtonPtr m_radioBlue;
+	caUI::ButtonPtr m_buttonNext;
 
 
 public:

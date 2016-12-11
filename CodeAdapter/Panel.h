@@ -22,10 +22,6 @@ BEGIN_NAMESPACE_CA_DRAWING
 class Panel : public Updatable, public Drawable
 {
 public:
-	using Ptr = std::shared_ptr<Panel>;
-
-
-public:
 	Panel();
 	virtual ~Panel();
 
@@ -61,6 +57,13 @@ public:
 	void draw(Graphics& g);
 
 
+protected:
+	template <typename T>
+	bool addItemTo(std::vector<std::weak_ptr<T>>& list, std::weak_ptr<T> item);
+	template <typename T>
+	bool removeItemFrom(std::vector<std::weak_ptr<T>>& list, std::weak_ptr<const T> item);
+
+
 public:
 	bool addDrawable(std::weak_ptr<Drawable> drawable);
 	bool removeDrawable(std::weak_ptr<const Drawable> drawable);
@@ -69,10 +72,18 @@ public:
 public:
 	bool addUpdatable(std::weak_ptr<Updatable> updatable);
 	bool removeUpdatable(std::weak_ptr<const Updatable> updatable);
+
+
+public:
+	bool addControl(std::weak_ptr<UI::Control> control);
+	bool removeControl(std::weak_ptr<const UI::Control> control);
 };
 
 
 END_NAMESPACE_CA_DRAWING
+
+
+#include "Panel.inl"
 
 
 #endif

@@ -15,14 +15,14 @@ public:
 
 
 protected:
-	caDraw::Panel::Ptr m_panel;
-	caDraw::Font::Ptr m_font;
-	caDraw::Font::Ptr m_smallFont;
-	caDraw::Panel::Ptr m_panelListBox;
-	caUI::ListBox::Ptr m_listBox;
-	caUI::TextBox::Ptr m_textBox;
-	caUI::Button::Ptr m_buttonAdd;
-	caUI::Button::Ptr m_buttonNext;
+	caDraw::PanelPtr m_panel;
+	caDraw::FontPtr m_font;
+	caDraw::FontPtr m_smallFont;
+	caDraw::PanelPtr m_panelListBox;
+	caUI::ListBoxPtr m_listBox;
+	caUI::TextBoxPtr m_textBox;
+	caUI::ButtonPtr m_buttonAdd;
+	caUI::ButtonPtr m_buttonNext;
 
 
 public:

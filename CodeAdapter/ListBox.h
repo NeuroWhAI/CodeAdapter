@@ -21,10 +21,6 @@ BEGIN_NAMESPACE_CA_UI
 
 class ListBox : public Control
 {
-public:
-	using Ptr = std::shared_ptr<ListBox>;
-
-
 private:
 	USING_CA(i32);
 

@@ -81,18 +81,11 @@ void Demo4Scene::onInitialize(caDraw::Window& owner)
 	};
 
 
-	m_panelListBox->addDrawable(m_listBox);
-	m_panelListBox->addUpdatable(m_listBox);
+	m_panelListBox->addControl(m_listBox);
 
-
-	m_panel->addDrawable(m_textBox);
-	m_panel->addUpdatable(m_textBox);
-
-	m_panel->addDrawable(m_buttonAdd);
-	m_panel->addUpdatable(m_buttonAdd);
-
-	m_panel->addDrawable(m_buttonNext);
-	m_panel->addUpdatable(m_buttonNext);
+	m_panel->addControl(m_textBox);
+	m_panel->addControl(m_buttonAdd);
+	m_panel->addControl(m_buttonNext);
 
 
 	addPanel(m_panel);

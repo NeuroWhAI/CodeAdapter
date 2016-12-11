@@ -19,21 +19,21 @@ protected:
 
 
 protected:
-	caDraw::Panel::Ptr m_panel;
-	caDraw::Font::Ptr m_font;
-	caDraw::Font::Ptr m_font2;
-	caDraw::Font::Ptr m_font3;
-	caDraw::Texture::Ptr m_texLogo;
-	caDraw::DrawableTexture::Ptr m_sprLogo;
-	caUI::Label::Ptr m_logo;
-	caUI::Label::Ptr m_logo2;
-	caUI::Label::Ptr m_logo3;
-	caUI::Button::Ptr m_buttonNext;
-	caUI::VerticalScrollBar::Ptr m_scrollOpacity;
+	caDraw::PanelPtr m_panel;
+	caDraw::FontPtr m_font;
+	caDraw::FontPtr m_font2;
+	caDraw::FontPtr m_font3;
+	caDraw::TexturePtr m_texLogo;
+	caDraw::DrawableTexturePtr m_sprLogo;
+	caUI::LabelPtr m_logo;
+	caUI::LabelPtr m_logo2;
+	caUI::LabelPtr m_logo3;
+	caUI::ButtonPtr m_buttonNext;
+	caUI::VerticalScrollBarPtr m_scrollOpacity;
 
 
 protected:
-	caAudio::Sound::Ptr m_bgm;
+	caAudio::SoundPtr m_bgm;
 
 
 public:

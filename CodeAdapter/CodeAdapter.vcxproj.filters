@@ -424,5 +424,8 @@
     <None Include="ControlEvent.inl">
       <Filter>UI</Filter>
     </None>
+    <None Include="Panel.inl">
+      <Filter>Drawing</Filter>
+    </None>
   </ItemGroup>
 </Project>

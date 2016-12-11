@@ -2,8 +2,6 @@
 #define __CA__FONT_H__
 
 
-#include <memory>
-
 #include "BasicDeclaration.h"
 
 #include "String.h"
@@ -27,10 +25,6 @@ enum FontStyles : i32
 
 class Font : public Utility::Sharable
 {
-public:
-	using Ptr = std::shared_ptr<Font>;
-
-
 public:
 	Font();
 	virtual ~Font();

@@ -20,10 +20,6 @@ BEGIN_NAMESPACE_CA_DRAWING
 class DrawableTexture : public Drawable
 {
 public:
-	using Ptr = std::shared_ptr<DrawableTexture>;
-
-
-public:
 	DrawableTexture();
 	virtual ~DrawableTexture();
 

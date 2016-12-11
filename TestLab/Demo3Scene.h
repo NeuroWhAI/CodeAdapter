@@ -17,16 +17,16 @@ public:
 
 
 protected:
-	caDraw::Panel::Ptr m_panel;
-	caDraw::Font::Ptr m_font;
-	caDraw::Font::Ptr m_smallFont;
-	caUI::TextBox::Ptr m_textbox;
-	caUI::TextBox::Ptr m_textboxRed;
-	caUI::TextBox::Ptr m_textboxGreen;
-	caUI::TextBox::Ptr m_textboxBlue;
-	caUI::TextBox::Ptr m_textboxNote;
-	caDraw::Panel::Ptr m_notePanel;
-	caUI::Button::Ptr m_buttonNext;
+	caDraw::PanelPtr m_panel;
+	caDraw::FontPtr m_font;
+	caDraw::FontPtr m_smallFont;
+	caUI::TextBoxPtr m_textbox;
+	caUI::TextBoxPtr m_textboxRed;
+	caUI::TextBoxPtr m_textboxGreen;
+	caUI::TextBoxPtr m_textboxBlue;
+	caUI::TextBoxPtr m_textboxNote;
+	caDraw::PanelPtr m_notePanel;
+	caUI::ButtonPtr m_buttonNext;
 
 
 protected:

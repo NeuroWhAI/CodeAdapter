@@ -16,10 +16,6 @@ BEGIN_NAMESPACE_CA_SYSTEM
 
 class Keyboard
 {
-public:
-	using Ptr = std::shared_ptr<Keyboard>;
-
-
 private:
 	USING_CA_DRAWING(Window);
 

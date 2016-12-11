@@ -2,8 +2,6 @@
 #define __CA__CHECK_BOX_H__
 
 
-#include <memory>
-
 #include "BasicDeclaration.h"
 
 #include "Control.h"
@@ -19,10 +17,6 @@ BEGIN_NAMESPACE_CA_UI
 
 class CheckBox : public Control
 {
-public:
-	using Ptr = std::shared_ptr<CheckBox>;
-
-
 private:
 	USING_CA_DRAWING(PointF);
 	USING_CA_DRAWING(SizeF);

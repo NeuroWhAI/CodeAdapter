@@ -130,15 +130,15 @@ class SingletonWrapper;
 template <typename... ArgTypes>
 class Event;
 
-class Scene;
-class SceneManager;
-class ResourcePool;
+PtrClass(Scene);
+PtrClass(SceneManager);
+PtrClass(ResourcePool);
 
 
 END_NAMESPACE_CA_UTILITY
 
 
-// UI -----------------------------------------------------------------
+// UI ----------------------------------------------------------------------
 BEGIN_NAMESPACE_CA_UI
 
 
@@ -157,6 +157,10 @@ PtrClass(ListBox);
 
 
 END_NAMESPACE_CA_UI
+
+
+// Clear -------------------------------------------------------------------
+#undef PtrClass
 
 
 #endif

@@ -252,6 +252,9 @@
     <None Include="ControlEvent.inl" />
     <None Include="EasyCA.inl" />
     <None Include="Event.inl" />
+    <None Include="Panel.inl">
+      <FileType>Document</FileType>
+    </None>
     <None Include="ResourcePool.inl" />
     <None Include="Scene.inl" />
     <None Include="SingletonWrapper.inl" />

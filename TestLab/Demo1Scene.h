@@ -19,14 +19,14 @@ protected:
 
 
 protected:
-	caDraw::Panel::Ptr m_panel;
-	caDraw::Font::Ptr m_font;
-	caDraw::DrawableRectangle::Ptr m_rect1;
-	caDraw::DrawableEllipse::Ptr m_ellipse1;
-	caDraw::DrawableLine::Ptr m_line1;
-	caUI::Label::Ptr m_desc;
-	caUI::ProgressBar::Ptr m_progress;
-	caUI::Button::Ptr m_buttonNext;
+	caDraw::PanelPtr m_panel;
+	caDraw::FontPtr m_font;
+	caDraw::DrawableRectanglePtr m_rect1;
+	caDraw::DrawableEllipsePtr m_ellipse1;
+	caDraw::DrawableLinePtr m_line1;
+	caUI::LabelPtr m_desc;
+	caUI::ProgressBarPtr m_progress;
+	caUI::ButtonPtr m_buttonNext;
 
 
 public:

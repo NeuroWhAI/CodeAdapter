@@ -16,10 +16,6 @@ BEGIN_NAMESPACE_CA_SYSTEM
 
 class Touch
 {
-public:
-	using Ptr = std::shared_ptr<Touch>;
-
-
 private:
 	USING_CA_DRAWING(Point);
 	USING_CA_DRAWING(PointF);

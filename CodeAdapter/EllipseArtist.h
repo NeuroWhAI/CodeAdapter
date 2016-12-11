@@ -2,8 +2,6 @@
 #define __CA__ELLIPSE_ARTIST_H__
 
 
-#include <memory>
-
 #include "BasicDeclaration.h"
 
 #include "Artist.h"
@@ -16,10 +14,6 @@ BEGIN_NAMESPACE_CA_DRAWING
 
 class EllipseArtist : public Artist
 {
-public:
-	using Ptr = std::shared_ptr<EllipseArtist>;
-
-
 public:
 	EllipseArtist();
 	virtual ~EllipseArtist();

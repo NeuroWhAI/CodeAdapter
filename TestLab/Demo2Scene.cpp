@@ -136,26 +136,13 @@ void Demo2Scene::onInitialize(caDraw::Window& owner)
 
 	m_panel->addDrawable(m_sprite1);
 
-	m_panel->addDrawable(m_checkboxRed);
-	m_panel->addUpdatable(m_checkboxRed);
-
-	m_panel->addDrawable(m_checkboxGreen);
-	m_panel->addUpdatable(m_checkboxGreen);
-
-	m_panel->addDrawable(m_checkboxBlue);
-	m_panel->addUpdatable(m_checkboxBlue);
-
-	m_panel->addDrawable(m_radioRed);
-	m_panel->addUpdatable(m_radioRed);
-
-	m_panel->addDrawable(m_radioGreen);
-	m_panel->addUpdatable(m_radioGreen);
-
-	m_panel->addDrawable(m_radioBlue);
-	m_panel->addUpdatable(m_radioBlue);
-
-	m_panel->addDrawable(m_buttonNext);
-	m_panel->addUpdatable(m_buttonNext);
+	m_panel->addControl(m_checkboxRed);
+	m_panel->addControl(m_checkboxGreen);
+	m_panel->addControl(m_checkboxBlue);
+	m_panel->addControl(m_radioRed);
+	m_panel->addControl(m_radioGreen);
+	m_panel->addControl(m_radioBlue);
+	m_panel->addControl(m_buttonNext);
 
 
 	addPanel(m_panel);

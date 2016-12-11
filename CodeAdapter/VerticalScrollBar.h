@@ -2,8 +2,6 @@
 #define __CA__VERTICAL_SCROLL_BAR_H__
 
 
-#include <memory>
-
 #include "BasicDeclaration.h"
 
 #include "ScrollBar.h"
@@ -16,10 +14,6 @@ BEGIN_NAMESPACE_CA_UI
 
 class VerticalScrollBar : public ScrollBar
 {
-public:
-	using Ptr = std::shared_ptr<VerticalScrollBar>;
-
-
 private:
 	USING_CA_DRAWING(PointF);
 	USING_CA_DRAWING(RectangleF);

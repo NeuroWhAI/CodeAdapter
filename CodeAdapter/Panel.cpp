@@ -1,10 +1,12 @@
-#include "Panel.h"
+ï»¿#include "Panel.h"
 
 #include <cmath>
 
+#include "Touch.h"
+
 #include "Graphics.h"
 
-#include "Touch.h"
+#include "Control.h"
 
 
 
@@ -28,16 +30,16 @@ Panel::~Panel()
 
 void Panel::update(const Transform& parentTransform, const Point& cursor)
 {
-	// ·ÎÄÃº¯È¯°ú Àü¿ªº¯È¯À» ÇÕÄ§
+	// ë¡œì»¬ë³€í™˜ê³¼ ì „ì—­ë³€í™˜ì„ í•©ì¹¨
 	Transform combinedTransform = parentTransform;
 	combinedTransform.addTransform(transform);
 
 
-	// Ä¿¼­ À§Ä¡ º¯È¯
+	// ì»¤ì„œ ìœ„ì¹˜ ë³€í™˜
 	Point iLocalCursor = static_cast<Point>(combinedTransform.inverseTransformPoint(static_cast<PointF>(cursor)));
 
 
-	// ¿ä¼Ò °»½Å
+	// ìš”ì†Œ ê°±ì‹ 
 	for (auto& updatable : m_updatables)
 	{
 		auto ptr = updatable.lock();
@@ -52,7 +54,7 @@ void Panel::update(const Transform& parentTransform, const Point& cursor)
 
 void Panel::onDraw(Graphics& g, const Transform& parentTransform)
 {
-	// ·ÎÄÃº¯È¯°ú Àü¿ªº¯È¯À» ÇÕÄ§
+	// ë¡œì»¬ë³€í™˜ê³¼ ì „ì—­ë³€í™˜ì„ í•©ì¹¨
 	Transform combinedTransform = parentTransform;
 	combinedTransform.addTransform(transform);
 
@@ -60,7 +62,7 @@ void Panel::onDraw(Graphics& g, const Transform& parentTransform)
 	beginDraw(combinedTransform);
 
 
-	// ¿ä¼Ò ±×¸®±â
+	// ìš”ì†Œ ê·¸ë¦¬ê¸°
 	for (auto& drawable : m_drawables)
 	{
 		auto ptr = drawable.lock();
@@ -95,12 +97,12 @@ void Panel::setVisible(bool visible)
 
 void Panel::update(Window& win)
 {
-	// Ä¿¼­ À§Ä¡ º¯È¯
+	// ì»¤ì„œ ìœ„ì¹˜ ë³€í™˜
 	PointF cursor = System::Touch::getInstance()->getPositionF(win);
 	Point iLocalCursor = static_cast<Point>(cursor);
 
 
-	// ¿ä¼Ò °»½Å
+	// ìš”ì†Œ ê°±ì‹ 
 	for (auto& updatable : m_updatables)
 	{
 		auto ptr = updatable.lock();
@@ -119,7 +121,7 @@ void Panel::draw(Graphics& g)
 		beginDraw(transform);
 
 
-		// ¿ä¼Ò ±×¸®±â
+		// ìš”ì†Œ ê·¸ë¦¬ê¸°
 		for (auto& drawable : m_drawables)
 		{
 			auto ptr = drawable.lock();
@@ -141,104 +143,47 @@ void Panel::draw(Graphics& g)
 
 bool Panel::addDrawable(std::weak_ptr<Drawable> drawable)
 {
-	// Áßº¹ È®ÀÎ
-	auto target = drawable.lock();
-
-	for (const auto& item : m_drawables)
-	{
-		if (target == item.lock())
-		{
-			// Áßº¹
-			return false;
-		}
-	}
-
-	// Áßº¹ ¾Æ´Ô
-
-
-	m_drawables.emplace_back(drawable);
-
-
-	return true;
+	return addItemTo(m_drawables, drawable);
 }
 
 
 bool Panel::removeDrawable(std::weak_ptr<const Drawable> drawable)
 {
-	// Á¸Àç È®ÀÎ
-	auto target = drawable.lock();
-
-	usize index = 0;
-	for (const auto& item : m_drawables)
-	{
-		// Á¸Àç
-		if (target == item.lock())
-		{
-			// »èÁ¦
-			m_drawables.erase(m_drawables.begin() + index);
-			
-			return true;
-		}
-
-		++index;
-	}
-
-	// Á¸Àç ¾ÈÇÔ
-
-
-	return false;
+	return removeItemFrom(m_drawables, drawable);
 }
 
 //###########################################################################
 
 bool Panel::addUpdatable(std::weak_ptr<Updatable> updatable)
 {
-	// Áßº¹ È®ÀÎ
-	auto target = updatable.lock();
-
-	for (const auto& item : m_updatables)
-	{
-		if (target == item.lock())
-		{
-			// Áßº¹
-			return false;
-		}
-	}
-
-	// Áßº¹ ¾Æ´Ô
-
-
-	m_updatables.emplace_back(updatable);
-
-
-	return true;
+	return addItemTo(m_updatables, updatable);
 }
 
 
 bool Panel::removeUpdatable(std::weak_ptr<const Updatable> updatable)
 {
-	// Á¸Àç È®ÀÎ
-	auto target = updatable.lock();
+	return removeItemFrom(m_updatables, updatable);
+}
 
-	usize index = 0;
-	for (const auto& item : m_updatables)
-	{
-		// Á¸Àç
-		if (target == item.lock())
-		{
-			// »èÁ¦
-			m_updatables.erase(m_updatables.begin() + index);
+//###########################################################################
 
-			return true;
-		}
-
-		++index;
-	}
-
-	// Á¸Àç ¾ÈÇÔ
+bool Panel::addControl(std::weak_ptr<UI::Control> control)
+{
+	bool suc1 = addItemTo<Drawable>(m_drawables, control);
+	bool suc2 = addItemTo<Updatable>(m_updatables, control);
 
 
-	return false;
+	return (suc1 || suc2);
+}
+
+
+bool Panel::removeControl(std::weak_ptr<const UI::Control> control)
+{
+	bool suc1 = removeItemFrom<Drawable>(m_drawables, control);
+	bool suc2 = removeItemFrom<Updatable>(m_updatables, control);
+
+
+	return (suc1 || suc2);
 }
 
 

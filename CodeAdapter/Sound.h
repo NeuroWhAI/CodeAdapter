@@ -2,8 +2,6 @@
 #define __CA__SOUND_H__
 
 
-#include <memory>
-
 #include "BasicDeclaration.h"
 
 
@@ -14,10 +12,6 @@ BEGIN_NAMESPACE_CA_AUDIO
 
 class Sound
 {
-public:
-	using Ptr = std::shared_ptr<Sound>;
-
-
 private:
 	USING_CA_UTILITY(String);
 

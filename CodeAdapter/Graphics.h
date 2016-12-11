@@ -2,8 +2,6 @@
 #define __CA__GRAPHICS_H__
 
 
-#include <memory>
-
 #include "BasicDeclaration.h"
 
 

@@ -94,20 +94,11 @@ void HelloScene::onInitialize(caDraw::Window& owner)
 
 	m_panel->addDrawable(m_sprLogo);
 
-	m_panel->addDrawable(m_logo);
-	m_panel->addUpdatable(m_logo);
-
-	m_panel->addDrawable(m_logo2);
-	m_panel->addUpdatable(m_logo2);
-
-	m_panel->addDrawable(m_logo3);
-	m_panel->addUpdatable(m_logo3);
-
-	m_panel->addDrawable(m_buttonNext);
-	m_panel->addUpdatable(m_buttonNext);
-
-	m_panel->addDrawable(m_scrollOpacity);
-	m_panel->addUpdatable(m_scrollOpacity);
+	m_panel->addControl(m_logo);
+	m_panel->addControl(m_logo2);
+	m_panel->addControl(m_logo3);
+	m_panel->addControl(m_buttonNext);
+	m_panel->addControl(m_scrollOpacity);
 
 
 	addPanel(m_panel);

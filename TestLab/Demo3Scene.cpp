@@ -130,23 +130,13 @@ void Demo3Scene::onInitialize(caDraw::Window& owner)
 	};
 
 
-	m_panel->addDrawable(m_textbox);
-	m_panel->addUpdatable(m_textbox);
+	m_panel->addControl(m_textbox);
+	m_panel->addControl(m_textboxRed);
+	m_panel->addControl(m_textboxGreen);
+	m_panel->addControl(m_textboxBlue);
+	m_panel->addControl(m_buttonNext);
 
-	m_panel->addDrawable(m_textboxRed);
-	m_panel->addUpdatable(m_textboxRed);
-
-	m_panel->addDrawable(m_textboxGreen);
-	m_panel->addUpdatable(m_textboxGreen);
-
-	m_panel->addDrawable(m_textboxBlue);
-	m_panel->addUpdatable(m_textboxBlue);
-
-	m_notePanel->addDrawable(m_textboxNote);
-	m_notePanel->addUpdatable(m_textboxNote);
-
-	m_panel->addDrawable(m_buttonNext);
-	m_panel->addUpdatable(m_buttonNext);
+	m_notePanel->addControl(m_textboxNote);
 
 
 	addPanel(m_panel);

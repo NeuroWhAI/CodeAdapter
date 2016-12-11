@@ -93,19 +93,12 @@ void Demo1Scene::onInitialize(caDraw::Window& owner)
 
 
 	m_panel->addDrawable(m_rect1);
-
 	m_panel->addDrawable(m_ellipse1);
-
 	m_panel->addDrawable(m_line1);
 
-	m_panel->addDrawable(m_desc);
-	m_panel->addUpdatable(m_desc);
-
-	m_panel->addDrawable(m_progress);
-	m_panel->addUpdatable(m_progress);
-
-	m_panel->addDrawable(m_buttonNext);
-	m_panel->addUpdatable(m_buttonNext);
+	m_panel->addControl(m_desc);
+	m_panel->addControl(m_progress);
+	m_panel->addControl(m_buttonNext);
 
 
 	addPanel(m_panel);

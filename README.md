@@ -104,17 +104,17 @@ public:
 
 
 protected:
-	std::shared_ptr<caDraw::Panel> m_panel;
-	std::shared_ptr<caDraw::Font> m_font;
-	std::shared_ptr<caDraw::Font> m_font2;
-	std::shared_ptr<caDraw::Font> m_font3;
-	std::shared_ptr<caDraw::Texture> m_texLogo;
-	std::shared_ptr<caDraw::DrawableTexture> m_sprLogo;
-	std::shared_ptr<caUI::Label> m_logo;
-	std::shared_ptr<caUI::Label> m_logo2;
-	std::shared_ptr<caUI::Label> m_logo3;
-	std::shared_ptr<caUI::Button> m_buttonNext;
-	std::shared_ptr<caUI::VerticalScrollBar> m_scrollOpacity;
+	caDraw::PanelPtr m_panel;
+	caDraw::FontPtr m_font;
+	caDraw::FontPtr m_font2;
+	caDraw::FontPtr m_font3;
+	caDraw::TexturePtr m_texLogo;
+	caDraw::DrawableTexturePtr m_sprLogo;
+	caUI::LabelPtr m_logo;
+	caUI::LabelPtr m_logo2;
+	caUI::LabelPtr m_logo3;
+	caUI::ButtonPtr m_buttonNext;
+	caUI::VerticalScrollBarPtr m_scrollOpacity;
 
 
 public:
@@ -227,20 +227,10 @@ void HelloScene::onInitialize(caDraw::Window& owner)
 
 	m_panel->addDrawable(m_sprLogo);
 
-	m_panel->addDrawable(m_logo);
-	m_panel->addUpdatable(m_logo);
-
-	m_panel->addDrawable(m_logo2);
-	m_panel->addUpdatable(m_logo2);
-
-	m_panel->addDrawable(m_logo3);
-	m_panel->addUpdatable(m_logo3);
-
-	m_panel->addDrawable(m_buttonNext);
-	m_panel->addUpdatable(m_buttonNext);
-
-	m_panel->addDrawable(m_scrollOpacity);
-	m_panel->addUpdatable(m_scrollOpacity);
+	m_panel->addControl(m_logo);
+	m_panel->addControl(m_logo2);
+	m_panel->addControl(m_logo3);
+	m_panel->addControl(m_scrollOpacity);
 
 
 	addPanel(m_panel);
