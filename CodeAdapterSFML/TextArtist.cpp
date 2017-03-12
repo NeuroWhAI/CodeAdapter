@@ -81,7 +81,7 @@ void TextArtist::drawString(const String& text, f32 x, f32 y, const Color& color
 {
 	m_text->setString(text.getWStr());
 	m_text->setPosition(x, y);
-	m_text->setColor(sf::Color(color.getRgba()));
+	m_text->setFillColor(sf::Color(color.getRgba()));
 
 	auto textRect = m_text->getLocalBounds();
 
