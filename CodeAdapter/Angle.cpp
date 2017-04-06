@@ -23,7 +23,7 @@ Angle::Angle(const Angle& angle)
 
 
 Angle::Angle(Angle&& angle)
-	: m_angle(angle.m_angle)
+	: m_angle(std::move(angle.m_angle))
 {
 
 }

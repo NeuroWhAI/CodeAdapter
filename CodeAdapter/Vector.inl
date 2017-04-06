@@ -62,6 +62,18 @@ void VectorT<T>::normalize(const T& length)
 	normalize(length, Identity<T>());
 }
 
+
+template <typename T>
+VectorT<T> VectorT<T>::getNormalized(const T& length = T(1)) const
+{
+	VectorT<T> temp{ x, y };
+
+	temp.normalize(length);
+
+
+	return temp;
+}
+
 //###########################################################################
 
 template <typename T>

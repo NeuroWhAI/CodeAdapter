@@ -31,6 +31,7 @@ public:
 	void setVector(const T& x, const T& y);
 	void addVector(const T& deltaX, const T& deltaY);
 	void normalize(const T& length = T(1));
+	VectorT<T> getNormalized(const T& length = T(1)) const;
 
 
 public:
