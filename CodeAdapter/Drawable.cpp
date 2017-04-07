@@ -29,9 +29,13 @@ void Drawable::draw(Graphics& g, const Transform& parentTransform)
 		Transform combined = parentTransform;
 		combined.addTransform(transform);
 
+		auto backup = g.getTransform();
+
 		g.setTransform(combined);
 
 		onDraw(g, combined);
+
+		g.setTransform(backup);
 	}
 }
 

@@ -25,5 +25,11 @@ void Artist::initialize(const Transform& transform)
 }
 
 
+const Transform& Artist::getTransform() const
+{
+	return m_transform;
+}
+
+
 END_NAMESPACE_CA_DRAWING
 

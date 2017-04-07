@@ -27,6 +27,7 @@ public:
 
 public:
 	void setTransform(const Transform& transform);
+	const Transform& getTransform() const;
 };
 
 

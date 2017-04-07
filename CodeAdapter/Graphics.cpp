@@ -42,5 +42,11 @@ void Graphics::setTransform(const Transform& transform)
 }
 
 
+const Transform& Graphics::getTransform() const
+{
+	return textArtist->getTransform();
+}
+
+
 END_NAMESPACE_CA_DRAWING
 

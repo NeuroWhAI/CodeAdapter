@@ -25,6 +25,7 @@ protected:
 
 public:
 	virtual void initialize(const Transform& transform);
+	const Transform& getTransform() const;
 };
 
 
