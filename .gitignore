@@ -54,8 +54,10 @@
 
 # Build results
 [Dd]ebug/
+[Dd]ebug-[Ss]tatic/
 [Dd]ebugPublic/
 [Rr]elease/
+[Rr]elease-[Ss]tatic/
 [Rr]eleases/
 x64/
 x86/
